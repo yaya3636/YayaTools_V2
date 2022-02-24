@@ -2,7 +2,7 @@ Class = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Class.lua")
 API = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\API.lua")
 -- Création des classes
 Tools = Class("Tools", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Utils.lua"))
-Tools.class = Tools:extend("Class", Class)
+Tools.class = Class
 Tools.zone = Tools:extend("Zone", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Zone.lua"))
 Tools.monsters = Tools:extend("Monsters", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Monsters.lua"))
 Tools.craft = Tools:extend("Craft", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Craft.lua"))
