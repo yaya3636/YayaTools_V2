@@ -1,18 +1,11 @@
 Notifications = {}
-Notifications.pushsafer = {}
 
-Notifications.pushsafer.APIurl = "http://www.pushsafer.com/api"
-Notifications.pushsafer.key = 0
-Notifications.pushsafer.deviceID = 0
+Notifications.APIurl = "http://www.pushsafer.com/api"
+Notifications.key = 0
+Notifications.deviceID = 0
 
-function Notifications.pushsafer:Create(config)
-    self.key = config.key
-    self.deviceID = config.deviceID
-    return self
-end
-
-function Notifications.pushsafer:SendNotification(param)
-    if self:PostRequest(self.APIurl, "k="..self.key.."&d="..self.deviceID.."&t="..param.title.."&m="..param.msg.."&i=20&s=37&v=3") then
+function Notifications:PSaferSendNotification(params)
+    if self:PSaferPostRequest(self.APIurl, "k="..self.key.."&d="..self.deviceID.."&t="..params.title.."&m="..params.msg.."&i=20&s=37&v=3") then
         self:Print("Notification envoyé !", "Notification")
     else
         self:Print("Notification : Erreur lors de l'envoie de la notification", "error")
@@ -20,7 +13,7 @@ function Notifications.pushsafer:SendNotification(param)
 end
 
 
-function Notifications.pushsafer:PostRequest(url, data)
+function Notifications:PSaferPostRequest(url, data)
     local result = self.json:decode(developer:postRequest(url, data))
 
     if result == nil then

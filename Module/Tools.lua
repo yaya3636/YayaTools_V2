@@ -10,7 +10,6 @@ Tools.json = Tools:extend("Json", dofile(global:getCurrentDirectory() .. "\\Yaya
 Tools.packet = Tools:extend("Packet", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Packet.lua"))
 Tools.movement = Tools:extend("Movement", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Movement.lua"))
 Tools.notifications = Tools:extend("Notifications", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Notifications.lua"))
-
 Tools.graph = Tools:extend("Graph", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Graph\\data\\graph.lua"))
 Tools.dijkstra = Tools:extend("Dijkstra", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Graph\\shortest_paths\\Dijkstra.lua"))
 Tools.list = Tools:extend("List", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\List.lua"))
@@ -28,7 +27,9 @@ function Tools:init()
     self.zone = self.zone()
     self.monsters = self.monsters()
     self.api = self.api()
+    self.class = Class
 end
+
 
 
 function Tools.zone:init()
@@ -59,6 +60,11 @@ end
 
 function Tools.api.dofusDB:init()
     self.apiUrl = "https://api.dofusdb.fr/"
+end
+
+function Tools.notifications:init(params)
+    self.key = params.key
+    self.deviceID = params.deviceID
 end
 
 return Tools
