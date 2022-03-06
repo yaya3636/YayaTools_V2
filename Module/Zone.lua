@@ -1,14 +1,14 @@
 Zone = {}
 
-Zone.MapsPath = global:getCurrentDirectory() .. "\\YayaTools\\Data\\Maps\\maps.json"
-Zone.SubAreaPath = global:getCurrentDirectory() .. "\\YayaTools\\Data\\SubArea\\"
-Zone.AreaPath = global:getCurrentDirectory() .. "\\YayaTools\\Data\\Area\\"
-Zone.BigDataSubAreas = {}
+Zone.mapsPath = global:getCurrentDirectory() .. "\\YayaTools\\Data\\Maps\\maps.json"
+Zone.subareaPath = global:getCurrentDirectory() .. "\\YayaTools\\Data\\SubArea\\"
+Zone.areaPath = global:getCurrentDirectory() .. "\\YayaTools\\Data\\Area\\"
+Zone.bigDataSubAreas = {}
 
 function Zone:RetrieveSubAreaContainingRessource(gatherId, minResMap)
     minResMap = minResMap or 1
 
-    local mapsDecode = self.json:decode(Utils:ReadFile(self.MapsPath))
+    local mapsDecode = self.json:decode(self.tools:ReadFile(self.mapsPath))
 
     local subArea = {}
 
@@ -19,7 +19,7 @@ function Zone:RetrieveSubAreaContainingRessource(gatherId, minResMap)
                     for _, vMap in pairs(vSubArea) do
                         if type(vMap) == "table" then
                             for _, vGather in pairs(vMap.gatherElements) do
-                                if Utils:Equal(vGather.gatherId, gatherId) and vGather.count >= minResMap then
+                                if self.tools:Equal(vGather.gatherId, gatherId) and vGather.count >= minResMap then
                                     if subArea[tostring(kSubAreaId)] == nil then
                                         subArea[tostring(kSubAreaId)] = {}
                                     end
@@ -37,7 +37,7 @@ function Zone:RetrieveSubAreaContainingRessource(gatherId, minResMap)
 end
 
 function Zone:GetAreaMapId(areaId)
-    local areaInfo = self.json:decode(Utils:ReadFile(self.AreaPath .. areaId .. ".json"))
+    local areaInfo = self.json:decode(self.tools:ReadFile(self.areaPath .. areaId .. ".json"))
 
     if areaInfo then
         local mapId = {}
@@ -56,7 +56,7 @@ function Zone:GetAreaMapId(areaId)
 end
 
 function Zone:GetAreaName(areaId)
-    local areaInfo = self.json:decode(Utils:ReadFile(self.AreaPath .. areaId .. ".json"))
+    local areaInfo = self.json:decode(self.tools:ReadFile(self.areaPath .. areaId .. ".json"))
 
     if areaInfo then
         return areaInfo.areaName
@@ -65,7 +65,7 @@ function Zone:GetAreaName(areaId)
 end
 
 function Zone:GetSubArea(areaId)
-    local areaInfo = self.json:decode(Utils:ReadFile(self.AreaPath .. areaId .. ".json"))
+    local areaInfo = self.json:decode(self.tools:ReadFile(self.areaPath .. areaId .. ".json"))
 
     if areaInfo then
         return areaInfo.subArea
@@ -74,7 +74,7 @@ function Zone:GetSubArea(areaId)
 end
 
 function Zone:GetSubAreaMapId(subAreaId)
-    local subAreaInfo = self.json:decode(Utils:ReadFile(self.SubAreaPath .. subAreaId .. ".json"))
+    local subAreaInfo = self.json:decode(self.tools:ReadFile(self.subareaPath .. subAreaId .. ".json"))
 
     if subAreaInfo then
         return subAreaInfo.mapIds
@@ -83,7 +83,7 @@ function Zone:GetSubAreaMapId(subAreaId)
 end
 
 function Zone:GetSubAreaMonsters(subAreaId)
-    local subAreaInfo = self.json:decode(Utils:ReadFile(self.SubAreaPath .. subAreaId .. ".json"))
+    local subAreaInfo = self.json:decode(self.tools:ReadFile(self.subareaPath .. subAreaId .. ".json"))
 
     if subAreaInfo then
         return subAreaInfo.monsters
@@ -92,7 +92,7 @@ function Zone:GetSubAreaMonsters(subAreaId)
 end
 
 function Zone:GetSubAreaName(subAreaId)
-    local subAreaInfo = self.json:decode(Utils:ReadFile(self.SubAreaPath .. subAreaId .. ".json"))
+    local subAreaInfo = self.json:decode(self.tools:ReadFile(self.subareaPath .. subAreaId .. ".json"))
 
     if subAreaInfo then
         return subAreaInfo.subAreaName
@@ -101,7 +101,7 @@ function Zone:GetSubAreaName(subAreaId)
 end
 
 function Zone:GetArea(subAreaId)
-    local subAreaInfo = self.json:decode(Utils:ReadFile(self.SubAreaPath .. subAreaId .. ".json"))
+    local subAreaInfo = self.json:decode(self.tools:ReadFile(self.subareaPath .. subAreaId .. ".json"))
 
     if subAreaInfo then
         return subAreaInfo.areaId
@@ -110,10 +110,10 @@ function Zone:GetArea(subAreaId)
 end
 
 function Zone:GetAreaIdByMapId(mapId)
-    if self.BigDataSubAreas then
-        for _, vSubArea in pairs(self.BigDataSubAreas) do
+    if self.bigDataSubAreas then
+        for _, vSubArea in pairs(self.bigDataSubAreas) do
             for _, vMapId in pairs(vSubArea.mapIds) do
-                if Utils:Equal(vMapId, mapId) then
+                if self.tools:Equal(vMapId, mapId) then
                     return vSubArea.areaId
                 end
             end
@@ -123,10 +123,10 @@ function Zone:GetAreaIdByMapId(mapId)
 end
 
 function Zone:GetSubAreaIdByMapId(mapId)
-    if self.BigDataSubAreas then
-        for _, vSubArea in pairs(self.BigDataSubAreas) do
+    if self.bigDataSubAreas then
+        for _, vSubArea in pairs(self.bigDataSubAreas) do
             for _, vMapId in pairs(vSubArea.mapIds) do
-                if Utils:Equal(vMapId, mapId) then
+                if self.tools:Equal(vMapId, mapId) then
                     return vSubArea.id
                 end
             end

@@ -11,11 +11,11 @@ local _instances = setmetatable({},{__mode = 'k'})
 local _classes   = setmetatable({},{__mode = 'k'})
 
 local function assert_call_from_class(class, method)
-	assert(_classes[class], ('Wrong method call. Expected class:%s.'):format(method))
+	assert(_classes[class], ("(" ..class.className.. ') Wrong method call. Expected class:%s.'):format(method))
 end
 
 local function assert_call_from_instance(instance, method)
-	assert(_instances[instance], ('Wrong method call. Expected instance:%s.'):format(method))
+	assert(_instances[instance], ("(" ..instance.className.. ') Wrong method call. Expected instance:%s.'):format(method))
 end
 
 local function bind(f, v) 
@@ -79,11 +79,11 @@ baseMt = {
 
 	__tostring = function(self,...)
 		if _instances[self] then
-			return ("instance of '%s' (%s)"):format(rawget(self.c,'className')
+			return ("Instance of '%s' (%s)"):format(rawget(self.c,'className')
 								or '?', _instances[self])
 		end
 		return _classes[self] 
-							and ("class '%s' (%s)"):format(rawget(self,'className')
+							and ("Class '%s' (%s)"):format(rawget(self,'className')
 							or '?',
 					_classes[self]) or self
 	end

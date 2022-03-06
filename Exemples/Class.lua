@@ -1,4 +1,4 @@
-Tools = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Tools.lua")()
+Tools = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Tools.lua")
 
 VotreClass = Tools.class("Nom de la classe") -- Initialistation de votre classe
 
@@ -14,9 +14,10 @@ end
 
 InstanceDeVotreClasse = VotreClass("test") -- Instanciation de la classe en lui passant un paramètre
 
-
 function move()
     Tools:Print(VotreClass, "Class")
     Tools:Print(InstanceDeVotreClasse, "Instance")
     InstanceDeVotreClasse:HelloWorld()
 end
+
+Tools = Tools()

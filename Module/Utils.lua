@@ -1,20 +1,10 @@
---Class = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Class.lua")
-
 Utils = {}
 
 Utils.cellAray = {}
 
 Utils.colorPrint = {}
 
-function Utils:Equal(str1, str2)
-    if str1 == nil then
-        str1 = ""
-    end
-    if str2 == nil then
-        str2 = ""
-    end
-    return string.lower(tostring(str1)) == string.lower(tostring(str2))
-end
+-- Print, Divers
 
 function Utils:Print(msg, header, color)
     local prefabStr = ""
@@ -45,6 +35,138 @@ function Utils:ColorPicker(header)
         end
     end
     return nil
+end
+
+function Utils:GenerateDateTime(format)
+    local dateTimeTable = os.date('*t')
+    local ret
+
+    if format == "h" then
+        ret = dateTimeTable.hour
+    elseif format == "m" then
+        ret = dateTimeTable.min
+    elseif format == "s" then
+        ret = dateTimeTable.sec
+    elseif format == "hm" then
+        ret = { hour = dateTimeTable.hour, min = dateTimeTable.min }
+    elseif format == "ms" then
+        ret = { min = dateTimeTable.min, sec = dateTimeTable.sec }
+    elseif format == "hms" then
+        ret = { hour = dateTimeTable.hour, min = dateTimeTable.min, sec = dateTimeTable.sec }
+    end
+
+    if ret == nil then 
+        Utils:Print("Erreur format", "GenerateDateTime", "error")
+    else
+        return ret
+    end
+end
+
+-- IO, CMD
+
+function Utils:ExecuteWinCMD(cmd, onlyCmd)
+    if onlyCmd then
+        os.execute(cmd)
+    else
+        os.execute(cmd .. " %ComSpec% /D /E:ON /K")
+    end
+end
+
+function Utils:ReadFile(path)
+    local file = io.open(path, "rb") -- r read mode and b binary mode
+    if not file then return nil end
+    local content = file:read "*a" -- *a or *all reads the whole file
+    file:close()
+    return content
+end
+
+function Utils:WriteFile(path, content)
+    local file = io.open(path, "w+") -- r read mode and b binary mode
+    file:write(content)
+    file:close()
+end
+
+function Utils:FileExists(path)
+    local f=io.open(path,"r")
+    if f~=nil then io.close(f) return true else return false end
+end
+
+-- Distance cellule dofus
+
+function Utils:InitCellsArray()
+    local startX = 0
+    local startY = 0
+    local cell = 0
+    local axeX = 0
+    local axeY = 0
+
+    while (axeX < 20) do
+        axeY = 0
+
+        while (axeY < 14) do
+            self.cellAray[cell] = {x = startX + axeY, y = startY + axeY}
+            cell = cell + 1
+            axeY = axeY + 1
+        end
+
+        startX = startX + 1
+        axeY = 0
+
+        while (axeY < 14) do
+            self.cellAray[cell] = {x = startX + axeY, y = startY + axeY}
+            cell = cell + 1
+            axeY = axeY + 1
+        end
+
+        startY = startY - 1
+        axeX = axeX + 1
+    end
+end
+
+function Utils:CellIdToCoord(cellId)
+    if Utils:IsCellIdValid(cellId) then
+        return self.cellAray[cellId]
+    end
+
+    return nil
+end
+
+function Utils:CoordToCellId(coord)
+	return math.floor((((coord.x - coord.y) * 14) + coord.y) + ((coord.x - coord.y) / 2))
+end
+
+function Utils:IsCellIdValid(cellId)
+	return (cellId >= 0 and cellId < 560)
+end
+
+function Utils:ManhattanDistanceCellId(fromCellId, toCellId)
+	local fromCoord = Utils:CellIdToCoord(fromCellId)
+	local toCoord = Utils:CellIdToCoord(toCellId)
+	if fromCoord ~= nil and toCoord ~= nil then
+		return (math.abs(toCoord.x - fromCoord.x) + math.abs(toCoord.y - fromCoord.y))
+	end
+	return nil
+end
+
+function Utils:ManhattanDistanceCoord(fromCoord, toCoord)
+	return (math.abs(toCoord.x - fromCoord.x) + math.abs(toCoord.y - fromCoord.y))
+end
+
+-- Array
+
+function Utils:ArrayConcat(...)
+    local t = {}
+    for n = 1,select("#",...) do
+        local arg = select(n,...)
+        if type(arg)=="table" then
+            for _,v in ipairs(arg) do
+                t[#t+1] = v
+            end
+        else
+            t[#t+1] = arg
+        end
+    end
+    return t
 end
 
 function Utils:Dump(tbl, printDelay)
@@ -127,130 +249,24 @@ function Utils:ShuffleTbl(tbl)
     return ret
 end
 
-function Utils:GenerateDateTime(format)
-    local dateTimeTable = os.date('*t')
-    local ret
+-- Time
 
-    if format == "h" then
-        ret = dateTimeTable.hour
-    elseif format == "m" then
-        ret = dateTimeTable.min
-    elseif format == "s" then
-        ret = dateTimeTable.sec
-    elseif format == "hm" then
-        ret = { hour = dateTimeTable.hour, min = dateTimeTable.min }
-    elseif format == "ms" then
-        ret = { min = dateTimeTable.min, sec = dateTimeTable.sec }
-    elseif format == "hms" then
-        ret = { hour = dateTimeTable.hour, min = dateTimeTable.min, sec = dateTimeTable.sec }
+function Utils:ConvertMinuteToHour(minuteToConvert)
+    local hour = math.floor(minuteToConvert / 60)
+    local minute = ( minuteToConvert / 60 - math.floor(minuteToConvert / 60) ) * 60
+    return hour, minute
+end
+
+-- String
+
+function Utils:Equal(str1, str2)
+    if str1 == nil then
+        str1 = ""
     end
-
-    if ret == nil then 
-        Utils:Print("Erreur format", "GenerateDateTime", "error")
-    else
-        return ret
+    if str2 == nil then
+        str2 = ""
     end
-end
-
-function Utils:ExecuteWinCMD(cmd, onlyCmd)
-    if onlyCmd then
-        os.execute(cmd)
-    else
-        os.execute(cmd .. " %ComSpec% /D /E:ON /K")
-    end
-end
-
-function Utils:ReadFile(path)
-    local file = io.open(path, "rb") -- r read mode and b binary mode
-    if not file then return nil end
-    local content = file:read "*a" -- *a or *all reads the whole file
-    file:close()
-    return content
-end
-
-function Utils:WriteFile(path, content)
-    local file = io.open(path, "w+") -- r read mode and b binary mode
-    file:write(content)
-    file:close()
-end
-
-function Utils:FileExists(path)
-    local f=io.open(path,"r")
-    if f~=nil then io.close(f) return true else return false end
-end
-
-function Utils:InitCellsArray()
-    local startX = 0
-    local startY = 0
-    local cell = 0
-    local axeX = 0
-    local axeY = 0
-
-    while (axeX < 20) do
-        axeY = 0
-
-        while (axeY < 14) do
-            self.cellAray[cell] = {x = startX + axeY, y = startY + axeY}
-            cell = cell + 1
-            axeY = axeY + 1
-        end
-
-        startX = startX + 1
-        axeY = 0
-
-        while (axeY < 14) do
-            self.cellAray[cell] = {x = startX + axeY, y = startY + axeY}
-            cell = cell + 1
-            axeY = axeY + 1
-        end
-
-        startY = startY - 1
-        axeX = axeX + 1
-    end
-end
-
-function Utils:CellIdToCoord(cellId)
-    if Utils:IsCellIdValid(cellId) then
-        return self.cellAray[cellId]
-    end
-
-    return nil
-end
-
-function Utils:CoordToCellId(coord)
-	return math.floor((((coord.x - coord.y) * 14) + coord.y) + ((coord.x - coord.y) / 2))
-end
-
-function Utils:IsCellIdValid(cellId)
-	return (cellId >= 0 and cellId < 560)
-end
-
-function Utils:ManhattanDistanceCellId(fromCellId, toCellId)
-	local fromCoord = Utils:CellIdToCoord(fromCellId)
-	local toCoord = Utils:CellIdToCoord(toCellId)
-	if fromCoord ~= nil and toCoord ~= nil then
-		return (math.abs(toCoord.x - fromCoord.x) + math.abs(toCoord.y - fromCoord.y))
-	end
-	return nil
-end
-
-function Utils:ManhattanDistanceCoord(fromCoord, toCoord)
-	return (math.abs(toCoord.x - fromCoord.x) + math.abs(toCoord.y - fromCoord.y))
-end
-
-function Utils:ArrayConcat(...)
-    local t = {}
-    for n = 1,select("#",...) do
-        local arg = select(n,...)
-        if type(arg)=="table" then
-            for _,v in ipairs(arg) do
-                t[#t+1] = v
-            end
-        else
-            t[#t+1] = arg
-        end
-    end
-    return t
+    return string.lower(tostring(str1)) == string.lower(tostring(str2))
 end
 
 return Utils

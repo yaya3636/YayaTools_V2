@@ -1,55 +1,40 @@
 local list = {}
 
-
-function list:createWith(a, aLen, N)
-    return self.list(a, aLen, N)
+function list:CreateWith(a, N)
+    return self.c(a, N)
 end
 
-function list:makeCopy()
-    local temp = {}
-    for key,val in pairs(self.a) do
-        temp[key] = val
-    end
-    return self:createWith(temp, self.aLen, self.N)
+function list:MakeCopy()
+    return self:CreateWith(self:Enumerate(), self.N)
 end
 
-function list:add(value)
-    self.a[self.N] = value
+function list:Add(value)
     self.N = self.N + 1
-    if self.N == self.aLen then
-        self:resize(self.aLen * 2)
-    end
+    self.a[self.N] = value
 end
 
-function list:set(index,value)
+function list:Set(index,value)
     self.a[index] = value
 end
 
-function list:get(index)
+function list:Get(index)
     local temp = self.a[index]
     return temp
 end
 
-function list:removeAt(index)
-    if index == self.N-1 then
-        self.N = self.N - 1
-        return
+function list:RemoveAt(index)
+    if index <= self.N then
+        if table.remove(self.a, index) ~= nil then
+            self.N = self.N - 1
+        end
     end
-    for i = index+1,self.N-1 do
-        self.a[i-1]=self.a[i]
-    end
-    self.N = self.N - 1
-    if self.N == math.floor(self.aLen / 4) then
-        self:resize(math.floor(self.aLen / 2))
-    end
-
 end
 
-function list:indexOf(value)
+function list:IndexOf(value)
     if self.N == 0 then
         return -1
     end
-    for i=0,self.N-1 do
+    for i = 0, self.N do
         if self.a[i] == value then
             return i
         end
@@ -57,60 +42,29 @@ function list:indexOf(value)
     return -1
 end
 
-function list:contains(value)
-    return self:indexOf(value) ~= -1
+function list:Contains(value)
+    return self:IndexOf(value) ~= -1
 end
 
-function list:remove(value)
-    local index = self:indexOf(value)
-    self:removeAt(index)
+function list:Remove(value)
+    local index = self:IndexOf(value)
+    self:RemoveAt(index)
 end
 
-function list:resize(newSize)
-    local temp = {}
-    for i = 0,(newSize-1) do
-        temp[i] = self.a[i]
-    end
-
-    self.a = temp
-    self.aLen = newSize
-end
-
-function list:size()
+function list:Size()
     return self.N
 end
 
-function list:isEmpty()
+function list:IsEmpty()
     return self.N == 0
 end
 
-function list:enumerate()
-    local temp = {}
-    for i = 0,(self.N-1) do
-        temp[i] = self.a[i]
+function list:Enumerate()
+    local ret = {}
+    for i, v in ipairs(self.a) do
+        ret[i] = v
     end
-    return temp
-end
-
-function list:isSortedAscendingly(comparator)
-    for i=0,(self:size()-2) do
-        if comparator(self:get(i), self:get(i+1)) > 0 then
-            return false
-        end
-
-    end
-    return true
-end
-
-function list:isSortedDescendingly(comparator)
-    for i=0,(self:size()-2) do
-        if comparator(self:get(i), self:get(i+1)) < 0 then
-            return false
-        end
-
-    end
-    return true
+    return ret
 end
 
 return list
-

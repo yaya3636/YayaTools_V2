@@ -9,7 +9,7 @@ Monsters.modifiedMonsters = {}
 
 
 function Monsters:GetMonsterName(idMonster)
-    local monsterInfo = self.json:decode(self:ReadFile(self.monstersFilesPath .. idMonster .. ".json"))
+    local monsterInfo = self.json:decode(self.tools:ReadFile(self.monstersFilesPath .. idMonster .. ".json"))
 
     if monsterInfo then
         return monsterInfo.monsterName
@@ -18,7 +18,7 @@ function Monsters:GetMonsterName(idMonster)
 end
 
 function Monsters:GetFavoriteSubArea(idMonster)
-    local monsterInfo = self.json:decode(self:ReadFile(self.monstersFilesPath .. idMonster .. ".json"))
+    local monsterInfo = self.json:decode(self.tools:ReadFile(self.monstersFilesPath .. idMonster .. ".json"))
 
     if monsterInfo then
         return monsterInfo.favoriteSubArea
@@ -27,7 +27,7 @@ function Monsters:GetFavoriteSubArea(idMonster)
 end
 
 function Monsters:GetMonsterDrops(idMonster)
-    local monsterInfo = self.json:decode(self:ReadFile(self.monstersFilesPath .. idMonster .. ".json"))
+    local monsterInfo = self.json:decode(self.tools:ReadFile(self.monstersFilesPath .. idMonster .. ".json"))
 
     if monsterInfo then
         return monsterInfo.drops
@@ -36,7 +36,7 @@ function Monsters:GetMonsterDrops(idMonster)
 end
 
 function Monsters:GetMonsterSubArea(idMonster)
-    local monsterInfo = self.json:decode(self:ReadFile(self.monstersFilesPath .. idMonster .. ".json"))
+    local monsterInfo = self.json:decode(self.tools:ReadFile(self.monstersFilesPath .. idMonster .. ".json"))
 
     if monsterInfo then
         return monsterInfo.subAreas
@@ -60,13 +60,13 @@ end
 
 function Monsters:GetMonstersInfoByGrade(idMonster, grade)
     if not self.unModifiedMonstersLoaded then
-        self:Print("Veuillez patientez quelque instants chargement des données !", "Tools")
-        self.unModifiedMonsters = self.json:decode(self:ReadFile(global:getCurrentDirectory() .. "\\YayaTools\\Data\\Monsters\\NoModifiedMonsters.json"))
+        self.tools:Print("Veuillez patientez quelque instants chargement des données !", "Tools")
+        self.unModifiedMonsters = self.json:decode(self.tools:ReadFile(global:getCurrentDirectory() .. "\\YayaTools\\Data\\Monsters\\NoModifiedMonsters.json"))
         self.unModifiedMonstersLoaded = true
     end
 
     for _, v in pairs(self.unModifiedMonsters) do
-        if self:Equal(v.id, idMonster) then
+        if self.tools:Equal(v.id, idMonster) then
             return v.grades[grade]
         end
     end

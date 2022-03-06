@@ -1,10 +1,9 @@
 Craft = {}
 
-Craft.CraftPath = global:getCurrentDirectory() .. "\\YayaTools\\Data\\Recipes\\"
-
+Craft.craftPath = global:getCurrentDirectory() .. "\\YayaTools\\Data\\Recipes\\"
 
 function Craft:GetCraftInfo(craftId)
-    local craftInfo = self.json:decode(self:ReadFile(self.CraftPath .. craftId .. ".json"))
+    local craftInfo = self.json:decode(self.tools:ReadFile(self.craftPath .. craftId .. ".json"))
 
     if craftInfo then
         return craftInfo
@@ -13,7 +12,7 @@ function Craft:GetCraftInfo(craftId)
 end
 
 function Craft:GetJobId(craftId)
-    local craftInfo = self.json:decode(self:ReadFile(self.CraftPath .. craftId .. ".json"))
+    local craftInfo = self.json:decode(self.tools:ReadFile(self.craftPath .. craftId .. ".json"))
 
     if craftInfo then
         return craftInfo.jobId
@@ -22,7 +21,7 @@ function Craft:GetJobId(craftId)
 end
 
 function Craft:GetSkillId(craftId)
-    local craftInfo = self.json:decode(self:ReadFile(self.CraftPath .. craftId .. ".json"))
+    local craftInfo = self.json:decode(self.tools:ReadFile(self.craftPath .. craftId .. ".json"))
 
     if craftInfo then
         return craftInfo.skillId
@@ -31,7 +30,7 @@ function Craft:GetSkillId(craftId)
 end
 
 function Craft:GetLevel(craftId)
-    local craftInfo = self.json:decode(self:ReadFile(self.CraftPath .. craftId .. ".json"))
+    local craftInfo = self.json:decode(self.tools:ReadFile(self.craftPath .. craftId .. ".json"))
 
     if craftInfo then
         return craftInfo.craftLvl
@@ -40,7 +39,7 @@ function Craft:GetLevel(craftId)
 end
 
 function Craft:GetTypeId(craftId)
-    local craftInfo = self.json:decode(self:ReadFile(self.CraftPath .. craftId .. ".json"))
+    local craftInfo = self.json:decode(self.tools:ReadFile(self.craftPath .. craftId .. ".json"))
 
     if craftInfo then
         return craftInfo.typeId
@@ -49,7 +48,7 @@ function Craft:GetTypeId(craftId)
 end
 
 function Craft:GetIngredients(craftId)
-    local craftInfo = self.json:decode(self:ReadFile(self.CraftPath .. craftId .. ".json"))
+    local craftInfo = self.json:decode(self.tools:ReadFile(self.craftPath .. craftId .. ".json"))
 
     if craftInfo then
         return craftInfo.ingredients

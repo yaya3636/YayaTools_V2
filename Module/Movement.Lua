@@ -71,7 +71,7 @@ Movement.goToAstrub = false
 
 function Movement:LoadRoad(mapIdDest)
     if self:Equal(map:currentArea(), "Incarnam") then
-        if not self:Equal(self.zone:GetAreaName(self.zone:GetAreaIdByMapId(mapIdDest)), "Incarnam") then
+        if not self.tools:Equal(self.zone:GetAreaName(self.zone:GetAreaIdByMapId(mapIdDest)), "Incarnam") then
             self.goToAstrub = true
             self:GoAstrub()
         end
@@ -85,7 +85,7 @@ function Movement:LoadRoad(mapIdDest)
     local currentMapId = map:currentMapId()
     if currentMapId ~= mapIdDest then
         if not map:loadMove(mapIdDest) then
-            self:Print("Impossible de charger un chemin jusqu'a la map ("..mapIdDest..")", "LoadRoad")
+            self.tools:Print("Impossible de charger un chemin jusqu'a la map ("..mapIdDest..")", "LoadRoad")
         else
             self.roadLoaded = true
         end
@@ -98,20 +98,20 @@ function Movement:RoadZone(tblMapId)
     if tblMapId ~= nil and self:LenghtOfTable(tblMapId) > 0 then
         if map:currentMapId() == self.roadZoneNextMapId or self.roadZoneNextMapId == -1 then
 
-            self.roadZoneNextMapId = tblMapId[global:random(1, self:LenghtOfTable(tblMapId))]
+            self.roadZoneNextMapId = tblMapId[global:random(1, self.tools:LenghtOfTable(tblMapId))]
 
             if not map:loadMove(self.roadZoneNextMapId) then
-                self:Print("Impossible de charger un chemin jusqu'a la mapId : ("..self.roadZoneNextMapId..") changement de map avant re tentative", "RoadZone", "warn")
+                self.tools:Print("Impossible de charger un chemin jusqu'a la mapId : ("..self.roadZoneNextMapId..") changement de map avant re tentative", "RoadZone", "warn")
             end
         end
 
         map:moveRoadNext()
 
-        self:Print("Apres MoveNext", "RoadZone")
+        self.tools:Print("Apres MoveNext", "RoadZone")
         self.roadZoneNextMapId = -1
         self:RoadZone(tblMapId)
     else
-        self:Print("Table nil", "RoadZone", "error")
+        self.tools:Print("Table nil", "RoadZone", "error")
     end
 end
 
@@ -125,7 +125,7 @@ function Movement:InMapChecker(tbl)
 end
 
 function Movement:GoAstrub()
-    if self:Equal(map:currentArea(), "Incarnam") then
+    if self.tools:Equal(map:currentArea(), "Incarnam") then
         self:LoadRoad(153880835)
         local possibleIdReply = {
             36982,
@@ -176,7 +176,7 @@ function Movement:UseZaap(mapIdDest, zaapExcepted)
         local closestZaap = map:closestZaapV2(mapIdDest, zaapExcepted)
 
         if closestZaap == 0 then
-            self:Print("Aucun zaap trouvée pour la map (" .. mapIdDest .. ")", "error")
+            self.tools:Print("Aucun zaap trouvée pour la map (" .. mapIdDest .. ")", "error")
             global:leaveDialog()
             map:changeMap('havenbag')
             return false
@@ -196,7 +196,7 @@ function Movement:HavenBagTP(dest, message, forbiddenZaap)
     if not self.teleported then
         self:HavenBag()
         if type(message) == "string" then
-            self:Print(message, "Move")
+            self.tools:Print(message, "Move")
         end
         self.teleported = Movement:UseZaap(dest, forbiddenZaap)
         global:delay(1000)
