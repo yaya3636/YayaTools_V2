@@ -1,138 +1,109 @@
 Zone = {}
 
-Zone.mapsPath = global:getCurrentDirectory() .. "\\YayaTools\\Data\\Maps\\maps.json"
-Zone.subareaPath = global:getCurrentDirectory() .. "\\YayaTools\\Data\\SubArea\\"
-Zone.areaPath = global:getCurrentDirectory() .. "\\YayaTools\\Data\\Area\\"
+Zone.mapsPath = global:getCurrentDirectory() .. [[\YayaTools\Data\Maps\maps.json]]
+Zone.subareaPath = global:getCurrentDirectory() .. [[\YayaTools\Data\SubArea\]]
+Zone.areaPath = global:getCurrentDirectory() .. [[\YayaTools\Data\Area\]]
 Zone.bigDataSubAreas = {}
 
-function Zone:RetrieveSubAreaContainingRessource(gatherId, minResMap)
-    minResMap = minResMap or 1
+Zone.d2oAreaPath = global:getCurrentDirectory() .. [[\YayaTools\Data\D2O\Areas.json]]
+Zone.d2oArea = {}
 
-    local mapsDecode = self.json:decode(self.tools:ReadFile(self.mapsPath))
+Zone.d2oSubAreaPath = global:getCurrentDirectory() .. [[\YayaTools\Data\D2O\SubAreas.json]]
+Zone.d2oSubArea = {}
 
-    local subArea = {}
-
-    for kAreaId, vArea in pairs(mapsDecode) do
-        if type(vArea) == "table" then
-            for kSubAreaId, vSubArea in pairs(vArea) do
-                if type(vSubArea) == "table" then
-                    for _, vMap in pairs(vSubArea) do
-                        if type(vMap) == "table" then
-                            for _, vGather in pairs(vMap.gatherElements) do
-                                if self.tools:Equal(vGather.gatherId, gatherId) and vGather.count >= minResMap then
-                                    if subArea[tostring(kSubAreaId)] == nil then
-                                        subArea[tostring(kSubAreaId)] = {}
-                                    end
-                                    table.insert(subArea[tostring(kSubAreaId)], vMap)
-                                end
-                            end
-                        end
-                    end
-                end
-            end
-        end
+function Zone:InitD2oProperties()
+    -- Contructeur Area
+    local area = self.tools.dictionnary()
+    for _, v in pairs(self.d2oArea) do
+        v.subArea = self.tools.list()
+        area:Add(v.id, self.tools.object(v))
     end
+    self.d2oArea = area
 
-    return subArea
+    -- Constructeur SubArea
+    local subArea = self.tools.dictionnary()
+    for _, v in pairs(self.d2oSubArea) do
+        -- Ajout des SubArea a Area
+        local tmpArea = self.d2oArea:Get(v.areaId)
+        tmpArea.subArea:Add(v.id)
+        self.d2oArea:Set(v.areaId, tmpArea)
+
+        -- Constructeur SubArea
+        subArea:Add(v.id, self.tools.object({
+            id = v.id,
+            areaId = v.areaId,
+            mapIds = self.tools.list():CreateWith(v.mapIds, #v.mapIds),
+            level = v.level,
+            isConquestVillage = v.isConquestVillage,
+            monsters = self.tools.list():CreateWith(v.monsters, #v.monsters)
+        }))
+    end
+    self.d2oSubArea = subArea
 end
+
+-- Area
 
 function Zone:GetAreaMapId(areaId)
-    local areaInfo = self.json:decode(self.tools:ReadFile(self.areaPath .. areaId .. ".json"))
+    local ret = self.tools.list()
 
-    if areaInfo then
-        local mapId = {}
-
-        for _, v in pairs(areaInfo.subArea) do
-            local tmpMapId = self:GetSubAreaMapId(v)
-
-            for _, j in pairs(tmpMapId) do
-                table.insert(mapId, j)
-            end
+    for _, vSubAreaId in pairs(self:GetAreaObject(areaId).subArea:Enumerate()) do
+        for _, vMapId in pairs(self:GetSubAreaMapId(vSubAreaId):Enumerate()) do
+            ret:Add(vMapId)
         end
-
-        return mapId
     end
-    return nil
-end
-
-function Zone:GetAreaName(areaId)
-    local areaInfo = self.json:decode(self.tools:ReadFile(self.areaPath .. areaId .. ".json"))
-
-    if areaInfo then
-        return areaInfo.areaName
-    end
-    return nil
+    return ret
 end
 
 function Zone:GetSubArea(areaId)
-    local areaInfo = self.json:decode(self.tools:ReadFile(self.areaPath .. areaId .. ".json"))
+    return self.d2oArea:Get(areaId).subArea or nil
+end
 
-    if areaInfo then
-        return areaInfo.subArea
+function Zone:GetAreaId(subAreaId)
+    return self.d2oSubArea:Get(subAreaId).areaId or nil
+end
+
+function Zone:GetAreaIdByMapId(mapId)
+    for _, vSubArea in pairs(self.d2oSubArea:Enumerate()) do
+        if vSubArea.mapIds:Contains(mapId) then
+            return vSubArea.areaId
+        end
+    end
+    return nil
+end
+
+function Zone:GetAreaObject(areaId)
+    return self.d2oArea:Get(areaId)
+end
+
+-- SubArea
+
+function Zone:GetSubAreaObject(subAreaId)
+    return self.d2oSubArea:Get(subAreaId)
+end
+
+function Zone:GetSubAreaIdByMapId(mapId)
+    for _, vSubArea in pairs(self.d2oSubArea:Enumerate()) do
+        if vSubArea.mapIds:Contains(mapId) then
+            return vSubArea.id
+        end
     end
     return nil
 end
 
 function Zone:GetSubAreaMapId(subAreaId)
-    local subAreaInfo = self.json:decode(self.tools:ReadFile(self.subareaPath .. subAreaId .. ".json"))
+    return self.d2oSubArea:Get(subAreaId).mapIds or nil
+end
 
-    if subAreaInfo then
-        return subAreaInfo.mapIds
-    end
-    return nil
+function Zone:IsConquestVillage(subAreaId)
+    return self.d2oSubArea:Get(subAreaId).isConquestVillage or nil
 end
 
 function Zone:GetSubAreaMonsters(subAreaId)
-    local subAreaInfo = self.json:decode(self.tools:ReadFile(self.subareaPath .. subAreaId .. ".json"))
-
-    if subAreaInfo then
-        return subAreaInfo.monsters
-    end
-    return nil
+    return self.d2oSubArea:Get(subAreaId).monsters or nil
 end
 
-function Zone:GetSubAreaName(subAreaId)
-    local subAreaInfo = self.json:decode(self.tools:ReadFile(self.subareaPath .. subAreaId .. ".json"))
-
-    if subAreaInfo then
-        return subAreaInfo.subAreaName
-    end
-    return nil
-end
-
-function Zone:GetArea(subAreaId)
-    local subAreaInfo = self.json:decode(self.tools:ReadFile(self.subareaPath .. subAreaId .. ".json"))
-
-    if subAreaInfo then
-        return subAreaInfo.areaId
-    end
-    return nil
-end
-
-function Zone:GetAreaIdByMapId(mapId)
-    if self.bigDataSubAreas then
-        for _, vSubArea in pairs(self.bigDataSubAreas) do
-            for _, vMapId in pairs(vSubArea.mapIds) do
-                if self.tools:Equal(vMapId, mapId) then
-                    return vSubArea.areaId
-                end
-            end
-        end
-    end
-    return nil
-end
-
-function Zone:GetSubAreaIdByMapId(mapId)
-    if self.bigDataSubAreas then
-        for _, vSubArea in pairs(self.bigDataSubAreas) do
-            for _, vMapId in pairs(vSubArea.mapIds) do
-                if self.tools:Equal(vMapId, mapId) then
-                    return vSubArea.id
-                end
-            end
-        end
-    end
-    return nil
+function Zone:GetSubAreaMapId(subAreaId)
+    return self.d2oSubArea:Get(subAreaId).mapIds or nil
 end
 
 return Zone

@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "startValue": 0,
+        "endValue": 10,
+        "nameId": 11,
+        "descriptionId": 12
+    },
+    {
+        "id": 2,
+        "startValue": 10,
+        "endValue": 20,
+        "nameId": 25,
+        "descriptionId": 26
+    },
+    {
+        "id": 3,
+        "startValue": 20,
+        "endValue": 30,
+        "nameId": 7,
+        "descriptionId": 8
+    },
+    {
+        "id": 4,
+        "startValue": 30,
+        "endValue": 40,
+        "nameId": 17,
+        "descriptionId": 18
+    },
+    {
+        "id": 5,
+        "startValue": 40,
+        "endValue": 50,
+        "nameId": 15,
+        "descriptionId": 16
+    },
+    {
+        "id": 6,
+        "startValue": 50,
+        "endValue": 60,
+        "nameId": 9,
+        "descriptionId": 10
+    },
+    {
+        "id": 7,
+        "startValue": 60,
+        "endValue": 70,
+        "nameId": 13,
+        "descriptionId": 14
+    },
+    {
+        "id": 8,
+        "startValue": 70,
+        "endValue": 80,
+        "nameId": 23,
+        "descriptionId": 24
+    },
+    {
+        "id": 9,
+        "startValue": 80,
+        "endValue": 90,
+        "nameId": 19,
+        "descriptionId": 20
+    },
+    {
+        "id": 10,
+        "startValue": 90,
+        "endValue": 100,
+        "nameId": 21,
+        "descriptionId": 22
+    }
+]

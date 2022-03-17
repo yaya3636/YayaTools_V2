@@ -1,0 +1,62 @@
+[
+    {
+        "gid": 19349,
+        "typeId": 0,
+        "familyId": 1
+    },
+    {
+        "gid": 19349,
+        "typeId": 0,
+        "familyId": 5
+    },
+    {
+        "gid": 0,
+        "typeId": 41,
+        "familyId": 1
+    },
+    {
+        "gid": 0,
+        "typeId": 62,
+        "familyId": 1
+    },
+    {
+        "gid": 0,
+        "typeId": 63,
+        "familyId": 1
+    },
+    {
+        "gid": 0,
+        "typeId": 64,
+        "familyId": 1
+    },
+    {
+        "gid": 7903,
+        "typeId": 0,
+        "familyId": 1
+    },
+    {
+        "gid": 7904,
+        "typeId": 0,
+        "familyId": 1
+    },
+    {
+        "gid": 0,
+        "typeId": 41,
+        "familyId": 5
+    },
+    {
+        "gid": 0,
+        "typeId": 63,
+        "familyId": 5
+    },
+    {
+        "gid": 19349,
+        "typeId": 0,
+        "familyId": 6
+    },
+    {
+        "gid": 14635,
+        "typeId": 0,
+        "familyId": 6
+    }
+]

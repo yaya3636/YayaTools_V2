@@ -1,0 +1,3262 @@
+[
+    {
+        "id": 69,
+        "caracId": 78,
+        "companionId": 8,
+        "order": 8,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.15
+            ]
+        ]
+    },
+    {
+        "id": 11,
+        "caracId": 36,
+        "companionId": 1,
+        "order": 13,
+        "statPerLevelRange": [
+            [
+                1.0,
+                12.0
+            ]
+        ]
+    },
+    {
+        "id": 12,
+        "caracId": 37,
+        "companionId": 1,
+        "order": 14,
+        "statPerLevelRange": [
+            [
+                1.0,
+                12.0
+            ]
+        ]
+    },
+    {
+        "id": 13,
+        "caracId": 35,
+        "companionId": 1,
+        "order": 12,
+        "statPerLevelRange": [
+            [
+                1.0,
+                12.0
+            ]
+        ]
+    },
+    {
+        "id": 14,
+        "caracId": 34,
+        "companionId": 1,
+        "order": 11,
+        "statPerLevelRange": [
+            [
+                1.0,
+                12.0
+            ]
+        ]
+    },
+    {
+        "id": 15,
+        "caracId": 33,
+        "companionId": 1,
+        "order": 10,
+        "statPerLevelRange": [
+            [
+                1.0,
+                12.0
+            ]
+        ]
+    },
+    {
+        "id": 16,
+        "caracId": 1,
+        "companionId": 1,
+        "order": 1,
+        "statPerLevelRange": [
+            [
+                1.0,
+                6.0
+            ],
+            [
+                200.0,
+                0.029
+            ]
+        ]
+    },
+    {
+        "id": 17,
+        "caracId": 23,
+        "companionId": 1,
+        "order": 2,
+        "statPerLevelRange": [
+            [
+                1.0,
+                3.0
+            ],
+            [
+                200.0,
+                0.017
+            ]
+        ]
+    },
+    {
+        "id": 18,
+        "caracId": 19,
+        "companionId": 1,
+        "order": 3,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.02
+            ]
+        ]
+    },
+    {
+        "id": 141,
+        "caracId": 84,
+        "companionId": 8,
+        "order": 11,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.4
+            ]
+        ]
+    },
+    {
+        "id": 10,
+        "caracId": 27,
+        "companionId": 1,
+        "order": 6,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.4
+            ]
+        ]
+    },
+    {
+        "id": 19,
+        "caracId": 79,
+        "companionId": 1,
+        "order": 9,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.15
+            ]
+        ]
+    },
+    {
+        "id": 20,
+        "caracId": 28,
+        "companionId": 1,
+        "order": 7,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.3
+            ]
+        ]
+    },
+    {
+        "id": 155,
+        "caracId": 25,
+        "companionId": 12,
+        "order": 4,
+        "statPerLevelRange": [
+            [
+                1.0,
+                3.0
+            ],
+            [
+                50.0,
+                3.0
+            ],
+            [
+                100.0,
+                5.0
+            ],
+            [
+                150.0,
+                7.0
+            ],
+            [
+                200.0,
+                9.0
+            ]
+        ]
+    },
+    {
+        "id": 25,
+        "caracId": 27,
+        "companionId": 2,
+        "order": 6,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.3
+            ]
+        ]
+    },
+    {
+        "id": 26,
+        "caracId": 36,
+        "companionId": 2,
+        "order": 13,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 27,
+        "caracId": 37,
+        "companionId": 2,
+        "order": 14,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 28,
+        "caracId": 35,
+        "companionId": 2,
+        "order": 12,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 29,
+        "caracId": 34,
+        "companionId": 2,
+        "order": 11,
+        "statPerLevelRange": [
+            [
+                1.0,
+                20.0
+            ]
+        ]
+    },
+    {
+        "id": 30,
+        "caracId": 33,
+        "companionId": 2,
+        "order": 10,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 33,
+        "caracId": 19,
+        "companionId": 2,
+        "order": 3,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.02
+            ]
+        ]
+    },
+    {
+        "id": 34,
+        "caracId": 79,
+        "companionId": 2,
+        "order": 9,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.15
+            ]
+        ]
+    },
+    {
+        "id": 35,
+        "caracId": 28,
+        "companionId": 2,
+        "order": 7,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.4
+            ]
+        ]
+    },
+    {
+        "id": 31,
+        "caracId": 1,
+        "companionId": 2,
+        "order": 1,
+        "statPerLevelRange": [
+            [
+                1.0,
+                6.0
+            ],
+            [
+                200.0,
+                0.033
+            ]
+        ]
+    },
+    {
+        "id": 214,
+        "caracId": 36,
+        "companionId": 15,
+        "order": 14,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 215,
+        "caracId": 37,
+        "companionId": 15,
+        "order": 15,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 216,
+        "caracId": 48,
+        "companionId": 15,
+        "order": 16,
+        "statPerLevelRange": [
+            [
+                1.0,
+                100.0
+            ]
+        ]
+    },
+    {
+        "id": 163,
+        "caracId": 35,
+        "companionId": 12,
+        "order": 11,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 210,
+        "caracId": 83,
+        "companionId": 15,
+        "order": 10,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.5
+            ]
+        ]
+    },
+    {
+        "id": 217,
+        "caracId": 0,
+        "companionId": 14,
+        "order": 0,
+        "statPerLevelRange": [
+            [
+                1.0,
+                55.0
+            ],
+            [
+                50.0,
+                5.0
+            ],
+            [
+                100.0,
+                10.0
+            ],
+            [
+                150.0,
+                20.0
+            ],
+            [
+                200.0,
+                40.0
+            ]
+        ]
+    },
+    {
+        "id": 218,
+        "caracId": 1,
+        "companionId": 14,
+        "order": 1,
+        "statPerLevelRange": [
+            [
+                1.0,
+                6.0
+            ],
+            [
+                200.0,
+                0.029
+            ]
+        ]
+    },
+    {
+        "id": 268,
+        "caracId": 25,
+        "companionId": 13,
+        "order": 0,
+        "statPerLevelRange": [
+            [
+                200.0,
+                5.0
+            ]
+        ]
+    },
+    {
+        "id": 220,
+        "caracId": 19,
+        "companionId": 14,
+        "order": 3,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.02
+            ]
+        ]
+    },
+    {
+        "id": 222,
+        "caracId": 25,
+        "companionId": 14,
+        "order": 5,
+        "statPerLevelRange": [
+            [
+                1.0,
+                3.0
+            ],
+            [
+                50.0,
+                3.0
+            ],
+            [
+                100.0,
+                5.0
+            ],
+            [
+                150.0,
+                7.0
+            ],
+            [
+                200.0,
+                9.0
+            ]
+        ]
+    },
+    {
+        "id": 223,
+        "caracId": 27,
+        "companionId": 14,
+        "order": 6,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.3
+            ]
+        ]
+    },
+    {
+        "id": 269,
+        "caracId": 78,
+        "companionId": 13,
+        "order": 1,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.5
+            ]
+        ]
+    },
+    {
+        "id": 224,
+        "caracId": 28,
+        "companionId": 14,
+        "order": 7,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.4
+            ]
+        ]
+    },
+    {
+        "id": 225,
+        "caracId": 78,
+        "companionId": 14,
+        "order": 8,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.375
+            ]
+        ]
+    },
+    {
+        "id": 270,
+        "caracId": 16,
+        "companionId": 13,
+        "order": 2,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.4
+            ]
+        ]
+    },
+    {
+        "id": 227,
+        "caracId": 33,
+        "companionId": 14,
+        "order": 10,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 228,
+        "caracId": 34,
+        "companionId": 14,
+        "order": 11,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 229,
+        "caracId": 35,
+        "companionId": 14,
+        "order": 12,
+        "statPerLevelRange": [
+            [
+                1.0,
+                20.0
+            ]
+        ]
+    },
+    {
+        "id": 230,
+        "caracId": 36,
+        "companionId": 14,
+        "order": 13,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 231,
+        "caracId": 37,
+        "companionId": 14,
+        "order": 14,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 232,
+        "caracId": 48,
+        "companionId": 14,
+        "order": 15,
+        "statPerLevelRange": [
+            [
+                1.0,
+                100.0
+            ]
+        ]
+    },
+    {
+        "id": 271,
+        "caracId": 83,
+        "companionId": 13,
+        "order": 3,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.4
+            ]
+        ]
+    },
+    {
+        "id": 234,
+        "caracId": 1,
+        "companionId": 16,
+        "order": 1,
+        "statPerLevelRange": [
+            [
+                1.0,
+                6.0
+            ],
+            [
+                200.0,
+                0.029
+            ]
+        ]
+    },
+    {
+        "id": 235,
+        "caracId": 23,
+        "companionId": 16,
+        "order": 2,
+        "statPerLevelRange": [
+            [
+                1.0,
+                3.0
+            ],
+            [
+                200.0,
+                0.017
+            ]
+        ]
+    },
+    {
+        "id": 236,
+        "caracId": 19,
+        "companionId": 16,
+        "order": 3,
+        "statPerLevelRange": [
+            [
+                1.0,
+                3.0
+            ],
+            [
+                200.0,
+                0.017
+            ]
+        ]
+    },
+    {
+        "id": 152,
+        "caracId": 1,
+        "companionId": 12,
+        "order": 1,
+        "statPerLevelRange": [
+            [
+                1.0,
+                6.0
+            ],
+            [
+                200.0,
+                0.029
+            ]
+        ]
+    },
+    {
+        "id": 153,
+        "caracId": 23,
+        "companionId": 12,
+        "order": 2,
+        "statPerLevelRange": [
+            [
+                1.0,
+                3.0
+            ],
+            [
+                200.0,
+                0.017
+            ]
+        ]
+    },
+    {
+        "id": 156,
+        "caracId": 27,
+        "companionId": 12,
+        "order": 5,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.3
+            ]
+        ]
+    },
+    {
+        "id": 157,
+        "caracId": 28,
+        "companionId": 12,
+        "order": 6,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.3
+            ]
+        ]
+    },
+    {
+        "id": 158,
+        "caracId": 78,
+        "companionId": 12,
+        "order": 7,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.5
+            ]
+        ]
+    },
+    {
+        "id": 237,
+        "caracId": 16,
+        "companionId": 16,
+        "order": 4,
+        "statPerLevelRange": [
+            [
+                1.0,
+                0.2
+            ],
+            [
+                50.0,
+                0.2
+            ],
+            [
+                100.0,
+                0.4
+            ],
+            [
+                150.0,
+                0.6
+            ],
+            [
+                200.0,
+                0.8
+            ]
+        ]
+    },
+    {
+        "id": 160,
+        "caracId": 83,
+        "companionId": 12,
+        "order": 8,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.4
+            ]
+        ]
+    },
+    {
+        "id": 161,
+        "caracId": 33,
+        "companionId": 12,
+        "order": 9,
+        "statPerLevelRange": [
+            [
+                1.0,
+                20.0
+            ]
+        ]
+    },
+    {
+        "id": 162,
+        "caracId": 34,
+        "companionId": 12,
+        "order": 10,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 164,
+        "caracId": 36,
+        "companionId": 12,
+        "order": 12,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 165,
+        "caracId": 37,
+        "companionId": 12,
+        "order": 13,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 166,
+        "caracId": 48,
+        "companionId": 12,
+        "order": 14,
+        "statPerLevelRange": [
+            [
+                1.0,
+                100.0
+            ]
+        ]
+    },
+    {
+        "id": 239,
+        "caracId": 27,
+        "companionId": 16,
+        "order": 6,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.4
+            ]
+        ]
+    },
+    {
+        "id": 240,
+        "caracId": 28,
+        "companionId": 16,
+        "order": 7,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.3
+            ]
+        ]
+    },
+    {
+        "id": 241,
+        "caracId": 78,
+        "companionId": 16,
+        "order": 9,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.3
+            ]
+        ]
+    },
+    {
+        "id": 242,
+        "caracId": 79,
+        "companionId": 16,
+        "order": 10,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.15
+            ]
+        ]
+    },
+    {
+        "id": 244,
+        "caracId": 33,
+        "companionId": 16,
+        "order": 11,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 246,
+        "caracId": 35,
+        "companionId": 16,
+        "order": 13,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 167,
+        "caracId": 82,
+        "companionId": 12,
+        "order": 15,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.4
+            ]
+        ]
+    },
+    {
+        "id": 247,
+        "caracId": 36,
+        "companionId": 16,
+        "order": 14,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 248,
+        "caracId": 37,
+        "companionId": 16,
+        "order": 15,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 249,
+        "caracId": 48,
+        "companionId": 16,
+        "order": 16,
+        "statPerLevelRange": [
+            [
+                1.0,
+                100.0
+            ]
+        ]
+    },
+    {
+        "id": 250,
+        "caracId": 26,
+        "companionId": 16,
+        "order": 17,
+        "statPerLevelRange": [
+            [
+                1.0,
+                3.0
+            ]
+        ]
+    },
+    {
+        "id": 251,
+        "caracId": 83,
+        "companionId": 16,
+        "order": 8,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.4
+            ]
+        ]
+    },
+    {
+        "id": 262,
+        "caracId": 33,
+        "companionId": 17,
+        "order": 10,
+        "statPerLevelRange": [
+            [
+                1.0,
+                12.0
+            ]
+        ]
+    },
+    {
+        "id": 264,
+        "caracId": 35,
+        "companionId": 17,
+        "order": 12,
+        "statPerLevelRange": [
+            [
+                1.0,
+                12.0
+            ]
+        ]
+    },
+    {
+        "id": 265,
+        "caracId": 36,
+        "companionId": 17,
+        "order": 13,
+        "statPerLevelRange": [
+            [
+                1.0,
+                12.0
+            ]
+        ]
+    },
+    {
+        "id": 266,
+        "caracId": 37,
+        "companionId": 17,
+        "order": 14,
+        "statPerLevelRange": [
+            [
+                1.0,
+                12.0
+            ]
+        ]
+    },
+    {
+        "id": 267,
+        "caracId": 48,
+        "companionId": 17,
+        "order": 15,
+        "statPerLevelRange": [
+            [
+                1.0,
+                100.0
+            ]
+        ]
+    },
+    {
+        "id": 32,
+        "caracId": 23,
+        "companionId": 2,
+        "order": 2,
+        "statPerLevelRange": [
+            [
+                1.0,
+                3.0
+            ],
+            [
+                200.0,
+                0.014
+            ]
+        ]
+    },
+    {
+        "id": 52,
+        "caracId": 0,
+        "companionId": 7,
+        "order": 0,
+        "statPerLevelRange": [
+            [
+                1.0,
+                55.0
+            ],
+            [
+                50.0,
+                5.0
+            ],
+            [
+                100.0,
+                10.0
+            ],
+            [
+                150.0,
+                20.0
+            ],
+            [
+                200.0,
+                40.0
+            ]
+        ]
+    },
+    {
+        "id": 53,
+        "caracId": 78,
+        "companionId": 7,
+        "order": 8,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.3
+            ]
+        ]
+    },
+    {
+        "id": 54,
+        "caracId": 27,
+        "companionId": 7,
+        "order": 6,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.3
+            ]
+        ]
+    },
+    {
+        "id": 55,
+        "caracId": 36,
+        "companionId": 7,
+        "order": 14,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 56,
+        "caracId": 37,
+        "companionId": 7,
+        "order": 15,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 57,
+        "caracId": 35,
+        "companionId": 7,
+        "order": 13,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 61,
+        "caracId": 23,
+        "companionId": 7,
+        "order": 2,
+        "statPerLevelRange": [
+            [
+                1.0,
+                3.0
+            ],
+            [
+                200.0,
+                0.017
+            ]
+        ]
+    },
+    {
+        "id": 63,
+        "caracId": 28,
+        "companionId": 7,
+        "order": 7,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.3
+            ]
+        ]
+    },
+    {
+        "id": 65,
+        "caracId": 19,
+        "companionId": 7,
+        "order": 3,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.033
+            ]
+        ]
+    },
+    {
+        "id": 66,
+        "caracId": 83,
+        "companionId": 7,
+        "order": 10,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.4
+            ]
+        ]
+    },
+    {
+        "id": 58,
+        "caracId": 34,
+        "companionId": 7,
+        "order": 12,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 59,
+        "caracId": 33,
+        "companionId": 7,
+        "order": 11,
+        "statPerLevelRange": [
+            [
+                1.0,
+                20.0
+            ]
+        ]
+    },
+    {
+        "id": 70,
+        "caracId": 27,
+        "companionId": 8,
+        "order": 6,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.3
+            ]
+        ]
+    },
+    {
+        "id": 71,
+        "caracId": 36,
+        "companionId": 8,
+        "order": 15,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 72,
+        "caracId": 37,
+        "companionId": 8,
+        "order": 16,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 73,
+        "caracId": 35,
+        "companionId": 8,
+        "order": 14,
+        "statPerLevelRange": [
+            [
+                1.0,
+                20.0
+            ]
+        ]
+    },
+    {
+        "id": 74,
+        "caracId": 34,
+        "companionId": 8,
+        "order": 13,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 75,
+        "caracId": 33,
+        "companionId": 8,
+        "order": 12,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 76,
+        "caracId": 1,
+        "companionId": 8,
+        "order": 1,
+        "statPerLevelRange": [
+            [
+                1.0,
+                6.0
+            ],
+            [
+                200.0,
+                0.022
+            ]
+        ]
+    },
+    {
+        "id": 77,
+        "caracId": 23,
+        "companionId": 8,
+        "order": 2,
+        "statPerLevelRange": [
+            [
+                1.0,
+                3.0
+            ],
+            [
+                200.0,
+                0.022
+            ]
+        ]
+    },
+    {
+        "id": 81,
+        "caracId": 19,
+        "companionId": 8,
+        "order": 3,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.025
+            ]
+        ]
+    },
+    {
+        "id": 82,
+        "caracId": 83,
+        "companionId": 8,
+        "order": 10,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.4
+            ]
+        ]
+    },
+    {
+        "id": 272,
+        "caracId": 82,
+        "companionId": 13,
+        "order": 4,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.4
+            ]
+        ]
+    },
+    {
+        "id": 273,
+        "caracId": 27,
+        "companionId": 13,
+        "order": 5,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.3
+            ]
+        ]
+    },
+    {
+        "id": 274,
+        "caracId": 28,
+        "companionId": 13,
+        "order": 6,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.3
+            ]
+        ]
+    },
+    {
+        "id": 275,
+        "caracId": 1,
+        "companionId": 13,
+        "order": 7,
+        "statPerLevelRange": [
+            [
+                1.0,
+                6.0
+            ],
+            [
+                200.0,
+                0.029
+            ]
+        ]
+    },
+    {
+        "id": 276,
+        "caracId": 0,
+        "companionId": 13,
+        "order": 8,
+        "statPerLevelRange": [
+            [
+                1.0,
+                50.0
+            ],
+            [
+                200.0,
+                13.0
+            ]
+        ]
+    },
+    {
+        "id": 203,
+        "caracId": 19,
+        "companionId": 15,
+        "order": 3,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.022
+            ]
+        ]
+    },
+    {
+        "id": 277,
+        "caracId": 23,
+        "companionId": 13,
+        "order": 9,
+        "statPerLevelRange": [
+            [
+                1.0,
+                3.0
+            ],
+            [
+                200.0,
+                0.017
+            ]
+        ]
+    },
+    {
+        "id": 278,
+        "caracId": 33,
+        "companionId": 13,
+        "order": 10,
+        "statPerLevelRange": [
+            [
+                1.0,
+                20.0
+            ]
+        ]
+    },
+    {
+        "id": 279,
+        "caracId": 48,
+        "companionId": 13,
+        "order": 11,
+        "statPerLevelRange": [
+            [
+                1.0,
+                100.0
+            ]
+        ]
+    },
+    {
+        "id": 280,
+        "caracId": 34,
+        "companionId": 13,
+        "order": 12,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 281,
+        "caracId": 35,
+        "companionId": 13,
+        "order": 13,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 282,
+        "caracId": 36,
+        "companionId": 13,
+        "order": 14,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 283,
+        "caracId": 37,
+        "companionId": 13,
+        "order": 15,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 253,
+        "caracId": 1,
+        "companionId": 17,
+        "order": 1,
+        "statPerLevelRange": [
+            [
+                1.0,
+                6.0
+            ],
+            [
+                200.0,
+                0.029
+            ]
+        ]
+    },
+    {
+        "id": 233,
+        "caracId": 0,
+        "companionId": 16,
+        "order": 0,
+        "statPerLevelRange": [
+            [
+                1.0,
+                55.0
+            ],
+            [
+                50.0,
+                5.0
+            ],
+            [
+                100.0,
+                10.0
+            ],
+            [
+                150.0,
+                20.0
+            ],
+            [
+                200.0,
+                40.0
+            ]
+        ]
+    },
+    {
+        "id": 238,
+        "caracId": 25,
+        "companionId": 16,
+        "order": 5,
+        "statPerLevelRange": [
+            [
+                1.0,
+                3.0
+            ],
+            [
+                50.0,
+                3.0
+            ],
+            [
+                100.0,
+                5.0
+            ],
+            [
+                150.0,
+                7.0
+            ],
+            [
+                200.0,
+                9.0
+            ]
+        ]
+    },
+    {
+        "id": 245,
+        "caracId": 34,
+        "companionId": 16,
+        "order": 12,
+        "statPerLevelRange": [
+            [
+                1.0,
+                20.0
+            ]
+        ]
+    },
+    {
+        "id": 252,
+        "caracId": 0,
+        "companionId": 17,
+        "order": 0,
+        "statPerLevelRange": [
+            [
+                1.0,
+                55.0
+            ],
+            [
+                50.0,
+                5.0
+            ],
+            [
+                100.0,
+                10.0
+            ],
+            [
+                150.0,
+                20.0
+            ],
+            [
+                200.0,
+                40.0
+            ]
+        ]
+    },
+    {
+        "id": 256,
+        "caracId": 16,
+        "companionId": 17,
+        "order": 4,
+        "statPerLevelRange": [
+            [
+                1.0,
+                0.2
+            ],
+            [
+                50.0,
+                0.2
+            ],
+            [
+                100.0,
+                0.4
+            ],
+            [
+                150.0,
+                0.6
+            ],
+            [
+                200.0,
+                0.8
+            ]
+        ]
+    },
+    {
+        "id": 263,
+        "caracId": 34,
+        "companionId": 17,
+        "order": 11,
+        "statPerLevelRange": [
+            [
+                1.0,
+                12.0
+            ]
+        ]
+    },
+    {
+        "id": 23,
+        "caracId": 0,
+        "companionId": 2,
+        "order": 0,
+        "statPerLevelRange": [
+            [
+                1.0,
+                55.0
+            ],
+            [
+                50.0,
+                5.0
+            ],
+            [
+                100.0,
+                10.0
+            ],
+            [
+                150.0,
+                20.0
+            ],
+            [
+                200.0,
+                40.0
+            ]
+        ]
+    },
+    {
+        "id": 24,
+        "caracId": 78,
+        "companionId": 2,
+        "order": 8,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.375
+            ]
+        ]
+    },
+    {
+        "id": 85,
+        "caracId": 78,
+        "companionId": 9,
+        "order": 7,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.3
+            ]
+        ]
+    },
+    {
+        "id": 86,
+        "caracId": 27,
+        "companionId": 9,
+        "order": 5,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.4
+            ]
+        ]
+    },
+    {
+        "id": 87,
+        "caracId": 36,
+        "companionId": 9,
+        "order": 13,
+        "statPerLevelRange": [
+            [
+                1.0,
+                12.0
+            ]
+        ]
+    },
+    {
+        "id": 88,
+        "caracId": 37,
+        "companionId": 9,
+        "order": 14,
+        "statPerLevelRange": [
+            [
+                1.0,
+                12.0
+            ]
+        ]
+    },
+    {
+        "id": 89,
+        "caracId": 35,
+        "companionId": 9,
+        "order": 12,
+        "statPerLevelRange": [
+            [
+                1.0,
+                12.0
+            ]
+        ]
+    },
+    {
+        "id": 90,
+        "caracId": 34,
+        "companionId": 9,
+        "order": 11,
+        "statPerLevelRange": [
+            [
+                1.0,
+                12.0
+            ]
+        ]
+    },
+    {
+        "id": 91,
+        "caracId": 33,
+        "companionId": 9,
+        "order": 10,
+        "statPerLevelRange": [
+            [
+                1.0,
+                12.0
+            ]
+        ]
+    },
+    {
+        "id": 92,
+        "caracId": 1,
+        "companionId": 9,
+        "order": 1,
+        "statPerLevelRange": [
+            [
+                1.0,
+                6.0
+            ],
+            [
+                200.0,
+                0.029
+            ]
+        ]
+    },
+    {
+        "id": 93,
+        "caracId": 23,
+        "companionId": 9,
+        "order": 2,
+        "statPerLevelRange": [
+            [
+                1.0,
+                3.0
+            ],
+            [
+                200.0,
+                0.017
+            ]
+        ]
+    },
+    {
+        "id": 94,
+        "caracId": 79,
+        "companionId": 9,
+        "order": 8,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.3
+            ]
+        ]
+    },
+    {
+        "id": 95,
+        "caracId": 28,
+        "companionId": 9,
+        "order": 6,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.4
+            ]
+        ]
+    },
+    {
+        "id": 60,
+        "caracId": 1,
+        "companionId": 7,
+        "order": 1,
+        "statPerLevelRange": [
+            [
+                1.0,
+                6.0
+            ],
+            [
+                200.0,
+                0.029
+            ]
+        ]
+    },
+    {
+        "id": 99,
+        "caracId": 36,
+        "companionId": 6,
+        "order": 13,
+        "statPerLevelRange": [
+            [
+                1.0,
+                20.0
+            ]
+        ]
+    },
+    {
+        "id": 100,
+        "caracId": 37,
+        "companionId": 6,
+        "order": 14,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 101,
+        "caracId": 35,
+        "companionId": 6,
+        "order": 12,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 102,
+        "caracId": 34,
+        "companionId": 6,
+        "order": 11,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 103,
+        "caracId": 33,
+        "companionId": 6,
+        "order": 10,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 104,
+        "caracId": 1,
+        "companionId": 6,
+        "order": 1,
+        "statPerLevelRange": [
+            [
+                1.0,
+                6.0
+            ],
+            [
+                200.0,
+                0.029
+            ]
+        ]
+    },
+    {
+        "id": 105,
+        "caracId": 23,
+        "companionId": 6,
+        "order": 2,
+        "statPerLevelRange": [
+            [
+                1.0,
+                3.0
+            ],
+            [
+                200.0,
+                0.017
+            ]
+        ]
+    },
+    {
+        "id": 106,
+        "caracId": 78,
+        "companionId": 6,
+        "order": 7,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.15
+            ]
+        ]
+    },
+    {
+        "id": 107,
+        "caracId": 27,
+        "companionId": 6,
+        "order": 5,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.3
+            ]
+        ]
+    },
+    {
+        "id": 108,
+        "caracId": 79,
+        "companionId": 6,
+        "order": 8,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.375
+            ]
+        ]
+    },
+    {
+        "id": 109,
+        "caracId": 28,
+        "companionId": 6,
+        "order": 6,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.4
+            ]
+        ]
+    },
+    {
+        "id": 21,
+        "caracId": 16,
+        "companionId": 1,
+        "order": 4,
+        "statPerLevelRange": [
+            [
+                1.0,
+                0.2
+            ],
+            [
+                50.0,
+                0.2
+            ],
+            [
+                100.0,
+                0.4
+            ],
+            [
+                150.0,
+                0.6
+            ],
+            [
+                200.0,
+                0.8
+            ]
+        ]
+    },
+    {
+        "id": 5,
+        "caracId": 25,
+        "companionId": 1,
+        "order": 5,
+        "statPerLevelRange": [
+            [
+                1.0,
+                3.0
+            ],
+            [
+                50.0,
+                3.0
+            ],
+            [
+                100.0,
+                5.0
+            ],
+            [
+                150.0,
+                7.0
+            ],
+            [
+                200.0,
+                9.0
+            ]
+        ]
+    },
+    {
+        "id": 80,
+        "caracId": 16,
+        "companionId": 8,
+        "order": 4,
+        "statPerLevelRange": [
+            [
+                1.0,
+                0.2
+            ],
+            [
+                50.0,
+                0.2
+            ],
+            [
+                100.0,
+                0.4
+            ],
+            [
+                150.0,
+                0.6
+            ],
+            [
+                200.0,
+                0.8
+            ]
+        ]
+    },
+    {
+        "id": 67,
+        "caracId": 25,
+        "companionId": 8,
+        "order": 5,
+        "statPerLevelRange": [
+            [
+                1.0,
+                3.0
+            ],
+            [
+                50.0,
+                3.0
+            ],
+            [
+                100.0,
+                5.0
+            ],
+            [
+                150.0,
+                7.0
+            ],
+            [
+                200.0,
+                9.0
+            ]
+        ]
+    },
+    {
+        "id": 78,
+        "caracId": 79,
+        "companionId": 8,
+        "order": 9,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.375
+            ]
+        ]
+    },
+    {
+        "id": 97,
+        "caracId": 25,
+        "companionId": 6,
+        "order": 4,
+        "statPerLevelRange": [
+            [
+                1.0,
+                3.0
+            ],
+            [
+                50.0,
+                3.0
+            ],
+            [
+                100.0,
+                5.0
+            ],
+            [
+                150.0,
+                7.0
+            ],
+            [
+                200.0,
+                9.0
+            ]
+        ]
+    },
+    {
+        "id": 110,
+        "caracId": 16,
+        "companionId": 6,
+        "order": 3,
+        "statPerLevelRange": [
+            [
+                1.0,
+                0.2
+            ],
+            [
+                50.0,
+                0.2
+            ],
+            [
+                100.0,
+                0.4
+            ],
+            [
+                150.0,
+                0.6
+            ],
+            [
+                200.0,
+                0.8
+            ]
+        ]
+    },
+    {
+        "id": 83,
+        "caracId": 25,
+        "companionId": 9,
+        "order": 4,
+        "statPerLevelRange": [
+            [
+                1.0,
+                3.0
+            ],
+            [
+                50.0,
+                3.0
+            ],
+            [
+                100.0,
+                5.0
+            ],
+            [
+                150.0,
+                7.0
+            ],
+            [
+                200.0,
+                9.0
+            ]
+        ]
+    },
+    {
+        "id": 64,
+        "caracId": 16,
+        "companionId": 7,
+        "order": 4,
+        "statPerLevelRange": [
+            [
+                1.0,
+                0.2
+            ],
+            [
+                50.0,
+                0.2
+            ],
+            [
+                100.0,
+                0.4
+            ],
+            [
+                150.0,
+                0.6
+            ],
+            [
+                200.0,
+                0.8
+            ]
+        ]
+    },
+    {
+        "id": 36,
+        "caracId": 16,
+        "companionId": 2,
+        "order": 4,
+        "statPerLevelRange": [
+            [
+                1.0,
+                0.2
+            ],
+            [
+                50.0,
+                0.2
+            ],
+            [
+                100.0,
+                0.4
+            ],
+            [
+                150.0,
+                0.6
+            ],
+            [
+                200.0,
+                0.8
+            ]
+        ]
+    },
+    {
+        "id": 98,
+        "caracId": 0,
+        "companionId": 6,
+        "order": 0,
+        "statPerLevelRange": [
+            [
+                1.0,
+                56.0
+            ],
+            [
+                50.0,
+                6.0
+            ],
+            [
+                100.0,
+                12.0
+            ],
+            [
+                150.0,
+                24.0
+            ],
+            [
+                200.0,
+                48.0
+            ]
+        ]
+    },
+    {
+        "id": 127,
+        "caracId": 27,
+        "companionId": 11,
+        "order": 6,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.3
+            ]
+        ]
+    },
+    {
+        "id": 128,
+        "caracId": 36,
+        "companionId": 11,
+        "order": 13,
+        "statPerLevelRange": [
+            [
+                1.0,
+                12.0
+            ]
+        ]
+    },
+    {
+        "id": 129,
+        "caracId": 37,
+        "companionId": 11,
+        "order": 14,
+        "statPerLevelRange": [
+            [
+                1.0,
+                12.0
+            ]
+        ]
+    },
+    {
+        "id": 130,
+        "caracId": 35,
+        "companionId": 11,
+        "order": 12,
+        "statPerLevelRange": [
+            [
+                1.0,
+                12.0
+            ]
+        ]
+    },
+    {
+        "id": 131,
+        "caracId": 34,
+        "companionId": 11,
+        "order": 11,
+        "statPerLevelRange": [
+            [
+                1.0,
+                12.0
+            ]
+        ]
+    },
+    {
+        "id": 132,
+        "caracId": 33,
+        "companionId": 11,
+        "order": 10,
+        "statPerLevelRange": [
+            [
+                1.0,
+                12.0
+            ]
+        ]
+    },
+    {
+        "id": 133,
+        "caracId": 1,
+        "companionId": 11,
+        "order": 1,
+        "statPerLevelRange": [
+            [
+                1.0,
+                6.0
+            ],
+            [
+                200.0,
+                0.029
+            ]
+        ]
+    },
+    {
+        "id": 134,
+        "caracId": 23,
+        "companionId": 11,
+        "order": 2,
+        "statPerLevelRange": [
+            [
+                1.0,
+                3.0
+            ],
+            [
+                200.0,
+                0.017
+            ]
+        ]
+    },
+    {
+        "id": 135,
+        "caracId": 28,
+        "companionId": 11,
+        "order": 7,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.3
+            ]
+        ]
+    },
+    {
+        "id": 136,
+        "caracId": 19,
+        "companionId": 11,
+        "order": 3,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.017
+            ]
+        ]
+    },
+    {
+        "id": 137,
+        "caracId": 16,
+        "companionId": 11,
+        "order": 4,
+        "statPerLevelRange": [
+            [
+                1.0,
+                0.2
+            ],
+            [
+                50.0,
+                0.2
+            ],
+            [
+                100.0,
+                0.4
+            ],
+            [
+                150.0,
+                0.6
+            ],
+            [
+                200.0,
+                0.8
+            ]
+        ]
+    },
+    {
+        "id": 139,
+        "caracId": 78,
+        "companionId": 11,
+        "order": 8,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.3
+            ]
+        ]
+    },
+    {
+        "id": 140,
+        "caracId": 79,
+        "companionId": 11,
+        "order": 9,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.3
+            ]
+        ]
+    },
+    {
+        "id": 9,
+        "caracId": 78,
+        "companionId": 1,
+        "order": 8,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.375
+            ]
+        ]
+    },
+    {
+        "id": 84,
+        "caracId": 0,
+        "companionId": 9,
+        "order": 0,
+        "statPerLevelRange": [
+            [
+                1.0,
+                55.0
+            ],
+            [
+                50.0,
+                5.0
+            ],
+            [
+                100.0,
+                10.0
+            ],
+            [
+                150.0,
+                20.0
+            ],
+            [
+                200.0,
+                40.0
+            ]
+        ]
+    },
+    {
+        "id": 62,
+        "caracId": 79,
+        "companionId": 7,
+        "order": 9,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.15
+            ]
+        ]
+    },
+    {
+        "id": 142,
+        "caracId": 85,
+        "companionId": 6,
+        "order": 9,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.4
+            ]
+        ]
+    },
+    {
+        "id": 219,
+        "caracId": 23,
+        "companionId": 14,
+        "order": 2,
+        "statPerLevelRange": [
+            [
+                1.0,
+                3.0
+            ],
+            [
+                200.0,
+                0.017
+            ]
+        ]
+    },
+    {
+        "id": 226,
+        "caracId": 79,
+        "companionId": 14,
+        "order": 9,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.375
+            ]
+        ]
+    },
+    {
+        "id": 79,
+        "caracId": 28,
+        "companionId": 8,
+        "order": 7,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.3
+            ]
+        ]
+    },
+    {
+        "id": 200,
+        "caracId": 0,
+        "companionId": 15,
+        "order": 0,
+        "statPerLevelRange": [
+            [
+                1.0,
+                55.0
+            ],
+            [
+                50.0,
+                5.0
+            ],
+            [
+                100.0,
+                10.0
+            ],
+            [
+                150.0,
+                20.0
+            ],
+            [
+                200.0,
+                40.0
+            ]
+        ]
+    },
+    {
+        "id": 201,
+        "caracId": 1,
+        "companionId": 15,
+        "order": 1,
+        "statPerLevelRange": [
+            [
+                1.0,
+                6.0
+            ],
+            [
+                200.0,
+                0.029
+            ]
+        ]
+    },
+    {
+        "id": 143,
+        "caracId": 83,
+        "companionId": 9,
+        "order": 9,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.4
+            ]
+        ]
+    },
+    {
+        "id": 144,
+        "caracId": 48,
+        "companionId": 11,
+        "order": 15,
+        "statPerLevelRange": [
+            [
+                1.0,
+                100.0
+            ]
+        ]
+    },
+    {
+        "id": 145,
+        "caracId": 48,
+        "companionId": 8,
+        "order": 17,
+        "statPerLevelRange": [
+            [
+                1.0,
+                100.0
+            ]
+        ]
+    },
+    {
+        "id": 146,
+        "caracId": 48,
+        "companionId": 1,
+        "order": 15,
+        "statPerLevelRange": [
+            [
+                1.0,
+                100.0
+            ]
+        ]
+    },
+    {
+        "id": 147,
+        "caracId": 48,
+        "companionId": 6,
+        "order": 15,
+        "statPerLevelRange": [
+            [
+                1.0,
+                100.0
+            ]
+        ]
+    },
+    {
+        "id": 148,
+        "caracId": 48,
+        "companionId": 9,
+        "order": 15,
+        "statPerLevelRange": [
+            [
+                1.0,
+                100.0
+            ]
+        ]
+    },
+    {
+        "id": 149,
+        "caracId": 48,
+        "companionId": 7,
+        "order": 16,
+        "statPerLevelRange": [
+            [
+                1.0,
+                100.0
+            ]
+        ]
+    },
+    {
+        "id": 150,
+        "caracId": 48,
+        "companionId": 2,
+        "order": 15,
+        "statPerLevelRange": [
+            [
+                1.0,
+                100.0
+            ]
+        ]
+    },
+    {
+        "id": 202,
+        "caracId": 23,
+        "companionId": 15,
+        "order": 2,
+        "statPerLevelRange": [
+            [
+                1.0,
+                3.0
+            ],
+            [
+                200.0,
+                0.017
+            ]
+        ]
+    },
+    {
+        "id": 205,
+        "caracId": 25,
+        "companionId": 15,
+        "order": 5,
+        "statPerLevelRange": [
+            [
+                1.0,
+                3.0
+            ],
+            [
+                50.0,
+                3.0
+            ],
+            [
+                100.0,
+                5.0
+            ],
+            [
+                150.0,
+                7.0
+            ],
+            [
+                200.0,
+                9.0
+            ]
+        ]
+    },
+    {
+        "id": 206,
+        "caracId": 27,
+        "companionId": 15,
+        "order": 6,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.3
+            ]
+        ]
+    },
+    {
+        "id": 207,
+        "caracId": 28,
+        "companionId": 15,
+        "order": 7,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.3
+            ]
+        ]
+    },
+    {
+        "id": 208,
+        "caracId": 78,
+        "companionId": 15,
+        "order": 8,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.3
+            ]
+        ]
+    },
+    {
+        "id": 209,
+        "caracId": 79,
+        "companionId": 15,
+        "order": 9,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.15
+            ]
+        ]
+    },
+    {
+        "id": 211,
+        "caracId": 33,
+        "companionId": 15,
+        "order": 11,
+        "statPerLevelRange": [
+            [
+                1.0,
+                20.0
+            ]
+        ]
+    },
+    {
+        "id": 212,
+        "caracId": 34,
+        "companionId": 15,
+        "order": 12,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 213,
+        "caracId": 35,
+        "companionId": 15,
+        "order": 13,
+        "statPerLevelRange": [
+            [
+                1.0,
+                10.0
+            ]
+        ]
+    },
+    {
+        "id": 68,
+        "caracId": 0,
+        "companionId": 8,
+        "order": 0,
+        "statPerLevelRange": [
+            [
+                1.0,
+                55.0
+            ],
+            [
+                50.0,
+                5.0
+            ],
+            [
+                100.0,
+                10.0
+            ],
+            [
+                150.0,
+                20.0
+            ],
+            [
+                200.0,
+                40.0
+            ]
+        ]
+    },
+    {
+        "id": 126,
+        "caracId": 0,
+        "companionId": 11,
+        "order": 0,
+        "statPerLevelRange": [
+            [
+                1.0,
+                55.0
+            ],
+            [
+                50.0,
+                5.0
+            ],
+            [
+                100.0,
+                10.0
+            ],
+            [
+                150.0,
+                20.0
+            ],
+            [
+                200.0,
+                40.0
+            ]
+        ]
+    },
+    {
+        "id": 151,
+        "caracId": 0,
+        "companionId": 12,
+        "order": 0,
+        "statPerLevelRange": [
+            [
+                1.0,
+                54.0
+            ],
+            [
+                50.0,
+                4.0
+            ],
+            [
+                100.0,
+                8.0
+            ],
+            [
+                150.0,
+                16.0
+            ],
+            [
+                200.0,
+                32.0
+            ]
+        ]
+    },
+    {
+        "id": 154,
+        "caracId": 16,
+        "companionId": 12,
+        "order": 3,
+        "statPerLevelRange": [
+            [
+                1.0,
+                0.2
+            ],
+            [
+                50.0,
+                0.2
+            ],
+            [
+                100.0,
+                0.4
+            ],
+            [
+                150.0,
+                0.6
+            ],
+            [
+                200.0,
+                0.8
+            ]
+        ]
+    },
+    {
+        "id": 8,
+        "caracId": 0,
+        "companionId": 1,
+        "order": 0,
+        "statPerLevelRange": [
+            [
+                1.0,
+                55.0
+            ],
+            [
+                50.0,
+                5.0
+            ],
+            [
+                100.0,
+                10.0
+            ],
+            [
+                150.0,
+                20.0
+            ],
+            [
+                200.0,
+                40.0
+            ]
+        ]
+    },
+    {
+        "id": 221,
+        "caracId": 16,
+        "companionId": 14,
+        "order": 4,
+        "statPerLevelRange": [
+            [
+                1.0,
+                0.2
+            ],
+            [
+                50.0,
+                0.2
+            ],
+            [
+                100.0,
+                0.4
+            ],
+            [
+                150.0,
+                0.6
+            ],
+            [
+                200.0,
+                0.8
+            ]
+        ]
+    },
+    {
+        "id": 138,
+        "caracId": 25,
+        "companionId": 11,
+        "order": 5,
+        "statPerLevelRange": [
+            [
+                1.0,
+                3.0
+            ],
+            [
+                50.0,
+                3.0
+            ],
+            [
+                100.0,
+                5.0
+            ],
+            [
+                150.0,
+                7.0
+            ],
+            [
+                200.0,
+                9.0
+            ]
+        ]
+    },
+    {
+        "id": 96,
+        "caracId": 16,
+        "companionId": 9,
+        "order": 3,
+        "statPerLevelRange": [
+            [
+                1.0,
+                0.2
+            ],
+            [
+                50.0,
+                0.2
+            ],
+            [
+                100.0,
+                0.4
+            ],
+            [
+                150.0,
+                0.6
+            ],
+            [
+                200.0,
+                0.8
+            ]
+        ]
+    },
+    {
+        "id": 51,
+        "caracId": 25,
+        "companionId": 7,
+        "order": 5,
+        "statPerLevelRange": [
+            [
+                1.0,
+                3.0
+            ],
+            [
+                50.0,
+                3.0
+            ],
+            [
+                100.0,
+                5.0
+            ],
+            [
+                150.0,
+                7.0
+            ],
+            [
+                200.0,
+                9.0
+            ]
+        ]
+    },
+    {
+        "id": 22,
+        "caracId": 25,
+        "companionId": 2,
+        "order": 5,
+        "statPerLevelRange": [
+            [
+                1.0,
+                3.0
+            ],
+            [
+                50.0,
+                3.0
+            ],
+            [
+                100.0,
+                5.0
+            ],
+            [
+                150.0,
+                7.0
+            ],
+            [
+                200.0,
+                9.0
+            ]
+        ]
+    },
+    {
+        "id": 204,
+        "caracId": 16,
+        "companionId": 15,
+        "order": 4,
+        "statPerLevelRange": [
+            [
+                1.0,
+                0.2
+            ],
+            [
+                50.0,
+                0.2
+            ],
+            [
+                100.0,
+                0.4
+            ],
+            [
+                150.0,
+                0.6
+            ],
+            [
+                200.0,
+                0.8
+            ]
+        ]
+    },
+    {
+        "id": 254,
+        "caracId": 23,
+        "companionId": 17,
+        "order": 2,
+        "statPerLevelRange": [
+            [
+                1.0,
+                3.0
+            ],
+            [
+                200.0,
+                0.017
+            ]
+        ]
+    },
+    {
+        "id": 255,
+        "caracId": 19,
+        "companionId": 17,
+        "order": 3,
+        "statPerLevelRange": [
+            [
+                1.0,
+                3.0
+            ],
+            [
+                200.0,
+                0.017
+            ]
+        ]
+    },
+    {
+        "id": 257,
+        "caracId": 25,
+        "companionId": 17,
+        "order": 5,
+        "statPerLevelRange": [
+            [
+                1.0,
+                3.0
+            ],
+            [
+                50.0,
+                3.0
+            ],
+            [
+                100.0,
+                5.0
+            ],
+            [
+                150.0,
+                7.0
+            ],
+            [
+                200.0,
+                9.0
+            ]
+        ]
+    },
+    {
+        "id": 258,
+        "caracId": 27,
+        "companionId": 17,
+        "order": 6,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.3
+            ]
+        ]
+    },
+    {
+        "id": 259,
+        "caracId": 28,
+        "companionId": 17,
+        "order": 7,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.3
+            ]
+        ]
+    },
+    {
+        "id": 260,
+        "caracId": 78,
+        "companionId": 17,
+        "order": 8,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.3
+            ]
+        ]
+    },
+    {
+        "id": 261,
+        "caracId": 79,
+        "companionId": 17,
+        "order": 9,
+        "statPerLevelRange": [
+            [
+                200.0,
+                0.3
+            ]
+        ]
+    }
+]

@@ -1,0 +1,42 @@
+[
+    {
+        "id": 3103,
+        "chainReactionSpellId": 2759,
+        "explodSpellId": 2758,
+        "wallId": 1,
+        "instantSpellId": 2762,
+        "comboCoeff": 100
+    },
+    {
+        "id": 3112,
+        "chainReactionSpellId": 13457,
+        "explodSpellId": 13455,
+        "wallId": 2,
+        "instantSpellId": 13456,
+        "comboCoeff": 0
+    },
+    {
+        "id": 3113,
+        "chainReactionSpellId": 13460,
+        "explodSpellId": 13467,
+        "wallId": 3,
+        "instantSpellId": 13459,
+        "comboCoeff": 0
+    },
+    {
+        "id": 3114,
+        "chainReactionSpellId": 13464,
+        "explodSpellId": 13462,
+        "wallId": 4,
+        "instantSpellId": 13463,
+        "comboCoeff": 0
+    },
+    {
+        "id": 5161,
+        "chainReactionSpellId": 13502,
+        "explodSpellId": 13504,
+        "wallId": 5,
+        "instantSpellId": 13503,
+        "comboCoeff": 0
+    }
+]

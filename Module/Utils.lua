@@ -2,7 +2,7 @@ Utils = {}
 
 Utils.cellAray = {}
 
-Utils.colorPrint = {}
+Utils.colorPrint = {["Info"] = "#00fc4c", ["Error"] = "#fc0000"}
 
 -- Print, Divers
 
@@ -155,36 +155,46 @@ end
 -- Array
 
 function Utils:ArrayConcat(...)
-    local t = {}
-    for n = 1,select("#",...) do
-        local arg = select(n,...)
-        if type(arg)=="table" then
-            for _,v in ipairs(arg) do
-                t[#t+1] = v
-            end
-        else
-            t[#t+1] = arg
+    local arg = {...}
+    local ret = arg[1]
+
+    for i = 2, #arg do
+        for k,v in pairs(arg[i]) do
+            ret[k] = v
         end
     end
-    return t
+    return ret
 end
 
 function Utils:Dump(tbl, printDelay)
+    local k = "root"
     printDelay = printDelay or 0
 
-    local function dmp(t, l, k, rep)
+    local function dmp(t, l, k, rep, init)
         global:delay(printDelay)
         if type(t) == "table" then
             self:Print(string.format("% s% s:", string.rep(rep, l * 3), tostring (k)))
             for key, v in pairs(t) do
-                dmp(v, l + 1, key, " ")
+                if key ~= "c" then
+                    if self.class.isClass(v) or self.class.isInstance(v) then
+                        key = tostring(v)
+                    end
+                    dmp(v, l + 1, key, " ")
+                end
             end
         else
-            self:Print(string.format("% s% s:% s", string.rep(rep, l * 3), tostring (k), tostring (t)))
+            if self.class.isClass(t) or self.class.isInstance(t) then
+                k = tostring(t)
+            end
+            self:Print(string.format("% s% s:% s", string.rep(rep, l * 3), tostring(k), tostring(t)))
         end
     end
 
-    dmp(tbl, 1, "root", "")
+    if self.class.isClass(tbl) or self.class.isInstance(tbl) then
+        k = tostring(tbl)
+    end
+
+    dmp(tbl, 1, k or "root", "", true)
 end
 
 function Utils:GetTableValue(index, tbl)

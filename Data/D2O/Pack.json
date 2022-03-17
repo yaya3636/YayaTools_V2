@@ -1,0 +1,17 @@
+[
+    {
+        "id": 0,
+        "name": "base",
+        "hasSubAreas": true
+    },
+    {
+        "id": 1,
+        "name": "all",
+        "hasSubAreas": true
+    },
+    {
+        "id": 11,
+        "name": "subscribed",
+        "hasSubAreas": true
+    }
+]

@@ -1,0 +1,22 @@
+[
+    {
+        "id": 0,
+        "nameId": 179,
+        "canConquest": true
+    },
+    {
+        "id": 1,
+        "nameId": 178,
+        "canConquest": true
+    },
+    {
+        "id": 2,
+        "nameId": 309773,
+        "canConquest": true
+    },
+    {
+        "id": 3,
+        "nameId": 176,
+        "canConquest": false
+    }
+]

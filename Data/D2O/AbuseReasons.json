@@ -1,0 +1,32 @@
+[
+    {
+        "_abuseReasonId": 1,
+        "_mask": 1,
+        "_reasonTextId": 3
+    },
+    {
+        "_abuseReasonId": 2,
+        "_mask": 3,
+        "_reasonTextId": 4
+    },
+    {
+        "_abuseReasonId": 3,
+        "_mask": 1,
+        "_reasonTextId": 1
+    },
+    {
+        "_abuseReasonId": 4,
+        "_mask": 1,
+        "_reasonTextId": 5
+    },
+    {
+        "_abuseReasonId": 5,
+        "_mask": 1,
+        "_reasonTextId": 6
+    },
+    {
+        "_abuseReasonId": 6,
+        "_mask": 1,
+        "_reasonTextId": 2
+    }
+]

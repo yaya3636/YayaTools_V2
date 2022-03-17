@@ -1,0 +1,1641 @@
+[
+    {
+        "id": 80,
+        "name": "PSI 1-1 Narkasseth Onirique",
+        "description": "Bo\u00eete de r\u00e9compense pour les songes infinis.",
+        "randomDropItems": [
+            {
+                "id": 4869,
+                "itemId": 22058,
+                "probability": 50.0,
+                "minQuantity": 20,
+                "maxQuantity": 20
+            },
+            {
+                "id": 4871,
+                "itemId": 21970,
+                "probability": 430.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4856,
+                "itemId": 22058,
+                "probability": 300.0,
+                "minQuantity": 2,
+                "maxQuantity": 2
+            },
+            {
+                "id": 4870,
+                "itemId": 21964,
+                "probability": 70.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4868,
+                "itemId": 22058,
+                "probability": 150.0,
+                "minQuantity": 4,
+                "maxQuantity": 4
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 81,
+        "name": "PSI 2-1 Narkasseth Fantastique",
+        "description": "Bo\u00eete de r\u00e9compense pour les songes infinis.",
+        "randomDropItems": [
+            {
+                "id": 4876,
+                "itemId": 21973,
+                "probability": 430.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4872,
+                "itemId": 22058,
+                "probability": 300.0,
+                "minQuantity": 5,
+                "maxQuantity": 5
+            },
+            {
+                "id": 4873,
+                "itemId": 22058,
+                "probability": 150.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            },
+            {
+                "id": 4874,
+                "itemId": 22058,
+                "probability": 50.0,
+                "minQuantity": 50,
+                "maxQuantity": 50
+            },
+            {
+                "id": 4875,
+                "itemId": 21965,
+                "probability": 70.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 82,
+        "name": "PSI 3-1 Narkasseth Imaginaire",
+        "description": "Bo\u00eete de r\u00e9compense pour les songes infinis.",
+        "randomDropItems": [
+            {
+                "id": 4900,
+                "itemId": 22058,
+                "probability": 300.0,
+                "minQuantity": 15,
+                "maxQuantity": 15
+            },
+            {
+                "id": 4904,
+                "itemId": 21976,
+                "probability": 420.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4902,
+                "itemId": 22058,
+                "probability": 50.0,
+                "minQuantity": 150,
+                "maxQuantity": 150
+            },
+            {
+                "id": 4901,
+                "itemId": 22058,
+                "probability": 150.0,
+                "minQuantity": 30,
+                "maxQuantity": 30
+            },
+            {
+                "id": 4903,
+                "itemId": 21966,
+                "probability": 70.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4905,
+                "itemId": 20962,
+                "probability": 10.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 83,
+        "name": "PSI 4-1 Narkasseth Brumeuse",
+        "description": "Bo\u00eete de r\u00e9compense pour les songes infinis.",
+        "randomDropItems": [
+            {
+                "id": 4931,
+                "itemId": 20649,
+                "probability": 45.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4928,
+                "itemId": 21979,
+                "probability": 11565.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4924,
+                "itemId": 22058,
+                "probability": 9000.0,
+                "minQuantity": 30,
+                "maxQuantity": 30
+            },
+            {
+                "id": 4926,
+                "itemId": 22058,
+                "probability": 1500.0,
+                "minQuantity": 300,
+                "maxQuantity": 300
+            },
+            {
+                "id": 4952,
+                "itemId": 22416,
+                "probability": 45.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4929,
+                "itemId": 20962,
+                "probability": 1500.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4925,
+                "itemId": 22058,
+                "probability": 4500.0,
+                "minQuantity": 60,
+                "maxQuantity": 60
+            },
+            {
+                "id": 4930,
+                "itemId": 20654,
+                "probability": 45.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4927,
+                "itemId": 21967,
+                "probability": 1800.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 84,
+        "name": "PSI 1-2 Narkofret Onirique",
+        "description": "Bo\u00eete de r\u00e9compense pour les songes infinis.",
+        "randomDropItems": [
+            {
+                "id": 4879,
+                "itemId": 22058,
+                "probability": 50.0,
+                "minQuantity": 50,
+                "maxQuantity": 50
+            },
+            {
+                "id": 4878,
+                "itemId": 22058,
+                "probability": 150.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            },
+            {
+                "id": 4877,
+                "itemId": 22058,
+                "probability": 300.0,
+                "minQuantity": 5,
+                "maxQuantity": 5
+            },
+            {
+                "id": 4881,
+                "itemId": 21971,
+                "probability": 430.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4880,
+                "itemId": 21965,
+                "probability": 70.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 85,
+        "name": "PSI 2-2 Narkofret Fantastique",
+        "description": "Bo\u00eete de r\u00e9compense pour les songes infinis.",
+        "randomDropItems": [
+            {
+                "id": 4888,
+                "itemId": 22058,
+                "probability": 50.0,
+                "minQuantity": 150,
+                "maxQuantity": 150
+            },
+            {
+                "id": 4889,
+                "itemId": 21966,
+                "probability": 70.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4861,
+                "itemId": 22058,
+                "probability": 300.0,
+                "minQuantity": 15,
+                "maxQuantity": 15
+            },
+            {
+                "id": 4891,
+                "itemId": 20962,
+                "probability": 10.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4890,
+                "itemId": 21974,
+                "probability": 420.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4887,
+                "itemId": 22058,
+                "probability": 150.0,
+                "minQuantity": 30,
+                "maxQuantity": 30
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 86,
+        "name": "PSI 3-2 Narkofret Imaginaire",
+        "description": "Bo\u00eete de r\u00e9compense pour les songes infinis.",
+        "randomDropItems": [
+            {
+                "id": 4907,
+                "itemId": 22058,
+                "probability": 300.0,
+                "minQuantity": 60,
+                "maxQuantity": 60
+            },
+            {
+                "id": 4908,
+                "itemId": 22058,
+                "probability": 100.0,
+                "minQuantity": 300,
+                "maxQuantity": 300
+            },
+            {
+                "id": 4906,
+                "itemId": 22058,
+                "probability": 600.0,
+                "minQuantity": 30,
+                "maxQuantity": 30
+            },
+            {
+                "id": 4910,
+                "itemId": 21977,
+                "probability": 764.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4914,
+                "itemId": 20653,
+                "probability": 3.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4909,
+                "itemId": 21967,
+                "probability": 120.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4913,
+                "itemId": 20652,
+                "probability": 3.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4912,
+                "itemId": 20966,
+                "probability": 10.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4911,
+                "itemId": 20962,
+                "probability": 100.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 87,
+        "name": "PSI 4-2 Narkofret Brumeux",
+        "description": "Bo\u00eete de r\u00e9compense pour les songes infinis.",
+        "randomDropItems": [
+            {
+                "id": 4935,
+                "itemId": 21968,
+                "probability": 1800.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4933,
+                "itemId": 22058,
+                "probability": 4500.0,
+                "minQuantity": 200,
+                "maxQuantity": 200
+            },
+            {
+                "id": 4934,
+                "itemId": 22058,
+                "probability": 1500.0,
+                "minQuantity": 1000,
+                "maxQuantity": 1000
+            },
+            {
+                "id": 4951,
+                "itemId": 22418,
+                "probability": 45.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4937,
+                "itemId": 20962,
+                "probability": 1500.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4932,
+                "itemId": 22058,
+                "probability": 9000.0,
+                "minQuantity": 100,
+                "maxQuantity": 100
+            },
+            {
+                "id": 4939,
+                "itemId": 20651,
+                "probability": 45.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4940,
+                "itemId": 20650,
+                "probability": 45.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4938,
+                "itemId": 20965,
+                "probability": 150.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4936,
+                "itemId": 21980,
+                "probability": 11415.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 88,
+        "name": "PSI 1-3 Nark\u00e8s Onirique",
+        "description": "Bo\u00eete de r\u00e9compense pour les songes infinis.",
+        "randomDropItems": [
+            {
+                "id": 4864,
+                "itemId": 22058,
+                "probability": 300.0,
+                "minQuantity": 15,
+                "maxQuantity": 15
+            },
+            {
+                "id": 4882,
+                "itemId": 22058,
+                "probability": 150.0,
+                "minQuantity": 30,
+                "maxQuantity": 30
+            },
+            {
+                "id": 4883,
+                "itemId": 22058,
+                "probability": 50.0,
+                "minQuantity": 150,
+                "maxQuantity": 150
+            },
+            {
+                "id": 4884,
+                "itemId": 21966,
+                "probability": 70.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4885,
+                "itemId": 21972,
+                "probability": 420.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4886,
+                "itemId": 20962,
+                "probability": 10.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 89,
+        "name": "PSI 2-3 Nark\u00e8s Fantastique",
+        "description": "Bo\u00eete de r\u00e9compense pour les songes infinis.",
+        "randomDropItems": [
+            {
+                "id": 4898,
+                "itemId": 20659,
+                "probability": 3.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4892,
+                "itemId": 22058,
+                "probability": 300.0,
+                "minQuantity": 60,
+                "maxQuantity": 60
+            },
+            {
+                "id": 4865,
+                "itemId": 22058,
+                "probability": 600.0,
+                "minQuantity": 30,
+                "maxQuantity": 30
+            },
+            {
+                "id": 4896,
+                "itemId": 20962,
+                "probability": 100.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4893,
+                "itemId": 22058,
+                "probability": 100.0,
+                "minQuantity": 300,
+                "maxQuantity": 300
+            },
+            {
+                "id": 4899,
+                "itemId": 20656,
+                "probability": 3.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4894,
+                "itemId": 21967,
+                "probability": 120.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4895,
+                "itemId": 21975,
+                "probability": 764.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4897,
+                "itemId": 20964,
+                "probability": 10.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 90,
+        "name": "PSI 3-3 Nark\u00e8s Imaginaire",
+        "description": "Bo\u00eete de r\u00e9compense pour les songes infinis.",
+        "randomDropItems": [
+            {
+                "id": 4917,
+                "itemId": 22058,
+                "probability": 1500.0,
+                "minQuantity": 1000,
+                "maxQuantity": 1000
+            },
+            {
+                "id": 4919,
+                "itemId": 21978,
+                "probability": 11415.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4918,
+                "itemId": 21968,
+                "probability": 1800.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4922,
+                "itemId": 20661,
+                "probability": 45.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4916,
+                "itemId": 22058,
+                "probability": 4500.0,
+                "minQuantity": 200,
+                "maxQuantity": 200
+            },
+            {
+                "id": 4915,
+                "itemId": 22058,
+                "probability": 9000.0,
+                "minQuantity": 100,
+                "maxQuantity": 100
+            },
+            {
+                "id": 4953,
+                "itemId": 22415,
+                "probability": 45.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4923,
+                "itemId": 20655,
+                "probability": 45.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4920,
+                "itemId": 20962,
+                "probability": 1500.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4921,
+                "itemId": 20967,
+                "probability": 150.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 91,
+        "name": "PSI 4-3 Nark\u00e8s Brumeuse",
+        "description": "Bo\u00eete de r\u00e9compense pour les songes infinis.",
+        "randomDropItems": [
+            {
+                "id": 4941,
+                "itemId": 22058,
+                "probability": 9000.0,
+                "minQuantity": 250,
+                "maxQuantity": 250
+            },
+            {
+                "id": 4947,
+                "itemId": 20961,
+                "probability": 150.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4945,
+                "itemId": 21981,
+                "probability": 11415.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4948,
+                "itemId": 20660,
+                "probability": 45.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4949,
+                "itemId": 20658,
+                "probability": 45.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4944,
+                "itemId": 21969,
+                "probability": 1800.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4946,
+                "itemId": 20962,
+                "probability": 1500.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 4942,
+                "itemId": 22058,
+                "probability": 4500.0,
+                "minQuantity": 500,
+                "maxQuantity": 500
+            },
+            {
+                "id": 4943,
+                "itemId": 22058,
+                "probability": 1500.0,
+                "minQuantity": 2500,
+                "maxQuantity": 2500
+            },
+            {
+                "id": 4950,
+                "itemId": 22417,
+                "probability": 45.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 109,
+        "name": "Minouki myst\u00e8re",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5188,
+                "itemId": 24983,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 5187,
+                "itemId": 24982,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 5189,
+                "itemId": 24984,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 5184,
+                "itemId": 24979,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 5185,
+                "itemId": 24980,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 5186,
+                "itemId": 24981,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            }
+        ],
+        "displayContent": true,
+        "displayChances": false
+    },
+    {
+        "id": 110,
+        "name": "R\u00e9kloot Bl\u00e9",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5190,
+                "itemId": 289,
+                "probability": 99.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            },
+            {
+                "id": 5191,
+                "itemId": 2018,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 111,
+        "name": "R\u00e9kloot Orge",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5192,
+                "itemId": 400,
+                "probability": 99.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            },
+            {
+                "id": 5193,
+                "itemId": 2032,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 112,
+        "name": "R\u00e9kloot Avoine",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5194,
+                "itemId": 533,
+                "probability": 99.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            },
+            {
+                "id": 5195,
+                "itemId": 2036,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 113,
+        "name": "R\u00e9kloot Houblon",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5197,
+                "itemId": 2021,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 5196,
+                "itemId": 401,
+                "probability": 99.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 114,
+        "name": "R\u00e9kloot Lin",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5198,
+                "itemId": 423,
+                "probability": 99.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            },
+            {
+                "id": 5199,
+                "itemId": 2026,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 115,
+        "name": "R\u00e9kloot Ortie",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5200,
+                "itemId": 421,
+                "probability": 99.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            },
+            {
+                "id": 5201,
+                "itemId": 16378,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 116,
+        "name": "R\u00e9kloot Sauge",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5203,
+                "itemId": 428,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 5202,
+                "itemId": 428,
+                "probability": 99.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 117,
+        "name": "R\u00e9kloot Tr\u00e8fle",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5204,
+                "itemId": 395,
+                "probability": 99.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            },
+            {
+                "id": 5205,
+                "itemId": 16380,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 118,
+        "name": "R\u00e9kloot Menthe",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5206,
+                "itemId": 380,
+                "probability": 99.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            },
+            {
+                "id": 5207,
+                "itemId": 16381,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 119,
+        "name": "R\u00e9kloot Orchid\u00e9e",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5209,
+                "itemId": 16382,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 5208,
+                "itemId": 593,
+                "probability": 99.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 120,
+        "name": "R\u00e9kloot Goujon",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5211,
+                "itemId": 1790,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 5210,
+                "itemId": 1782,
+                "probability": 99.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 121,
+        "name": "R\u00e9kloot Greuvette",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5212,
+                "itemId": 598,
+                "probability": 99.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            },
+            {
+                "id": 5213,
+                "itemId": 1786,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 122,
+        "name": "R\u00e9kloot Truite",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5214,
+                "itemId": 1844,
+                "probability": 99.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            },
+            {
+                "id": 5215,
+                "itemId": 1846,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 123,
+        "name": "R\u00e9kloot Crabe",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5217,
+                "itemId": 1759,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 5216,
+                "itemId": 1757,
+                "probability": 99.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 124,
+        "name": "R\u00e9kloot Poisson-Chaton",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5218,
+                "itemId": 603,
+                "probability": 99.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            },
+            {
+                "id": 5219,
+                "itemId": 1762,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 125,
+        "name": "R\u00e9kloot Poisson Pan\u00e9",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5221,
+                "itemId": 1754,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 5220,
+                "itemId": 1750,
+                "probability": 99.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 126,
+        "name": "R\u00e9kloot Carpe",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5222,
+                "itemId": 1794,
+                "probability": 99.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            },
+            {
+                "id": 5223,
+                "itemId": 1796,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 127,
+        "name": "R\u00e9kloot Sardine",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5224,
+                "itemId": 1805,
+                "probability": 99.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            },
+            {
+                "id": 5225,
+                "itemId": 1807,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 128,
+        "name": "R\u00e9kloot Brochet",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5227,
+                "itemId": 1849,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 5226,
+                "itemId": 1847,
+                "probability": 99.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 129,
+        "name": "R\u00e9kloot Kralamoure",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5229,
+                "itemId": 1799,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 5228,
+                "itemId": 600,
+                "probability": 99.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 130,
+        "name": "R\u00e9kloot Fr\u00eane",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5230,
+                "itemId": 303,
+                "probability": 99.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            },
+            {
+                "id": 5231,
+                "itemId": 16909,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 131,
+        "name": "R\u00e9kloot Ch\u00e2taignier",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5232,
+                "itemId": 473,
+                "probability": 99.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            },
+            {
+                "id": 5233,
+                "itemId": 16910,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 132,
+        "name": "R\u00e9kloot Noyer",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5235,
+                "itemId": 16911,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 5234,
+                "itemId": 476,
+                "probability": 99.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 133,
+        "name": "R\u00e9kloot Ch\u00eane",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5236,
+                "itemId": 460,
+                "probability": 99.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            },
+            {
+                "id": 5237,
+                "itemId": 16912,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 134,
+        "name": "R\u00e9kloot Bombu",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5238,
+                "itemId": 2358,
+                "probability": 99.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            },
+            {
+                "id": 5239,
+                "itemId": 16913,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 135,
+        "name": "R\u00e9kloot Erable",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5241,
+                "itemId": 16914,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 5240,
+                "itemId": 471,
+                "probability": 99.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 136,
+        "name": "R\u00e9kloot Oliviolet",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5242,
+                "itemId": 2357,
+                "probability": 99.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            },
+            {
+                "id": 5243,
+                "itemId": 16915,
+                "probability": 1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 137,
+        "name": "R\u00e9kloot Fer",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5244,
+                "itemId": 312,
+                "probability": 90.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            },
+            {
+                "id": 5245,
+                "itemId": 312,
+                "probability": 10.0,
+                "minQuantity": 20,
+                "maxQuantity": 20
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 138,
+        "name": "R\u00e9kloot Cuivre",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5246,
+                "itemId": 441,
+                "probability": 90.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            },
+            {
+                "id": 5247,
+                "itemId": 441,
+                "probability": 10.0,
+                "minQuantity": 20,
+                "maxQuantity": 20
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 139,
+        "name": "R\u00e9kloot Bronze",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5248,
+                "itemId": 442,
+                "probability": 90.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            },
+            {
+                "id": 5249,
+                "itemId": 442,
+                "probability": 10.0,
+                "minQuantity": 20,
+                "maxQuantity": 20
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 140,
+        "name": "R\u00e9kloot Kobalte",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5250,
+                "itemId": 443,
+                "probability": 90.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            },
+            {
+                "id": 5251,
+                "itemId": 443,
+                "probability": 10.0,
+                "minQuantity": 20,
+                "maxQuantity": 20
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 141,
+        "name": "R\u00e9kloot Mangan\u00e8se",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5252,
+                "itemId": 445,
+                "probability": 90.0,
+                "minQuantity": 10,
+                "maxQuantity": 10
+            },
+            {
+                "id": 5253,
+                "itemId": 445,
+                "probability": 10.0,
+                "minQuantity": 20,
+                "maxQuantity": 20
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    },
+    {
+        "id": 142,
+        "name": "Bo\u00eete \u00e0 cartes",
+        "description": "",
+        "randomDropItems": [
+            {
+                "id": 5262,
+                "itemId": 24785,
+                "probability": -1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 5261,
+                "itemId": 24778,
+                "probability": -1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 5259,
+                "itemId": 24754,
+                "probability": -1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 5267,
+                "itemId": 24807,
+                "probability": -1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 5266,
+                "itemId": 24801,
+                "probability": -1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 5254,
+                "itemId": 24601,
+                "probability": -1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 5255,
+                "itemId": 24726,
+                "probability": -1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 5256,
+                "itemId": 24734,
+                "probability": -1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 5257,
+                "itemId": 24752,
+                "probability": -1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 5265,
+                "itemId": 24799,
+                "probability": -1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 5264,
+                "itemId": 24789,
+                "probability": -1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 5258,
+                "itemId": 24753,
+                "probability": -1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 5263,
+                "itemId": 24787,
+                "probability": -1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 5268,
+                "itemId": 24808,
+                "probability": -1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            },
+            {
+                "id": 5260,
+                "itemId": 24755,
+                "probability": -1.0,
+                "minQuantity": 1,
+                "maxQuantity": 1
+            }
+        ],
+        "displayContent": true,
+        "displayChances": true
+    }
+]
