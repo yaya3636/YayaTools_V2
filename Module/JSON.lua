@@ -47,11 +47,12 @@ JSON.escapeCharMapInv = { [ "/" ] = "/" }
 JSON.spaceChars = create_set(" ", "\t", "\r", "\n")
 JSON.delimChars = create_set(" ", "\t", "\r", "\n", "]", "}", ",")
 JSON.escapeChars = create_set("\\", "/", '"', "b", "f", "n", "r", "t", "u")
-JSON.literals = create_set("true", "false", "null")
+JSON.literals = create_set("true", "false", "null", "NaN")
 JSON.literalMap = {
     [ "true"  ] = true,
     [ "false" ] = false,
     [ "null"  ] = nil,
+    [  "NaN"  ] = nil
 }
 
 function JSON:NextChar(str, idx, set, negate)
@@ -126,7 +127,6 @@ function JSON:ParseString(str, i)
                 if not self.escapeChars[c] then
                     self:DecodeError(str, j - 1, "invalid escape char '" .. c .. "' in string")
                 end
-                self.tools:Print("ici")
                 res = res .. self.escapeCharMapInv[c]
             end
             k = j + 1
@@ -154,6 +154,10 @@ end
 function JSON:ParseLiteral(str, i)
     local x = self:NextChar(str, i, self.delimChars)
     local word = str:sub(i, x - 1)
+    if word == "NaN" then
+        x = x + 1
+    end
+    --self.tools:Print(word)
     if not self.literals[word] then
         self:DecodeError(str, i, "invalid literal '" .. word .. "'")
     end
@@ -249,7 +253,8 @@ function JSON:Parse(str, idx)
         return self:ParseNumber(str, idx)
     elseif chr == "t" or
            chr == "f" or
-           chr == "n" then
+           chr == "n" or
+           chr == "N" then
         --self.tools:Print("Literal")
         return self:ParseLiteral(str, idx)
     elseif chr == "[" then
@@ -269,6 +274,7 @@ function JSON:decode(str, header)
         return nil
     end
     local res, idx = self:Parse(str, self:NextChar(str, 1, self.spaceChars, true))
+
     if res == nil or idx == nil then
         return nil
     end

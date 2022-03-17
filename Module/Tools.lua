@@ -38,6 +38,8 @@ function Tools.craft:init(params)
     params = params or {}
     self.tools = Tools()
     self.json = Tools.json()
+    self.d2oRecipes = self.json:decode(self.tools:ReadFile(self.d2oRecipesPath), "Recipes")
+    self:InitD2oProperties()
 end
 
 function Tools.dictionnary:init(dic, N)

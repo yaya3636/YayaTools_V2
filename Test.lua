@@ -1,15 +1,9 @@
 Tools = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Tools.lua")
-Zone = Tools.zone
+Craft = Tools.craft
 
 function move()
-    local obj = Tools.object({ test = "test"})
-    local dic = Tools.dictionnary()
-    local list = Tools.list()
-    list:Add("Test")
-    dic:Add("test", list)
-    Tools:Dump(dic)
+    Tools:Dump(Craft.d2oRecipes)
 end
 
-
---Zone = Zone()
+Craft = Craft()
 Tools = Tools()
