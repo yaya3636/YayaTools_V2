@@ -65,7 +65,7 @@ function Monsters:InitD2oProperties()
     local parseDrops = function(drops)
         local ret = self.tools.dictionnary()
         for _, v in pairs(drops) do
-            ret:Add(v.dropId, self.tools.object(v))
+            ret:Add(v.objectId, self.tools.object(v))
         end
 
         return ret

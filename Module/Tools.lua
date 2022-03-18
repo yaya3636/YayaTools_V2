@@ -24,6 +24,7 @@ Tools.api.dofusDB = Tools.api:extend("DofusDB")
 Tools.api.dofusDB.harvestable = Tools.api.dofusDB:extend("Harvestable", API.dofusDB.harvestable)()
 Tools.api.dofusDB.treasure = Tools.api.dofusDB:extend("Treasure", API.dofusDB.treasure)()
 Tools.api.dofusDB = Tools.api.dofusDB()
+Tools.dungeons = Tools.monsters:extend("Dungeons", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Dungeons.lua"))
 
 -- Constructeur
 
@@ -39,6 +40,17 @@ function Tools.craft:init(params)
     self.tools = Tools()
     self.json = Tools.json()
     self.d2oRecipes = self.json:decode(self.tools:ReadFile(self.d2oRecipesPath), "Recipes")
+    self:InitD2oProperties()
+end
+
+function Tools.dungeons:init(params)
+    params = params or {}
+    self.monsters = params.monsters
+    self.zone = params.zone
+    self.tools = Tools()
+    self.json = Tools.json()
+    self.d2oDungeons = self.json:decode(self.tools:ReadFile(self.d2oDungeonsPath), "Dungeons")
+    self.dungeonsKeys = self.json:decode(self.tools:ReadFile(self.dungeonsKeysPath), "Dungeons")
     self:InitD2oProperties()
 end
 
