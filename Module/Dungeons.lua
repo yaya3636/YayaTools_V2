@@ -48,7 +48,6 @@ function Dungeons:GetDungeonsEntranceByDropId(dropId)
 
     if monsterBoss then
         for _, vMapId in pairs(self.zone:GetSubAreaMapId(monsterBoss.favoriteSubareaId):Enumerate()) do
-            self.tools:Print(vMapId)
             local mapId = self:GetDungeonsEntranceByMapId(vMapId)
             if mapId then return mapId end
         end
