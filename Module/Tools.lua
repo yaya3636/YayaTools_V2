@@ -4,8 +4,9 @@ API = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\API.lua")
 Tools = Class("Tools", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Utils.lua"))
 Tools.class = Class
 Tools.craft = Class("Craft", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Craft.lua"))
+Tools.dungeons = Class("Dungeons", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Dungeons.lua"))
 Tools.dictionnary = Class("Dictionnary", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Dictionnary.lua"))
-Tools.json = Class("Json", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\json.lua"))
+Tools.json = Class("Json", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Json.lua"))
 Tools.list = Class("List", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\List.lua"))
 Tools.monsters = Class("Monsters", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Monsters.lua"))
 Tools.movement = Class("Movement", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Movement.lua"))
@@ -24,7 +25,6 @@ Tools.api.dofusDB = Tools.api:extend("DofusDB")
 Tools.api.dofusDB.harvestable = Tools.api.dofusDB:extend("Harvestable", API.dofusDB.harvestable)()
 Tools.api.dofusDB.treasure = Tools.api.dofusDB:extend("Treasure", API.dofusDB.treasure)()
 Tools.api.dofusDB = Tools.api.dofusDB()
-Tools.dungeons = Tools.monsters:extend("Dungeons", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Dungeons.lua"))
 
 -- Constructeur
 
