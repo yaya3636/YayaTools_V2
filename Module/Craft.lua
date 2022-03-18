@@ -31,58 +31,28 @@ function Craft:InitD2oProperties()
     self.d2oRecipes = d2oRecipes
 end
 
-function Craft:GetCraftInfo(craftId)
-    local craftInfo = self.json:decode(self.tools:ReadFile(self.craftPath .. craftId .. ".json"))
-
-    if craftInfo then
-        return craftInfo
-    end
-    return nil
+function Craft:GetCraftObject(craftId)
+    return self.d2oRecipes:Get(craftId) or nil
 end
 
 function Craft:GetJobId(craftId)
-    local craftInfo = self.json:decode(self.tools:ReadFile(self.craftPath .. craftId .. ".json"))
-
-    if craftInfo then
-        return craftInfo.jobId
-    end
-    return nil
+    return self.d2oRecipes:Get(craftId).jobId or nil
 end
 
 function Craft:GetSkillId(craftId)
-    local craftInfo = self.json:decode(self.tools:ReadFile(self.craftPath .. craftId .. ".json"))
-
-    if craftInfo then
-        return craftInfo.skillId
-    end
-    return nil
+    return self.d2oRecipes:Get(craftId).skillId or nil
 end
 
 function Craft:GetLevel(craftId)
-    local craftInfo = self.json:decode(self.tools:ReadFile(self.craftPath .. craftId .. ".json"))
-
-    if craftInfo then
-        return craftInfo.craftLvl
-    end
-    return nil
+    return self.d2oRecipes:Get(craftId).level or nil
 end
 
 function Craft:GetTypeId(craftId)
-    local craftInfo = self.json:decode(self.tools:ReadFile(self.craftPath .. craftId .. ".json"))
-
-    if craftInfo then
-        return craftInfo.typeId
-    end
-    return nil
+    return self.d2oRecipes:Get(craftId).typeId or nil
 end
 
 function Craft:GetIngredients(craftId)
-    local craftInfo = self.json:decode(self.tools:ReadFile(self.craftPath .. craftId .. ".json"))
-
-    if craftInfo then
-        return craftInfo.ingredients
-    end
-    return nil
+    return self.d2oRecipes:Get(craftId).ingredients or nil
 end
 
 return Craft
