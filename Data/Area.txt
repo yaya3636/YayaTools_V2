@@ -1,0 +1,57 @@
+0 - Amakna
+1 - Île des Wabbits
+2 - Île de Moon
+3 - Prison de Madrestam
+5 - Baie de Sufokia
+6 - Forêt des Abraknydes
+7 - Bonta
+8 - Plaines de Cania
+11 - Brâkmar
+12 - Landes de Sidimote
+15 - Foire du Trool
+18 - Astrub
+26 - Labyrinthe du Dragon Cochon
+28 - Montagne des Koalaks
+30 - Île du Minotoror
+42 - Île de Nowel
+45 - Incarnam
+46 - Île d'Otomaï
+48 - Île de Frigost
+49 - Île de Sakaï
+50 - Archipel de Vulkania
+51 - Îlots de la mer d'Asse
+52 - Convention
+53 - Enutrosor
+54 - Srambad
+55 - Xélorium
+56 - Zone privée
+57 - Île de Rok
+58 - Havres-Sacs
+59 - Ecaflipus
+60 - Domaine des fils d'Ecaflip
+61 - Saharach
+62 - Nimotopia
+63 - Profondeurs de Sufokia
+64 - Externam
+65 - Dimension Obscure
+66 - Mode tactique
+67 - Ingloriom
+68 - Rêve du Monde des Douze
+69 - Archipel des Écailles
+70 - Destin du Monde
+71 - Île de Pwâk
+72 - Anomalies temporelles
+73 - Horloge de Xélor
+74 - Eliocalypse
+75 - Profondeurs d'Astrub
+76 - Éther
+77 - Centre du Monde
+78 - Île de Pandala
+79 - Île de Grobe
+80 - Plan Astral
+81 - Fleuve vers Externam
+82 - Wukin et Wukang
+83 - Gelaxième dimension
+84 - Dimensions des Cavaliers
+85 - Dimension Abyssale
+86 - Atoll des Possédés

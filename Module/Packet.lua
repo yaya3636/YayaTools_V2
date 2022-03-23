@@ -1,12 +1,20 @@
 Packet = {}
 
+Packet.subscribedPacket = {}
+
 function Packet:SubManager(packetToSub, register)
+    self.tools:Print("La")
     for kPacketName, vCallBack in pairs(packetToSub) do
         if register then -- Abonnement au packet
             if not developer:isMessageRegistred(kPacketName) then
                 self.tools:Print("Abonnement au packet : "..kPacketName, "packet")
+                local tmpClass = self.tools.class(kPacketName)
+                --tmpClass.init = vCallBack
                 developer:registerMessage(kPacketName, vCallBack)
-            end            
+            end
+
+
+
         else -- Désabonnement des packet
             if developer:isMessageRegistred(kPacketName) then
                 self.tools:Print("Désabonnement au packet : "..kPacketName, "packet")

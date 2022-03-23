@@ -80,6 +80,16 @@ function Utils:ReadFile(path)
     return content
 end
 
+function Utils:ReadFileLine(file)
+    if not self:FileExists(file) then return {} end
+    local lines = self.list()
+    for line in io.lines(file) do
+        lines:Add(line)
+    end
+    return lines
+end
+
+
 function Utils:WriteFile(path, content)
     local file = io.open(path, "w+") -- r read mode and b binary mode
     file:write(content)
@@ -87,8 +97,9 @@ function Utils:WriteFile(path, content)
 end
 
 function Utils:FileExists(path)
-    local f=io.open(path,"r")
-    if f~=nil then io.close(f) return true else return false end
+    local f = io.open(path, "rb")
+    if f then f:close() end
+    return f ~= nil
 end
 
 -- Distance cellule dofus
@@ -167,7 +178,7 @@ function Utils:ArrayConcat(...)
 end
 
 function Utils:Dump(tbl, printDelay)
-    local k = "root"
+    local str = "Root"
     printDelay = printDelay or 0
 
     local function dmp(t, l, k, rep, init)
@@ -177,24 +188,24 @@ function Utils:Dump(tbl, printDelay)
             for key, v in pairs(t) do
                 if key ~= "c" then
                     if self.class.isClass(v) or self.class.isInstance(v) then
-                        key = tostring(v)
+                        key = key .. " : " .. tostring(v)
                     end
                     dmp(v, l + 1, key, " ")
                 end
             end
         else
             if self.class.isClass(t) or self.class.isInstance(t) then
-                k = tostring(t)
+                k = k .. " : " ..  tostring(t)
             end
             self:Print(string.format("% s% s:% s", string.rep(rep, l * 3), tostring(k), tostring(t)))
         end
     end
 
     if self.class.isClass(tbl) or self.class.isInstance(tbl) then
-        k = tostring(tbl)
+        str = str .. " : " .. tostring(tbl)
     end
 
-    dmp(tbl, 1, k or "root", "", true)
+    dmp(tbl, 1, str, "", true)
 end
 
 function Utils:GetTableValue(index, tbl)

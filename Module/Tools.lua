@@ -19,6 +19,9 @@ Tools.zone = Class("Zone", dofile(global:getCurrentDirectory() .. "\\YayaTools\\
 Tools.graph = Class("Graph", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Graph\\data\\graph.lua"))
 Tools.dijkstra = Class("Dijkstra", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Graph\\shortest_paths\\Dijkstra.lua"))
 
+Tools.character = Class("Character", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Character.lua"))
+Tools.character.dialog = Tools.character:extend("Dialog", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Dialog.lua"))()
+
 Tools.api = Class("Api", {tools = Tools(), json = Tools.json()})
 Tools.api.localAPI = Tools.api:extend("LocalAPI", API.localAPI)()
 Tools.api.dofusDB = Tools.api:extend("DofusDB")
@@ -41,6 +44,12 @@ function Tools.craft:init(params)
     self.json = Tools.json()
     self.d2oRecipes = self.json:decode(self.tools:ReadFile(self.d2oRecipesPath), "Recipes")
     self:InitD2oProperties()
+end
+
+function Tools.character:init(params)
+    params = params or {}
+    self.tools = Tools()
+    self.json = Tools.json()
 end
 
 function Tools.dungeons:init(params)

@@ -1,24 +1,30 @@
 Tools = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Tools.lua")
-Dungeons = Tools.dungeons
-Monsters = Tools.monsters
-Zone = Tools.zone
+Character = Tools.character
+--Dungeons = Tools.dungeons
+--Monsters = Tools.monsters
+--Zone = Tools.zone
+Packet = Tools.packet
 
 function move()
-    Tools:Print("----------------------------------------------------------")
-    Tools:Print("----------------------------------------------------------")
-    --Tools:Dump(Monsters:GetMonsterObject(16525))
-    Tools:Dump(Dungeons:GetDungeonsEntranceByDropId(16525))
-    Tools:Print("----------------------------------------------------------")
-    Tools:Print("----------------------------------------------------------")
-    Tools:Print(Dungeons:GetDungeonsKeyId(Dungeons:GetDungeonsEntranceByDropId(16525)))
-    Tools:Print("----------------------------------------------------------")
-    Tools:Print("----------------------------------------------------------")
-    Tools:Dump(Dungeons:GetDungeonsEntranceByMapId(152829952))
-    Tools:Print("----------------------------------------------------------")
-    Tools:Print("----------------------------------------------------------")
+    Packet:SubManager({["ChatServerMessage"] = Character.test}, true)
+    --Tools:Dump()
 end
 
-Zone = Zone()
-Monsters = Monsters()
-Dungeons = Dungeons({ monsters = Monsters, zone = Zone })
+Character.test = function(msg)
+    Tools:Print(msg)
+
+end
+
+function test(msg)
+
+    Tools:Print(msg)
+
+end
+
+
+Character = Character()
+Packet = Packet()
+--Zone = Zone()
+--Monsters = Monsters()
+--Dungeons = Dungeons({ monsters = Monsters, zone = Zone })
 Tools = Tools()
