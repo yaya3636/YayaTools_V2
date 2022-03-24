@@ -112,6 +112,7 @@ end
 function Tools.packet:init(params)
     params = params or {}
     self.tools = Tools()
+    self.subscribedPacket = self.tools.dictionnary()
 end
 
 function Tools.timer:init(params)
