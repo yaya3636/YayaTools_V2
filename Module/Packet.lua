@@ -1,3 +1,4 @@
+DEVELOPER_MULTI_THREADING = true
 Packet = {}
 
 Packet.subscribedPacket = {}
@@ -6,17 +7,22 @@ function Packet:SubManager(packetToSub)
     for kPacketName, vCallBack in pairs(packetToSub) do
         if type(vCallBack) == "function" then -- Abonnement au packet
             local signatureFunc = string.dump(vCallBack)
+            --self.tools:Print(signatureFunc)
             -- Vérifie si le packet est déja enregistrer sinon on l'enregistre
             if not self.subscribedPacket:ContainsKey(kPacketName) then
+                if developer:isMessageRegistred(kPacketName) then
+                    developer:unRegisterMessage(kPacketName)
+                end
                 self.tools:Print("Abonnement au packet : "..kPacketName, "packet")
+                self["suspendScriptUntil" .. kPacketName] = developer:suspendScriptUntil(kPacketName, 0, false, "", 1)
                 self.subscribedPacket:Add(kPacketName, self.tools.dictionnary())
             end
 
             -- Vérifie si la fonction a deja était ajouté sinon on l'ajoute
             local subPacket = self.subscribedPacket:Get(kPacketName)
-            if not subPacket:ContainsKey(signatureFunc) then
+            if not subPacket:ContainsKey(tostring(signatureFunc)) then
                 self.tools:Print("Ajout d'un callback au packet : "..kPacketName, "packet")
-                subPacket:Add(signatureFunc, vCallBack)
+                subPacket:Add(tostring(signatureFunc), vCallBack)
             else
                 self.tools:Print("Le callback est déja définie au packet : "..kPacketName, "packet")
             end
