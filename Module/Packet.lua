@@ -5,6 +5,7 @@ Packet.subscribedPacket = {}
 function Packet:SubManager(packetToSub)
     for kPacketName, vCallBack in pairs(packetToSub) do
         if type(vCallBack) == "function" then -- Abonnement au packet
+            local signatureFunc = string.dump(vCallBack)
             -- Vérifie si le packet est déja enregistrer sinon on l'enregistre
             if not self.subscribedPacket:ContainsKey(kPacketName) then
                 self.tools:Print("Abonnement au packet : "..kPacketName, "packet")
@@ -13,9 +14,9 @@ function Packet:SubManager(packetToSub)
 
             -- Vérifie si la fonction a deja était ajouté sinon on l'ajoute
             local subPacket = self.subscribedPacket:Get(kPacketName)
-            if not subPacket:ContainsKey(tostring(vCallBack)) then
+            if not subPacket:ContainsKey(signatureFunc) then
                 self.tools:Print("Ajout d'un callback au packet : "..kPacketName, "packet")
-                subPacket:Add(tostring(vCallBack), vCallBack)
+                subPacket:Add(signatureFunc, vCallBack)
             else
                 self.tools:Print("Le callback est déja définie au packet : "..kPacketName, "packet")
             end
