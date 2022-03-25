@@ -1,8 +1,8 @@
 Tools = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Tools.lua")
 Character = Tools.character
---Dungeons = Tools.dungeons
---Monsters = Tools.monsters
---Zone = Tools.zone
+Dungeons = Tools.dungeons
+Monsters = Tools.monsters
+Zone = Tools.zone
 Packet = Tools.packet
 
 function move()
@@ -40,7 +40,7 @@ Packet = Packet()
 Character.dialog = Character.dialog({packet = Packet})
 Character = Character()
 
---Zone = Zone()
---Monsters = Monsters()
---Dungeons = Dungeons({ monsters = Monsters, zone = Zone })
+Zone = Zone()
+Monsters = Monsters()
+Dungeons = Dungeons({ monsters = Monsters, zone = Zone })
 Tools = Tools()

@@ -2,7 +2,18 @@ Utils = {}
 
 Utils.cellAray = {}
 
-Utils.colorPrint = {["Info"] = "#00fc4c", ["Error"] = "#fc0000"}
+Utils.colorPrint = {
+    ["Info"] = "#00fc4c",
+    ["Error"] = "#fc0000",
+    ["Packet"] = "#45e9f5",
+    ["Dialog"] = "#fc9905",
+    ["Monsters"] = "#fc0599",
+    ["Zone"] = "#fccf05",
+    ["Area"] = "#fccf05",
+    ["SubArea"] = "#fccf05",
+    ["Dungeons"] = "#dffc05",
+    ["Notification"] = "#0b0429"
+}
 
 -- Print, Divers
 
