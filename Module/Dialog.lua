@@ -10,7 +10,15 @@ Dialog.newVisibleReplies = false
 function Dialog:CreateDialog(npcId, listReplies)
     npc:npc(npcId, 3)
 
-    self.tools:Wait(not self.super.isInDialog)
+    self.tools:Wait(not self.tryDialog, 200)
+
+    self.tools:Wait(not self.super.isInDialog, 200)
+
+    if not self.super.isInDialog then
+        self.tools:Print("Dialog : Impossible d'ouvrir un dialog avec le Npc : " .. npcId, "error")
+        self.tryDialog = false
+        return
+    end
 
     while self.super.isInDialog do
         local sendedReply = false
@@ -26,7 +34,7 @@ function Dialog:CreateDialog(npcId, listReplies)
             global:leaveDialog()
             break
         end
-        self.tools:Wait(not self.newVisibleReplies)
+        self.tools:Wait(not self.newVisibleReplies, 200)
     end
 end
 

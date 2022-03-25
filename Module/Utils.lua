@@ -62,10 +62,20 @@ function Utils:GenerateDateTime(format)
     end
 end
 
-function Utils:Wait(bool)
+function Utils:Wait(bool, maxDelay)
+    local i = 0
     while bool do
-        global:delay(50)
+        if maxDelay then
+            global:delay(maxDelay / 4)
+            if i == 4 then
+                return false
+            end
+            i = i + 1
+        else
+            global:delay(50)
+        end
     end
+    return true
 end
 
 -- IO, CMD
