@@ -6,31 +6,40 @@ Character = Tools.character
 Packet = Tools.packet
 
 function move()
-    Packet:SubManager({["ChatServerMessage"] = Character.test}) -- Abbonnement au packet
-    Packet:SubManager({["ChatServerMessage"] = Character.test}) -- Essaie d'ajout d'un callback déja définie, le callback ne sera pas ajouter et un print vous l'informera
-    Packet:SubManager({["ChatServerMessage"] = test}) -- Ajout d'un deuxieme callback au packet
-    Packet:SubManager({"ChatServerMessage"}) -- Désabonnement du packet et c'est callback
-    Tools:Print(string.dump(function(msg)  end))
-    Tools:Print(string.dump(function(msg)  end))
-    Tools:Print(string.dump(function(msg)  end))
-
-    --Tools:Dump()
+    --Packet:SubManager({["NpcGenericActionRequestMessage"] = CB_NpcGenericActionRequestMessage})
+    Character.dialog:InitProperties()
+    Character.dialog:InitProperties()
+    Character.dialog:CreateDialog(2907, Tools.list({24979, 24976, 24975}))
+    local next = true
+    while next do
+        next = global:question("next")
+        Tools:Print("isInDialog : " .. tostring(Character.isInDialog))
+        Tools:Print("DialogMapId : " .. Character.dialog.dialogMapId)
+        Tools:Print("NpcId : " .. Character.dialog.npcId)
+        Tools:Print("MessageId : " .. Character.dialog.messageId)
+        Tools:Print("VisibleReplies :")
+        Tools:Dump(Character.dialog.visibleReplies:Enumerate())
+    end
 end
 
-Character.test = function(msg)
-    Tools:Print(msg)
+function Character.dialog:InitProperties()
+    local genericActionRequest = function(msg) Character.dialog:CB_NpcGenericActionRequestMessage(msg) end
+    local dialogCreation = function(msg) Character.dialog:CB_NpcDialogCreationMessage(msg) end
+    local dialogQuestion = function(msg) Character.dialog:CB_NpcDialogQuestionMessage(msg) end
+    local leaveDialog = function(msg) Character.dialog:CB_LeaveDialogMessage(msg) end
 
+    self.packet:SubManager({
+        ["NpcGenericActionRequestMessage"] = genericActionRequest,
+        ["NpcDialogCreationMessage"] = dialogCreation,
+        ["NpcDialogQuestionMessage"] = dialogQuestion,
+        ["LeaveDialogMessage"] = leaveDialog,
+    })
 end
 
-function test(msg)
-
-    Tools:Print(msg)
-
-end
-
-
-Character = Character()
 Packet = Packet()
+Character.dialog = Character.dialog({packet = Packet})
+Character = Character()
+
 --Zone = Zone()
 --Monsters = Monsters()
 --Dungeons = Dungeons({ monsters = Monsters, zone = Zone })

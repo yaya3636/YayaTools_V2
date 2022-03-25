@@ -22,6 +22,12 @@ function list:Get(index)
     return temp
 end
 
+function list:Clear()
+    for i = self:Size(), 1, -1 do
+        self:RemoveAt(i)
+    end
+end
+
 function list:RemoveAt(index)
     if index <= self.N then
         if table.remove(self.a, index) ~= nil then

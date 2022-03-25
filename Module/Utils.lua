@@ -62,6 +62,12 @@ function Utils:GenerateDateTime(format)
     end
 end
 
+function Utils:Wait(bool)
+    while bool do
+        global:delay(50)
+    end
+end
+
 -- IO, CMD
 
 function Utils:ExecuteWinCMD(cmd, onlyCmd)

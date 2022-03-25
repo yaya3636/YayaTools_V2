@@ -20,7 +20,7 @@ Tools.graph = Class("Graph", dofile(global:getCurrentDirectory() .. "\\YayaTools
 Tools.dijkstra = Class("Dijkstra", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Graph\\shortest_paths\\Dijkstra.lua"))
 
 Tools.character = Class("Character", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Character.lua"))
-Tools.character.dialog = Tools.character:extend("Dialog", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Dialog.lua"))()
+Tools.character.dialog = Tools.character:extend("Dialog", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Dialog.lua"))
 
 Tools.api = Class("Api", {tools = Tools(), json = Tools.json()})
 Tools.api.localAPI = Tools.api:extend("LocalAPI", API.localAPI)()
@@ -49,8 +49,15 @@ end
 function Tools.character:init(params)
     params = params or {}
     self.tools = Tools()
-    self.json = Tools.json()
 end
+
+function Tools.character.dialog:init(params)
+    params = params or {}
+    self.tools = Tools()
+    self.packet = params.packet
+    self.visibleReplies = Tools.list()
+end
+
 
 function Tools.dungeons:init(params)
     params = params or {}
@@ -76,9 +83,9 @@ function Tools.json:init()
     --self.tools:Print("ici")
 end
 
-function Tools.list:init(a, N)
+function Tools.list:init(a)
     self.a = a or {}
-    self.N = N or 0
+    self.N = #self.a
 end
 
 function Tools.monsters:init(params)
@@ -139,5 +146,8 @@ function Tools.api:init(params)
     self.localAPI.localPort = self.json:decode(self.tools:ReadFile(global:getCurrentDirectory() .. "\\YayaTools\\LocalAPI\\ConfigAPI.json"), "ConfigAPI").port
     self.localAPI.localUrl = "http://localhost:" .. self.localAPI.localPort .. "/"
 end
+
+
+--Tools.character.dialog = Tools.character.dialog()
 
 return Tools
