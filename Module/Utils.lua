@@ -12,7 +12,9 @@ Utils.colorPrint = {
     ["Area"] = "#fccf05",
     ["SubArea"] = "#fccf05",
     ["Dungeons"] = "#dffc05",
-    ["Notification"] = "#0b0429"
+    ["Notification"] = "#0b0429",
+    ["Json"] = "#077869",
+
 }
 
 -- Print, Divers
