@@ -5,6 +5,7 @@ Packet = Tools.packet
 function move()
     Character.dialog:InitProperties() -- Initier la méthode dans move obligatoirement !
     Character.dialog:CreateDialog(-20000, Tools.list({24979, 24976, 24975})) -- Tentative de création de dialog avec un NpcId incorrect, Print une erreur et continue le script
+    Character.dialog:CreateDialog(2907, Tools.list({24979, 24976})) -- Tentative de création de dialog avec un replyId manquant pour finir le dialog, Print une erreur, quitte le dialog et continue le script
     Character.dialog:CreateDialog(2907, Tools.list({24979, 24976, 24975})) -- On crée un dialog avec le npc 2907 (PNJ entrée Kardorim) et on lui passe une list de replyId en second paramètre
 end
 
