@@ -4,7 +4,7 @@ Timer.timerHourStart = 0
 Timer.timerMinuteStart = 0
 Timer.timerRandTimeToWait = 0
 
-function Timer:Timer()
+function Timer:IsFinish()
     local date = os.date('*t')
     local curH, curM = date.hour, date.min
 
