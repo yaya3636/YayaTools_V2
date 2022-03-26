@@ -1,25 +1,27 @@
-Class = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Class.lua")
-API = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\API.lua")
+local yayaToolsModuleDirectory = global:getCurrentDirectory() .. [[\YayaTools\Module\]]
+Class = dofile(yayaToolsModuleDirectory .. "Class.lua")
+API = dofile(yayaToolsModuleDirectory .. "API.lua")
 -- Création des classes
-Tools = Class("Tools", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Utils.lua"))
-Tools.craft = Class("Craft", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Craft.lua"))
-Tools.dungeons = Class("Dungeons", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Dungeons.lua"))
-Tools.dictionnary = Class("Dictionnary", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Dictionnary.lua"))
-Tools.json = Class("Json", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Json.lua"))
-Tools.list = Class("List", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\List.lua"))
-Tools.monsters = Class("Monsters", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Monsters.lua"))
-Tools.movement = Class("Movement", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Movement.lua"))
-Tools.notifications = Class("Notifications", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Notifications.lua"))
-Tools.object = Class("Object", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Object.lua"))
-Tools.packet = Class("Packet", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Packet.lua"))
-Tools.timer = Class("Timer", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Timer.lua"))
-Tools.zone = Class("Zone", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Zone.lua"))
+Tools = Class("Tools", dofile(yayaToolsModuleDirectory .. "Utils.lua"))
+Tools.craft = Class("Craft", dofile(yayaToolsModuleDirectory .. "Craft.lua"))
+Tools.dungeons = Class("Dungeons", dofile(yayaToolsModuleDirectory .. "Dungeons.lua"))
+Tools.dictionnary = Class("Dictionnary", dofile(yayaToolsModuleDirectory .. "Dictionnary.lua"))
+Tools.gather = Class("Gather", dofile(yayaToolsModuleDirectory .. "Gather.lua"))
+Tools.json = Class("Json", dofile(yayaToolsModuleDirectory .. "Json.lua"))
+Tools.list = Class("List", dofile(yayaToolsModuleDirectory .. "List.lua"))
+Tools.monsters = Class("Monsters", dofile(yayaToolsModuleDirectory .. "Monsters.lua"))
+Tools.movement = Class("Movement", dofile(yayaToolsModuleDirectory .. "Movement.lua"))
+Tools.notifications = Class("Notifications", dofile(yayaToolsModuleDirectory .. "Notifications.lua"))
+Tools.object = Class("Object", dofile(yayaToolsModuleDirectory .. "Object.lua"))
+Tools.packet = Class("Packet", dofile(yayaToolsModuleDirectory .. "Packet.lua"))
+Tools.timer = Class("Timer", dofile(yayaToolsModuleDirectory .. "Timer.lua"))
+Tools.zone = Class("Zone", dofile(yayaToolsModuleDirectory .. "Zone.lua"))
 
-Tools.graph = Class("Graph", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Graph\\data\\graph.lua"))
-Tools.dijkstra = Class("Dijkstra", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Graph\\shortest_paths\\Dijkstra.lua"))
+Tools.graph = Class("Graph", dofile(yayaToolsModuleDirectory .. [[Graph\data\graph.lua]]))
+Tools.dijkstra = Class("Dijkstra", dofile(yayaToolsModuleDirectory .. [[Graph\shortest_paths\Dijkstra.lua]]))
 
-Tools.character = Class("Character", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Character.lua"))
-Tools.character.dialog = Tools.character:extend("Dialog", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Dialog.lua"))
+Tools.character = Class("Character", dofile(yayaToolsModuleDirectory .. "Character.lua"))
+Tools.character.dialog = Tools.character:extend("Dialog", dofile(yayaToolsModuleDirectory .. "Dialog.lua"))
 
 Tools.api = Class("Api", {tools = Tools(), json = Tools.json()})
 Tools.api.localAPI = Tools.api:extend("LocalAPI", API.localAPI)()
@@ -33,7 +35,16 @@ Tools.class = Class
 
 function Tools:init(params)
     params = params or {}
-    self.colorPrint = params.colorPrint or self.colorPrint
+    local tmpColor = self.colorPrint
+    self.colorPrint = Tools.dictionnary()
+    for kHeader, vHexColor in pairs(tmpColor) do
+        self.colorPrint:Add(string.lower(kHeader), vHexColor)
+    end
+    if params.colorPrint then
+        for kHeader, vHexColor in pairs(params.colorPrint:Enumerate()) do
+            self.colorPrint:Add(string.lower(kHeader), vHexColor)
+        end
+    end
     self.class = Class
     self:InitCellsArray()
 end
@@ -64,6 +75,11 @@ end
 
 function Tools.dungeons:init(params)
     params = params or {}
+    if not params.monsters then
+        error("Dungeons : Le paramètre monsters requis pour instancier la class est non definie")
+    elseif not params.zone then
+        error("Dungeons : Le paramètre zone requis pour instancier la class est non definie")
+    end
     self.monsters = params.monsters
     self.zone = params.zone
     self.tools = Tools()

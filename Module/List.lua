@@ -1,34 +1,40 @@
-local list = {}
+List = {}
 
-function list:CreateWith(a)
+function List:CreateWith(a)
     return self.c(a)
 end
 
-function list:MakeCopy()
+function List:MakeCopy()
     return self:CreateWith(self:Enumerate())
 end
 
-function list:Add(value)
+function List:Add(value)
     self.N = self.N + 1
     self.a[self.N] = value
 end
 
-function list:Set(index,value)
+function List:Set(index,value)
     self.a[index] = value
 end
 
-function list:Get(index)
+function List:Get(index)
     local temp = self.a[index]
     return temp
 end
 
-function list:Clear()
+function List:Clear()
     for i = self:Size(), 1, -1 do
         self:RemoveAt(i)
     end
 end
 
-function list:RemoveAt(index)
+function List:Concatenate(list)
+    for _, v in pairs(list:Enumerate()) do
+        self:Add(v)
+    end
+end
+
+function List:RemoveAt(index)
     if index <= self.N then
         if table.remove(self.a, index) ~= nil then
             self.N = self.N - 1
@@ -36,7 +42,7 @@ function list:RemoveAt(index)
     end
 end
 
-function list:IndexOf(value)
+function List:IndexOf(value)
     for i, v in ipairs(self.a) do
         if v == value then
             return i
@@ -45,24 +51,24 @@ function list:IndexOf(value)
     return -1
 end
 
-function list:Contains(value)
+function List:Contains(value)
     return self:IndexOf(value) ~= -1
 end
 
-function list:Remove(value)
+function List:Remove(value)
     local index = self:IndexOf(value)
     self:RemoveAt(index)
 end
 
-function list:Size()
+function List:Size()
     return self.N
 end
 
-function list:IsEmpty()
+function List:IsEmpty()
     return self.N == 0
 end
 
-function list:Enumerate()
+function List:Enumerate()
     local ret = {}
     for i, v in ipairs(self.a) do
         ret[i] = v
@@ -70,7 +76,7 @@ function list:Enumerate()
     return ret
 end
 
-function list:Equal(listComp)
+function List:Equal(listComp)
     if listComp:Size() ~= self:Size() then return false end
 
     for i, v in ipairs(listComp:Enumerate()) do
@@ -82,4 +88,4 @@ function list:Equal(listComp)
     return true
 end
 
-return list
+return List

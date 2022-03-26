@@ -24,6 +24,12 @@ function Dictionnary:Get(key)
     return tmp
 end
 
+function Dictionnary:Concatenate(dic)
+    for k, v in pairs(dic:Enumerate()) do
+        self:Add(k, v)
+    end
+end
+
 function Dictionnary:RemoveByKey(key)
     if self.dic[key] ~= nil then
         self.dic[key] = nil

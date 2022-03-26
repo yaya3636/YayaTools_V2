@@ -42,12 +42,7 @@ function Utils:Print(msg, header, color)
 end
 
 function Utils:ColorPicker(header)
-    for kHeader, vColor in pairs(self.colorPrint) do
-        if self:Equal(kHeader, header) then
-            return vColor
-        end
-    end
-    return nil
+    return self.colorPrint:Get(string.lower(header)) or nil
 end
 
 function Utils:GenerateDateTime(format)
