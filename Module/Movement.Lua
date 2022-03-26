@@ -108,6 +108,8 @@ function Movement:RoadZone(listMapId)
                 self.rzLogMapId:RemoveAt(1)
             end
 
+            self.rzListMapId:Shuffle()
+
             for _, vMapId in pairs(self.rzListMapId:Enumerate()) do -- Séléction de la prochaine map
                 if not self.rzLogMapId:Contains(vMapId) then
                     self.rzLogMapId:Add(vMapId)

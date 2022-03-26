@@ -89,9 +89,10 @@ function Tools.dungeons:init(params)
     self:InitD2oProperties()
 end
 
-function Tools.dictionnary:init(dic, N)
+function Tools.dictionnary:init(dic)
     self.dic = dic or {}
-    self.N = N or 0
+    self.N = Tools:LenghtOfTable(self.dic)
+    self.tools = Tools
 end
 
 function Tools.json:init()

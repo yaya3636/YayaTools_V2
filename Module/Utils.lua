@@ -42,7 +42,10 @@ function Utils:Print(msg, header, color)
 end
 
 function Utils:ColorPicker(header)
-    return self.colorPrint:Get(string.lower(header)) or nil
+    if header ~= nil then
+        return self.colorPrint:Get(string.lower(header)) or nil
+    end
+    return nil
 end
 
 function Utils:GenerateDateTime(format)

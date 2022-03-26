@@ -88,4 +88,11 @@ function List:Equal(listComp)
     return true
 end
 
+function List:Shuffle()
+    for i = self.N, 1, -1 do
+        local j = global:random(1, i)
+        self.a[i], self.a[j] = self.a[j], self.a[i]
+    end
+end
+
 return List

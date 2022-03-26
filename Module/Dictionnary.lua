@@ -80,4 +80,22 @@ function Dictionnary:Enumerate()
     return ret
 end
 
+function Dictionnary:Shuffle()
+    local iKey, iValue = {}, {}
+    local j = 1
+    for k, v in pairs(self:Enumerate()) do
+        iKey[j] = k
+        iValue[j] = v
+        j = j + 1
+    end
+    local tmp = {}
+    while self.tools:LenghtOfTable(tmp) ~= self.N do
+        for i = self.N, 1, -1 do
+            local rand = global:random(1, i)
+            tmp[iKey[rand]] = iValue[rand]
+        end
+    end
+    self.dic = tmp
+end
+
 return Dictionnary
