@@ -14,7 +14,7 @@ Utils.colorPrint = {
     ["Dungeons"] = "#dffc05",
     ["Notification"] = "#0b0429",
     ["Json"] = "#077869",
-
+    ["Movement"] = "#00fc4c",
 }
 
 -- Print, Divers

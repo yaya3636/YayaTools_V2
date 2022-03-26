@@ -38,6 +38,23 @@ function Dialog:CreateDialog(npcId, listReplies)
     end
 end
 
+function Dialog:InitCallBack() -- A mettre obligatoirement dans le script charger par Ankabot
+    local genericActionRequest = function(msg) Character.dialog:CB_NpcGenericActionRequestMessage(msg) end
+    local dialogCreation = function(msg) Character.dialog:CB_NpcDialogCreationMessage(msg) end
+    local dialogQuestion = function(msg) Character.dialog:CB_NpcDialogQuestionMessage(msg) end
+    local leaveDialog = function() Character.dialog:CB_LeaveDialogMessage() end
+    local zaapDestinationMessage = function() Character.dialog:CB_ZaapDestinationMessage() end
+
+    self.packet:SubManager({
+        ["NpcGenericActionRequestMessage"] = genericActionRequest,
+        ["NpcDialogCreationMessage"] = dialogCreation,
+        ["NpcDialogQuestionMessage"] = dialogQuestion,
+        ["LeaveDialogMessage"] = leaveDialog,
+        ["ZaapDestinationsMessage"] = zaapDestinationMessage,
+    })
+
+end
+
 function Dialog:CB_NpcGenericActionRequestMessage(msg)
     self.tools:Print("Création d'un dialog avec le NPC : " .. msg.npcId, "Dialog")
     self.tryDialog = true
@@ -53,12 +70,12 @@ end
 
 function Dialog:CB_NpcDialogQuestionMessage(msg)
     self.messageId = msg.messageId
-    self.visibleReplies = self.tools.list(msg.visibleReplies, #msg.visibleReplies)
+    self.visibleReplies = self.tools.list(msg.visibleReplies)
     self.newVisibleReplies = true
 end
 
 
-function Dialog:CB_LeaveDialogMessage(msg)
+function Dialog:CB_LeaveDialogMessage()
     self.tools:Print("Fin du dialog", "Dialog")
     self.super.isInDialog = false
     self.tryDialog = false
@@ -67,6 +84,11 @@ function Dialog:CB_LeaveDialogMessage(msg)
     self.npcId = -1
     self.messageId = -1
     self.visibleReplies:Clear()
+end
+
+function Dialog:CB_ZaapDestinationMessage()
+    self.tools:Print("Dialog crée avec un zaap détecter", "Dialog")
+    self.super.isInDialog = true
 end
 
 

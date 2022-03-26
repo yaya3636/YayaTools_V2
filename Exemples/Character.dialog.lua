@@ -3,28 +3,13 @@ Character = Tools.character
 Packet = Tools.packet
 
 function move()
-    Character.dialog:InitProperties() -- Initier la méthode dans move obligatoirement !
     Character.dialog:CreateDialog(-20000, Tools.list({24979, 24976, 24975})) -- Tentative de création de dialog avec un NpcId incorrect, Print une erreur et continue le script
     Character.dialog:CreateDialog(2907, Tools.list({24979, 24976})) -- Tentative de création de dialog avec un replyId manquant pour finir le dialog, Print une erreur, quitte le dialog et continue le script
     Character.dialog:CreateDialog(2907, Tools.list({24979, 24976, 24975})) -- On crée un dialog avec le npc 2907 (PNJ entrée Kardorim) et on lui passe une list de replyId en second paramètre
 end
 
-function Character.dialog:InitProperties() -- A mettre obligatoirement dans le script charger par Ankabot
-    if not self.initialized then
-        local genericActionRequest = function(msg) Character.dialog:CB_NpcGenericActionRequestMessage(msg) end
-        local dialogCreation = function(msg) Character.dialog:CB_NpcDialogCreationMessage(msg) end
-        local dialogQuestion = function(msg) Character.dialog:CB_NpcDialogQuestionMessage(msg) end
-        local leaveDialog = function(msg) Character.dialog:CB_LeaveDialogMessage(msg) end
-
-        self.packet:SubManager({
-            ["NpcGenericActionRequestMessage"] = genericActionRequest,
-            ["NpcDialogCreationMessage"] = dialogCreation,
-            ["NpcDialogQuestionMessage"] = dialogQuestion,
-            ["LeaveDialogMessage"] = leaveDialog,
-        })
-
-        self.initialized = true
-    end
+function messagesRegistering()
+    Character.dialog:InitCallBack()
 end
 
 Packet = Packet() -- Instanciation du module packet

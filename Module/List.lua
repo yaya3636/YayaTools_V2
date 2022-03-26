@@ -1,11 +1,11 @@
 local list = {}
 
-function list:CreateWith(a, N)
-    return self.c(a, N)
+function list:CreateWith(a)
+    return self.c(a)
 end
 
 function list:MakeCopy()
-    return self:CreateWith(self:Enumerate(), self.N)
+    return self:CreateWith(self:Enumerate())
 end
 
 function list:Add(value)
@@ -37,11 +37,8 @@ function list:RemoveAt(index)
 end
 
 function list:IndexOf(value)
-    if self.N == 0 then
-        return -1
-    end
-    for i = 0, self.N do
-        if self.a[i] == value then
+    for i, v in ipairs(self.a) do
+        if v == value then
             return i
         end
     end
@@ -71,6 +68,18 @@ function list:Enumerate()
         ret[i] = v
     end
     return ret
+end
+
+function list:Equal(listComp)
+    if listComp:Size() ~= self:Size() then return false end
+
+    for i, v in ipairs(listComp:Enumerate()) do
+        if self.a[i] ~= v then
+            return false
+        end
+    end
+
+    return true
 end
 
 return list

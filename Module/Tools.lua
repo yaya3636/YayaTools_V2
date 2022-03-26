@@ -53,6 +53,9 @@ end
 
 function Tools.character.dialog:init(params)
     params = params or {}
+    if not params.packet then
+        error("Character : Le paramètre packet requis pour instancier la class est non definie")
+    end
     self.tools = Tools()
     self.packet = params.packet
     self.visibleReplies = Tools.list()
@@ -100,8 +103,19 @@ end
 
 function Tools.movement:init(params)
     params = params or {}
+    if not params.zone then
+        error("Movement : Le paramètre zone requis pour instancier la class est non definie")
+    elseif not params.packet then
+        error("Movement : Le paramètre packet requis pour instancier la class est non definie")
+    elseif not params.character then
+        error("Movement : Le paramètre character requis pour instancier la class est non definie") 
+    end
+    self.zone = params.zone
+    self.packet = params.packet
+    self.character = params.character
     self.tools = Tools()
     self.json = Tools.json()
+    self:InitProperties()
 end
 
 function Tools.notifications:init(params)
