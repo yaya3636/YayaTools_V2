@@ -92,7 +92,11 @@ function Movement:InitCallBack()
 end
 
 function Movement:RoadZone(listMapId)
-    if listMapId ~= nil and not listMapId:IsEmpty() then
+    if listMapId.c == nil then
+        self.tools:Print("Movement : La méthode nécéssite une (List) comme paramètre, essayer Movement:RoadZone(Tools.list(tableMapId))", "error")
+        return
+    end
+    if not listMapId:IsEmpty() then
         if not self.rzListMapId:Equal(listMapId) then -- Nouvelle list on reset
             self.rzLogMapId:Clear()
             self.rzListMapId = listMapId

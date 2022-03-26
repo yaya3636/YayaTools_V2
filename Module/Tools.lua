@@ -2,7 +2,6 @@ Class = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Class.lua")
 API = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\API.lua")
 -- Création des classes
 Tools = Class("Tools", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Utils.lua"))
-Tools.class = Class
 Tools.craft = Class("Craft", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Craft.lua"))
 Tools.dungeons = Class("Dungeons", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Dungeons.lua"))
 Tools.dictionnary = Class("Dictionnary", dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Dictionnary.lua"))
@@ -28,6 +27,7 @@ Tools.api.dofusDB = Tools.api:extend("DofusDB")
 Tools.api.dofusDB.harvestable = Tools.api.dofusDB:extend("Harvestable", API.dofusDB.harvestable)()
 Tools.api.dofusDB.treasure = Tools.api.dofusDB:extend("Treasure", API.dofusDB.treasure)()
 Tools.api.dofusDB = Tools.api.dofusDB()
+Tools.class = Class
 
 -- Constructeur
 
