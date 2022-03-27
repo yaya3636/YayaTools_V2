@@ -23,7 +23,7 @@ function move()
 
     Gather:GatherByPriority() -- On récolte par ordre de priorité et distance
     Gather:GatherByDist() -- On récolte par distance, element 1 au plus proche du perso, element 2 au plus proche de l'element 1 ect ect
-    Movement:RoadZone(Zone:GetAreaMapId(45)) -- On move notre personnage dans tout incarnam
+    Movement:RoadZone(Zone:GetAreaMapId(45), Tools.list({152045573})) -- On move notre personnage dans tout incarnam
 end
 
 function messagesRegistering() -- Initialisation obligatoire des callBack

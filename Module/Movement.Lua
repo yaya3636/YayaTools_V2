@@ -94,7 +94,8 @@ function Movement:InitCallBack()
     })
 end
 
-function Movement:RoadZone(listMapId)
+function Movement:RoadZone(listMapId, listExcludeMapId)
+    listExcludeMapId = listExcludeMapId or self.tools.list()
     if listMapId.c == nil then
         self.tools:Print("Movement : La méthode nécéssite une (List) comme paramètre, essayer Movement:RoadZone(Tools.list(tableMapId))", "error")
         return
@@ -126,7 +127,7 @@ function Movement:RoadZone(listMapId)
             self.rzListMapId:Shuffle()
 
             for _, vMapId in pairs(self.rzListMapId:Enumerate()) do -- Séléction de la prochaine map
-                if not self.rzLogMapId:Contains(vMapId) and map:GetPathDistance(map:currentMapId(), vMapId) >= self.rzMaxDist / 2 then
+                if not self.rzLogMapId:Contains(vMapId) and not listExcludeMapId:Contains(vMapId) and map:GetPathDistance(map:currentMapId(), vMapId) >= self.rzMaxDist / 2 then
                     self.rzLogMapId:Add(vMapId)
                     self.rzNextMapId = vMapId
                     break
