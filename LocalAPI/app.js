@@ -1,14 +1,27 @@
 
 const express = require("express")
 const app = express()
+const path = require("path")
 const fs = require("fs")
 const axios = require("axios")
 const morgan = require("morgan")
 const bodyParser = require("body-parser")
+const e = require("express")
 
 const urlDofusDB = "https://api.dofusdb.fr/"
 var PORT = 0
 
+const monstersData = fs.readFileSync(path.dirname(__dirname) + "/Data/D2O/Monsters.json")
+const monsterParsed = JSON.parse(monstersData)
+var monstersSorted = new Map()
+
+for (const [_, value] of Object.entries(monsterParsed)) {
+    for (const [k, v] of Object.entries(value)) {
+        if (k == "id"){
+            monstersSorted.set(v, value)
+        }
+    }
+}  
 try {
     const data = fs.readFileSync(__dirname + '/ConfigAPI.json', 'utf8')
     var jsonOBJ = JSON.parse(data)
@@ -42,39 +55,36 @@ app.post("/harvestable/getHarvestablePosition", async (req, res) => {
 
 })
 
-// Chasse aux trésor 
-
-app.post("/hunt/nextFlagPosition", async (req, res) => {
-    //console.log(req.body.posX + "," + req.body.posY + " : " + req.body.dir)
-    var data = await GetHuntFlagData(req.body.dir, req.body.posX, req.body.posY)
-    //console.log(data)
-
-    if (IsStringEquals(req.body.dir, "Right")) {
-        data = sortBy(data, "posX")
-
-    } else if (IsStringEquals(req.body.dir, "Left")) {
-        data = sortBy(data, "posX")
-        data.reverse()
-
-    } else if (IsStringEquals(req.body.dir, "Top")) {
-        data = sortBy(data, "posY")
-        data.reverse()
-
-    } else if (IsStringEquals(req.body.dir, "Bottom")) {
-        data = sortBy(data, "posY")
-    }     
-
-
-    //console.log(data)
-
-    var ret = SortPos(data, req.body.flagName)
-
-    //console.log(ret)
-    if (ret) {
-        res.status(200).json(Success(ret))
+app.post("/monsters/getMonsters", async (req, res) => {
+    var monster = monstersSorted.get(parseInt(req.body.monsterId))
+    if (monster) {
+        res.status(200).json(Success(monster))
     } else {
-        res.status(404).json(Error("Indice non trouvée, [Pos : " + req.body.posX + "," + req.body.posY + "] [Dir : " + req.body.dir + "] [Indice : " + req.body.flagName + "]"))
+        res.status(404).json(Error("MonsterId non trouvée, [MonsterId : " + req.body.monsterId + "]"))
     }
+
+})
+
+app.post("/monsters/getMonsterIdByDropId", async (req, res) => {
+    var ret = []
+    monstersSorted.forEach(element => {
+        element.drops.forEach(e => {
+            if (e.dropId == req.body.dropId) {
+                ret.push(element.id)
+            }
+        })
+    });
+    res.status(200).json(Success(ret))
+})
+
+app.post("/monsters/getAllMonstersIds", async (req, res) => {
+    var allId = []
+
+    monstersSorted.forEach(element => {
+        allId.push(element.id)
+    });
+
+    res.status(200).json(Success(allId))
 })
 
 app.listen(PORT, () => {
@@ -146,90 +156,6 @@ async function GetHarvestableData(gatherId) {
     return ret
 }
 
-// Function Hunt
-
-async function GetHuntFlagData(dir, posX, posY) {
-    var total = 10
-    var data = new Map()
-    var ret = []
-
-
-    for (let i = 0; i < Math.ceil(total / 10); i++) {
-        var skip = ""
-        if (i > 0) {
-            skip = "&$skip=" + i * 10
-        }
-        //console.log(urlDofusDB + GetHuntURL(dir, posX, posY) + skip)
-
-        await axios.get(urlDofusDB + GetHuntURL(dir, posX, posY) + skip)
-        .then(function (response) {
-            total = response.data.total
-            response.data.data.forEach(element => {
-                const key = element.x + "," + element.y
-                if (!data.has(key)) {
-                    data.set(key, { 
-                        posX: parseInt(element.x),
-                        posY: parseInt(element.y),
-                        clue: [element.clue.name.fr]
-                    })
-                } else {
-                    var map = data.get(key)
-                    if (!map.clue.includes(element.clue.name.fr)) {
-                        map.clue.push(element.clue.name.fr)
-                        data.set(key, map)
-                    }
-                }
-
-            })
-        })
-        .catch((response) => {
-            console.log(response)
-        })
-
-    }
-
-    data.forEach(e => {
-        ret.push(e)
-    })
-
-    return ret
-}
-
-function SortPos(d, flagName) {
-    for (var i = 0; i < d.length; i++) {
-        var equal = false
-        var flg = ""
-        d[i].clue.forEach(e => {
-            //console.log(flagName + " : " + e)
-            if (IsStringEquals(flagName, e)) {
-                //console.log("equal")
-                equal = true
-                flg = e
-            }
-        })    
-        if (equal) {
-            return {
-                posX: d[i].posX,
-                posY: d[i].posY,
-                flagName: flg
-            }
-        }
-    }
-    return null
-}
-
-function GetHuntURL(dir, posX, posY) {
-    if ( IsStringEquals(dir, "Right") ) {
-        return "map-clue?$sort[name.fr]=1&y=" + posY + "&x[$gt]=" + posX + "&x[$lte]=" + (parseInt(posX) + 20) + "&lang=fr"
-    } else if ( IsStringEquals(dir, "Left")) {
-        return "map-clue?$sort[name.fr]=1&y=" + posY + "&x[$lt]=" + posX + "&x[$gte]=" + (parseInt(posX) - 20) + "&lang=fr"
-    } else if ( IsStringEquals(dir, "Top")) {
-        return "map-clue?$sort[name.fr]=1&x=" + posX + "&y[$lt]=" + posY + "&y[$gte]=" + (parseInt(posY) - 20) + "&lang=fr"
-    } else if ( IsStringEquals(dir, "Bottom")) {
-        return "map-clue?$sort[name.fr]=1&x=" + posX + "&y[$gt]=" + posY + "&y[$lte]=" + (parseInt(posY) + 20) + "&lang=fr"
-    }
-}
-
 function IsStringEquals(str1, str2) {
     return new String(str1).valueOf().toLowerCase().normalize("NFC") == String(str2).valueOf().toLowerCase().normalize("NFC")
 }
@@ -240,7 +166,6 @@ function sortBy(arr, prop) {
     return arr.sort((a, b) => a[prop] - b[prop]);
 }
   
-
 function Sort(array, fn) {
     var numArray = array
     for (var i = 0; i < numArray.length - 1; i++) {

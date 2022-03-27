@@ -5,7 +5,8 @@
     "express": "^4.17.2",
     "fs": "^0.0.1-security",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "path": "^0.12.7"
   },
   "name": "localapi",
   "version": "1.0.0",

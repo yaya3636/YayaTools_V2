@@ -228,10 +228,12 @@ function JSON:ParseObject(str, i)
 end
 
 function JSON:Parse(str, idx)
-    local currentPercent =  math.ceil((idx / #str) * 100)
-    if currentPercent >= self.loadedPercent + 5 then
-        self.loadedPercent = currentPercent
-        self.tools:Print(self.loadedPercent .. "% chargé", self.header)
+    if self.printInfo then
+        local currentPercent =  math.ceil((idx / #str) * 100)
+        if currentPercent >= self.loadedPercent + 5 then
+            self.loadedPercent = currentPercent
+            self.tools:Print(self.loadedPercent .. "% chargé", self.header)
+        end
     end
     local chr = str:sub(idx, idx)
     --self.tools:Print(chr)
@@ -268,8 +270,11 @@ function JSON:Parse(str, idx)
 end
 
 function JSON:decode(str, header)
-    self.header = header or "JSON"
-    self.loadedPercent = 0
+    if header then
+        self.header = header
+        self.loadedPercent = 0  
+        self.printInfo = true  
+    end
     if str == nil or type(str) ~= "string" then
         return nil
     end

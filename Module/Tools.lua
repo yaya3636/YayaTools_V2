@@ -23,9 +23,10 @@ Tools.dijkstra = Class("Dijkstra", dofile(yayaToolsModuleDirectory .. [[Graph\sh
 Tools.character = Class("Character", dofile(yayaToolsModuleDirectory .. "Character.lua"))
 Tools.character.dialog = Tools.character:extend("Dialog", dofile(yayaToolsModuleDirectory .. "Dialog.lua"))
 
-Tools.api = Class("Api")
-Tools.api.localAPI = Tools.api:extend("LocalAPI", API.localAPI)
-Tools.api.dofusDB = Tools.api:extend("DofusDB",  API.dofusDB)
+Tools.ctrApi = Class("Api")
+Tools.ctrApi.localAPI = Tools.ctrApi:extend("LocalAPI", API.localAPI)
+Tools.ctrApi.dofusDB = Tools.ctrApi:extend("DofusDB",  API.dofusDB)
+Tools.api = Tools.ctrApi:extend("Api")
 Tools.class = Class
 
 -- Constructeur
@@ -68,7 +69,6 @@ function Tools.character.dialog:init(params)
     self.packet = params.packet
     self.visibleReplies = Tools.list()
 end
-
 
 function Tools.dungeons:init(params)
     params = params or {}
@@ -118,13 +118,12 @@ function Tools.list:init(a)
 end
 
 function Tools.monsters:init(params)
-    params = params or {}
+    if not params.api then
+        error("Monsters : Le paramètre api requis pour instancier la class est non definie")
+    end
     self.tools = Tools()
     self.json = Tools.json()
-    self.tools:Print("Chargement des données des monstres, cela peut prendre plusieurs minutes, le chargement peut paraître bloqué", "Info")
-    self.d2oMonsters = self.json:decode(self.tools:ReadFile(self.d2oMonstersPath), "Monsters")
-    self.tools:Print("Contruction des données des monstres", "Info")
-    self:InitD2oProperties()
+    self.api = params.api
 end
 
 function Tools.movement:init(params)
@@ -179,7 +178,7 @@ function Tools.zone:init(params)
     self:InitD2oProperties()
 end
 
-function Tools.api.dofusDB:init()
+function Tools.api:init()
     self.super.tools = Tools()
     self.super.json = Tools.json()
     self.super.localAPI.localPort = self.super.json:decode(self.super.tools:ReadFile(global:getCurrentDirectory() .. "\\YayaTools\\LocalAPI\\ConfigAPI.json"), "ConfigAPI").port
