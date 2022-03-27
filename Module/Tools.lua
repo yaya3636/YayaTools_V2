@@ -23,12 +23,9 @@ Tools.dijkstra = Class("Dijkstra", dofile(yayaToolsModuleDirectory .. [[Graph\sh
 Tools.character = Class("Character", dofile(yayaToolsModuleDirectory .. "Character.lua"))
 Tools.character.dialog = Tools.character:extend("Dialog", dofile(yayaToolsModuleDirectory .. "Dialog.lua"))
 
-Tools.api = Class("Api", {tools = Tools(), json = Tools.json()})
-Tools.api.localAPI = Tools.api:extend("LocalAPI", API.localAPI)()
-Tools.api.dofusDB = Tools.api:extend("DofusDB")
-Tools.api.dofusDB.harvestable = Tools.api.dofusDB:extend("Harvestable", API.dofusDB.harvestable)()
-Tools.api.dofusDB.treasure = Tools.api.dofusDB:extend("Treasure", API.dofusDB.treasure)()
-Tools.api.dofusDB = Tools.api.dofusDB()
+Tools.api = Class("Api")
+Tools.api.localAPI = Tools.api:extend("LocalAPI", API.localAPI)
+Tools.api.dofusDB = Tools.api:extend("DofusDB",  API.dofusDB)
 Tools.class = Class
 
 -- Constructeur
@@ -182,12 +179,13 @@ function Tools.zone:init(params)
     self:InitD2oProperties()
 end
 
-function Tools.api:init(params)
-    params = params or {}
-    self.tools = Tools()
-    self.json = Tools.json()
-    self.localAPI.localPort = self.json:decode(self.tools:ReadFile(global:getCurrentDirectory() .. "\\YayaTools\\LocalAPI\\ConfigAPI.json"), "ConfigAPI").port
-    self.localAPI.localUrl = "http://localhost:" .. self.localAPI.localPort .. "/"
+function Tools.api.dofusDB:init()
+    self.super.tools = Tools()
+    self.super.json = Tools.json()
+    self.super.localAPI.localPort = self.super.json:decode(self.super.tools:ReadFile(global:getCurrentDirectory() .. "\\YayaTools\\LocalAPI\\ConfigAPI.json"), "ConfigAPI").port
+    self.super.localAPI.localUrl = "http://localhost:" .. self.super.localAPI.localPort .. "/"
+    self.super.localAPI = self.super.localAPI()
+    self.super = self.super()
 end
 
 

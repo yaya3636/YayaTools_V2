@@ -35,7 +35,6 @@ app.post("/harvestable/getHarvestablePosition", async (req, res) => {
 
     var data = await GetHarvestableData(req.body.gatherId)
     if (data) {
-        console.log(data)
         res.status(200).json(Success(data))
     } else {
         res.status(404).json(Error("GatherId non trouvée, [GatherId : " + req.body.gatherId + "]"))
@@ -113,11 +112,10 @@ async function GetHarvestableData(gatherId) {
     var ret = []
 
     for (let i = 0; i < Math.ceil(total / 10); i++) {
-        var skip = ""
+        var skip = "&$skip=0&lang=fr"
         if (i > 0) {
-            skip = "&$skip=" + i * 10
+            skip = "&$skip=" + i * 10 + "&lang=fr"
         }
-        //console.log(urlDofusDB + GetHuntURL(dir, posX, posY) + skip)
 
         await axios.get(urlDofusDB + "recoltable?resources[$in][]=" + gatherId + skip)
         .then(function (response) {
