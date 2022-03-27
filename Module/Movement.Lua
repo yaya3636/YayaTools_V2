@@ -132,7 +132,7 @@ function Movement:RoadZone(listMapId)
                     break
                 end
             end
-            self.tools:Print(self.rzNextMapId)
+            --self.tools:Print(self.rzNextMapId)
         end
 
         self:LoadRoad(self.rzNextMapId)
