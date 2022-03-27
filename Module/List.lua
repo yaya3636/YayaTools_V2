@@ -11,10 +11,16 @@ end
 function List:Add(value)
     self.N = self.N + 1
     self.a[self.N] = value
+    return self.N
 end
 
-function List:Set(index,value)
+function List:Set(index, value)
     self.a[index] = value
+end
+
+function List:Insert(index, value)
+    self.N = self.N + 1
+    table.insert(self.a, index, value)
 end
 
 function List:Get(index)
@@ -35,17 +41,26 @@ function List:Concatenate(list)
 end
 
 function List:RemoveAt(index)
-    if index <= self.N then
-        if table.remove(self.a, index) ~= nil then
+    if index > 0 and index <= self.N then
+        local removedValue = table.remove(self.a, index)
+        if removedValue ~= nil then
             self.N = self.N - 1
+            return removedValue
         end
     end
+    return nil
 end
 
 function List:IndexOf(value)
     for i, v in ipairs(self.a) do
-        if v == value then
-            return i
+        if type(value) == "function" then
+            if value(v) then
+                return i
+            end
+        else
+            if v == value then
+                return i
+            end
         end
     end
     return -1
@@ -57,7 +72,7 @@ end
 
 function List:Remove(value)
     local index = self:IndexOf(value)
-    self:RemoveAt(index)
+    return self:RemoveAt(index)
 end
 
 function List:Size()

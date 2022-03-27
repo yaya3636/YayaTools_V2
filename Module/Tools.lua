@@ -95,6 +95,18 @@ function Tools.dictionnary:init(dic)
     self.tools = Tools
 end
 
+function Tools.gather:init(params)
+    if not params.packet then
+        error("Gather : Le paramètre packet requis pour instancier la class est non definie")
+    end
+    self.tools = Tools()
+    self.packet = params.packet
+    self.elementsToGather = Tools.list()
+    self.harvestableElements = Tools.dictionnary()
+    self.sortedElementsByDist = Tools.list()
+    self.sortedElementsByPriority = Tools.list()
+end
+
 function Tools.json:init()
     self.tools = Tools()
     for k, v in pairs(self.escapeCharMap) do
@@ -105,7 +117,7 @@ end
 
 function Tools.list:init(a)
     self.a = a or {}
-    self.N = #self.a
+    self.N = Tools:LenghtOfTable(a)
 end
 
 function Tools.monsters:init(params)

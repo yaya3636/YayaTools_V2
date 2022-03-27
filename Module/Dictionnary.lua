@@ -80,6 +80,12 @@ function Dictionnary:Enumerate()
     return ret
 end
 
+function Dictionnary:Clear()
+    for k, _ in pairs(self:Enumerate()) do
+        self:RemoveByKey(k)
+    end
+end
+
 function Dictionnary:Shuffle()
     local iKey, iValue = {}, {}
     local j = 1
@@ -96,6 +102,18 @@ function Dictionnary:Shuffle()
         end
     end
     self.dic = tmp
+end
+
+function Dictionnary:Sort(fn)
+    local newDic = self.c()
+
+    for k, v in pairs(self:Enumerate()) do
+        if fn(k, v) then
+            newDic:Add(k, v)
+        end
+    end
+
+    return newDic
 end
 
 return Dictionnary

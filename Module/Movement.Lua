@@ -65,6 +65,7 @@ Movement.forbiddenZaap = {}
 
 Movement.printedInfo = false
 
+Movement.compRzListMapId = {}
 Movement.rzListMapId = {}
 Movement.rzLogMapId = {}
 Movement.rzNextMapId = -1
@@ -74,6 +75,7 @@ Movement.lastTpMapId = -1
 Movement.roadLoaded = false
 
 function Movement:InitProperties()
+    self.compRzListMapId = self.tools.list()
     self.rzListMapId = self.tools.list()
     self.rzLogMapId = self.tools.list()
     local tmp = self.forbiddenHavenbagMap
@@ -97,9 +99,10 @@ function Movement:RoadZone(listMapId)
         return
     end
     if not listMapId:IsEmpty() then
-        if not self.rzListMapId:Equal(listMapId) then -- Nouvelle list on reset
+        if not self.compRzListMapId:Equal(listMapId) then -- Nouvelle list on reset
+            self.compRzListMapId = listMapId:MakeCopy()
+            self.rzListMapId = listMapId:MakeCopy()
             self.rzLogMapId:Clear()
-            self.rzListMapId = listMapId
             self.rzNextMapId = -1
         end
 

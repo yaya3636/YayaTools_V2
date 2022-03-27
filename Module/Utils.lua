@@ -162,7 +162,7 @@ function Utils:InitCellsArray()
 end
 
 function Utils:CellIdToCoord(cellId)
-    if Utils:IsCellIdValid(cellId) then
+    if self:IsCellIdValid(cellId) then
         return self.cellAray[cellId]
     end
 
@@ -178,8 +178,8 @@ function Utils:IsCellIdValid(cellId)
 end
 
 function Utils:ManhattanDistanceCellId(fromCellId, toCellId)
-	local fromCoord = Utils:CellIdToCoord(fromCellId)
-	local toCoord = Utils:CellIdToCoord(toCellId)
+	local fromCoord = self:CellIdToCoord(fromCellId)
+	local toCoord = self:CellIdToCoord(toCellId)
 	if fromCoord ~= nil and toCoord ~= nil then
 		return (math.abs(toCoord.x - fromCoord.x) + math.abs(toCoord.y - fromCoord.y))
 	end
