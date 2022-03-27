@@ -69,6 +69,7 @@ Movement.compRzListMapId = {}
 Movement.rzListMapId = {}
 Movement.rzLogMapId = {}
 Movement.rzNextMapId = -1
+Movement.rzMaxDist = -1
 
 Movement.teleported = false
 Movement.lastTpMapId = -1
@@ -104,9 +105,20 @@ function Movement:RoadZone(listMapId)
             self.rzListMapId = listMapId:MakeCopy()
             self.rzLogMapId:Clear()
             self.rzNextMapId = -1
+
+            local dist = 0
+            local refMap = listMapId:Get(1)
+            for _, v in pairs(listMapId:Enumerate()) do
+                local clcDist = map:GetPathDistance(refMap, v)
+                if clcDist > dist then
+                    dist = clcDist
+                end
+            end
+            self.rzMaxDist = dist
         end
 
         if map:currentMapId() == self.rzNextMapId or self.rzNextMapId == -1 then -- Arrivé sur la map ou init
+            
             if self.rzLogMapId:Size() >= math.floor((self.rzListMapId:Size() / 4) * 3) then -- Suppresion des log au 3/4 de la list
                 self.rzLogMapId:RemoveAt(1)
             end
@@ -114,12 +126,13 @@ function Movement:RoadZone(listMapId)
             self.rzListMapId:Shuffle()
 
             for _, vMapId in pairs(self.rzListMapId:Enumerate()) do -- Séléction de la prochaine map
-                if not self.rzLogMapId:Contains(vMapId) then
+                if not self.rzLogMapId:Contains(vMapId) and map:GetPathDistance(map:currentMapId(), vMapId) >= self.rzMaxDist / 2 then
                     self.rzLogMapId:Add(vMapId)
                     self.rzNextMapId = vMapId
                     break
                 end
             end
+            self.tools:Print(self.rzNextMapId)
         end
 
         self:LoadRoad(self.rzNextMapId)
