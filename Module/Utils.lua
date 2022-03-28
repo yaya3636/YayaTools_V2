@@ -215,7 +215,8 @@ function Utils:Dump(tbl, printDelay)
         if type(t) == "table" then
             self:Print(string.format("% s% s:", string.rep(rep, l * 3), tostring (k)))
             for key, v in pairs(t) do
-                if key ~= "c" then
+                --self:Print(key)
+                if key ~= "c" and key ~= "__index" and key ~= "super" and key ~= "__instances" and key ~= "tools" then
                     if self.class.isClass(v) or self.class.isInstance(v) then
                         key = key .. " : " .. tostring(v)
                     end
