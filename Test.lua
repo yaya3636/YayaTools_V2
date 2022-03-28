@@ -1,4 +1,5 @@
 Tools = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Tools.lua")
+Craft = Tools.craft
 Movement = Tools.movement
 Zone = Tools.zone
 Packet = Tools.packet
@@ -8,7 +9,7 @@ API = Tools.api
 Monsters = Tools.monsters
 
 function move()
-    Tools:Dump(Monsters:GetMonstersInfoByGrade(31))
+    Tools:Dump(Craft:GetIngredients(0))
 end
 
 function messagesRegistering()
@@ -19,11 +20,11 @@ end
 
 
 API = API()
+Craft = Craft({api = API})
 Monsters = Monsters({api = API})
 --Zone = Zone()
 Packet = Packet()
 Gather = Gather({packet = Packet})
-Character.dialog = Character.dialog({packet = Packet})
-Character = Character()
+Character = Character({packet = Packet})
 Movement = Movement({zone = Zone, packet = Packet, character = Character})
 Tools = Tools()

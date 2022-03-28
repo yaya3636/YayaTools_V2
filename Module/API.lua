@@ -84,6 +84,8 @@ function API.localAPI:PostRequest(url, data)
     end
 end
 
+-- Monsters
+
 function API.localAPI:GetMonsterObject(monsterId)
     local data = self:PostRequest("monsters/getMonsters", "monsterId=" .. monsterId)
 
@@ -183,6 +185,13 @@ function API.localAPI:GetMonsterIdByDropId(dropId)
     local ret = self.tools.list(data)
     return ret
 end
+
+-- Recipes
+
+function API.localAPI:GetRecipe(craftId)
+    return self:PostRequest("recipes/getRecipe", "craftId=" .. craftId)
+end
+
 -- DofusDB
 
 function API.dofusDB:GetHarvestablePosition(gatherId)

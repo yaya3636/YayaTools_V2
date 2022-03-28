@@ -1,6 +1,7 @@
 local yayaToolsModuleDirectory = global:getCurrentDirectory() .. [[\YayaTools\Module\]]
 Class = dofile(yayaToolsModuleDirectory .. "Class.lua")
 API = dofile(yayaToolsModuleDirectory .. "API.lua")
+
 -- Création des classes
 Tools = Class("Tools", dofile(yayaToolsModuleDirectory .. "Utils.lua"))
 Tools.craft = Class("Craft", dofile(yayaToolsModuleDirectory .. "Craft.lua"))
@@ -49,15 +50,20 @@ end
 
 function Tools.craft:init(params)
     params = params or {}
+    if not params.api then
+        error("[Module Craft] : Le paramètre api requis pour instancier la class est non definie")
+    end
     self.tools = Tools()
-    self.json = Tools.json()
-    self.d2oRecipes = self.json:decode(self.tools:ReadFile(self.d2oRecipesPath), "Recipes")
-    self:InitD2oProperties()
+    self.api = params.api
+    --self.json = Tools.json()
+    --self.d2oRecipes = self.json:decode(self.tools:ReadFile(self.d2oRecipesPath), "Recipes")
+    --self:InitD2oProperties()
 end
 
 function Tools.character:init(params)
+    params = params or {}
     if not params.packet then
-        error("Character : Le paramètre packet requis pour instancier la class est non definie")
+        error("[Module Character] : Le paramètre packet requis pour instancier la class est non definie")
     end
     self.tools = Tools()
     params.tools = self.tools
@@ -74,9 +80,9 @@ end
 function Tools.dungeons:init(params)
     params = params or {}
     if not params.monsters then
-        error("Dungeons : Le paramètre monsters requis pour instancier la class est non definie")
+        error("[Module Dungeons] : Le paramètre monsters requis pour instancier la class est non definie")
     elseif not params.zone then
-        error("Dungeons : Le paramètre zone requis pour instancier la class est non definie")
+        error("[Module Dungeons] : Le paramètre zone requis pour instancier la class est non definie")
     end
     self.monsters = params.monsters
     self.zone = params.zone
@@ -94,8 +100,9 @@ function Tools.dictionnary:init(dic)
 end
 
 function Tools.gather:init(params)
+    params = params or {}
     if not params.packet then
-        error("Gather : Le paramètre packet requis pour instancier la class est non definie")
+        error("[Module Gather] : Le paramètre packet requis pour instancier la class est non definie")
     end
     self.tools = Tools()
     self.packet = params.packet
@@ -119,8 +126,9 @@ function Tools.list:init(a)
 end
 
 function Tools.monsters:init(params)
+    params = params or {}
     if not params.api then
-        error("Monsters : Le paramètre api requis pour instancier la class est non definie")
+        error("[Module Monsters] : Le paramètre api requis pour instancier la class est non definie")
     end
     self.tools = Tools()
     self.json = Tools.json()
@@ -130,11 +138,11 @@ end
 function Tools.movement:init(params)
     params = params or {}
     if not params.zone then
-        error("Movement : Le paramètre zone requis pour instancier la class est non definie")
+        error("[Module Movement] : Le paramètre zone requis pour instancier la class est non definie")
     elseif not params.packet then
-        error("Movement : Le paramètre packet requis pour instancier la class est non definie")
+        error("[Module Movement] : Le paramètre packet requis pour instancier la class est non definie")
     elseif not params.character then
-        error("Movement : Le paramètre character requis pour instancier la class est non definie") 
+        error("[Module Movement] : Le paramètre character requis pour instancier la class est non definie") 
     end
     self.zone = params.zone
     self.packet = params.packet
@@ -187,8 +195,5 @@ function Tools.api:init()
     self.super.localAPI = self.super.localAPI()
     self.super = self.super()
 end
-
-
---Tools.character.dialog = Tools.character.dialog()
 
 return Tools

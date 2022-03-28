@@ -6,43 +6,28 @@ const fs = require("fs")
 const axios = require("axios")
 const morgan = require("morgan")
 const bodyParser = require("body-parser")
-const e = require("express")
+const json5 = require("json5")
 
 const urlDofusDB = "https://api.dofusdb.fr/"
-var PORT = 0
+const PORT = ReadConfig()
 
-const monstersData = fs.readFileSync(path.dirname(__dirname) + "/Data/D2O/Monsters.json")
-const monsterParsed = JSON.parse(monstersData)
-var monstersSorted = new Map()
+// D2O Data
 
-for (const [_, value] of Object.entries(monsterParsed)) {
-    for (const [k, v] of Object.entries(value)) {
-        if (k == "id"){
-            monstersSorted.set(v, value)
-        }
-    }
-}  
-try {
-    const data = fs.readFileSync(__dirname + '/ConfigAPI.json', 'utf8')
-    var jsonOBJ = JSON.parse(data)
-    PORT = jsonOBJ.port
-} catch (err) {
-    console.error(err)
-}
-// API
+const monstersSorted = ReadMonstersData()
+const recipesSorted = ReadRecipesData()
+// Middlewar
 
 app.use(morgan("dev"))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended : false }))
 
+// StartApi
 
 app.get("/startedAPI", (req, res) => {
     res.status(200).send('sucess')
 })
 
-// DofusDB
-
-// Ressources
+// Harvestable (DofusDB)
 
 app.post("/harvestable/getHarvestablePosition", async (req, res) => {
 
@@ -54,6 +39,8 @@ app.post("/harvestable/getHarvestablePosition", async (req, res) => {
     }
 
 })
+
+// Monsters
 
 app.post("/monsters/getMonsters", async (req, res) => {
     var monster = monstersSorted.get(parseInt(req.body.monsterId))
@@ -85,6 +72,18 @@ app.post("/monsters/getAllMonstersIds", async (req, res) => {
     });
 
     res.status(200).json(Success(allId))
+})
+
+// Craft
+
+app.post("/recipes/getRecipe", async (req, res) => {
+    const recipes = recipesSorted.get(parseInt(req.body.craftId))
+
+    if (recipes) {
+        res.status(200).json(Success(recipes))
+    } else {
+        res.status(404).json(Error("craftId non trouvée, [craftId : " + req.body.craftId + "]"))
+    }
 })
 
 app.listen(PORT, () => {
@@ -156,18 +155,70 @@ async function GetHarvestableData(gatherId) {
     return ret
 }
 
-function IsStringEquals(str1, str2) {
-    return new String(str1).valueOf().toLowerCase().normalize("NFC") == String(str2).valueOf().toLowerCase().normalize("NFC")
+// Function API
+
+function ReadConfig() {
+    try {
+        const data = fs.readFileSync(__dirname + '/ConfigAPI.json', 'utf8')
+        var jsonOBJ = JSON.parse(data)
+        return jsonOBJ.port
+    } catch (err) {
+        console.error(err)
+    }
 }
 
-// Function API
+function ReadMonstersData() {
+    const data = fs.readFileSync(path.dirname(__dirname) + "/Data/D2O/Monsters.json")
+    const monstersData = json5.parse(data)
+    var monstersSorted = new Map()
+    
+    for (const [_, value] of Object.entries(monstersData)) {
+        for (const [k, v] of Object.entries(value)) {
+            if (k == "id"){
+                monstersSorted.set(v, value)
+            }
+        }
+    }
+    return monstersSorted
+}
+
+function ReadRecipesData() {
+    const recipesData = json5.parse(fs.readFileSync(path.dirname(__dirname) + "/Data/D2O/Recipes.json"))
+    var recipesSorted = new Map()
+    
+    for (const [_, value] of Object.entries(recipesData)) {
+        for (const [k, v] of Object.entries(value)) {
+            if (k == "resultId"){
+                recipesSorted.set(v, value)
+            }
+        }
+    }
+    return recipesSorted
+}
+
+
+function Success(result) {
+    return {
+        status: "success",
+        result: result
+    }
+}
+
+function Error(message) {
+    return {
+        status: "error",
+        message: message
+    }
+}
+
+// Autres
 
 function sortBy(arr, prop) {
     return arr.sort((a, b) => a[prop] - b[prop]);
 }
   
-function Sort(array, fn) {
-    var numArray = array
+function Sort(arr, fn) {
+    var numArray = arr
     for (var i = 0; i < numArray.length - 1; i++) {
         var min = i;
         for (var j = i + 1; j < numArray.length; j++) {
@@ -184,16 +235,6 @@ function Sort(array, fn) {
     return numArray
 }
 
-function Success(result) {
-    return {
-        status: "success",
-        result: result
-    }
-}
-
-function Error(message) {
-    return {
-        status: "error",
-        message: message
-    }
+function IsStringEquals(str1, str2) {
+    return new String(str1).valueOf().toLowerCase().normalize("NFC") == String(str2).valueOf().toLowerCase().normalize("NFC")
 }
