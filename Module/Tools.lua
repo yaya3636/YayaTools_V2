@@ -56,16 +56,17 @@ function Tools.craft:init(params)
 end
 
 function Tools.character:init(params)
-    params = params or {}
-    self.tools = Tools()
-end
-
-function Tools.character.dialog:init(params)
-    params = params or {}
     if not params.packet then
         error("Character : Le paramètre packet requis pour instancier la class est non definie")
     end
     self.tools = Tools()
+    params.tools = self.tools
+    self.dialog = self.dialog(params)
+end
+
+function Tools.character.dialog:init(params)
+    params = params or {}
+    self.tools = params.tools
     self.packet = params.packet
     self.visibleReplies = Tools.list()
 end

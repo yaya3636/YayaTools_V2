@@ -13,6 +13,5 @@ function messagesRegistering() -- Initialisation des callback
 end
 
 Packet = Packet() -- Instanciation du module packet
-Character.dialog = Character.dialog({packet = Packet})-- Instanciation du module Character.dialog en lui passant en paramètre l'instance de Packet
-Character = Character() -- Instanciation du module Character
+Character = Character({packet = Packet})-- Instanciation du module Character.dialog en lui passant en paramètre l'instance de Packet
 Tools = Tools()-- Instanciation du module Tools
