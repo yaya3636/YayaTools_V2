@@ -1,6 +1,6 @@
 Tools = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Tools.lua")
 Monsters = Tools.monsters
-
+API = Tools.api
 -- Regarder le fichier Monsters dans module pour les autres func
 
 function move()
@@ -14,5 +14,6 @@ function move()
     Tools:Print("-----------------------------------------------------")
 end
 
-Monsters = Monsters()
+API = API()
+Monsters = Monsters({api = API})
 Tools = Tools()

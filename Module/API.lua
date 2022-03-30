@@ -45,7 +45,6 @@ function API.localAPI:StartAPI()
             if self.nbTryStartAPI < 3 then
                 self.tools:Print("L'API et déja exécuter", "API")
                 self.isStarted = true
-                self.restartAPI = false
             end
         end
 
@@ -65,8 +64,13 @@ function API.localAPI:PostRequest(url, data)
                 self:StartAPI()
                 return self:PostRequest(url, data)
             end
+            if self.restartAPI and self.isStarted then
+                self.tools:Print("Une erreur c'est produite dans l'API, veuillez me MP pour résoudre le problème", "API")
+            end
+            self.restartAPI = false
             return nil
         else
+            self.restartAPI = false
             if result.status == "error" then
                 self.tools:Print(result.message, "API")
                 return nil
@@ -86,93 +90,8 @@ end
 
 -- Monsters
 
-function API.localAPI:GetMonsterObject(monsterId)
-    local data = self:PostRequest("monsters/getMonsters", "monsterId=" .. monsterId)
-
-    local parseGrade = function(grades)
-        local parseBonusCharacteristics = function(bonusCharacteristics)
-            return self.tools.object({
-                lifePoints = bonusCharacteristics.lifePoints,
-                strenght = bonusCharacteristics.strenght,
-                wisdom = bonusCharacteristics.wisdom,
-                chance = bonusCharacteristics.chance,
-                agility = bonusCharacteristics.agility,
-                intelligence = bonusCharacteristics.intelligence,
-                earthResistance = bonusCharacteristics.earthResistance,
-                fireResistance = bonusCharacteristics.fireResistance,
-                waterResistance = bonusCharacteristics.waterResistance,
-                airResistance = bonusCharacteristics.airResistance,
-                neutralResistance = bonusCharacteristics.neutralResistance,
-                tackleEvade = bonusCharacteristics.tackleEvade,
-                tackleBlock = bonusCharacteristics.tackleBlock,
-                bonusEarthDamage = bonusCharacteristics.bonusEarthDamage,
-                bonusFireDamage = bonusCharacteristics.bonusFireDamage,
-                bonusWaterDamage = bonusCharacteristics.bonusWaterDamage,
-                bonusAirDamage = bonusCharacteristics.bonusAirDamage,
-                APRemoval = bonusCharacteristics.APRemoval
-            })
-        end
-
-        local ret = self.tools.dictionnary()
-        for _, v in pairs(grades) do
-            ret:Add(v.grade, self.tools.object({
-                monsterId = v.monsterId,
-                level = v.level,
-                lifePoints = v.lifePoints,
-                actionPoints = v.actionPoints,
-                movementPoints = v.movementPoints,
-                vitality = v.vitality,
-                paDodge = v.paDodge,
-                pmDodge = v.pmDodge,
-                earthResistance = v.earthResistance,
-                airResistance = v.airResistance,
-                fireResistance = v.fireResistance,
-                waterResistance = v.waterResistance,
-                neutralResistance = v.neutralResistance,
-                gradeXp = v.gradeXp,
-                damageReflect = v.damageReflect,
-                hiddenLevel = v.hiddenLevel,
-                wisdom = v.wisdom,
-                strenght = v.strenght,
-                intelligence = v.intelligence,
-                chance = v.chance,
-                agility = v.agility,
-                bonusRange = v.bonusRange,
-                startingSpellId = v.startingSpellId,
-                bonusCharacteristics = parseBonusCharacteristics(v.bonusCharacteristics)
-            }))
-        end
-
-        return ret
-    end
-
-    local parseDrops = function(drops)
-        local ret = self.tools.dictionnary()
-        for _, v in pairs(drops) do
-            ret:Add(v.objectId, self.tools.object(v))
-        end
-
-        return ret
-    end
-
-    local monster = self.tools.object({
-        id = data.id,
-        race = data.race,
-        grades = parseGrade(data.grades),
-        isBoss = data.isBoss,
-        drops = parseDrops(data.drops),
-        subAreas = self.tools.list():CreateWith(data.subareas),
-        favoriteSubareaId = data.favoriteSubareaId,
-        isMiniBoss = data.isMiniBoss,
-        isQuestMonster = data.isQuestMonster,
-        correspondingMiniBossId = data.correspondingMiniBossId,
-        canPlay = data.canPlay,
-        canTackle = data.canTackle,
-        canBePushed = data.canBePushed,
-        canSwitchPos = data.canSwitchPos,
-    })
-
-    return monster
+function API.localAPI:GetMonster(monsterId)
+    return self:PostRequest("monsters/getMonsters", "monsterId=" .. monsterId)
 end
 
 function API.localAPI:GetAllMonstersIds()
@@ -181,9 +100,7 @@ function API.localAPI:GetAllMonstersIds()
 end
 
 function API.localAPI:GetMonsterIdByDropId(dropId)
-    local data = self:PostRequest("monsters/getMonsterIdByDropId", "dropId=" .. dropId)
-    local ret = self.tools.list(data)
-    return ret
+    return self:PostRequest("monsters/getMonsterIdByDropId", "dropId=" .. dropId)
 end
 
 -- Recipes
@@ -192,6 +109,23 @@ function API.localAPI:GetRecipe(craftId)
     return self:PostRequest("recipes/getRecipe", "craftId=" .. craftId)
 end
 
+-- Zone
+
+function API.localAPI:GetArea(areaId)
+    return self:PostRequest("zone/getArea", "areaId=" .. areaId)
+end
+
+function API.localAPI:GetAreaIdByMapId(mapId)
+    return self:PostRequest("zone/getAreaIdByMapId", "mapId=" .. mapId)
+end
+
+function API.localAPI:GetSubArea(subAreaId)
+    return self:PostRequest("zone/getSubArea", "subAreaId=" .. subAreaId)
+end
+
+function API.localAPI:GetSubAreaIdByMapId(mapId)
+    return self:PostRequest("zone/getSubAreaIdByMapId", "mapId=" .. mapId)
+end
 -- DofusDB
 
 function API.dofusDB:GetHarvestablePosition(gatherId)
@@ -247,7 +181,6 @@ function API.dofusDB:GetHarverstableMapIdInSubArea(gatherId, subAreaId)
     end
     return ret
 end
-
 
 function API.dofusDB:GetURL(gatherId)
     return "recoltable?resources[$in][]=" .. gatherId

@@ -180,17 +180,21 @@ end
 
 function Tools.zone:init(params)
     params = params or {}
+    if not params.api then
+        error("[Module Zone] : Le paramètre api requis pour instancier la class est non definie")
+    end
     self.tools = Tools()
-    self.json = Tools.json()
-    self.d2oArea = self.json:decode(self.tools:ReadFile(self.d2oAreaPath), "Area")
-    self.d2oSubArea = self.json:decode(self.tools:ReadFile(self.d2oSubAreaPath), "SubArea")
-    self:InitD2oProperties()
+    self.api = params.api
+    --self.json = Tools.json()
+    --self.d2oArea = self.json:decode(self.tools:ReadFile(self.d2oAreaPath), "Area")
+    --self.d2oSubArea = self.json:decode(self.tools:ReadFile(self.d2oSubAreaPath), "SubArea")
+    --self:InitD2oProperties()
 end
 
 function Tools.api:init()
     self.super.tools = Tools()
     self.super.json = Tools.json()
-    self.super.localAPI.localPort = self.super.json:decode(self.super.tools:ReadFile(global:getCurrentDirectory() .. "\\YayaTools\\LocalAPI\\ConfigAPI.json"), "ConfigAPI").port
+    self.super.localAPI.localPort = self.super.json:decode(self.super.tools:ReadFile(global:getCurrentDirectory() .. "\\YayaTools\\LocalAPI\\ConfigAPI.json"), "API").port
     self.super.localAPI.localUrl = "http://localhost:" .. self.super.localAPI.localPort .. "/"
     self.super.localAPI = self.super.localAPI()
     self.super = self.super()

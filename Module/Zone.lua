@@ -1,85 +1,23 @@
 Zone = {}
-
-Zone.mapsPath = global:getCurrentDirectory() .. [[\YayaTools\Data\Maps\maps.json]]
-Zone.subareaPath = global:getCurrentDirectory() .. [[\YayaTools\Data\SubArea\]]
-Zone.areaPath = global:getCurrentDirectory() .. [[\YayaTools\Data\Area\]]
-Zone.bigDataSubAreas = {}
-
-Zone.d2oAreaPath = global:getCurrentDirectory() .. [[\YayaTools\Data\D2O\Areas.json]]
-Zone.d2oArea = {}
-Zone.areaNameEnum = {}
-
-Zone.d2oSubAreaPath = global:getCurrentDirectory() .. [[\YayaTools\Data\D2O\SubAreas.json]]
-Zone.d2oSubArea = {}
-Zone.subAreaNameEnum = {}
-
-function Zone:InitD2oProperties()
-    -- Contructeur name
-    local areaFileLine = self.tools:ReadFileLine(global:getCurrentDirectory() .. [[\YayaTools\Data\Area.txt]])
-
-    self.areaNameEnum = self.tools.dictionnary()
-
-    for _,v in pairs(areaFileLine:Enumerate()) do
-        local id = string.sub(v, 1, string.find(v, "%s"))
-        local name = string.sub(v, string.find(v, "%a"), #v)
-        self.areaNameEnum:Add(tonumber(id), name)
-    end
-
-    local subAreaFileLine = self.tools:ReadFileLine(global:getCurrentDirectory() .. [[\YayaTools\Data\SubArea.txt]])
-
-    self.subAreaNameEnum = self.tools.dictionnary()
-
-    for _,v in pairs(subAreaFileLine:Enumerate()) do
-        local id = string.sub(v, 1, string.find(v, "%s"))
-        local name = string.sub(v, string.find(v, "%a"), #v)
-        self.subAreaNameEnum:Add(tonumber(id), name)
-    end
-
-    -- Contructeur Area
-    local area = self.tools.dictionnary()
-
-    for _, v in pairs(self.d2oArea) do
-        v.subArea = self.tools.list()
-        v.name = self.areaNameEnum:Get(v.id)
-        area:Add(v.id, self.tools.object(v))
-    end
-
-    self.d2oArea = area
-
-
-    -- Constructeur SubArea
-    local subArea = self.tools.dictionnary()
-
-    for _, v in pairs(self.d2oSubArea) do
-        -- Ajout des SubArea a Area
-        local tmpArea = self.d2oArea:Get(v.areaId)
-        tmpArea.subArea:Add(v.id)
-        self.d2oArea:Set(v.areaId, tmpArea)
-
-        --self.tools:Print(v.id)
-        -- Constructeur SubArea
-        subArea:Add(v.id, self.tools.object({
-            id = v.id,
-            name = self.subAreaNameEnum:Get(v.id),
-            areaId = v.areaId,
-            mapIds = self.tools.list():CreateWith(v.mapIds, #v.mapIds),
-            level = v.level,
-            isConquestVillage = v.isConquestVillage,
-            monsters = self.tools.list():CreateWith(v.monsters, #v.monsters)
-        }))
-    end
-
-    self.d2oSubArea = subArea
-
-end
-
 -- Area
+
+function Zone:GetAreaObject(areaId)
+    local area = self.api.localAPI:GetArea(areaId)
+    if area then
+        local ret = self.tools.object(area)
+        ret.bounds = self.tools.object(area.bounds)
+        ret.subAreas = self.tools.list(area.subAreas)
+        return ret    
+    end
+    return nil
+end
 
 function Zone:GetAreaMapId(areaId)
     local ret = self.tools.list()
-
-    for _, vSubAreaId in pairs(self:GetAreaObject(areaId).subArea:Enumerate()) do
-        for _, vMapId in pairs(self:GetSubAreaMapId(vSubAreaId):Enumerate()) do
+    local area = self:GetAreaObject(areaId)
+    for _, vSubAreaId in pairs(area.subAreas:Enumerate()) do
+        local subAreaMapId = self:GetSubAreaMapId(vSubAreaId)
+        for _, vMapId in pairs(subAreaMapId:Enumerate()) do
             ret:Add(vMapId)
         end
     end
@@ -87,63 +25,71 @@ function Zone:GetAreaMapId(areaId)
 end
 
 function Zone:GetSubArea(areaId)
-    return self.d2oArea:Get(areaId).subArea or nil
-end
-
-function Zone:GetAreaId(subAreaId)
-    return self.d2oSubArea:Get(subAreaId).areaId or nil
-end
-
-function Zone:GetAreaIdByMapId(mapId)
-    for _, vSubArea in pairs(self.d2oSubArea:Enumerate()) do
-        if vSubArea.mapIds:Contains(mapId) then
-            return vSubArea.areaId
-        end
-    end
+    local area = self:GetAreaObject(areaId)
+    if area then return area.subAreas end
     return nil
 end
 
-function Zone:GetAreaName(areaId)
-    return self.d2oArea:Get(areaId).name or nil
+function Zone:GetAreaIdByMapId(mapId)
+    return self.api.localAPI:GetAreaIdByMapId(mapId)
 end
 
-function Zone:GetAreaObject(areaId)
-    return self.d2oArea:Get(areaId)
+function Zone:GetAreaName(areaId)
+    local area = self:GetAreaObject(areaId)
+    if area then return area.name end
+    return nil
 end
 
 -- SubArea
 
 function Zone:GetSubAreaObject(subAreaId)
-    return self.d2oSubArea:Get(subAreaId)
-end
-
-function Zone:GetSubAreaIdByMapId(mapId)
-    for _, vSubArea in pairs(self.d2oSubArea:Enumerate()) do
-        if vSubArea.mapIds:Contains(mapId) then
-            return vSubArea.id
-        end
+    local subArea = self.api.localAPI:GetSubArea(subAreaId)
+    if subArea then
+        local ret = self.tools.object(subArea)
+        ret.playlists = nil
+        ret.shape = nil
+        ret.npcs = nil
+        ret.mapIds = self.tools.list(subArea.mapIds)
+        ret.bounds = self.tools.object(subArea.bounds)
+        ret.monsters = self.tools.list(subArea.monsters)
+        ret.harvestables = self.tools.list(subArea.harvestables)
+        return ret
     end
     return nil
 end
 
+function Zone:GetAreaId(subAreaId)
+    local subArea = self:GetSubAreaObject(subAreaId)
+    if subArea then return subArea.areaId end
+    return nil
+end
+
+function Zone:GetSubAreaIdByMapId(mapId)
+    return self.api.localAPI:GetSubAreaIdByMapId(mapId)
+end
+
 function Zone:GetSubAreaMapId(subAreaId)
-    return self.d2oSubArea:Get(subAreaId).mapIds or nil
+    local subArea = self:GetSubAreaObject(subAreaId)
+    if subArea then return subArea.mapIds end
+    return nil
 end
 
 function Zone:IsConquestVillage(subAreaId)
-    return self.d2oSubArea:Get(subAreaId).isConquestVillage or nil
+    local subArea = self:GetSubAreaObject(subAreaId)
+    if subArea then return subArea.isConquestVillage end
+    return nil
 end
 
 function Zone:GetSubAreaMonsters(subAreaId)
-    return self.d2oSubArea:Get(subAreaId).monsters or nil
+    local subArea = self:GetSubAreaObject(subAreaId)
+    if subArea then return subArea.monsters end
+    return nil
 end
 
 function Zone:GetSubAreaName(subAreaId)
-    return self.d2oSubArea:Get(subAreaId).name or nil
-end
-
-function Zone:GetSubAreaMapId(subAreaId)
-    return self.d2oSubArea:Get(subAreaId).mapIds or nil
+    local subArea = self:GetSubAreaObject(subAreaId)
+    if subArea then return subArea.name end
+    return nil
 end
 
 return Zone

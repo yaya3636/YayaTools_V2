@@ -1,12 +1,15 @@
 
-const express = require("express")
-const app = express()
-const path = require("path")
 const fs = require("fs")
-const axios = require("axios")
+const readLine = require("readline")
+
+const express = require("express")
 const morgan = require("morgan")
+const axios = require("axios")
 const bodyParser = require("body-parser")
+const path = require("path")
 const json5 = require("json5")
+
+const app = express()
 
 const urlDofusDB = "https://api.dofusdb.fr/"
 const PORT = ReadConfig()
@@ -15,6 +18,15 @@ const PORT = ReadConfig()
 
 const monstersSorted = ReadMonstersData()
 const recipesSorted = ReadRecipesData()
+var areasSorted 
+var subAreasSorted
+
+ReadZoneData().then((v) => {
+    areasSorted = v.area
+    subAreasSorted = v.subArea
+
+})
+
 // Middlewar
 
 app.use(morgan("dev"))
@@ -42,7 +54,7 @@ app.post("/harvestable/getHarvestablePosition", async (req, res) => {
 
 // Monsters
 
-app.post("/monsters/getMonsters", async (req, res) => {
+app.post("/monsters/getMonsters", (req, res) => {
     var monster = monstersSorted.get(parseInt(req.body.monsterId))
     if (monster) {
         res.status(200).json(Success(monster))
@@ -52,7 +64,7 @@ app.post("/monsters/getMonsters", async (req, res) => {
 
 })
 
-app.post("/monsters/getMonsterIdByDropId", async (req, res) => {
+app.post("/monsters/getMonsterIdByDropId", (req, res) => {
     var ret = []
     monstersSorted.forEach(element => {
         element.drops.forEach(e => {
@@ -64,7 +76,7 @@ app.post("/monsters/getMonsterIdByDropId", async (req, res) => {
     res.status(200).json(Success(ret))
 })
 
-app.post("/monsters/getAllMonstersIds", async (req, res) => {
+app.post("/monsters/getAllMonstersIds", (req, res) => {
     var allId = []
 
     monstersSorted.forEach(element => {
@@ -74,9 +86,72 @@ app.post("/monsters/getAllMonstersIds", async (req, res) => {
     res.status(200).json(Success(allId))
 })
 
+// Zone
+
+app.post("/zone/getArea", (req, res) => {
+    const area = areasSorted.get(req.body.areaId.toString())
+    if (area) {
+        res.status(200).json(Success(area))
+    } else {
+        res.status(404).json(Error("AreaId non trouvé"))
+    }
+})
+
+app.post("/zone/getAreaIdByMapId", (req, res) => {
+    var id
+    subAreasSorted.forEach(e => {
+        if (id) {
+            return
+        }
+        e.mapIds.forEach(mapId => {
+            if (req.body.mapId.toString() == mapId.toString()) {
+                id = e.areaId
+                return
+            }
+        })
+    })
+    if (id) {
+        res.status(200).json(Success(id))
+    } else {
+        res.status(404).json(Error("MapId non trouvé"))
+    }
+
+})
+
+app.post("/zone/getSubAreaIdByMapId", (req, res) => {
+    var id
+    subAreasSorted.forEach(e => {
+        if (id) {
+            return
+        }
+        e.mapIds.forEach(mapId => {
+            if (req.body.mapId.toString() == mapId.toString()) {
+                id = e.id
+                return
+            }
+        })
+    })
+    if (id) {
+        res.status(200).json(Success(id))
+    } else {
+        res.status(404).json(Error("MapId non trouvé"))
+    }
+
+})
+
+
+app.post("/zone/getSubArea", (req, res) => {
+    const subArea = subAreasSorted.get(req.body.subAreaId.toString())
+    if (subArea) {
+        res.status(200).json(Success(subArea))
+    } else {
+        res.status(404).json(Error("SubAreaId non trouvé"))
+    }
+})
+
 // Craft
 
-app.post("/recipes/getRecipe", async (req, res) => {
+app.post("/recipes/getRecipe", (req, res) => {
     const recipes = recipesSorted.get(parseInt(req.body.craftId))
 
     if (recipes) {
@@ -157,6 +232,43 @@ async function GetHarvestableData(gatherId) {
 
 // Function API
 
+async function ReadZoneData() {
+    var areaName = await GetAreaName()
+    //console.log(areaName)
+    var subAreaName = await GetSubAreaName()
+    var areasSorted = new Map()
+    var subAreasSorted = new Map()
+    
+    const d2oAreas = json5.parse(fs.readFileSync(path.dirname(__dirname) + "/Data/D2O/Areas.json"))
+    const d2oSubAreas = json5.parse(fs.readFileSync(path.dirname(__dirname) + "/Data/D2O/SubAreas.json"))
+
+    for (const [_, value] of Object.entries(d2oAreas)) {
+        for (const [k, v] of Object.entries(value)) {
+            if (k == "id"){
+                var ins = value
+                ins.name = areaName.get(v.toString())
+                ins.subAreas = []
+                areasSorted.set(v.toString(), ins)
+            }
+        }
+    }
+
+    for (const [_, value] of Object.entries(d2oSubAreas)) {
+        for (const [k, v] of Object.entries(value)) {
+            if (k == "id"){
+                var ins = value
+                ins.name = subAreaName.get(v.toString())
+                subAreasSorted.set(v.toString(), ins)
+
+                var area = areasSorted.get(value.areaId.toString())
+                area.subAreas.push(v.toString())
+                areasSorted.set(value.areaId.toString(), area)
+            }
+        }
+    }
+    return {area : areasSorted, subArea : subAreasSorted}
+}
+
 function ReadConfig() {
     try {
         const data = fs.readFileSync(__dirname + '/ConfigAPI.json', 'utf8')
@@ -196,6 +308,51 @@ function ReadRecipesData() {
     return recipesSorted
 }
 
+function GetAreaName() {
+    var areaName = new Map()
+    const strRegex = /[aA-zZ-áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ']+/g
+    const intRegex = /[0-9]+/g
+    const areaInterface = readLine.createInterface({
+        input: fs.createReadStream(path.dirname(__dirname) + "/Data/Area.txt"),
+        console: false
+    })
+
+    return new Promise((resolve, reject) => {
+        areaInterface.on("line", (line) => {
+            const str = line.match(strRegex)
+            const id = line.match(intRegex).toString()
+            var name = ""
+            str.forEach(e => {
+                name = name + " " + e
+            })
+            areaName.set(id, name)
+            resolve(areaName)    
+        })
+    });
+}
+  
+function GetSubAreaName() {
+    var subAreaName = new Map()
+    const strRegex = /[aA-zZ-áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ']+/g
+    const intRegex = /[0-9]+/g
+    const subAreaInterface = readLine.createInterface({
+        input: fs.createReadStream(path.dirname(__dirname) + "/Data/SubArea.txt"),
+        console: false
+    })
+
+    return new Promise((resolve, reject) => {
+        subAreaInterface.on("line", (line) => {
+            const str = line.match(strRegex)
+            const id = line.match(intRegex).toString()
+            var name = ""
+            str.forEach(e => {
+                name = name + " " + e
+            })
+            subAreaName.set(id, name)
+            resolve(subAreaName)
+        })
+    });
+}
 
 function Success(result) {
     return {

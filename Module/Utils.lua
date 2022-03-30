@@ -208,6 +208,7 @@ end
 
 function Utils:Dump(tbl, printDelay)
     local str = "Root"
+    tbl = tbl or {}
     printDelay = printDelay or 0
 
     local function dmp(t, l, k, rep, init)
