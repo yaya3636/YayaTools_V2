@@ -16,7 +16,7 @@ Utils.colorPrint = {
     ["Json"] = "#077869",
     ["Movement"] = "#00fc4c",
     ["API"] = "#00fc4c",
-
+    ["Craft"] = "#fc972b",
 }
 
 -- Print, Divers

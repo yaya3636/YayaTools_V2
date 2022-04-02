@@ -10,19 +10,27 @@ Monsters = Tools.monsters
 
 
 function move()
-    local stack = Tools.stack()
-    stack:Push("1")
-    stack:Push("2")
-    stack:Push("3")
-    stack:Push("4")
-    stack:Push("5")
-    stack:Push("6")
+    local q = Tools.queue()
+    q:Enqueue("1")
+    q:Enqueue("1")
+    q:Enqueue("1")
+    q:Enqueue("1")
+    q:Enqueue("1")
+    q:Enqueue("1")
+    q:Enqueue("1")
+    q:Enqueue("1")
 
-    local listStack = stack:ToList()
-    Tools:Dump(listStack)
+    for _ = 1, q:Size() do
+        --Tools:Print(q:Dequeue())
+    end
+    
+    Tools:Print(q:Size())
+    q:Clear()
+    Tools:Print(q)
+    Tools:Print(q:Size())
 
-    for _ = 1, stack:Size() do
-        Tools:Print(stack:Pop())
+    for _ = 1, q:Size() do
+        Tools:Print(q:Dequeue())
     end
 
 

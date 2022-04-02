@@ -47,4 +47,9 @@ function Stack:ToList()
     return result
 end
 
+function Stack:Clear()
+    self.first = nil
+    self.N = 0
+end
+
 return Stack

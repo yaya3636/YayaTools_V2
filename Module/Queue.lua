@@ -46,4 +46,10 @@ function Queue:IsEmpty()
     return self.N == 0
 end
 
+function Queue:Clear()
+    self.first = nil
+    self.last = nil
+    self.N = 0
+end
+
 return Queue
