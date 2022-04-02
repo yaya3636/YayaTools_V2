@@ -2,12 +2,11 @@ local yayaToolsModuleDirectory = global:getCurrentDirectory() .. [[\YayaTools\Mo
 Class = dofile(yayaToolsModuleDirectory .. "Class.lua")
 API = dofile(yayaToolsModuleDirectory .. "API.lua")
 Queue = dofile(yayaToolsModuleDirectory .. "Queue.lua")
+Stack = dofile(yayaToolsModuleDirectory .. "Stack.lua")
 
 -- Création des classes
 Tools = Class("Tools", dofile(yayaToolsModuleDirectory .. "Utils.lua"))
-local nodeQ = Queue.node
-Queue.node = Class("NodeQ", nodeQ)
-Tools.queue = Class("Queue", Queue)
+
 Tools.craft = Class("Craft", dofile(yayaToolsModuleDirectory .. "Craft.lua"))
 Tools.dungeons = Class("Dungeons", dofile(yayaToolsModuleDirectory .. "Dungeons.lua"))
 Tools.dictionnary = Class("Dictionnary", dofile(yayaToolsModuleDirectory .. "Dictionnary.lua"))
@@ -33,6 +32,16 @@ Tools.ctrApi.localAPI = Tools.ctrApi:extend("LocalAPI", API.localAPI)
 Tools.ctrApi.dofusDB = Tools.ctrApi:extend("DofusDB",  API.dofusDB)
 Tools.api = Tools.ctrApi:extend("Api")
 Tools.class = Class
+
+
+local nodeQ = Queue.node
+Queue.node = Class("NodeQ", nodeQ)
+Tools.queue = Class("Queue", Queue)
+
+local nodeS = Stack.node
+Stack.node = Class("NodeS", nodeS)
+Stack.list = Tools.list
+Tools.stack = Class("Stack", Stack)
 
 -- Constructeur
 
@@ -181,6 +190,15 @@ end
 function Tools.queue.node:init(value)
     self.value = value
 end
+
+function Tools.stack:init()
+    self.node = Tools.queue.node
+end
+
+function Tools.stack.node:init(value)
+    self.value = value
+end
+
 
 function Tools.timer:init(params)
     params = params or {}
