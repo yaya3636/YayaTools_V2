@@ -1,9 +1,13 @@
 local yayaToolsModuleDirectory = global:getCurrentDirectory() .. [[\YayaTools\Module\]]
 Class = dofile(yayaToolsModuleDirectory .. "Class.lua")
 API = dofile(yayaToolsModuleDirectory .. "API.lua")
+Queue = dofile(yayaToolsModuleDirectory .. "Queue.lua")
 
 -- Création des classes
 Tools = Class("Tools", dofile(yayaToolsModuleDirectory .. "Utils.lua"))
+local nodeQ = Queue.node
+Queue.node = Class("NodeQ", nodeQ)
+Tools.queue = Class("Queue", Queue)
 Tools.craft = Class("Craft", dofile(yayaToolsModuleDirectory .. "Craft.lua"))
 Tools.dungeons = Class("Dungeons", dofile(yayaToolsModuleDirectory .. "Dungeons.lua"))
 Tools.dictionnary = Class("Dictionnary", dofile(yayaToolsModuleDirectory .. "Dictionnary.lua"))
@@ -168,6 +172,14 @@ function Tools.packet:init(params)
     params = params or {}
     self.tools = Tools()
     self.subscribedPacket = self.tools.dictionnary()
+end
+
+function Tools.queue:init()
+    self.node = Tools.queue.node
+end
+
+function Tools.queue.node:init(value)
+    self.value = value
 end
 
 function Tools.timer:init(params)

@@ -8,8 +8,19 @@ Gather = Tools.gather
 API = Tools.api
 Monsters = Tools.monsters
 
+
 function move()
-    Tools:Dump(Craft:GetIngredients(0))
+    local q = Tools.queue()
+    --Tools:Print(q.node)
+    q:Enqueue("1")
+    q:Enqueue("2")
+    q:Enqueue("3")
+    q:Enqueue("4")
+    q:Enqueue("5")
+    q:Enqueue("6")
+    for i = 1, q.N do
+        Tools:Print(q:Dequeue())
+    end
 end
 
 function messagesRegistering()

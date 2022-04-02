@@ -92,4 +92,8 @@ function Zone:GetSubAreaName(subAreaId)
     return nil
 end
 
+-- BankInfo
+
+
+
 return Zone
