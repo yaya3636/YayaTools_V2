@@ -6,7 +6,7 @@
 6 - Cimetière
 7 - Cryptes du cimetière
 8 - Campement des Bworks
-9 - Forêt maléfique
+9 - Dédale du Dark Vlad
 10 - Village d'Amakna
 11 - Territoire des Porcos
 12 - Péninsule des gelées
@@ -21,14 +21,7 @@
 33 - Bois des Arak-haï
 34 - Prison de Madrestam
 39 - Repaire des roublards
-43 - Fortification de Bonta
-44 - Quartier des Boulangers
-46 - Quartier des Bouchers
-47 - Quartier des Forgerons
-48 - Quartier des Bûcherons
-49 - Quartier des Bricoleurs
-50 - Quartier des Tailleurs
-51 - Quartier des Bijoutiers
+43 - Rives iridescentes
 54 - Massif de Cania
 55 - Pénates du Corbac
 56 - Lac de Cania
@@ -40,8 +33,6 @@
 69 - Bois de Litneg
 70 - Plaines Rocheuses
 71 - Gisgoul
-73 - Égouts de Bonta
-75 - Égouts de Brâkmar
 76 - Village des Brigandins
 77 - Gelaxième dimension
 82 - Cour du Bouftou Royal
@@ -108,8 +99,6 @@
 334 - Baie de Cania
 335 - Calanques d'Astrub
 336 - Château Ensablé
-337 - Donjon des Rats de Bonta
-338 - Donjon des Rats de Brâkmar
 339 - Donjon des Rats du Château d'Amakna
 442 - Lac
 443 - Forêt
@@ -156,15 +145,6 @@
 495 - Caverne des Fungus
 500 - Cimetière du village des Zoths
 501 - Îlot Estitch
-502 - Quartier des Bûcherons
-503 - Quartier des Bouchers
-505 - Quartier des Boulangers
-506 - Quartier des Bijoutiers
-507 - Quartier des Tailleurs
-508 - Quartier des Forgerons
-509 - Quartier des Bricoleurs
-511 - Centre-ville
-513 - Centre-ville
 516 - Donjon des Squelettes
 517 - Terres Désacrées
 518 - Landes de Cania
@@ -175,12 +155,6 @@
 525 - Routes Rocailleuses
 526 - Route des Roulottes
 528 - Donjon des Forgerons
-530 - Quartier des Alchimistes
-531 - Quartier des Alchimistes
-532 - Quartier des Pêcheurs
-533 - Quartier des Éleveurs
-534 - Quartier des Pêcheurs
-535 - Quartier des Éleveurs
 536 - Tutoriel guidé
 537 - Château du Wa Wabbit
 538 - Terrier du Wa Wabbit
@@ -302,7 +276,6 @@
 842 - Cache de Kankreblath
 843 - Planque des Vilinsekts
 844 - Antre de la Reine Nyée
-845 - Palais de Bonta
 846 - Bateau du Chouque
 847 - Arbre de Moon
 848 - Île mystérieuse
@@ -425,3 +398,50 @@
 967 - Port des Ravageurs
 968 - Rituel de Kabahal
 969 - Pandamonium
+970 - Dimension Éphémère
+971 - Cauchemar des Ravageurs
+972 - Bataille de l'Aurore Pourpre
+973 - Faubourgs des artisans
+974 - Havres d'ivoire
+975 - Cœur immaculé
+976 - Promontoire des cieux
+977 - La Cuirasse
+978 - L'Ancre
+980 - La Marmite
+982 - L'Enclume
+983 - Résidence brâkmarienne
+984 - Résidence bontarienne
+985 - Entrailles de Brâkmar
+986 - Bonta - étage 1
+987 - Bonta - étage 2
+988 - Bonta - étage 3
+989 - Bonta - étage 4
+990 - Bonta - étage 5
+991 - Bonta - étage 6
+992 - Bonta - étage 7
+993 - Bonta - étage 8
+994 - Bonta - étage 9
+995 - Bonta - étage 10
+996 - Bonta - étage 11
+997 - Bonta - étage 12
+998 - Bonta - étage 13
+999 - Brâkmar - étage 1
+1000 - Brâkmar - étage 2
+1001 - Brâkmar - étage 3
+1002 - Brâkmar - étage 4
+1003 - Brâkmar - étage 5
+1004 - Brâkmar - étage 6
+1005 - Brâkmar - étage 7
+1006 - Brâkmar - étage 8
+1007 - Brâkmar - étage 9
+1008 - Brâkmar - étage 10
+1009 - Brâkmar - étage 11
+1010 - Sousouricière du Rat Noir
+1011 - Canaux méphitiques
+1012 - Brâkmar - rez-de-chaussée
+1013 - Garde-manger du Rat Blanc
+1014 - Mer de Poussière
+1015 - Long Descendre
+1016 - Tertre du long sommeil
+1018 - Akadémie des Gobs
+1019 - Orée enchantée

@@ -55,3 +55,7 @@
 84 - Dimensions des Cavaliers
 85 - Dimension Abyssale
 86 - Atoll des Possédés
+87 - Dimension Éphémère
+88 - Cauchemar des Ravageurs
+91 - Tour des enclos
+92 - Forêt Maléfique
