@@ -101,7 +101,7 @@ app.post("/zone/getArea", (req, res) => {
 app.post("/zone/getAreaIdByMapId", (req, res) => {
     let areaId
     subAreasSorted.forEach(e => {
-        if (ret != null)
+        if (areaId != null)
         {
             return
         }
