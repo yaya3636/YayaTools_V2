@@ -42,15 +42,19 @@ function Dialog:InitCallBack() -- A mettre obligatoirement dans le script charge
     local genericActionRequest = function(msg) Character.dialog:CB_NpcGenericActionRequestMessage(msg) end
     local dialogCreation = function(msg) Character.dialog:CB_NpcDialogCreationMessage(msg) end
     local dialogQuestion = function(msg) Character.dialog:CB_NpcDialogQuestionMessage(msg) end
-    local leaveDialog = function() Character.dialog:CB_LeaveDialogMessage() end
-    local zaapDestinationMessage = function() Character.dialog:CB_ZaapDestinationMessage() end
+    local leaveDialog = function(msg) Character.dialog:CB_LeaveDialogMessage(msg) end
+    --local zaapDestinationMessage = function() Character.dialog:CB_ZaapDestinationMessage() end
+    local exchangeStartedWithStorageMessage = function() Character.dialog:CB_ExchangeStartedWithStorageMessage() end
 
     self.packet:SubManager({
         ["NpcGenericActionRequestMessage"] = genericActionRequest,
         ["NpcDialogCreationMessage"] = dialogCreation,
         ["NpcDialogQuestionMessage"] = dialogQuestion,
         ["LeaveDialogMessage"] = leaveDialog,
-        ["ZaapDestinationsMessage"] = zaapDestinationMessage,
+        --["ZaapDestinationsMessage"] = zaapDestinationMessage,
+        ["ExchangeStartedWithStorageMessage"] = exchangeStartedWithStorageMessage,
+        ["ExchangeLeaveMessage"] = leaveDialog,
+
     })
 
 end
@@ -75,8 +79,14 @@ function Dialog:CB_NpcDialogQuestionMessage(msg)
 end
 
 
-function Dialog:CB_LeaveDialogMessage()
-    self.tools:Print("Fin du dialog", "Dialog")
+function Dialog:CB_LeaveDialogMessage(msg)
+    if developer:typeOf(msg) == "LeaveDialogMessage" then
+        self.tools:Print("Fin du dialog", "Dialog")
+
+    elseif developer:typeOf(msg) == "ExchangeLeaveMessage" then
+        self.tools:Print("Fin de l'echange", "Dialog")
+    end
+
     self.super.isInDialog = false
     self.tryDialog = false
     self.dialogMapId = -1
@@ -86,10 +96,9 @@ function Dialog:CB_LeaveDialogMessage()
     self.visibleReplies:Clear()
 end
 
-function Dialog:CB_ZaapDestinationMessage()
-    self.tools:Print("Dialog crée avec un zaap détecter", "Dialog")
+function Dialog:CB_ExchangeStartedWithStorageMessage()
+    self.tools:Print("Echange crée avec succès", "Dialog")
     self.super.isInDialog = true
 end
-
 
 return Dialog

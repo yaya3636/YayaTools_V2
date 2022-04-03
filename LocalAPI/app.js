@@ -90,32 +90,34 @@ app.post("/monsters/getAllMonstersIds", (req, res) => {
 
 app.post("/zone/getArea", (req, res) => {
     const area = areasSorted.get(req.body.areaId.toString())
+    
     if (area) {
         res.status(200).json(Success(area))
     } else {
-        res.status(404).json(Error("AreaId non trouvé"))
+        res.status(404).json(Error("AreaId non trouvé (" + req.body.areaId.toString() + ")"))
     }
 })
 
 app.post("/zone/getAreaIdByMapId", (req, res) => {
-    var id
+    let areaId
     subAreasSorted.forEach(e => {
-        if (id) {
+        if (ret != null)
+        {
             return
         }
-        e.mapIds.forEach(mapId => {
-            if (req.body.mapId.toString() == mapId.toString()) {
-                id = e.areaId
+        e.mapIds.forEach(m => {
+            if (req.body.mapId.toString() == m.toString()) {
+                areaId = e.areaId
                 return
             }
         })
     })
-    if (id) {
-        res.status(200).json(Success(id))
-    } else {
-        res.status(404).json(Error("MapId non trouvé"))
-    }
 
+    if (areaId != null) {
+        res.status(200).json(Success(areaId))
+    } else {
+        res.status(404).json(Error("MapId non trouvé (" + req.body.mapId.toString() + ")"))
+    }
 })
 
 app.post("/zone/getSubAreaIdByMapId", (req, res) => {
@@ -131,10 +133,10 @@ app.post("/zone/getSubAreaIdByMapId", (req, res) => {
             }
         })
     })
-    if (id) {
+    if (id != null) {
         res.status(200).json(Success(id))
     } else {
-        res.status(404).json(Error("MapId non trouvé"))
+        res.status(404).json(Error("MapId non trouvé (" + req.body.mapId.toString() + ")"))
     }
 
 })
@@ -145,7 +147,7 @@ app.post("/zone/getSubArea", (req, res) => {
     if (subArea) {
         res.status(200).json(Success(subArea))
     } else {
-        res.status(404).json(Error("SubAreaId non trouvé"))
+        res.status(404).json(Error("SubAreaId non trouvé (" + req.body.subAreaId.toString() + ")"))
     }
 })
 

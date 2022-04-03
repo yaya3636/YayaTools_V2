@@ -10,29 +10,8 @@ Monsters = Tools.monsters
 
 
 function move()
-    local q = Tools.queue()
-    q:Enqueue("1")
-    q:Enqueue("1")
-    q:Enqueue("1")
-    q:Enqueue("1")
-    q:Enqueue("1")
-    q:Enqueue("1")
-    q:Enqueue("1")
-    q:Enqueue("1")
-
-    for _ = 1, q:Size() do
-        --Tools:Print(q:Dequeue())
-    end
-    
-    Tools:Print(q:Size())
-    q:Clear()
-    Tools:Print(q)
-    Tools:Print(q:Size())
-
-    for _ = 1, q:Size() do
-        Tools:Print(q:Dequeue())
-    end
-
+    Tools:Print(Zone:GetAreaIdByMapId("97259021"))
+    Tools:Print(map:getX(97259021) .. ',' .. map:getY(97259021))
 
 end
 
@@ -46,7 +25,7 @@ end
 API = API()
 Craft = Craft({api = API})
 Monsters = Monsters({api = API})
---Zone = Zone()
+Zone = Zone({api = API})
 Packet = Packet()
 Gather = Gather({packet = Packet})
 Character = Character({packet = Packet})

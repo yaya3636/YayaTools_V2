@@ -321,4 +321,20 @@ function Utils:Equal(str1, str2)
     return string.lower(tostring(str1)) == string.lower(tostring(str2))
 end
 
+-- Math
+
+function Utils:Round(v, bracket, upperOrLower)
+    bracket = bracket or 1
+    upperOrLower = upperOrLower or "<"
+    if upperOrLower == "<" then
+        return math.floor(v/bracket) * bracket
+    else
+        return math.ceil(v/bracket) * bracket
+    end
+end
+
+function Utils:DiffPercent(a, b)
+    return (a - b) / b * 100
+end
+
 return Utils

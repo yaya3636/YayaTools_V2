@@ -123,6 +123,11 @@ function Tools.gather:init(params)
     self.harvestableElements = Tools.dictionnary()
     self.sortedElementsByDist = Tools.list()
     self.sortedElementsByPriority = Tools.list()
+    local tmp = self.gatherInfo
+    self.gatherInfo = Tools.dictionnary()
+    for _, v in pairs(tmp) do
+        self.gatherInfo:Add(tostring(v.objectId), Tools.object(v))
+    end
 end
 
 function Tools.json:init()

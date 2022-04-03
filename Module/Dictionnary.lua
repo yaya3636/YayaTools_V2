@@ -11,16 +11,16 @@ function Dictionnary:MakeCopy()
 end
 
 function Dictionnary:Add(key, value)
-    self.dic[key] = value
+    self.dic[tostring(key)] = value
     self.N = self.N + 1
 end
 
 function Dictionnary:Set(key, value)
-    self.dic[key] = value
+    self.dic[tostring(key)] = value
 end
 
 function Dictionnary:Get(key)
-    local tmp = self.dic[key]
+    local tmp = self.dic[tostring(key)]
     return tmp
 end
 
@@ -31,24 +31,32 @@ function Dictionnary:Concatenate(dic)
 end
 
 function Dictionnary:RemoveByKey(key)
-    if self.dic[key] ~= nil then
-        self.dic[key] = nil
+    if self.dic[tostring(key)] ~= nil then
+        self.dic[tostring(key)] = nil
         self.N = self.N - 1
     end
 end
 
 function Dictionnary:RemoveByValue(value)
     for k, v in pairs(self.dic) do
-        if v == value then
-            self.dic[k] = nil
-            self.N = self.N - 1
-            break
+        if type(value) == "function" then
+            if value(v) then
+                self.dic[k] = nil
+                self.N = self.N - 1
+                break
+            end
+        else
+            if v == value then
+                self.dic[k] = nil
+                self.N = self.N - 1
+                break
+            end
         end
     end
 end
 
 function Dictionnary:ContainsKey(key)
-    if self.dic[key] ~= nil then
+    if self.dic[tostring(key)] ~= nil then
         return true
     end
     return false
@@ -56,8 +64,14 @@ end
 
 function Dictionnary:ContainsValue(value)
     for _, v in pairs(self.dic) do
-        if v == value then
-            return true
+        if type(value) == "function" then
+            if value(v) then
+                return true
+            end
+        else
+            if v == value then
+                return true
+            end
         end
     end
     return false
@@ -76,6 +90,14 @@ function Dictionnary:Enumerate()
     local ret = {}
     for k, v in pairs(self.dic) do
         ret[k] = v
+    end
+    return ret
+end
+
+function Dictionnary:EnumerateKeys()
+    local ret = {}
+    for k, _ in pairs(self.dic) do
+        ret[k] = k
     end
     return ret
 end

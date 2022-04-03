@@ -237,6 +237,9 @@ function Movement:UseZaap(mapIdDest, zaapExcepted)
 
     local closestZaap = map:closestZaapV2(mapIdDest, zaapExcepted)
 
+    if closestZaap == self.lastTpMapId then
+        self.teleported = true
+    end
     if closestZaap == 0 then
         self.tools:Print("Aucun zaap trouvée pour la map (" .. mapIdDest .. ")", "error")
         global:leaveDialog()
