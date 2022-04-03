@@ -2024,6 +2024,28 @@
         ]
     },
     {
+        "id": 236,
+        "actionId": 182,
+        "targetId": 25292,
+        "progressionPerLevelRange": [
+            [
+                101.0,
+                0.02
+            ]
+        ]
+    },
+    {
+        "id": 237,
+        "actionId": 424,
+        "targetId": 25292,
+        "progressionPerLevelRange": [
+            [
+                101.0,
+                0.15
+            ]
+        ]
+    },
+    {
         "id": 196,
         "actionId": 176,
         "targetId": 16276,
@@ -2482,6 +2504,61 @@
             [
                 101.0,
                 0.0125
+            ]
+        ]
+    },
+    {
+        "id": 238,
+        "actionId": 428,
+        "targetId": 25292,
+        "progressionPerLevelRange": [
+            [
+                101.0,
+                0.15
+            ]
+        ]
+    },
+    {
+        "id": 239,
+        "actionId": 422,
+        "targetId": 25292,
+        "progressionPerLevelRange": [
+            [
+                101.0,
+                0.15
+            ]
+        ]
+    },
+    {
+        "id": 240,
+        "actionId": 426,
+        "targetId": 25292,
+        "progressionPerLevelRange": [
+            [
+                101.0,
+                0.15
+            ]
+        ]
+    },
+    {
+        "id": 242,
+        "actionId": 416,
+        "targetId": 25293,
+        "progressionPerLevelRange": [
+            [
+                101.0,
+                0.8
+            ]
+        ]
+    },
+    {
+        "id": 243,
+        "actionId": 753,
+        "targetId": 25293,
+        "progressionPerLevelRange": [
+            [
+                101.0,
+                0.4
             ]
         ]
     }

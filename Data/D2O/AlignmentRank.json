@@ -5,7 +5,6 @@
         "nameId": 108,
         "descriptionId": 109,
         "minimumAlignment": 0,
-        "objectsStolen": 0,
         "gifts": []
     },
     {
@@ -14,7 +13,6 @@
         "nameId": 132,
         "descriptionId": 133,
         "minimumAlignment": 0,
-        "objectsStolen": 0,
         "gifts": []
     },
     {
@@ -23,7 +21,6 @@
         "nameId": 126,
         "descriptionId": 127,
         "minimumAlignment": 20,
-        "objectsStolen": 0,
         "gifts": [
             24,
             25,
@@ -63,7 +60,6 @@
         "nameId": 517266,
         "descriptionId": 143,
         "minimumAlignment": 40,
-        "objectsStolen": 0,
         "gifts": [
             24,
             25,
@@ -133,7 +129,6 @@
         "nameId": 112,
         "descriptionId": 113,
         "minimumAlignment": 60,
-        "objectsStolen": 0,
         "gifts": [
             24,
             25,
@@ -235,7 +230,6 @@
         "nameId": 128,
         "descriptionId": 129,
         "minimumAlignment": 80,
-        "objectsStolen": 0,
         "gifts": [
             24,
             25,
@@ -369,7 +363,6 @@
         "nameId": 160,
         "descriptionId": 161,
         "minimumAlignment": 100,
-        "objectsStolen": 1,
         "gifts": [
             24,
             25,
@@ -537,7 +530,6 @@
         "nameId": 120,
         "descriptionId": 121,
         "minimumAlignment": 20,
-        "objectsStolen": 0,
         "gifts": [
             24,
             25,
@@ -577,7 +569,6 @@
         "nameId": 166,
         "descriptionId": 167,
         "minimumAlignment": 40,
-        "objectsStolen": 0,
         "gifts": [
             24,
             25,
@@ -647,7 +638,6 @@
         "nameId": 517265,
         "descriptionId": 103,
         "minimumAlignment": 60,
-        "objectsStolen": 0,
         "gifts": [
             24,
             25,
@@ -749,7 +739,6 @@
         "nameId": 138,
         "descriptionId": 139,
         "minimumAlignment": 80,
-        "objectsStolen": 0,
         "gifts": [
             24,
             25,
@@ -883,7 +872,6 @@
         "nameId": 148,
         "descriptionId": 149,
         "minimumAlignment": 100,
-        "objectsStolen": 1,
         "gifts": [
             24,
             25,
@@ -1051,7 +1039,6 @@
         "nameId": 150,
         "descriptionId": 151,
         "minimumAlignment": 20,
-        "objectsStolen": 0,
         "gifts": [
             24,
             25,
@@ -1091,7 +1078,6 @@
         "nameId": 154,
         "descriptionId": 155,
         "minimumAlignment": 40,
-        "objectsStolen": 0,
         "gifts": [
             24,
             25,
@@ -1161,7 +1147,6 @@
         "nameId": 162,
         "descriptionId": 163,
         "minimumAlignment": 60,
-        "objectsStolen": 0,
         "gifts": [
             24,
             25,
@@ -1263,7 +1248,6 @@
         "nameId": 158,
         "descriptionId": 159,
         "minimumAlignment": 80,
-        "objectsStolen": 0,
         "gifts": [
             24,
             25,
@@ -1397,7 +1381,6 @@
         "nameId": 134,
         "descriptionId": 135,
         "minimumAlignment": 100,
-        "objectsStolen": 1,
         "gifts": [
             24,
             25,
@@ -1565,7 +1548,6 @@
         "nameId": 172,
         "descriptionId": 173,
         "minimumAlignment": 0,
-        "objectsStolen": 0,
         "gifts": []
     },
     {
@@ -1574,7 +1556,6 @@
         "nameId": 168,
         "descriptionId": 169,
         "minimumAlignment": 20,
-        "objectsStolen": 0,
         "gifts": [
             24,
             25,
@@ -1614,7 +1595,6 @@
         "nameId": 164,
         "descriptionId": 165,
         "minimumAlignment": 40,
-        "objectsStolen": 0,
         "gifts": [
             24,
             25,
@@ -1684,7 +1664,6 @@
         "nameId": 144,
         "descriptionId": 145,
         "minimumAlignment": 60,
-        "objectsStolen": 0,
         "gifts": [
             24,
             25,
@@ -1786,7 +1765,6 @@
         "nameId": 130,
         "descriptionId": 131,
         "minimumAlignment": 80,
-        "objectsStolen": 0,
         "gifts": [
             24,
             25,
@@ -1920,7 +1898,6 @@
         "nameId": 116,
         "descriptionId": 117,
         "minimumAlignment": 100,
-        "objectsStolen": 1,
         "gifts": [
             24,
             25,
@@ -2088,7 +2065,6 @@
         "nameId": 100,
         "descriptionId": 101,
         "minimumAlignment": 20,
-        "objectsStolen": 0,
         "gifts": [
             24,
             25,
@@ -2128,7 +2104,6 @@
         "nameId": 122,
         "descriptionId": 123,
         "minimumAlignment": 40,
-        "objectsStolen": 0,
         "gifts": [
             24,
             25,
@@ -2198,7 +2173,6 @@
         "nameId": 98,
         "descriptionId": 99,
         "minimumAlignment": 60,
-        "objectsStolen": 0,
         "gifts": [
             24,
             25,
@@ -2300,7 +2274,6 @@
         "nameId": 564893,
         "descriptionId": 107,
         "minimumAlignment": 80,
-        "objectsStolen": 0,
         "gifts": [
             24,
             25,
@@ -2434,7 +2407,6 @@
         "nameId": 146,
         "descriptionId": 147,
         "minimumAlignment": 100,
-        "objectsStolen": 1,
         "gifts": [
             24,
             25,
@@ -2602,7 +2574,6 @@
         "nameId": 170,
         "descriptionId": 171,
         "minimumAlignment": 20,
-        "objectsStolen": 0,
         "gifts": [
             24,
             25,
@@ -2642,7 +2613,6 @@
         "nameId": 174,
         "descriptionId": 175,
         "minimumAlignment": 40,
-        "objectsStolen": 0,
         "gifts": [
             24,
             25,
@@ -2712,7 +2682,6 @@
         "nameId": 596096,
         "descriptionId": 105,
         "minimumAlignment": 60,
-        "objectsStolen": 0,
         "gifts": [
             24,
             25,
@@ -2814,7 +2783,6 @@
         "nameId": 124,
         "descriptionId": 125,
         "minimumAlignment": 80,
-        "objectsStolen": 0,
         "gifts": [
             24,
             25,
@@ -2948,7 +2916,6 @@
         "nameId": 136,
         "descriptionId": 137,
         "minimumAlignment": 100,
-        "objectsStolen": 1,
         "gifts": [
             24,
             25,
@@ -3116,7 +3083,6 @@
         "nameId": 110,
         "descriptionId": 111,
         "minimumAlignment": 0,
-        "objectsStolen": 0,
         "gifts": []
     },
     {
@@ -3125,7 +3091,6 @@
         "nameId": 152,
         "descriptionId": 153,
         "minimumAlignment": 20,
-        "objectsStolen": 0,
         "gifts": []
     },
     {
@@ -3134,7 +3099,6 @@
         "nameId": 114,
         "descriptionId": 115,
         "minimumAlignment": 40,
-        "objectsStolen": 0,
         "gifts": []
     },
     {
@@ -3143,7 +3107,6 @@
         "nameId": 140,
         "descriptionId": 141,
         "minimumAlignment": 60,
-        "objectsStolen": 0,
         "gifts": []
     },
     {
@@ -3152,7 +3115,6 @@
         "nameId": 118,
         "descriptionId": 119,
         "minimumAlignment": 80,
-        "objectsStolen": 0,
         "gifts": []
     },
     {
@@ -3161,7 +3123,6 @@
         "nameId": 156,
         "descriptionId": 157,
         "minimumAlignment": 100,
-        "objectsStolen": 0,
         "gifts": []
     }
 ]

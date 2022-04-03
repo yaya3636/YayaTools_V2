@@ -38,5 +38,15 @@
         "id": 7,
         "nameId": 723120,
         "langCode": "it"
+    },
+    {
+        "id": 8,
+        "nameId": 923138,
+        "langCode": "ar"
+    },
+    {
+        "id": 9,
+        "nameId": 927867,
+        "langCode": "cm"
     }
 ]

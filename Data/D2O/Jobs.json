@@ -118,5 +118,11 @@
         "nameId": 721512,
         "iconId": 41,
         "hasLegendaryCraft": false
+    },
+    {
+        "id": 75,
+        "nameId": 836222,
+        "iconId": 42,
+        "hasLegendaryCraft": false
     }
 ]

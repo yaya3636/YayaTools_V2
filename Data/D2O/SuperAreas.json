@@ -46,5 +46,11 @@
         "nameId": 868524,
         "worldmapId": 0,
         "hasWorldMap": false
+    },
+    {
+        "id": 10,
+        "nameId": 905074,
+        "worldmapId": 0,
+        "hasWorldMap": false
     }
 ]

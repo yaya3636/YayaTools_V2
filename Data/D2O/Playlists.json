@@ -360,6 +360,36 @@
         "random": false
     },
     {
+        "id": 287,
+        "type": 2,
+        "sounds": [
+            {
+                "id": "17031",
+                "volume": 65,
+                "soundOrder": 0
+            },
+            {
+                "id": "17033",
+                "volume": 65,
+                "soundOrder": 2
+            },
+            {
+                "id": "17032",
+                "volume": 65,
+                "soundOrder": 1
+            },
+            {
+                "id": "17034",
+                "volume": 65,
+                "soundOrder": 3
+            }
+        ],
+        "startRandom": false,
+        "startRandomOnce": false,
+        "crossfadeDuration": 1000,
+        "random": false
+    },
+    {
         "id": 77,
         "type": 1,
         "sounds": [
@@ -1110,6 +1140,21 @@
         "random": false
     },
     {
+        "id": 288,
+        "type": 1,
+        "sounds": [
+            {
+                "id": "20166",
+                "volume": 50,
+                "soundOrder": 0
+            }
+        ],
+        "startRandom": false,
+        "startRandomOnce": false,
+        "crossfadeDuration": 1000,
+        "random": false
+    },
+    {
         "id": 31,
         "type": 1,
         "sounds": [
@@ -1147,6 +1192,36 @@
                 "id": "29102",
                 "volume": 75,
                 "soundOrder": 0
+            }
+        ],
+        "startRandom": false,
+        "startRandomOnce": false,
+        "crossfadeDuration": 1000,
+        "random": false
+    },
+    {
+        "id": 286,
+        "type": 2,
+        "sounds": [
+            {
+                "id": "17027",
+                "volume": 55,
+                "soundOrder": 0
+            },
+            {
+                "id": "17028",
+                "volume": 55,
+                "soundOrder": 1
+            },
+            {
+                "id": "17029",
+                "volume": 55,
+                "soundOrder": 2
+            },
+            {
+                "id": "17030",
+                "volume": 55,
+                "soundOrder": 3
             }
         ],
         "startRandom": false,
@@ -1805,6 +1880,21 @@
         "random": false
     },
     {
+        "id": 291,
+        "type": 1,
+        "sounds": [
+            {
+                "id": "20168",
+                "volume": 40,
+                "soundOrder": 0
+            }
+        ],
+        "startRandom": false,
+        "startRandomOnce": false,
+        "crossfadeDuration": 1000,
+        "random": false
+    },
+    {
         "id": 32,
         "type": 2,
         "sounds": [
@@ -1902,6 +1992,36 @@
                 "id": "20227",
                 "volume": 43,
                 "soundOrder": 0
+            }
+        ],
+        "startRandom": false,
+        "startRandomOnce": false,
+        "crossfadeDuration": 1000,
+        "random": false
+    },
+    {
+        "id": 282,
+        "type": 2,
+        "sounds": [
+            {
+                "id": "17355",
+                "volume": 50,
+                "soundOrder": 0
+            },
+            {
+                "id": "17356",
+                "volume": 50,
+                "soundOrder": 1
+            },
+            {
+                "id": "17357",
+                "volume": 50,
+                "soundOrder": 2
+            },
+            {
+                "id": "17358",
+                "volume": 50,
+                "soundOrder": 3
             }
         ],
         "startRandom": false,
@@ -2320,12 +2440,42 @@
         "random": false
     },
     {
+        "id": 283,
+        "type": 1,
+        "sounds": [
+            {
+                "id": "20165",
+                "volume": 50,
+                "soundOrder": 0
+            }
+        ],
+        "startRandom": false,
+        "startRandomOnce": false,
+        "crossfadeDuration": 1000,
+        "random": false
+    },
+    {
         "id": 128,
         "type": 1,
         "sounds": [
             {
                 "id": "20001",
                 "volume": 40,
+                "soundOrder": 0
+            }
+        ],
+        "startRandom": false,
+        "startRandomOnce": false,
+        "crossfadeDuration": 1000,
+        "random": false
+    },
+    {
+        "id": 293,
+        "type": 1,
+        "sounds": [
+            {
+                "id": "20173",
+                "volume": 50,
                 "soundOrder": 0
             }
         ],
@@ -3485,11 +3635,41 @@
         "random": false
     },
     {
+        "id": 284,
+        "type": 3,
+        "sounds": [
+            {
+                "id": "29037",
+                "volume": 50,
+                "soundOrder": 0
+            }
+        ],
+        "startRandom": false,
+        "startRandomOnce": false,
+        "crossfadeDuration": 1000,
+        "random": false
+    },
+    {
         "id": 266,
         "type": 4,
         "sounds": [
             {
                 "id": "29511",
+                "volume": 50,
+                "soundOrder": 0
+            }
+        ],
+        "startRandom": false,
+        "startRandomOnce": false,
+        "crossfadeDuration": 1000,
+        "random": false
+    },
+    {
+        "id": 294,
+        "type": 3,
+        "sounds": [
+            {
+                "id": "29038",
                 "volume": 50,
                 "soundOrder": 0
             }
@@ -3882,6 +4062,51 @@
                 "id": "20196",
                 "volume": 50,
                 "soundOrder": 0
+            }
+        ],
+        "startRandom": false,
+        "startRandomOnce": false,
+        "crossfadeDuration": 1000,
+        "random": false
+    },
+    {
+        "id": 292,
+        "type": 1,
+        "sounds": [
+            {
+                "id": "20172",
+                "volume": 50,
+                "soundOrder": 0
+            }
+        ],
+        "startRandom": false,
+        "startRandomOnce": false,
+        "crossfadeDuration": 1000,
+        "random": false
+    },
+    {
+        "id": 285,
+        "type": 2,
+        "sounds": [
+            {
+                "id": "17026",
+                "volume": 45,
+                "soundOrder": 0
+            },
+            {
+                "id": "17022",
+                "volume": 45,
+                "soundOrder": 2
+            },
+            {
+                "id": "17021",
+                "volume": 45,
+                "soundOrder": 1
+            },
+            {
+                "id": "17024",
+                "volume": 45,
+                "soundOrder": 3
             }
         ],
         "startRandom": false,

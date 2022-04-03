@@ -687,7 +687,7 @@
         "id": 139,
         "nameId": 2586,
         "actionId": 0,
-        "displayTooltip": false
+        "displayTooltip": true
     },
     {
         "id": 140,
@@ -1015,7 +1015,7 @@
     },
     {
         "id": 194,
-        "nameId": 109466,
+        "nameId": 926217,
         "actionId": 0,
         "displayTooltip": false
     },
@@ -1257,7 +1257,7 @@
         "id": 234,
         "nameId": 423445,
         "actionId": 0,
-        "displayTooltip": true
+        "displayTooltip": false
     },
     {
         "id": 235,
@@ -2090,6 +2090,102 @@
     {
         "id": 373,
         "nameId": 891120,
+        "actionId": 0,
+        "displayTooltip": true
+    },
+    {
+        "id": 374,
+        "nameId": 900223,
+        "actionId": 0,
+        "displayTooltip": true
+    },
+    {
+        "id": 375,
+        "nameId": 900250,
+        "actionId": 0,
+        "displayTooltip": true
+    },
+    {
+        "id": 376,
+        "nameId": 900251,
+        "actionId": 0,
+        "displayTooltip": true
+    },
+    {
+        "id": 377,
+        "nameId": 900760,
+        "actionId": 0,
+        "displayTooltip": true
+    },
+    {
+        "id": 378,
+        "nameId": 901593,
+        "actionId": 0,
+        "displayTooltip": true
+    },
+    {
+        "id": 379,
+        "nameId": 916922,
+        "actionId": 0,
+        "displayTooltip": true
+    },
+    {
+        "id": 380,
+        "nameId": 919898,
+        "actionId": 0,
+        "displayTooltip": true
+    },
+    {
+        "id": 381,
+        "nameId": 922046,
+        "actionId": 0,
+        "displayTooltip": true
+    },
+    {
+        "id": 386,
+        "nameId": 928367,
+        "actionId": 0,
+        "displayTooltip": false
+    },
+    {
+        "id": 387,
+        "nameId": 928362,
+        "actionId": 0,
+        "displayTooltip": false
+    },
+    {
+        "id": 388,
+        "nameId": 933046,
+        "actionId": 0,
+        "displayTooltip": true
+    },
+    {
+        "id": 389,
+        "nameId": 937477,
+        "actionId": 0,
+        "displayTooltip": true
+    },
+    {
+        "id": 390,
+        "nameId": 939527,
+        "actionId": 0,
+        "displayTooltip": true
+    },
+    {
+        "id": 391,
+        "nameId": 939528,
+        "actionId": 0,
+        "displayTooltip": true
+    },
+    {
+        "id": 392,
+        "nameId": 939529,
+        "actionId": 0,
+        "displayTooltip": true
+    },
+    {
+        "id": 393,
+        "nameId": 939530,
         "actionId": 0,
         "displayTooltip": true
     }

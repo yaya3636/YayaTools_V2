@@ -8,7 +8,7 @@
         "bounds": {
             "x": -47,
             "y": -70,
-            "width": 63,
+            "width": 65,
             "height": 104
         },
         "worldmapId": 0,
@@ -585,7 +585,7 @@
             "x": 0,
             "y": 0,
             "width": 7,
-            "height": 13
+            "height": 14
         },
         "worldmapId": 0,
         "hasWorldMap": false,
@@ -616,7 +616,7 @@
         "bounds": {
             "x": -35,
             "y": -67,
-            "width": 48,
+            "width": 72,
             "height": 99
         },
         "worldmapId": 19,
@@ -792,7 +792,7 @@
         "bounds": {
             "x": 0,
             "y": -47,
-            "width": 40,
+            "width": 41,
             "height": 48
         },
         "worldmapId": 0,
@@ -843,8 +843,8 @@
             "width": 7,
             "height": 9
         },
-        "worldmapId": 0,
-        "hasWorldMap": false,
+        "worldmapId": 28,
+        "hasWorldMap": true,
         "hasSuggestion": true
     },
     {
@@ -890,6 +890,86 @@
             "y": 0,
             "width": 1,
             "height": 1
+        },
+        "worldmapId": 0,
+        "hasWorldMap": false,
+        "hasSuggestion": true
+    },
+    {
+        "id": 86,
+        "nameId": 896536,
+        "superAreaId": 0,
+        "containHouses": false,
+        "containPaddocks": false,
+        "bounds": {
+            "x": 0,
+            "y": -58,
+            "width": 43,
+            "height": 59
+        },
+        "worldmapId": 0,
+        "hasWorldMap": false,
+        "hasSuggestion": true
+    },
+    {
+        "id": 87,
+        "nameId": 905070,
+        "superAreaId": 10,
+        "containHouses": false,
+        "containPaddocks": false,
+        "bounds": {
+            "x": 0,
+            "y": -3,
+            "width": 4,
+            "height": 4
+        },
+        "worldmapId": 19,
+        "hasWorldMap": true,
+        "hasSuggestion": false
+    },
+    {
+        "id": 88,
+        "nameId": 908006,
+        "superAreaId": 6,
+        "containHouses": false,
+        "containPaddocks": false,
+        "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 4,
+            "height": 4
+        },
+        "worldmapId": 30,
+        "hasWorldMap": true,
+        "hasSuggestion": true
+    },
+    {
+        "id": 91,
+        "nameId": 922691,
+        "superAreaId": 0,
+        "containHouses": false,
+        "containPaddocks": true,
+        "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1,
+            "height": 1
+        },
+        "worldmapId": 0,
+        "hasWorldMap": false,
+        "hasSuggestion": true
+    },
+    {
+        "id": 92,
+        "nameId": 936177,
+        "superAreaId": 0,
+        "containHouses": false,
+        "containPaddocks": false,
+        "bounds": {
+            "x": -7,
+            "y": 0,
+            "width": 8,
+            "height": 23
         },
         "worldmapId": 0,
         "hasWorldMap": false,

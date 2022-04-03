@@ -689,11 +689,11 @@
     },
     {
         "id": 78,
-        "nameId": 674073,
-        "descId": 674074,
+        "nameId": 904262,
+        "descId": 904263,
         "npcId": 1701,
         "bonusesIds": [
-            94
+            354
         ]
     },
     {
@@ -3027,11 +3027,11 @@
     },
     {
         "id": 341,
-        "nameId": 324599,
-        "descId": 324600,
+        "nameId": 904267,
+        "descId": 904268,
         "npcId": 2094,
         "bonusesIds": [
-            336
+            398
         ]
     },
     {
@@ -3392,6 +3392,15 @@
         "npcId": 1976,
         "bonusesIds": [
             303
+        ]
+    },
+    {
+        "id": 382,
+        "nameId": 896840,
+        "descId": 896841,
+        "npcId": 1967,
+        "bonusesIds": [
+            389
         ]
     }
 ]

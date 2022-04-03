@@ -144,62 +144,66 @@ function Movement:RoadZone(listMapId, listExcludeMapId)
 end
 
 function Movement:LoadRoad(mapIdDest)
-    if self.character.isInDialog then
-        self.tools:Print("Le personnage a un dialog ouvert, on quitte le dialog", "Movement")
-        global:leaveDialog()
-    end
-
-    if self.tools:Equal(map:currentArea(), "Incarnam") and not self.tools:Equal(self.zone:GetAreaName(self.zone:GetAreaIdByMapId(mapIdDest)), "Incarnam") then -- Si on est a incarnam et que notre prochaine map et en dehors de incarnam
-        if not self.printedInfo then
-            self.tools:Print("On part de Incarnam !", "Movement")
-            self.printedInfo = true
+    if mapIdDest ~= -1 then
+        if self.character.isInDialog then
+            self.tools:Print("Le personnage a un dialog ouvert, on quitte le dialog", "Movement")
+            global:leaveDialog()
         end
-        if map:currentMapId() ~= 153880835 then
-            map:moveToward(153880835)
-        else
-            self.printedInfo = false
-            map:door(430)
-            self.character.dialog:CreateDialog(4398, self.tools.list({36982, 36980}))
+    
+        if self.tools:Equal(map:currentArea(), "Incarnam") and not self.tools:Equal(self.zone:GetAreaName(self.zone:GetAreaIdByMapId(mapIdDest)), "Incarnam") then -- Si on est a incarnam et que notre prochaine map et en dehors de incarnam
+            if not self.printedInfo then
+                self.tools:Print("On part de Incarnam !", "Movement")
+                self.printedInfo = true
+            end
+            if map:currentMapId() ~= 153880835 then
+                map:moveToward(153880835)
+            else
+                self.printedInfo = false
+                map:door(430)
+                self.character.dialog:CreateDialog(4398, self.tools.list({36982, 36980}))
+            end
         end
-    end
-
-    if not self.tools:Equal(map:currentArea(), "Incarnam") and self.tools:Equal(self.zone:GetAreaName(self.zone:GetAreaIdByMapId(mapIdDest)), "Incarnam") then -- Si on est pas a incarnam et que notre prochaine map et a incarnam
-        if not self.printedInfo then
-            self.tools:Print("On va a Incarnam !", "Movement")
-            self.printedInfo = true
+    
+        if not self.tools:Equal(map:currentArea(), "Incarnam") and self.tools:Equal(self.zone:GetAreaName(self.zone:GetAreaIdByMapId(mapIdDest)), "Incarnam") then -- Si on est pas a incarnam et que notre prochaine map et a incarnam
+            if not self.printedInfo then
+                self.tools:Print("On va a Incarnam !", "Movement")
+                self.printedInfo = true
+            end
+            if map:currentMapId() ~= 192416776 then
+                self:LoadRoad(192416776)
+                self:MoveNext()
+            else
+                self.printedInfo = false
+                map:door(455)
+            end
         end
-        if map:currentMapId() ~= 192416776 then
-            self:LoadRoad(192416776)
-            self:MoveNext()
-        else
-            self.printedInfo = false
-            map:door(455)
+    
+    
+        if map:GetPathDistance(map:currentMapId(), mapIdDest) > 15 and not self.teleported or map:currentMap() == "0,0" and not self.teleported then
+            self:HavenBagTP(mapIdDest, "La prochaine map est a plus de 15 map, on se téléporte", self.forbiddenZaap)
         end
-    end
-
-
-    if map:GetPathDistance(map:currentMapId(), mapIdDest) > 15 and not self.teleported or map:currentMap() == "0,0" and not self.teleported then
-        self:HavenBagTP(mapIdDest, "La prochaine map est a plus de 15 map, on se téléporte", self.forbiddenZaap)
-    end
-
-    local currentMapId = map:currentMapId()
-    if currentMapId ~= mapIdDest and not self.roadLoaded then
-        if not map:loadMove(mapIdDest) then
-            self.tools:Print("Impossible de charger un chemin jusqu'a la map ("..mapIdDest..")", "LoadRoad")
-        else
-            self.roadLoaded = true
+    
+        local currentMapId = map:currentMapId()
+        if currentMapId ~= mapIdDest and not self.roadLoaded then
+            if not map:loadMove(mapIdDest) then
+                self.tools:Print("Impossible de charger un chemin jusqu'a la map ("..mapIdDest..")", "LoadRoad")
+            else
+                self.roadLoaded = true
+            end
+        elseif currentMapId == mapIdDest and self.roadLoaded then
+            self.tools:Print("Nous somme arrivé sur la carte de destination ("..mapIdDest..")", "Movement")
+            self.roadLoaded = false
+            self.teleported = false
+        elseif currentMapId == mapIdDest and not self.roadLoaded then
+            self.tools:Print("Vous êtes déjà sur la carte de destination ("..mapIdDest..")", "Movement")
         end
-    elseif currentMapId == mapIdDest and self.roadLoaded then
-        self.tools:Print("Nous somme arrivé sur la carte de destination ("..mapIdDest..")", "Movement")
-        self.roadLoaded = false
-        self.teleported = false
-    elseif currentMapId == mapIdDest and not self.roadLoaded then
-        self.tools:Print("Vous êtes déjà sur la carte de destination ("..mapIdDest..")", "Movement")
+    
     end
 end
 
 function Movement:MoveNext()
     map:moveRoadNext()
+    global:delay(500)
 end
 
 function Movement:InMapChecker(listMapId)

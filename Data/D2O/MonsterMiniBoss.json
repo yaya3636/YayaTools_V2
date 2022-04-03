@@ -573,7 +573,7 @@
     },
     {
         "id": 2431,
-        "monsterReplacingId": 207
+        "monsterReplacingId": 927
     },
     {
         "id": 2432,
@@ -921,7 +921,7 @@
     },
     {
         "id": 2543,
-        "monsterReplacingId": 249
+        "monsterReplacingId": 4571
     },
     {
         "id": 2544,
@@ -1142,22 +1142,6 @@
     {
         "id": 2616,
         "monsterReplacingId": 495
-    },
-    {
-        "id": 3127,
-        "monsterReplacingId": 2913
-    },
-    {
-        "id": 3128,
-        "monsterReplacingId": 2893
-    },
-    {
-        "id": 3129,
-        "monsterReplacingId": 2914
-    },
-    {
-        "id": 3130,
-        "monsterReplacingId": 2892
     },
     {
         "id": 3178,

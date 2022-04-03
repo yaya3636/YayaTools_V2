@@ -5,7 +5,6 @@
         "visible": true,
         "assetId": 1,
         "iconId": 0,
-        "rarity": 0,
         "order": 1
     },
     {
@@ -14,7 +13,6 @@
         "visible": true,
         "assetId": 2,
         "iconId": 1,
-        "rarity": 0,
         "order": 2
     },
     {
@@ -23,7 +21,6 @@
         "visible": true,
         "assetId": 3,
         "iconId": 2,
-        "rarity": 0,
         "order": 3
     },
     {
@@ -32,7 +29,6 @@
         "visible": true,
         "assetId": 4,
         "iconId": 0,
-        "rarity": 0,
         "order": 4
     },
     {
@@ -41,7 +37,6 @@
         "visible": true,
         "assetId": 5,
         "iconId": 1,
-        "rarity": 0,
         "order": 5
     },
     {
@@ -50,7 +45,6 @@
         "visible": true,
         "assetId": 6,
         "iconId": 2,
-        "rarity": 0,
         "order": 6
     },
     {
@@ -59,7 +53,6 @@
         "visible": true,
         "assetId": 7,
         "iconId": 0,
-        "rarity": 0,
         "order": 7
     },
     {
@@ -68,7 +61,6 @@
         "visible": true,
         "assetId": 10,
         "iconId": 0,
-        "rarity": 0,
         "order": 10
     },
     {
@@ -77,7 +69,6 @@
         "visible": true,
         "assetId": 11,
         "iconId": 0,
-        "rarity": 0,
         "order": 11
     },
     {
@@ -86,7 +77,6 @@
         "visible": true,
         "assetId": 12,
         "iconId": 1,
-        "rarity": 0,
         "order": 12
     },
     {
@@ -95,7 +85,6 @@
         "visible": true,
         "assetId": 13,
         "iconId": 1,
-        "rarity": 0,
         "order": 13
     },
     {
@@ -104,7 +93,6 @@
         "visible": true,
         "assetId": 14,
         "iconId": 0,
-        "rarity": 0,
         "order": 14
     },
     {
@@ -113,7 +101,6 @@
         "visible": true,
         "assetId": 15,
         "iconId": 0,
-        "rarity": 0,
         "order": 15
     },
     {
@@ -122,7 +109,6 @@
         "visible": true,
         "assetId": 16,
         "iconId": 0,
-        "rarity": 0,
         "order": 16
     },
     {
@@ -131,7 +117,6 @@
         "visible": true,
         "assetId": 17,
         "iconId": 1,
-        "rarity": 0,
         "order": 17
     },
     {
@@ -140,7 +125,6 @@
         "visible": true,
         "assetId": 18,
         "iconId": 1,
-        "rarity": 0,
         "order": 18
     },
     {
@@ -149,7 +133,6 @@
         "visible": true,
         "assetId": 21,
         "iconId": 2,
-        "rarity": 0,
         "order": 19
     },
     {
@@ -158,7 +141,6 @@
         "visible": true,
         "assetId": 19,
         "iconId": 0,
-        "rarity": 0,
         "order": 20
     },
     {
@@ -167,7 +149,6 @@
         "visible": true,
         "assetId": 20,
         "iconId": 1,
-        "rarity": 0,
         "order": 21
     },
     {
@@ -176,7 +157,6 @@
         "visible": true,
         "assetId": 22,
         "iconId": 0,
-        "rarity": 0,
         "order": 22
     },
     {
@@ -185,7 +165,6 @@
         "visible": true,
         "assetId": 23,
         "iconId": 1,
-        "rarity": 0,
         "order": 23
     },
     {
@@ -194,7 +173,6 @@
         "visible": true,
         "assetId": 24,
         "iconId": 0,
-        "rarity": 0,
         "order": 24
     },
     {
@@ -203,7 +181,6 @@
         "visible": true,
         "assetId": 25,
         "iconId": 1,
-        "rarity": 0,
         "order": 25
     },
     {
@@ -212,7 +189,6 @@
         "visible": true,
         "assetId": 26,
         "iconId": 2,
-        "rarity": 0,
         "order": 26
     },
     {
@@ -221,7 +197,6 @@
         "visible": true,
         "assetId": 28,
         "iconId": 0,
-        "rarity": 0,
         "order": 27
     },
     {
@@ -230,7 +205,6 @@
         "visible": true,
         "assetId": 29,
         "iconId": 1,
-        "rarity": 0,
         "order": 28
     },
     {
@@ -239,7 +213,6 @@
         "visible": true,
         "assetId": 30,
         "iconId": 2,
-        "rarity": 0,
         "order": 29
     },
     {
@@ -248,7 +221,6 @@
         "visible": true,
         "assetId": 31,
         "iconId": 0,
-        "rarity": 0,
         "order": 30
     },
     {
@@ -257,7 +229,6 @@
         "visible": true,
         "assetId": 32,
         "iconId": 1,
-        "rarity": 0,
         "order": 31
     },
     {
@@ -266,7 +237,6 @@
         "visible": true,
         "assetId": 33,
         "iconId": 2,
-        "rarity": 0,
         "order": 32
     },
     {
@@ -275,7 +245,6 @@
         "visible": true,
         "assetId": 34,
         "iconId": 0,
-        "rarity": 0,
         "order": 33
     },
     {
@@ -284,7 +253,6 @@
         "visible": true,
         "assetId": 35,
         "iconId": 0,
-        "rarity": 0,
         "order": 34
     },
     {
@@ -293,7 +261,6 @@
         "visible": true,
         "assetId": 36,
         "iconId": 1,
-        "rarity": 0,
         "order": 35
     },
     {
@@ -302,7 +269,6 @@
         "visible": true,
         "assetId": 37,
         "iconId": 2,
-        "rarity": 0,
         "order": 36
     },
     {
@@ -311,7 +277,6 @@
         "visible": true,
         "assetId": 38,
         "iconId": 2,
-        "rarity": 0,
         "order": 111
     },
     {
@@ -320,7 +285,6 @@
         "visible": true,
         "assetId": 39,
         "iconId": 3,
-        "rarity": 0,
         "order": 112
     },
     {
@@ -329,7 +293,6 @@
         "visible": true,
         "assetId": 40,
         "iconId": 2,
-        "rarity": 0,
         "order": 113
     },
     {
@@ -338,7 +301,6 @@
         "visible": true,
         "assetId": 42,
         "iconId": 0,
-        "rarity": 0,
         "order": 37
     },
     {
@@ -347,7 +309,6 @@
         "visible": true,
         "assetId": 43,
         "iconId": 1,
-        "rarity": 0,
         "order": 38
     },
     {
@@ -356,7 +317,6 @@
         "visible": true,
         "assetId": 45,
         "iconId": 4,
-        "rarity": 0,
         "order": 40
     },
     {
@@ -365,7 +325,6 @@
         "visible": true,
         "assetId": 46,
         "iconId": 5,
-        "rarity": 0,
         "order": 41
     },
     {
@@ -374,7 +333,6 @@
         "visible": true,
         "assetId": 47,
         "iconId": 2,
-        "rarity": 0,
         "order": 42
     },
     {
@@ -383,7 +341,6 @@
         "visible": true,
         "assetId": 49,
         "iconId": 2,
-        "rarity": 0,
         "order": 43
     },
     {
@@ -392,7 +349,6 @@
         "visible": true,
         "assetId": 50,
         "iconId": 16,
-        "rarity": 0,
         "order": 44
     },
     {
@@ -401,7 +357,6 @@
         "visible": true,
         "assetId": 48,
         "iconId": 3,
-        "rarity": 0,
         "order": 45
     },
     {
@@ -410,7 +365,6 @@
         "visible": true,
         "assetId": 51,
         "iconId": 17,
-        "rarity": 0,
         "order": 46
     },
     {
@@ -419,7 +373,6 @@
         "visible": true,
         "assetId": 59,
         "iconId": 7,
-        "rarity": 0,
         "order": 47
     },
     {
@@ -428,7 +381,6 @@
         "visible": true,
         "assetId": 62,
         "iconId": 7,
-        "rarity": 0,
         "order": 48
     },
     {
@@ -437,7 +389,6 @@
         "visible": true,
         "assetId": 65,
         "iconId": 7,
-        "rarity": 0,
         "order": 49
     },
     {
@@ -446,7 +397,6 @@
         "visible": true,
         "assetId": 78,
         "iconId": 7,
-        "rarity": 0,
         "order": 50
     },
     {
@@ -455,7 +405,6 @@
         "visible": true,
         "assetId": 90,
         "iconId": 7,
-        "rarity": 0,
         "order": 51
     },
     {
@@ -464,7 +413,6 @@
         "visible": true,
         "assetId": 61,
         "iconId": 7,
-        "rarity": 0,
         "order": 52
     },
     {
@@ -473,7 +421,6 @@
         "visible": true,
         "assetId": 64,
         "iconId": 7,
-        "rarity": 0,
         "order": 53
     },
     {
@@ -482,7 +429,6 @@
         "visible": true,
         "assetId": 67,
         "iconId": 7,
-        "rarity": 0,
         "order": 54
     },
     {
@@ -491,7 +437,6 @@
         "visible": true,
         "assetId": 80,
         "iconId": 7,
-        "rarity": 0,
         "order": 55
     },
     {
@@ -500,7 +445,6 @@
         "visible": true,
         "assetId": 91,
         "iconId": 7,
-        "rarity": 0,
         "order": 56
     },
     {
@@ -509,7 +453,6 @@
         "visible": true,
         "assetId": 60,
         "iconId": 7,
-        "rarity": 0,
         "order": 57
     },
     {
@@ -518,7 +461,6 @@
         "visible": true,
         "assetId": 63,
         "iconId": 7,
-        "rarity": 0,
         "order": 58
     },
     {
@@ -527,7 +469,6 @@
         "visible": true,
         "assetId": 66,
         "iconId": 7,
-        "rarity": 0,
         "order": 59
     },
     {
@@ -536,7 +477,6 @@
         "visible": true,
         "assetId": 79,
         "iconId": 7,
-        "rarity": 0,
         "order": 60
     },
     {
@@ -545,7 +485,6 @@
         "visible": true,
         "assetId": 92,
         "iconId": 7,
-        "rarity": 0,
         "order": 61
     },
     {
@@ -554,7 +493,6 @@
         "visible": true,
         "assetId": 68,
         "iconId": 6,
-        "rarity": 0,
         "order": 62
     },
     {
@@ -563,7 +501,6 @@
         "visible": true,
         "assetId": 71,
         "iconId": 6,
-        "rarity": 0,
         "order": 63
     },
     {
@@ -572,7 +509,6 @@
         "visible": true,
         "assetId": 74,
         "iconId": 6,
-        "rarity": 0,
         "order": 64
     },
     {
@@ -581,7 +517,6 @@
         "visible": true,
         "assetId": 81,
         "iconId": 6,
-        "rarity": 0,
         "order": 65
     },
     {
@@ -590,7 +525,6 @@
         "visible": true,
         "assetId": 93,
         "iconId": 6,
-        "rarity": 0,
         "order": 66
     },
     {
@@ -599,7 +533,6 @@
         "visible": true,
         "assetId": 70,
         "iconId": 6,
-        "rarity": 0,
         "order": 67
     },
     {
@@ -608,7 +541,6 @@
         "visible": true,
         "assetId": 73,
         "iconId": 6,
-        "rarity": 0,
         "order": 68
     },
     {
@@ -617,7 +549,6 @@
         "visible": true,
         "assetId": 76,
         "iconId": 6,
-        "rarity": 0,
         "order": 69
     },
     {
@@ -626,7 +557,6 @@
         "visible": true,
         "assetId": 83,
         "iconId": 6,
-        "rarity": 0,
         "order": 70
     },
     {
@@ -635,7 +565,6 @@
         "visible": true,
         "assetId": 94,
         "iconId": 6,
-        "rarity": 0,
         "order": 71
     },
     {
@@ -644,7 +573,6 @@
         "visible": true,
         "assetId": 69,
         "iconId": 6,
-        "rarity": 0,
         "order": 72
     },
     {
@@ -653,7 +581,6 @@
         "visible": true,
         "assetId": 72,
         "iconId": 6,
-        "rarity": 0,
         "order": 73
     },
     {
@@ -662,7 +589,6 @@
         "visible": true,
         "assetId": 75,
         "iconId": 6,
-        "rarity": 0,
         "order": 74
     },
     {
@@ -671,7 +597,6 @@
         "visible": true,
         "assetId": 82,
         "iconId": 6,
-        "rarity": 0,
         "order": 75
     },
     {
@@ -680,7 +605,6 @@
         "visible": true,
         "assetId": 95,
         "iconId": 6,
-        "rarity": 0,
         "order": 76
     },
     {
@@ -689,7 +613,6 @@
         "visible": true,
         "assetId": 57,
         "iconId": 3,
-        "rarity": 0,
         "order": 77
     },
     {
@@ -698,7 +621,6 @@
         "visible": true,
         "assetId": 58,
         "iconId": 3,
-        "rarity": 0,
         "order": 78
     },
     {
@@ -707,7 +629,6 @@
         "visible": true,
         "assetId": 52,
         "iconId": 0,
-        "rarity": 0,
         "order": 79
     },
     {
@@ -716,7 +637,6 @@
         "visible": true,
         "assetId": 53,
         "iconId": 1,
-        "rarity": 0,
         "order": 80
     },
     {
@@ -725,7 +645,6 @@
         "visible": true,
         "assetId": 54,
         "iconId": 1,
-        "rarity": 0,
         "order": 81
     },
     {
@@ -734,7 +653,6 @@
         "visible": true,
         "assetId": 55,
         "iconId": 2,
-        "rarity": 0,
         "order": 82
     },
     {
@@ -743,7 +661,6 @@
         "visible": true,
         "assetId": 56,
         "iconId": 3,
-        "rarity": 0,
         "order": 83
     },
     {
@@ -752,7 +669,6 @@
         "visible": true,
         "assetId": 77,
         "iconId": 15,
-        "rarity": 0,
         "order": 84
     },
     {
@@ -761,7 +677,6 @@
         "visible": true,
         "assetId": 84,
         "iconId": 12,
-        "rarity": 0,
         "order": 85
     },
     {
@@ -770,7 +685,6 @@
         "visible": true,
         "assetId": 85,
         "iconId": 13,
-        "rarity": 0,
         "order": 86
     },
     {
@@ -779,7 +693,6 @@
         "visible": true,
         "assetId": 86,
         "iconId": 2,
-        "rarity": 0,
         "order": 87
     },
     {
@@ -788,7 +701,6 @@
         "visible": true,
         "assetId": 87,
         "iconId": 14,
-        "rarity": 0,
         "order": 88
     },
     {
@@ -797,7 +709,6 @@
         "visible": true,
         "assetId": 88,
         "iconId": 15,
-        "rarity": 0,
         "order": 92
     },
     {
@@ -806,7 +717,6 @@
         "visible": true,
         "assetId": 108,
         "iconId": 3,
-        "rarity": 0,
         "order": 93
     },
     {
@@ -815,7 +725,6 @@
         "visible": true,
         "assetId": 109,
         "iconId": 8,
-        "rarity": 0,
         "order": 94
     },
     {
@@ -824,7 +733,6 @@
         "visible": true,
         "assetId": 89,
         "iconId": 11,
-        "rarity": 0,
         "order": 95
     },
     {
@@ -833,7 +741,6 @@
         "visible": true,
         "assetId": 110,
         "iconId": 18,
-        "rarity": 0,
         "order": 96
     },
     {
@@ -842,7 +749,6 @@
         "visible": true,
         "assetId": 111,
         "iconId": 18,
-        "rarity": 0,
         "order": 97
     },
     {
@@ -851,7 +757,6 @@
         "visible": true,
         "assetId": 112,
         "iconId": 18,
-        "rarity": 0,
         "order": 98
     },
     {
@@ -860,7 +765,6 @@
         "visible": true,
         "assetId": 113,
         "iconId": 10,
-        "rarity": 0,
         "order": 99
     },
     {
@@ -869,7 +773,6 @@
         "visible": true,
         "assetId": 114,
         "iconId": 10,
-        "rarity": 0,
         "order": 100
     },
     {
@@ -878,7 +781,6 @@
         "visible": true,
         "assetId": 115,
         "iconId": 10,
-        "rarity": 0,
         "order": 101
     },
     {
@@ -887,7 +789,6 @@
         "visible": true,
         "assetId": 116,
         "iconId": 19,
-        "rarity": 0,
         "order": 102
     },
     {
@@ -896,7 +797,6 @@
         "visible": true,
         "assetId": 117,
         "iconId": 19,
-        "rarity": 0,
         "order": 103
     },
     {
@@ -905,7 +805,6 @@
         "visible": true,
         "assetId": 118,
         "iconId": 19,
-        "rarity": 0,
         "order": 104
     },
     {
@@ -914,7 +813,6 @@
         "visible": true,
         "assetId": 119,
         "iconId": 9,
-        "rarity": 0,
         "order": 105
     },
     {
@@ -923,7 +821,6 @@
         "visible": true,
         "assetId": 120,
         "iconId": 9,
-        "rarity": 0,
         "order": 106
     },
     {
@@ -932,7 +829,6 @@
         "visible": true,
         "assetId": 121,
         "iconId": 9,
-        "rarity": 0,
         "order": 107
     },
     {
@@ -941,7 +837,6 @@
         "visible": true,
         "assetId": 122,
         "iconId": 8,
-        "rarity": 0,
         "order": 108
     },
     {
@@ -950,7 +845,6 @@
         "visible": true,
         "assetId": 123,
         "iconId": 8,
-        "rarity": 0,
         "order": 109
     },
     {
@@ -959,7 +853,6 @@
         "visible": true,
         "assetId": 124,
         "iconId": 8,
-        "rarity": 0,
         "order": 110
     },
     {
@@ -968,7 +861,6 @@
         "visible": true,
         "assetId": 125,
         "iconId": 2,
-        "rarity": 0,
         "order": 115
     },
     {
@@ -977,7 +869,6 @@
         "visible": true,
         "assetId": 127,
         "iconId": 0,
-        "rarity": 0,
         "order": 116
     },
     {
@@ -986,7 +877,6 @@
         "visible": true,
         "assetId": 128,
         "iconId": 1,
-        "rarity": 0,
         "order": 117
     },
     {
@@ -995,7 +885,6 @@
         "visible": true,
         "assetId": 129,
         "iconId": 2,
-        "rarity": 0,
         "order": 118
     },
     {
@@ -1004,7 +893,6 @@
         "visible": true,
         "assetId": 130,
         "iconId": 9,
-        "rarity": 0,
         "order": 119
     },
     {
@@ -1013,7 +901,6 @@
         "visible": true,
         "assetId": 131,
         "iconId": 12,
-        "rarity": 0,
         "order": 120
     },
     {
@@ -1022,7 +909,6 @@
         "visible": true,
         "assetId": 132,
         "iconId": 3,
-        "rarity": 0,
         "order": 121
     },
     {
@@ -1031,7 +917,6 @@
         "visible": true,
         "assetId": 126,
         "iconId": 4,
-        "rarity": 0,
         "order": 122
     },
     {
@@ -1040,7 +925,6 @@
         "visible": true,
         "assetId": 133,
         "iconId": 4,
-        "rarity": 0,
         "order": 123
     },
     {
@@ -1049,7 +933,6 @@
         "visible": true,
         "assetId": 134,
         "iconId": 4,
-        "rarity": 0,
         "order": 124
     },
     {
@@ -1058,7 +941,6 @@
         "visible": true,
         "assetId": 136,
         "iconId": 4,
-        "rarity": 0,
         "order": 125
     },
     {
@@ -1067,7 +949,6 @@
         "visible": true,
         "assetId": 135,
         "iconId": 3,
-        "rarity": 0,
         "order": 126
     },
     {
@@ -1076,7 +957,6 @@
         "visible": false,
         "assetId": 138,
         "iconId": 4,
-        "rarity": 0,
         "order": 127
     },
     {
@@ -1085,7 +965,6 @@
         "visible": true,
         "assetId": 139,
         "iconId": 20,
-        "rarity": 0,
         "order": 128
     },
     {
@@ -1094,7 +973,6 @@
         "visible": true,
         "assetId": 140,
         "iconId": 20,
-        "rarity": 0,
         "order": 129
     },
     {
@@ -1103,7 +981,6 @@
         "visible": true,
         "assetId": 141,
         "iconId": 20,
-        "rarity": 0,
         "order": 130
     },
     {
@@ -1112,7 +989,6 @@
         "visible": true,
         "assetId": 142,
         "iconId": 20,
-        "rarity": 0,
         "order": 131
     },
     {
@@ -1121,7 +997,6 @@
         "visible": true,
         "assetId": 143,
         "iconId": 20,
-        "rarity": 0,
         "order": 132
     },
     {
@@ -1130,7 +1005,6 @@
         "visible": true,
         "assetId": 144,
         "iconId": 20,
-        "rarity": 0,
         "order": 133
     },
     {
@@ -1139,7 +1013,6 @@
         "visible": true,
         "assetId": 145,
         "iconId": 20,
-        "rarity": 0,
         "order": 134
     },
     {
@@ -1148,7 +1021,6 @@
         "visible": true,
         "assetId": 146,
         "iconId": 20,
-        "rarity": 0,
         "order": 135
     },
     {
@@ -1157,7 +1029,6 @@
         "visible": true,
         "assetId": 147,
         "iconId": 20,
-        "rarity": 0,
         "order": 136
     },
     {
@@ -1166,7 +1037,6 @@
         "visible": true,
         "assetId": 148,
         "iconId": 20,
-        "rarity": 0,
         "order": 137
     },
     {
@@ -1175,7 +1045,6 @@
         "visible": true,
         "assetId": 149,
         "iconId": 20,
-        "rarity": 0,
         "order": 138
     },
     {
@@ -1184,7 +1053,6 @@
         "visible": true,
         "assetId": 150,
         "iconId": 20,
-        "rarity": 0,
         "order": 139
     },
     {
@@ -1193,7 +1061,6 @@
         "visible": true,
         "assetId": 151,
         "iconId": 20,
-        "rarity": 0,
         "order": 140
     },
     {
@@ -1202,7 +1069,6 @@
         "visible": true,
         "assetId": 152,
         "iconId": 6,
-        "rarity": 0,
         "order": 141
     },
     {
@@ -1211,7 +1077,6 @@
         "visible": true,
         "assetId": 153,
         "iconId": 20,
-        "rarity": 0,
         "order": 142
     },
     {
@@ -1220,7 +1085,6 @@
         "visible": true,
         "assetId": 154,
         "iconId": 1,
-        "rarity": 0,
         "order": 143
     },
     {
@@ -1229,7 +1093,6 @@
         "visible": true,
         "assetId": 155,
         "iconId": 3,
-        "rarity": 0,
         "order": 144
     },
     {
@@ -1238,7 +1101,6 @@
         "visible": true,
         "assetId": 156,
         "iconId": 15,
-        "rarity": 0,
         "order": 145
     },
     {
@@ -1247,7 +1109,6 @@
         "visible": true,
         "assetId": 157,
         "iconId": 21,
-        "rarity": 0,
         "order": 146
     },
     {
@@ -1256,7 +1117,14 @@
         "visible": true,
         "assetId": 158,
         "iconId": 8,
-        "rarity": 0,
         "order": 147
+    },
+    {
+        "id": 159,
+        "nameId": 924605,
+        "visible": true,
+        "assetId": 159,
+        "iconId": 13,
+        "order": 151
     }
 ]

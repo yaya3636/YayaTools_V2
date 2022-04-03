@@ -10,8 +10,8 @@ Monsters = Tools.monsters
 
 
 function move()
-    Tools:Print(Zone:GetAreaIdByMapId("97259021"))
-    Tools:Print(map:getX(97259021) .. ',' .. map:getY(97259021))
+    Tools:Print(Zone:GetAreaIdByMapId("217063430"))
+    Tools:Print(map:getX(217063430) .. ',' .. map:getY(217063430))
 
 end
 

@@ -1,29 +1,8 @@
 [
     {
-        "id": 16055,
-        "pairId": 12,
-        "breedId": 4,
-        "isInitialSpell": false,
-        "isHidden": false
-    },
-    {
-        "id": 16138,
-        "pairId": 4,
-        "breedId": 1,
-        "isInitialSpell": true,
-        "isHidden": false
-    },
-    {
-        "id": 16141,
-        "pairId": 5,
-        "breedId": 1,
-        "isInitialSpell": false,
-        "isHidden": false
-    },
-    {
         "id": 16152,
-        "pairId": 32,
-        "breedId": 15,
+        "pairId": 11,
+        "breedId": 4,
         "isInitialSpell": true,
         "isHidden": true
     },
@@ -49,62 +28,6 @@
         "isHidden": false
     },
     {
-        "id": 16194,
-        "pairId": 6,
-        "breedId": 2,
-        "isInitialSpell": true,
-        "isHidden": false
-    },
-    {
-        "id": 16195,
-        "pairId": 7,
-        "breedId": 2,
-        "isInitialSpell": false,
-        "isHidden": false
-    },
-    {
-        "id": 16213,
-        "pairId": 13,
-        "breedId": 4,
-        "isInitialSpell": false,
-        "isHidden": false
-    },
-    {
-        "id": 16215,
-        "pairId": 14,
-        "breedId": 5,
-        "isInitialSpell": true,
-        "isHidden": false
-    },
-    {
-        "id": 16217,
-        "pairId": 15,
-        "breedId": 5,
-        "isInitialSpell": false,
-        "isHidden": false
-    },
-    {
-        "id": 16218,
-        "pairId": 16,
-        "breedId": 6,
-        "isInitialSpell": true,
-        "isHidden": false
-    },
-    {
-        "id": 16219,
-        "pairId": 17,
-        "breedId": 7,
-        "isInitialSpell": true,
-        "isHidden": false
-    },
-    {
-        "id": 16220,
-        "pairId": 18,
-        "breedId": 7,
-        "isInitialSpell": false,
-        "isHidden": false
-    },
-    {
         "id": 16221,
         "pairId": 19,
         "breedId": 8,
@@ -112,164 +35,311 @@
         "isHidden": false
     },
     {
-        "id": 16223,
-        "pairId": 20,
-        "breedId": 9,
+        "id": 19890,
+        "pairId": 14,
+        "breedId": 5,
         "isInitialSpell": true,
         "isHidden": false
     },
     {
-        "id": 16225,
+        "id": 19892,
+        "pairId": 15,
+        "breedId": 5,
+        "isInitialSpell": false,
+        "isHidden": false
+    },
+    {
+        "id": 19896,
+        "pairId": 17,
+        "breedId": 7,
+        "isInitialSpell": true,
+        "isHidden": false
+    },
+    {
+        "id": 19982,
+        "pairId": 4,
+        "breedId": 1,
+        "isInitialSpell": false,
+        "isHidden": false
+    },
+    {
+        "id": 19985,
+        "pairId": 5,
+        "breedId": 1,
+        "isInitialSpell": false,
+        "isHidden": false
+    },
+    {
+        "id": 20055,
+        "pairId": 18,
+        "breedId": 7,
+        "isInitialSpell": false,
+        "isHidden": false
+    },
+    {
+        "id": 20068,
         "pairId": 21,
         "breedId": 10,
         "isInitialSpell": true,
         "isHidden": false
     },
     {
-        "id": 16226,
-        "pairId": 23,
-        "breedId": 11,
-        "isInitialSpell": true,
-        "isHidden": false
-    },
-    {
-        "id": 16227,
-        "pairId": 30,
-        "breedId": 14,
-        "isInitialSpell": true,
-        "isHidden": false
-    },
-    {
-        "id": 16228,
-        "pairId": 37,
-        "breedId": 16,
-        "isInitialSpell": true,
-        "isHidden": true
-    },
-    {
-        "id": 16229,
-        "pairId": 35,
-        "breedId": 17,
-        "isInitialSpell": true,
-        "isHidden": false
-    },
-    {
-        "id": 16230,
-        "pairId": 40,
-        "breedId": 18,
-        "isInitialSpell": true,
-        "isHidden": false
-    },
-    {
-        "id": 16291,
+        "id": 20072,
         "pairId": 22,
         "breedId": 10,
         "isInitialSpell": false,
         "isHidden": false
     },
     {
-        "id": 16297,
-        "pairId": 25,
-        "breedId": 12,
+        "id": 20073,
+        "pairId": 45,
+        "breedId": 10,
         "isInitialSpell": false,
         "isHidden": false
     },
     {
-        "id": 16304,
-        "pairId": 24,
-        "breedId": 12,
+        "id": 20075,
+        "pairId": 48,
+        "breedId": 8,
+        "isInitialSpell": false,
+        "isHidden": false
+    },
+    {
+        "id": 20076,
+        "pairId": 20,
+        "breedId": 9,
         "isInitialSpell": true,
-        "isHidden": true
-    },
-    {
-        "id": 16328,
-        "pairId": 26,
-        "breedId": 12,
-        "isInitialSpell": false,
         "isHidden": false
     },
     {
-        "id": 16337,
-        "pairId": 28,
-        "breedId": 13,
-        "isInitialSpell": false,
+        "id": 20079,
+        "pairId": 30,
+        "breedId": 14,
+        "isInitialSpell": true,
         "isHidden": false
     },
     {
-        "id": 16372,
-        "pairId": 29,
-        "breedId": 13,
-        "isInitialSpell": false,
-        "isHidden": false
-    },
-    {
-        "id": 16394,
+        "id": 20080,
         "pairId": 31,
         "breedId": 14,
         "isInitialSpell": false,
         "isHidden": false
     },
     {
-        "id": 16415,
-        "pairId": 33,
-        "breedId": 15,
+        "id": 20081,
+        "pairId": 46,
+        "breedId": 14,
         "isInitialSpell": false,
         "isHidden": false
     },
     {
-        "id": 16418,
-        "pairId": 34,
-        "breedId": 15,
+        "id": 20082,
+        "pairId": 47,
+        "breedId": 14,
         "isInitialSpell": false,
         "isHidden": false
     },
     {
-        "id": 16421,
-        "pairId": 38,
-        "breedId": 16,
-        "isInitialSpell": false,
+        "id": 20085,
+        "pairId": 35,
+        "breedId": 17,
+        "isInitialSpell": true,
         "isHidden": false
     },
     {
-        "id": 16422,
-        "pairId": 39,
-        "breedId": 16,
-        "isInitialSpell": false,
-        "isHidden": false
-    },
-    {
-        "id": 16427,
+        "id": 20090,
         "pairId": 36,
         "breedId": 17,
         "isInitialSpell": false,
         "isHidden": false
     },
     {
-        "id": 16431,
+        "id": 20091,
+        "pairId": 38,
+        "breedId": 16,
+        "isInitialSpell": false,
+        "isHidden": false
+    },
+    {
+        "id": 20092,
+        "pairId": 39,
+        "breedId": 16,
+        "isInitialSpell": false,
+        "isHidden": false
+    },
+    {
+        "id": 20102,
+        "pairId": 7,
+        "breedId": 2,
+        "isInitialSpell": false,
+        "isHidden": false
+    },
+    {
+        "id": 20104,
+        "pairId": 49,
+        "breedId": 2,
+        "isInitialSpell": false,
+        "isHidden": false
+    },
+    {
+        "id": 20105,
+        "pairId": 50,
+        "breedId": 2,
+        "isInitialSpell": false,
+        "isHidden": false
+    },
+    {
+        "id": 20126,
+        "pairId": 24,
+        "breedId": 12,
+        "isInitialSpell": true,
+        "isHidden": false
+    },
+    {
+        "id": 20127,
+        "pairId": 25,
+        "breedId": 12,
+        "isInitialSpell": false,
+        "isHidden": false
+    },
+    {
+        "id": 20134,
+        "pairId": 26,
+        "breedId": 12,
+        "isInitialSpell": false,
+        "isHidden": false
+    },
+    {
+        "id": 20138,
+        "pairId": 33,
+        "breedId": 15,
+        "isInitialSpell": false,
+        "isHidden": false
+    },
+    {
+        "id": 20141,
+        "pairId": 34,
+        "breedId": 15,
+        "isInitialSpell": false,
+        "isHidden": false
+    },
+    {
+        "id": 20142,
+        "pairId": 51,
+        "breedId": 15,
+        "isInitialSpell": false,
+        "isHidden": false
+    },
+    {
+        "id": 20159,
+        "pairId": 52,
+        "breedId": 3,
+        "isInitialSpell": false,
+        "isHidden": false
+    },
+    {
+        "id": 20160,
+        "pairId": 13,
+        "breedId": 4,
+        "isInitialSpell": false,
+        "isHidden": false
+    },
+    {
+        "id": 20163,
+        "pairId": 12,
+        "breedId": 4,
+        "isInitialSpell": false,
+        "isHidden": false
+    },
+    {
+        "id": 20167,
+        "pairId": 27,
+        "breedId": 13,
+        "isInitialSpell": true,
+        "isHidden": false
+    },
+    {
+        "id": 20170,
+        "pairId": 28,
+        "breedId": 13,
+        "isInitialSpell": false,
+        "isHidden": false
+    },
+    {
+        "id": 20172,
+        "pairId": 29,
+        "breedId": 13,
+        "isInitialSpell": false,
+        "isHidden": false
+    },
+    {
+        "id": 20173,
+        "pairId": 23,
+        "breedId": 11,
+        "isInitialSpell": true,
+        "isHidden": false
+    },
+    {
+        "id": 20174,
+        "pairId": 53,
+        "breedId": 11,
+        "isInitialSpell": false,
+        "isHidden": false
+    },
+    {
+        "id": 20176,
+        "pairId": 40,
+        "breedId": 18,
+        "isInitialSpell": true,
+        "isHidden": false
+    },
+    {
+        "id": 20180,
         "pairId": 41,
         "breedId": 18,
         "isInitialSpell": false,
         "isHidden": false
     },
     {
-        "id": 16564,
-        "pairId": 42,
-        "breedId": 9,
+        "id": 20214,
+        "pairId": 54,
+        "breedId": 13,
         "isInitialSpell": false,
         "isHidden": false
     },
     {
-        "id": 16582,
-        "pairId": 11,
-        "breedId": 4,
+        "id": 20895,
+        "pairId": 55,
+        "breedId": 2,
         "isInitialSpell": true,
-        "isHidden": true
+        "isHidden": false
     },
     {
-        "id": 16583,
-        "pairId": 27,
-        "breedId": 13,
+        "id": 21958,
+        "pairId": 57,
+        "breedId": 6,
         "isInitialSpell": true,
-        "isHidden": true
+        "isHidden": false
+    },
+    {
+        "id": 21959,
+        "pairId": 56,
+        "breedId": 6,
+        "isInitialSpell": false,
+        "isHidden": false
+    },
+    {
+        "id": 21960,
+        "pairId": 58,
+        "breedId": 6,
+        "isInitialSpell": false,
+        "isHidden": false
+    },
+    {
+        "id": 21961,
+        "pairId": 59,
+        "breedId": 6,
+        "isInitialSpell": false,
+        "isHidden": false
     }
 ]

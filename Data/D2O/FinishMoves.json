@@ -166,5 +166,53 @@
         "nameId": 855938,
         "category": 1,
         "spellLevel": 49778
+    },
+    {
+        "id": 35,
+        "duration": 7200,
+        "free": false,
+        "nameId": 898914,
+        "category": 1,
+        "spellLevel": 52097
+    },
+    {
+        "id": 36,
+        "duration": 7200,
+        "free": false,
+        "nameId": 898915,
+        "category": 1,
+        "spellLevel": 52095
+    },
+    {
+        "id": 37,
+        "duration": 7200,
+        "free": false,
+        "nameId": 898916,
+        "category": 1,
+        "spellLevel": 52098
+    },
+    {
+        "id": 38,
+        "duration": 7200,
+        "free": false,
+        "nameId": 898995,
+        "category": 1,
+        "spellLevel": 52096
+    },
+    {
+        "id": 39,
+        "duration": 7200,
+        "free": false,
+        "nameId": 898918,
+        "category": 1,
+        "spellLevel": 52099
+    },
+    {
+        "id": 40,
+        "duration": 5000,
+        "free": false,
+        "nameId": 903499,
+        "category": 1,
+        "spellLevel": 53645
     }
 ]

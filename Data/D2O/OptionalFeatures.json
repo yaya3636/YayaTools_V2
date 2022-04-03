@@ -378,15 +378,6 @@
         "activationCriterions": "null"
     },
     {
-        "id": 111,
-        "keyword": "temporis.achievementProgress",
-        "isClient": true,
-        "isServer": false,
-        "isActivationOnLaunch": false,
-        "isActivationOnServerConnection": true,
-        "activationCriterions": "SC=5&ST=4"
-    },
-    {
         "id": 112,
         "keyword": "temporis.drops",
         "isClient": true,
@@ -414,6 +405,24 @@
         "activationCriterions": "null"
     },
     {
+        "id": 125,
+        "keyword": "character.xp",
+        "isClient": true,
+        "isServer": true,
+        "isActivationOnLaunch": false,
+        "isActivationOnServerConnection": false,
+        "activationCriterions": "null"
+    },
+    {
+        "id": 111,
+        "keyword": "temporis.achievementProgress",
+        "isClient": true,
+        "isServer": false,
+        "isActivationOnLaunch": false,
+        "isActivationOnServerConnection": true,
+        "activationCriterions": "SC=5"
+    },
+    {
         "id": 126,
         "keyword": "game.roleplay.diceroll",
         "isClient": true,
@@ -423,9 +432,135 @@
         "activationCriterions": "null"
     },
     {
+        "id": 127,
+        "keyword": "debug.benchmark.log",
+        "isClient": true,
+        "isServer": false,
+        "isActivationOnLaunch": false,
+        "isActivationOnServerConnection": false,
+        "activationCriterions": "null"
+    },
+    {
         "id": 128,
         "keyword": "map.dispatchQuests",
         "isClient": false,
+        "isServer": true,
+        "isActivationOnLaunch": false,
+        "isActivationOnServerConnection": false,
+        "activationCriterions": "null"
+    },
+    {
+        "id": 140,
+        "keyword": "server.conf.globalDrop",
+        "isClient": false,
+        "isServer": true,
+        "isActivationOnLaunch": false,
+        "isActivationOnServerConnection": false,
+        "activationCriterions": "null"
+    },
+    {
+        "id": 132,
+        "keyword": "fight.alignment.jailOnLoss",
+        "isClient": true,
+        "isServer": true,
+        "isActivationOnLaunch": false,
+        "isActivationOnServerConnection": false,
+        "activationCriterions": "null"
+    },
+    {
+        "id": 130,
+        "keyword": "character.alignment.forceWingsOut",
+        "isClient": true,
+        "isServer": true,
+        "isActivationOnLaunch": false,
+        "isActivationOnServerConnection": false,
+        "activationCriterions": "null"
+    },
+    {
+        "id": 131,
+        "keyword": "character.alignment.concealWings",
+        "isClient": true,
+        "isServer": true,
+        "isActivationOnLaunch": false,
+        "isActivationOnServerConnection": false,
+        "activationCriterions": "null"
+    },
+    {
+        "id": 129,
+        "keyword": "server.conf.alignmentWar",
+        "isClient": true,
+        "isServer": true,
+        "isActivationOnLaunch": false,
+        "isActivationOnServerConnection": false,
+        "activationCriterions": "null"
+    },
+    {
+        "id": 133,
+        "keyword": "social.discord",
+        "isClient": true,
+        "isServer": false,
+        "isActivationOnLaunch": true,
+        "isActivationOnServerConnection": false,
+        "activationCriterions": "null"
+    },
+    {
+        "id": 134,
+        "keyword": "almanach.bonus",
+        "isClient": false,
+        "isServer": true,
+        "isActivationOnLaunch": false,
+        "isActivationOnServerConnection": false,
+        "activationCriterions": "null"
+    },
+    {
+        "id": 135,
+        "keyword": "character.spell.breed.limitedActiveAndPassiveSpells",
+        "isClient": true,
+        "isServer": false,
+        "isActivationOnLaunch": false,
+        "isActivationOnServerConnection": true,
+        "activationCriterions": "SC=5&ST=6"
+    },
+    {
+        "id": 136,
+        "keyword": "server.conf.anomaly",
+        "isClient": true,
+        "isServer": true,
+        "isActivationOnLaunch": false,
+        "isActivationOnServerConnection": false,
+        "activationCriterions": "null"
+    },
+    {
+        "id": 139,
+        "keyword": "server.conf.bonus.save",
+        "isClient": false,
+        "isServer": true,
+        "isActivationOnLaunch": false,
+        "isActivationOnServerConnection": false,
+        "activationCriterions": "null"
+    },
+    {
+        "id": 138,
+        "keyword": "server.conf.bonus.load",
+        "isClient": false,
+        "isServer": true,
+        "isActivationOnLaunch": false,
+        "isActivationOnServerConnection": false,
+        "activationCriterions": "null"
+    },
+    {
+        "id": 88,
+        "keyword": "companion.hudButtonAndShortcut",
+        "isClient": true,
+        "isServer": false,
+        "isActivationOnLaunch": false,
+        "isActivationOnServerConnection": true,
+        "activationCriterions": "SC=5&ST=6"
+    },
+    {
+        "id": 141,
+        "keyword": "server.heroic",
+        "isClient": true,
         "isServer": true,
         "isActivationOnLaunch": false,
         "isActivationOnServerConnection": false,

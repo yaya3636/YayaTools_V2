@@ -13,6 +13,7 @@ Tools.dictionnary = Class("Dictionnary", dofile(yayaToolsModuleDirectory .. "Dic
 Tools.gather = Class("Gather", dofile(yayaToolsModuleDirectory .. "Gather.lua"))
 Tools.json = Class("Json", dofile(yayaToolsModuleDirectory .. "Json.lua"))
 Tools.list = Class("List", dofile(yayaToolsModuleDirectory .. "List.lua"))
+Tools.pointsOfInterest = Class("PointsOfInterest", dofile(yayaToolsModuleDirectory .. "PointsOfInterest.lua"))
 Tools.monsters = Class("Monsters", dofile(yayaToolsModuleDirectory .. "Monsters.lua"))
 Tools.movement = Class("Movement", dofile(yayaToolsModuleDirectory .. "Movement.lua"))
 Tools.notifications = Class("Notifications", dofile(yayaToolsModuleDirectory .. "Notifications.lua"))
@@ -143,6 +144,40 @@ function Tools.list:init(a)
     self.N = Tools:LenghtOfTable(a)
 end
 
+function Tools.pointsOfInterest:init()
+    self.tools = Tools()
+    local tmp = self.bankInfo
+    self.bankInfo = Tools.dictionnary()
+
+    for k, v in pairs(tmp) do
+        self.bankInfo:Add(k, Tools.object(v))
+    end
+
+    tmp = self.workshopInfo
+
+    self.workshopInfo = Tools.dictionnary()
+
+    for kJob, vInfo in pairs(tmp) do
+        kJob = string.lower(kJob)
+        local ins = Tools.object()
+        for kProp, v in pairs(vInfo) do
+            kProp = string.lower(kProp)
+            if kProp == "skillid" then
+                ins[kProp] = Tools.list(v)
+            else
+                ins[kProp] = Tools.dictionnary()
+                for kSkillId, vWorkShop in pairs(v) do
+                    ins[kProp]:Add(kSkillId, Tools.object({
+                        mapId = vWorkShop.mapId,
+                        workshopId = Tools.list(vWorkShop.workshopId)
+                    }))
+                end
+            end
+        end
+        self.workshopInfo:Add(kJob, ins)
+    end
+end
+
 function Tools.monsters:init(params)
     params = params or {}
     if not params.api then
@@ -203,7 +238,6 @@ end
 function Tools.stack.node:init(value)
     self.value = value
 end
-
 
 function Tools.timer:init(params)
     params = params or {}
