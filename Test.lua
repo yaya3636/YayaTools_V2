@@ -13,6 +13,7 @@ function move()
     local dijkstra = Tools.dijkstra()
     dijkstra:Run(Movement.mineGraph, 97259013)
     Tools:Print(dijkstra:HasPathTo(97260043))
+    Tools:Print(Movement:IsMine(97260043))
 
     local stackMap = dijkstra:GetPathTo(97260043)
 

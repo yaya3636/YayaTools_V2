@@ -89,7 +89,7 @@ end
 function Zone:GetSubAreaName(subAreaId)
     local subArea = self:GetSubAreaObject(subAreaId)
     if subArea then return subArea.name end
-    return nil
+    return "nil"
 end
 
 -- BankInfo

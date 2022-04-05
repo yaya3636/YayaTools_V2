@@ -135,6 +135,14 @@ function API.dofusDB:GetHarvestablePosition(gatherId)
 
     for i = 1, #data do
         for _, v in pairs(data[i]) do
+            for kMineArea, vMineInfo in pairs(self.mineArea:Enumerate()) do
+                if vMineInfo.mapId:Contains(v.mapId) then
+                    --self.tools:Print("Mine " .. vMineInfo.name)
+                    v.subAreaId = kMineArea
+                    break
+                end
+            end
+
             local sortedSubArea = sortedData:Get(tostring(v.subAreaId))
 
             if sortedSubArea == nil then

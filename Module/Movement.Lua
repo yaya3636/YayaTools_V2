@@ -68,11 +68,13 @@ Movement.printedInfo = false
 Movement.compRzListMapId = {}
 Movement.rzListMapId = {}
 Movement.rzLogMapId = {}
+Movement.loadedMinePath = {}
 Movement.rzNextMapId = -1
 Movement.rzMaxDist = -1
 
 Movement.teleported = false
-Movement.lastTpMapId = -1
+Movement.tpOn = false
+Movement.tpDestination = -1
 Movement.roadLoaded = false
 
 function Movement:InitProperties()
@@ -84,6 +86,7 @@ function Movement:InitProperties()
     self.compRzListMapId = self.tools.list()
     self.rzListMapId = self.tools.list()
     self.rzLogMapId = self.tools.list()
+    self.loadedMinePath = self.tools.dictionnary()
     local tmp = self.forbiddenHavenbagMap
     self.forbiddenHavenbagMap = self.tools.dictionnary()
     for _, v in pairs(tmp) do
@@ -107,6 +110,7 @@ function Movement:RoadZone(listMapId, listExcludeMapId)
     end
     if not listMapId:IsEmpty() then
         if not self.compRzListMapId:Equal(listMapId) then -- Nouvelle list on reset
+            self.teleported = false
             self.compRzListMapId = listMapId:MakeCopy()
             self.rzListMapId = listMapId:MakeCopy()
             self.rzLogMapId:Clear()
@@ -124,28 +128,76 @@ function Movement:RoadZone(listMapId, listExcludeMapId)
         end
 
         if map:currentMapId() == self.rzNextMapId or self.rzNextMapId == -1 then -- Arrivé sur la map ou init
-            
+            --self.tools:Print("Arrivé a destination")
             if self.rzLogMapId:Size() >= math.floor((self.rzListMapId:Size() / 4) * 3) then -- Suppresion des log au 3/4 de la list
                 self.rzLogMapId:RemoveAt(1)
             end
 
             self.rzListMapId:Shuffle()
 
+            local foundedNextMap = false
+
             for _, vMapId in pairs(self.rzListMapId:Enumerate()) do -- Séléction de la prochaine map
-                if not self.rzLogMapId:Contains(vMapId) and not listExcludeMapId:Contains(vMapId) and map:GetPathDistance(map:currentMapId(), vMapId) >= self.rzMaxDist / 2 then
+                if not self.rzLogMapId:Contains(vMapId) and not listExcludeMapId:Contains(vMapId) and map:GetPathDistance(map:currentMapId(), vMapId) >= self.rzMaxDist / 2.5 then
                     self.rzLogMapId:Add(vMapId)
                     self.rzNextMapId = vMapId
+                    --self.tools:Print("RzNext trouvé")
+                    foundedNextMap = true
                     break
                 end
+            end
+
+            if not foundedNextMap then
+                --self.tools:Print("Debug rzNext")
+                --self.tools:Dump(self.rzListMapId)
+                for _, vMapId in pairs(self.rzListMapId:Enumerate()) do -- Séléction de la prochaine map
+                    if not self.rzLogMapId:Contains(vMapId) and not listExcludeMapId:Contains(vMapId) then
+                        self.rzLogMapId:Add(vMapId)
+                        self.rzNextMapId = vMapId
+                        --self.tools:Print("RzNext trouvé")
+                        foundedNextMap = true
+                        break
+                    end
+                end
+            end
+
+            if self:InMine() and self:IsMine(self.rzNextMapId) then
+                --self.tools:Print("Chargement path mine", "Info")
+                self:LoadMinePath()
             end
             --self.tools:Print(self.rzNextMapId)
         end
 
-        self:LoadRoad(self.rzNextMapId)
-        self:MoveNext() -- Tentative de déplacement
+        if self:InMine() and self:IsMine(self.rzNextMapId) then
+            --self.tools:Print("Dans une mine", 'Info')
+            self:MoveMine()
+        else
+            self:LoadRoad(self.rzNextMapId)
+            self:MoveNext() -- Tentative de déplacement
+        end
         self.rzNextMapId = -1 -- On reset la prochaine map en cas d'echec de movement
         self:RoadZone(listMapId) -- On relance la fonction pour trouver une autre map
     end
+end
+
+function Movement:MoveMine(retry)
+    local path = self.loadedMinePath:Get(map:currentMapId())
+
+    if path then
+        if path.path then
+            map:changeMap(path.path)
+        else
+            map:door(path.door)
+        end
+    elseif not retry then
+        self.tools:Print("Retry")
+        self:LoadMinePath()
+        self:MoveMine(true)
+    else
+        self.tools:Print("No path")
+        self:HavenBag()
+    end
+    global:delay(500)
 end
 
 function Movement:LoadRoad(mapIdDest)
@@ -183,8 +235,7 @@ function Movement:LoadRoad(mapIdDest)
             end
         end
     
-    
-        if map:GetPathDistance(map:currentMapId(), mapIdDest) > 15 and not self.teleported or map:currentMap() == "0,0" and not self.teleported then
+        if map:GetPathDistance(map:currentMapId(), mapIdDest) > 15 and not self.teleported or map:currentMap() == "0,0" and not self:InMine() and not self.teleported then
             self:HavenBagTP(mapIdDest, "La prochaine map est a plus de 15 map, on se téléporte", self.forbiddenZaap)
         end
     
@@ -245,10 +296,9 @@ function Movement:UseZaap(mapIdDest, zaapExcepted)
     end
 
     local closestZaap = map:closestZaapV2(mapIdDest, zaapExcepted)
+    self.tpDestination = closestZaap
+    self.tpOn = true
 
-    if closestZaap == self.lastTpMapId then
-        self.teleported = true
-    end
     if closestZaap == 0 then
         self.tools:Print("Aucun zaap trouvée pour la map (" .. mapIdDest .. ")", "error")
         global:leaveDialog()
@@ -265,16 +315,64 @@ function Movement:HavenBagTP(dest, message, forbiddenZaap)
         if type(message) == "string" then
             self.tools:Print(message, "Movement")
         end
-        self.lastTpMapId = dest
         Movement:UseZaap(dest, forbiddenZaap)
         global:delay(1000)
     end
 end
 
-function Movement:CB_CurrentMapMessage(msg)
-    if msg.mapId == self.lastTpMapId then
-        self.teleported = true
+function Movement:IsMine(mapId)
+    return self.mineGraphData:ContainsKey(mapId)
+end
+
+function Movement:InMine()
+    return self:IsMine(map:currentMapId())
+end
+
+function Movement:LoadMinePath()
+    self.loadedMinePath:Clear()
+
+    local dijkstra = self.tools.dijkstra()
+    dijkstra:Run(self.mineGraph, map:currentMapId())
+    if dijkstra:HasPathTo(self.rzNextMapId) then
+        local stackMap = dijkstra:GetPathTo(self.rzNextMapId)
+        for i = 1, stackMap:Size() do
+            local fromMapId = stackMap:Get(i):From()
+            local toMapId = stackMap:Get(i):To()
+            local changeMapInfo = self.mineGraphData:Get(fromMapId)
+
+            for _, v in  pairs(changeMapInfo.moveMapInfo) do
+                if self.tools:Equal(v.toMapId, toMapId) then
+                    if v.path then
+                        self.loadedMinePath:Add(fromMapId, self.tools.object({
+                            map = fromMapId,
+                            path = v.path
+                        }))
+                    else
+                        self.loadedMinePath:Add(fromMapId, self.tools.object({
+                            map = fromMapId,
+                            door = v.door
+                        }))
+                    end
+                end
+            end
+            --self.tools:Print("Mine path loaded", "Info")
+        end
     else
+        self.tools:Print("Dijkstra ne trouve aucun path depuis la carte (" .. map:currentMapId() .. ") vers la map (" .. self.rzNextMapId .. ")", "Error")  
+    end
+end
+
+function Movement:CB_CurrentMapMessage(msg)
+    if self.tpOn then
+        if msg.mapId == self.tpDestination then
+            --self.tools:Print("teleported = true")
+            self.teleported = true
+            self.tpOn = false
+        end
+    end
+
+    if msg.mapId == self.rzNextMapId then
+        --self.tools:Print("teleported = false")
         self.teleported = false
     end
 end

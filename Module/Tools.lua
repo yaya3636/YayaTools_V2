@@ -315,6 +315,16 @@ end
 function Tools.api:init()
     self.super.tools = Tools()
     self.super.json = Tools.json()
+    self.super.mineArea = Tools.dictionnary()
+    local mineArea = dofile(global:getCurrentDirectory() .. [[\YayaTools\Data\MineArea.lua]])
+
+    for k, v in pairs(mineArea) do
+        self.super.mineArea:Add(k, Tools.object({
+            name = v.name,
+            mapId = Tools.list(v.mapId)
+        }))
+    end
+
     self.super.localAPI.localPort = self.super.json:decode(self.super.tools:ReadFile(global:getCurrentDirectory() .. "\\YayaTools\\LocalAPI\\ConfigAPI.json"), "API").port
     self.super.localAPI.localUrl = "http://localhost:" .. self.super.localAPI.localPort .. "/"
     self.super.localAPI = self.super.localAPI()
