@@ -3,6 +3,7 @@ Class = dofile(yayaToolsModuleDirectory .. "Class.lua")
 API = dofile(yayaToolsModuleDirectory .. "API.lua")
 Queue = dofile(yayaToolsModuleDirectory .. "Queue.lua")
 Stack = dofile(yayaToolsModuleDirectory .. "Stack.lua")
+Graph = dofile(yayaToolsModuleDirectory .. "Graph.lua")
 
 -- Création des classes
 Tools = Class("Tools", dofile(yayaToolsModuleDirectory .. "Utils.lua"))
@@ -12,6 +13,7 @@ Tools.dungeons = Class("Dungeons", dofile(yayaToolsModuleDirectory .. "Dungeons.
 Tools.dictionnary = Class("Dictionnary", dofile(yayaToolsModuleDirectory .. "Dictionnary.lua"))
 Tools.gather = Class("Gather", dofile(yayaToolsModuleDirectory .. "Gather.lua"))
 Tools.json = Class("Json", dofile(yayaToolsModuleDirectory .. "Json.lua"))
+Tools.indexedMinPQ = Class("IndexedMinPQ", dofile(yayaToolsModuleDirectory .. "IndexedMinPQ.lua"))
 Tools.list = Class("List", dofile(yayaToolsModuleDirectory .. "List.lua"))
 Tools.pointsOfInterest = Class("PointsOfInterest", dofile(yayaToolsModuleDirectory .. "PointsOfInterest.lua"))
 Tools.monsters = Class("Monsters", dofile(yayaToolsModuleDirectory .. "Monsters.lua"))
@@ -22,8 +24,7 @@ Tools.packet = Class("Packet", dofile(yayaToolsModuleDirectory .. "Packet.lua"))
 Tools.timer = Class("Timer", dofile(yayaToolsModuleDirectory .. "Timer.lua"))
 Tools.zone = Class("Zone", dofile(yayaToolsModuleDirectory .. "Zone.lua"))
 
-Tools.graph = Class("Graph", dofile(yayaToolsModuleDirectory .. [[Graph\data\graph.lua]]))
-Tools.dijkstra = Class("Dijkstra", dofile(yayaToolsModuleDirectory .. [[Graph\shortest_paths\Dijkstra.lua]]))
+Tools.dijkstra = Class("Dijkstra", dofile(yayaToolsModuleDirectory .. "Dijkstra.lua"))
 
 Tools.character = Class("Character", dofile(yayaToolsModuleDirectory .. "Character.lua"))
 Tools.character.dialog = Tools.character:extend("Dialog", dofile(yayaToolsModuleDirectory .. "Dialog.lua"))
@@ -34,6 +35,9 @@ Tools.ctrApi.dofusDB = Tools.ctrApi:extend("DofusDB",  API.dofusDB)
 Tools.api = Tools.ctrApi:extend("Api")
 Tools.class = Class
 
+local graphEdge = Graph.edge
+Graph.edge = Class("GraphEdge", graphEdge)
+Tools.graph = Class("Graph", Graph)
 
 local nodeQ = Queue.node
 Queue.node = Class("NodeQ", nodeQ)
@@ -113,6 +117,16 @@ function Tools.dictionnary:init(dic)
     self.tools = Tools
 end
 
+function Tools.dijkstra:init()
+    self.edgeTo = {}
+    self.cost = {}
+    self.source = -1
+    self.marked = {}
+    self.indexedMinPQ = Tools.indexedMinPQ
+    self.tools = Tools
+    self.stack = Tools.stack
+end
+
 function Tools.gather:init(params)
     params = params or {}
     if not params.packet then
@@ -131,12 +145,49 @@ function Tools.gather:init(params)
     end
 end
 
+function Tools.graph.edge:init(v, w, weight)
+    if weight == nil then
+        weight = 1.0
+    end
+    self.v = v
+    self.w = w
+    self.weight = weight
+end
+
+function Tools.graph:init(V, directed)
+    if directed == nil then
+        directed = false
+    end
+
+    self.list = Tools.list
+    self.vertexList = Tools.list()
+    self.adjList = {}
+    for v = 0, V-1 do
+        self.vertexList:Add(v)
+        self.adjList[v] = Tools.list()
+    end
+    self.directed = directed
+end
+
 function Tools.json:init()
     self.tools = Tools()
     for k, v in pairs(self.escapeCharMap) do
         self.escapeCharMapInv[v] = k
     end
     --self.tools:Print("ici")
+end
+
+function Tools.indexedMinPQ:init(params)
+    params = params or {}
+    if params.comparator == nil then
+        params.comparator = function(a1, a2) return a1 - a2 end
+    end
+
+    self.keys = {}
+    self.pq = {}
+    self.qp = {}
+    self.N = 0
+    self.comparator = params.comparator
 end
 
 function Tools.list:init(a)
@@ -202,6 +253,8 @@ function Tools.movement:init(params)
     self.character = params.character
     self.tools = Tools()
     self.json = Tools.json()
+    self.mineGraphData = Tools.dictionnary(dofile(global:getCurrentDirectory() .. [[\YayaTools\Data\MineGraph.lua]]))
+    self.mineGraph = Tools.graph(0, true)
     self:InitProperties()
 end
 

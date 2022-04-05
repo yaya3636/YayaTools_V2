@@ -10,9 +10,15 @@ Monsters = Tools.monsters
 
 
 function move()
-    Tools:Print(Zone:GetAreaIdByMapId("217063430"))
-    Tools:Print(map:getX(217063430) .. ',' .. map:getY(217063430))
+    local dijkstra = Tools.dijkstra()
+    dijkstra:Run(Movement.mineGraph, 97259013)
+    Tools:Print(dijkstra:HasPathTo(97260043))
 
+    local stackMap = dijkstra:GetPathTo(97260043)
+
+    for i = 1, stackMap:Size() do
+        Tools:Print(stackMap:Get(i):From() .. " to " .. stackMap:Get(i):To())
+    end
 end
 
 function messagesRegistering()

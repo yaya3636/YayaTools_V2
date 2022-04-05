@@ -76,6 +76,11 @@ Movement.lastTpMapId = -1
 Movement.roadLoaded = false
 
 function Movement:InitProperties()
+    for k, vMap in pairs(self.mineGraphData:Enumerate()) do
+        for _, v in pairs(vMap.moveMapInfo) do
+            self.mineGraph:AddEdge(vMap.mapId, v.toMapId, 1.0)
+        end
+    end
     self.compRzListMapId = self.tools.list()
     self.rzListMapId = self.tools.list()
     self.rzLogMapId = self.tools.list()
