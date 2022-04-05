@@ -123,7 +123,6 @@ function Tools.dijkstra:init()
     self.source = -1
     self.marked = {}
     self.indexedMinPQ = Tools.indexedMinPQ
-    self.tools = Tools
     self.stack = Tools.stack
 end
 
