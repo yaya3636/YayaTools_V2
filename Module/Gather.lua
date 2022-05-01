@@ -97,6 +97,90 @@ Gather.gatherInfo = {
     Puits = { name = "Puits", gatherId = 84, objectId = 311, jobId = 2, minLvlToFarm = 1 }
 }
 
+Gather.bagsId = {
+    -- Paysan
+    7941,
+    7942,
+    7943,
+    7944,
+    7945,
+    7946,
+    7947,
+    7948,
+    7949,
+    11113,
+    16532,
+    16533,
+    -- Bucheron
+    7950,
+    7951,
+    7952,
+    7953,
+    7954,
+    7955,
+    7956,
+    7957,
+    7958,
+    7959,
+    7960,
+    7961,
+    7962,
+    7963,
+    7996,
+    8081,
+    11112,
+    16531,
+    -- Alchimiste
+    7964,
+    7965,
+    7966,
+    7967,
+    7968,
+    7969,
+    7970,
+    11103,
+    16528,
+    16529,
+    16530,
+    18059,
+    24041,
+    -- Mineur
+    7971,
+    7972,
+    7973,
+    7974,
+    7975,
+    7976,
+    7977,
+    7978,
+    7979,
+    7980,
+    7981,
+    11114,
+    -- Pecheur
+    7982,
+    7983,
+    7984,
+    7985,
+    7986,
+    7987,
+    7988,
+    7989,
+    7990,
+    7991,
+    7992,
+    7993,
+    7994,
+    7995,
+    11111,
+    16534,
+    16535,
+    16536,
+    16537,
+    16538,
+    16539
+}
+
 function Gather:InitCallBack()
     local mapComplementaryInformationsDataMessage = function(msg) Gather:CB_MapComplementaryInformationsDataMessage(msg) end
     local changeMapMessage = function() Gather:CB_ChangeMapMessage() end
@@ -107,7 +191,16 @@ function Gather:InitCallBack()
 
 end
 
+function Gather:OpenBags()
+    for _, v in pairs(self.bagsId:Enumerate()) do
+        while inventory:itemCount(v) > 0 do
+            inventory:useItem(v)
+        end
+    end
+end
+
 function Gather:GatherByDist()
+    self:OpenBags()
     local i = 0
     while not self.sortedFinish do global:delay(50) i = i + 1 if i == 40 then break end end
     for _, v in pairs(self.sortedElementsByDist:Enumerate()) do
@@ -116,6 +209,7 @@ function Gather:GatherByDist()
 end
 
 function Gather:GatherByPriority()
+    self:OpenBags()
     local i = 0
     while not self.sortedFinish do global:delay(50) i = i + 1 if i == 40 then break end end
     for _, v in pairs(self.sortedElementsByPriority:Enumerate()) do

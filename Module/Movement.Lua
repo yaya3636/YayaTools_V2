@@ -69,6 +69,7 @@ Movement.compRzListMapId = {}
 Movement.rzListMapId = {}
 Movement.rzLogMapId = {}
 Movement.loadedMinePath = {}
+Movement.lastMapId = 0
 Movement.rzNextMapId = -1
 Movement.rzMaxDist = -1
 
@@ -76,6 +77,11 @@ Movement.teleported = false
 Movement.tpOn = false
 Movement.tpDestination = -1
 Movement.roadLoaded = false
+Movement.startTimeInMap = 0
+Movement.timeoutReached = false
+
+Movement.zaapAvailable = {}
+Movement.rcvZaapDestination = false
 
 function Movement:InitProperties()
     for k, vMap in pairs(self.mineGraphData:Enumerate()) do
@@ -89,6 +95,7 @@ function Movement:InitProperties()
     self.loadedMinePath = self.tools.dictionnary()
     local tmp = self.forbiddenHavenbagMap
     self.forbiddenHavenbagMap = self.tools.dictionnary()
+    self.zaapAvailable = self.tools.dictionnary()
     for _, v in pairs(tmp) do
         self.forbiddenHavenbagMap:Add(v.map, self.tools.object(v))
     end
@@ -96,9 +103,11 @@ end
 
 function Movement:InitCallBack()
     local currentMapMessage = function(msg) Movement:CB_CurrentMapMessage(msg) end
+    local zaapDestinationsMessage = function(msg) Movement:CB_ZaapDestinationMessage(msg) end
 
     self.packet:SubManager({
-        ["CurrentMapMessage"] = currentMapMessage
+        ["CurrentMapMessage"] = currentMapMessage,
+        ["ZaapDestinationsMessage"] = zaapDestinationsMessage,
     })
 end
 
@@ -108,7 +117,7 @@ function Movement:RoadZone(listMapId, listExcludeMapId)
         self.tools:Print("Movement : La méthode nécéssite une (List) comme paramètre, essayer Movement:RoadZone(Tools.list(tableMapId))", "error")
         return
     end
-    if not listMapId:IsEmpty() then
+    if not listMapId:IsEmpty() and not self.timeoutReached then
         if not self.compRzListMapId:Equal(listMapId) then -- Nouvelle list on reset
             self.teleported = false
             self.compRzListMapId = listMapId:MakeCopy()
@@ -128,7 +137,7 @@ function Movement:RoadZone(listMapId, listExcludeMapId)
         end
 
         if map:currentMapId() == self.rzNextMapId or self.rzNextMapId == -1 then -- Arrivé sur la map ou init
-            --self.tools:Print("Arrivé a destination")
+            self.tools:Print("Arrivé a destination")
             if self.rzLogMapId:Size() >= math.floor((self.rzListMapId:Size() / 4) * 3) then -- Suppresion des log au 3/4 de la list
                 self.rzLogMapId:RemoveAt(1)
             end
@@ -165,8 +174,19 @@ function Movement:RoadZone(listMapId, listExcludeMapId)
                 --self.tools:Print("Chargement path mine", "Info")
                 self:LoadMinePath()
             end
-            --self.tools:Print(self.rzNextMapId)
+            self.tools:Print("RzNext = " .. self.rzNextMapId)
         end
+
+        if self.lastMapId ~= map:currentMapId() then
+            self.startTimeInMap = os.time()
+            self.timeoutReached = false
+        elseif os.difftime(os.time(), self.startTimeInMap) > 60 then
+            self.tools:Print("Aucun changement de map détecté depuis 1 min, go havresac pour reset", "Movement")
+            self.timeoutReached = true
+            self:HavenBag()
+        end
+
+        self.lastMapId = map:currentMapId()
 
         if self:InMine() and self:IsMine(self.rzNextMapId) then
             --self.tools:Print("Dans une mine", 'Info')
@@ -177,6 +197,10 @@ function Movement:RoadZone(listMapId, listExcludeMapId)
         end
         self.rzNextMapId = -1 -- On reset la prochaine map en cas d'echec de movement
         self:RoadZone(listMapId) -- On relance la fonction pour trouver une autre map
+    elseif listMapId:IsEmpty() then
+        self.tools:Print("Movement:RoadZone(listMapId, listExcludeMapId) listMapId is empty !", "error")
+    elseif self.timeoutReached then
+        self.tools:Print("Movement : Aucun changement de map détecté depuis 1 min", "error")
     end
 end
 
@@ -190,14 +214,19 @@ function Movement:MoveMine(retry)
             map:door(path.door)
         end
     elseif not retry then
-        self.tools:Print("Retry")
+        if self.rzNextMapId == map:currentMapId() then
+            self.tools:Print("Retry but equal : RzNext " .. self.rzNextMapId)
+            self.rzNextMapId = -1
+            self:RoadZone(self.compRzListMapId)
+        end
+        self.tools:Print("Retry : RzNext " .. self.rzNextMapId)
         self:LoadMinePath()
         self:MoveMine(true)
     else
         self.tools:Print("No path")
         self:HavenBag()
     end
-    global:delay(500)
+    global:delay(2000)
 end
 
 function Movement:LoadRoad(mapIdDest)
@@ -235,7 +264,7 @@ function Movement:LoadRoad(mapIdDest)
             end
         end
     
-        if map:GetPathDistance(map:currentMapId(), mapIdDest) > 15 and not self.teleported or map:currentMap() == "0,0" and not self:InMine() and not self.teleported then
+        if map:GetPathDistance(map:currentMapId(), mapIdDest) > 15 and not self.teleported or map:currentMap() == "0,0" and not self:InMine() and not self.teleported and not self.tools:Equal(map:currentArea(), "Incarnam") then
             self:HavenBagTP(mapIdDest, "La prochaine map est a plus de 15 map, on se téléporte", self.forbiddenZaap)
         end
     
@@ -259,7 +288,7 @@ end
 
 function Movement:MoveNext()
     map:moveRoadNext()
-    global:delay(500)
+    global:delay(2000)
 end
 
 function Movement:InMapChecker(listMapId)
@@ -283,6 +312,7 @@ function Movement:HavenBag()
     end
 
     if map:currentMap() ~= "0,0" then
+        self.timeoutReached = false
         map:changeMap('havenbag')
         global:delay(1000)
     end
@@ -295,7 +325,10 @@ function Movement:UseZaap(mapIdDest, zaapExcepted)
         source = 0
     end
 
-    local closestZaap = map:closestZaapV2(mapIdDest, zaapExcepted)
+    --local closestZaap = map:closestZaapV2(mapIdDest, zaapExcepted)
+    self.rcvZaapDestination = false
+    map:closestZaapV2(0)
+    local closestZaap = self:ClosestZaap(mapIdDest)
     self.tpDestination = closestZaap
     self.tpOn = true
 
@@ -362,6 +395,48 @@ function Movement:LoadMinePath()
     end
 end
 
+function Movement:ClosestZaap(mapIdDest)
+    while self.rcvZaapDestination == false do global:delay(50) end
+    local dist, mapClosest = 99999, 0
+    for _, v in pairs(self.zaapAvailable:Enumerate()) do
+        local clcDist = self:MapDistance(v.mapId, mapIdDest)
+        if clcDist < dist and v.cost < character:kamas() then
+            dist = clcDist
+            mapClosest = v.mapId
+        end
+    end
+    return mapClosest
+end
+
+function Movement:MapDistance(mapIdStart, mapIdEnd)
+    local startX = map:getX(mapIdStart)
+    local startY = map:getY(mapIdStart)
+    local endX = map:getX(mapIdEnd)
+    local endY = map:getY(mapIdEnd)
+
+    local dist = 0
+
+    local function countDist(a,b)
+        for _ = a, b do
+            dist = dist + 1
+        end
+    end
+
+    if startX > endX then
+        countDist(endX, startX)
+    else
+        countDist(startX, endX)
+    end
+
+    if startY > endY then
+        countDist(endY, startY)
+    else
+        countDist(startY, endY)
+    end
+
+    return dist
+end
+
 function Movement:CB_CurrentMapMessage(msg)
     if self.tpOn then
         if msg.mapId == self.tpDestination then
@@ -375,6 +450,26 @@ function Movement:CB_CurrentMapMessage(msg)
         --self.tools:Print("teleported = false")
         self.teleported = false
     end
+end
+
+function Movement:CB_ZaapDestinationMessage(msg)
+    for _, v in pairs(msg.destinations) do
+        if not self.zaapAvailable:ContainsKey(v.mapId) then
+            self.tools:Print("Le zaap de la sous zone (" .. self.zone:GetSubAreaName(v.subAreaId) .. ") a bien été pris en compte", "Movement")
+            self.zaapAvailable:Add(v.mapId, self.tools.object({
+                type = v.type,
+                mapId = v.mapId,
+                subAreaId = v.subAreaId,
+                level = v.level,
+                cost = v.cost
+            }))
+        else
+            local tmp = self.zaapAvailable:Get(v.mapId)
+            tmp.cost = v.cost
+            self.zaapAvailable:Set(v.mapId, tmp)
+        end
+    end
+    self.rcvZaapDestination = true
 end
 
 return Movement

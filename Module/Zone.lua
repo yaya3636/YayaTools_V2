@@ -43,17 +43,31 @@ end
 -- SubArea
 
 function Zone:GetSubAreaObject(subAreaId)
-    local subArea = self.api.localAPI:GetSubArea(subAreaId)
-    if subArea then
-        local ret = self.tools.object(subArea)
-        ret.playlists = nil
-        ret.shape = nil
-        ret.npcs = nil
-        ret.mapIds = self.tools.list(subArea.mapIds)
-        ret.bounds = self.tools.object(subArea.bounds)
-        ret.monsters = self.tools.list(subArea.monsters)
-        ret.harvestables = self.tools.list(subArea.harvestables)
-        return ret
+    if tonumber(subAreaId) >= 10000 then
+        local subArea = self.mineArea:Get(subAreaId)
+        if subArea then
+            local ret = self.tools.object({
+                name = subArea.name,
+                isConquestVillage = false,
+                mapIds = subArea.mapIds,
+                monsters = self.tools.list(),
+                harvestables = self.tools.list()
+            })
+            return ret
+        end
+    else
+        local subArea = self.api.localAPI:GetSubArea(subAreaId)
+        if subArea then
+            local ret = self.tools.object(subArea)
+            ret.playlists = nil
+            ret.shape = nil
+            ret.npcs = nil
+            ret.mapIds = self.tools.list(subArea.mapIds)
+            ret.bounds = self.tools.object(subArea.bounds)
+            ret.monsters = self.tools.list(subArea.monsters)
+            ret.harvestables = self.tools.list(subArea.harvestables)
+            return ret
+        end    
     end
     return nil
 end

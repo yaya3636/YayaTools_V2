@@ -142,6 +142,9 @@ function Tools.gather:init(params)
     for _, v in pairs(tmp) do
         self.gatherInfo:Add(tostring(v.objectId), Tools.object(v))
     end
+    tmp = self.bagsId
+    self.bagsId = Tools.list(tmp)
+
 end
 
 function Tools.graph.edge:init(v, w, weight)
@@ -293,10 +296,8 @@ end
 
 function Tools.timer:init(params)
     params = params or {}
-    local date = os.date('*t')
-    local curH, curM = date.hour, date.min
-    self.timerRandTimeToWait = global:random(params.min, params.max)
-    self.timerHourStart, self.timerMinuteStart = curH, curM
+    self.startAt = os.time()
+    self.timeToWait = global:random(params.min * 60, params.max * 60)
 end
 
 function Tools.zone:init(params)
@@ -304,12 +305,16 @@ function Tools.zone:init(params)
     if not params.api then
         error("[Module Zone] : Le paramètre api requis pour instancier la class est non definie")
     end
+    local mineArea = dofile(global:getCurrentDirectory() .. [[\YayaTools\Data\MineArea.lua]])
+    self.mineArea = Tools.dictionnary()
+    for k, v in pairs(mineArea) do
+        self.mineArea:Add(k, Tools.object({
+            name = v.name,
+            mapId = Tools.list(v.mapId)
+        }))
+    end
     self.tools = Tools()
     self.api = params.api
-    --self.json = Tools.json()
-    --self.d2oArea = self.json:decode(self.tools:ReadFile(self.d2oAreaPath), "Area")
-    --self.d2oSubArea = self.json:decode(self.tools:ReadFile(self.d2oSubAreaPath), "SubArea")
-    --self:InitD2oProperties()
 end
 
 function Tools.api:init()

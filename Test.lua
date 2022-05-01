@@ -10,16 +10,11 @@ Monsters = Tools.monsters
 
 
 function move()
-    local dijkstra = Tools.dijkstra()
-    dijkstra:Run(Movement.mineGraph, 97259013)
-    Tools:Print(dijkstra:HasPathTo(97260043))
-    Tools:Print(Movement:IsMine(97260043))
-
-    local stackMap = dijkstra:GetPathTo(97260043)
-
-    for i = 1, stackMap:Size() do
-        Tools:Print(stackMap:Get(i):From() .. " to " .. stackMap:Get(i):To())
-    end
+    test()
+    --Tools:Dump(Zone:GetSubAreaObject(Zone:GetSubAreaIdByMapId(153880322)))
+    --Tools:Print(Zone:GetAreaName(8))
+    --Tools:Print(Zone:GetAreaIdByMapId(153880322))
+    --Tools:Print(Zone:GetAreaIdByMapId("153880322"))
 end
 
 function messagesRegistering()
@@ -28,6 +23,19 @@ function messagesRegistering()
     Gather:InitCallBack()
 end
 
+function test()
+    local i = 0
+    while i ~= 100 do
+        Tools:Print("Start")
+
+        if global:isBoss() then
+            Tools:Print("Je suis le boss")
+        else
+            Tools:Print("Je suis une mule")
+        end
+        i = i + 1
+    end
+end
 
 API = API()
 Craft = Craft({api = API})

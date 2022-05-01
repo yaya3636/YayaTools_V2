@@ -3799,15 +3799,19 @@
         "experienceRatio": 0.0,
         "kamasScaleWithPlayerLevel": false,
         "itemsReward": [
-            392,
+            302,
             2264,
             382,
-            2259
+            2259,
+            2674,
+            2656
         ],
         "itemsQuantityReward": [
-            10,
             1,
-            10,
+            1,
+            1,
+            1,
+            1,
             1
         ],
         "emotesReward": [],

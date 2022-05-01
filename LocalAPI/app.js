@@ -327,7 +327,7 @@ function GetAreaName() {
             str.forEach(e => {
                 name = name + " " + e
             })
-            areaName.set(id, name)
+            areaName.set(id, name.trim())
             resolve(areaName)    
         })
     });
@@ -350,7 +350,7 @@ function GetSubAreaName() {
             str.forEach(e => {
                 name = name + " " + e
             })
-            subAreaName.set(id, name)
+            subAreaName.set(id, name.trim())
             resolve(subAreaName)
         })
     });

@@ -3693,5 +3693,20 @@
         "duration": 9040,
         "weight": 0,
         "spellLevelId": 0
+    },
+    {
+        "id": 267,
+        "nameId": 940340,
+        "shortcutId": 940341,
+        "order": 507100,
+        "defaultAnim": "Silouate",
+        "persistancy": false,
+        "eight_directions": false,
+        "aura": false,
+        "anims": [],
+        "cooldown": 1628,
+        "duration": 1628,
+        "weight": 0,
+        "spellLevelId": 0
     }
 ]
