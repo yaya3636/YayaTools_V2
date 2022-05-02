@@ -110,4 +110,10 @@ function List:Shuffle()
     end
 end
 
+function List:Foreach(fn)
+    for i, v in ipairs(self:Enumerate()) do
+        fn(v, i)
+    end
+end
+
 return List

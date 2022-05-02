@@ -10,7 +10,22 @@ Monsters = Tools.monsters
 
 
 function move()
-    test()
+    local dic = Tools.dictionnary()
+    local list = Tools.list()
+
+    for i = 0, 10 do
+        dic:Add("test" .. i, i)
+        list:Add(i * 10)
+    end
+
+    dic:Foreach(function(v, k)
+        Tools:Print("Value : " .. v .. " Key : " .. k)
+    end)
+
+    list:Foreach(function(v, i)
+        Tools:Print("Value : " .. v .. " Index : " .. i)
+    end)
+
     --Tools:Dump(Zone:GetSubAreaObject(Zone:GetSubAreaIdByMapId(153880322)))
     --Tools:Print(Zone:GetAreaName(8))
     --Tools:Print(Zone:GetAreaIdByMapId(153880322))
@@ -21,20 +36,6 @@ function messagesRegistering()
     Character.dialog:InitCallBack()
     Movement:InitCallBack()
     Gather:InitCallBack()
-end
-
-function test()
-    local i = 0
-    while i ~= 100 do
-        Tools:Print("Start")
-
-        if global:isBoss() then
-            Tools:Print("Je suis le boss")
-        else
-            Tools:Print("Je suis une mule")
-        end
-        i = i + 1
-    end
 end
 
 API = API()

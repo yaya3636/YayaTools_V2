@@ -138,4 +138,10 @@ function Dictionnary:Sort(fn)
     return newDic
 end
 
+function Dictionnary:Foreach(fn)
+    for k, v in pairs(self:Enumerate()) do
+        fn(v, k)
+    end
+end
+
 return Dictionnary

@@ -74,6 +74,7 @@ Movement.rzNextMapId = -1
 Movement.rzMaxDist = -1
 
 Movement.teleported = false
+Movement.forceTP = false
 Movement.tpOn = false
 Movement.tpDestination = -1
 Movement.roadLoaded = false
@@ -264,7 +265,7 @@ function Movement:LoadRoad(mapIdDest)
             end
         end
     
-        if map:GetPathDistance(map:currentMapId(), mapIdDest) > 15 and not self.teleported or map:currentMap() == "0,0" and not self:InMine() and not self.teleported and not self.tools:Equal(map:currentArea(), "Incarnam") then
+        if map:GetPathDistance(map:currentMapId(), mapIdDest) > 15 and not self.teleported or map:currentMap() == "0,0" and not self:InMine() and not self.teleported and not self.tools:Equal(map:currentArea(), "Incarnam") or self.forceTP then
             self:HavenBagTP(mapIdDest, "La prochaine map est a plus de 15 map, on se téléporte", self.forbiddenZaap)
         end
     
@@ -311,7 +312,7 @@ function Movement:HavenBag()
         global:delay(1000)
     end
 
-    if map:currentMap() ~= "0,0" then
+    if map:currentMap() ~= "0,0" or map:currentMap() == "0,0" and map:currentMapId() == 88212247 then
         self.timeoutReached = false
         map:changeMap('havenbag')
         global:delay(1000)
