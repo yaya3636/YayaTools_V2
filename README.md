@@ -23,7 +23,7 @@ YayaTools_V2 et une bibliothèque de scripts qui vous aidera dans le dévelopeme
      Craft = Tools.craft <br>
      </sub>
      
-  3. Instancier les module avec leur paramètre a la fin de votre script exemple (Le module Tools doit toujours être instancier en dernier) : <br>
+  3. Instancier les module avec leur paramètre a la fin de votre script exemple (Le module Tools doit toujours être instancier en dernier) : '''<br>
      <sup>
      Tools = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Tools.lua") <br>
      Movement = Tools.movement <br>
@@ -40,12 +40,13 @@ YayaTools_V2 et une bibliothèque de scripts qui vous aidera dans le dévelopeme
      Movement = Movement() <br>
      Craft = Craft() <br>
      Tools = Tools() <br>
-     </sup>
+     </sup>'''
      
 # Documentation
 
-  > En cours de développement regarder les exemples présent dans le dossier exemples en attendant
+> En cours de développement regarder les exemples présent dans le dossier exemples en attendant
   
-  ## List
+## List
+
   
     
