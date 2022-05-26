@@ -44,7 +44,7 @@ YayaTools_V2 et une bibliothèque de scripts qui vous aidera dans le dévelopeme
      
 # Documentation
 
-  En cours de développement regarder les exemples présent dans le dossier exemples en attendant
+  > En cours de développement regarder les exemples présent dans le dossier exemples en attendant
   
   ## List
     - Instanciation
