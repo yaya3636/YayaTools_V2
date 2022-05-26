@@ -14,7 +14,8 @@ YayaTools_V2 et une bibliothèque de scripts qui vous aidera dans le dévelopeme
   1. Déclarer la variable Tools en haut de votre script comme ci dessous :
      Tools = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Tools.lua")
      
-  2. Déclarer les modules que vous allez utilisé juste en dessous de la ligne ci dessus exemple : <sup>
+  2. Déclarer les modules que vous allez utilisé juste en dessous de la ligne ci dessus exemple : 
+     <sup>
      Tools = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Tools.lua")
      Movement = Tools.movement
      Craft = Tools.craft
