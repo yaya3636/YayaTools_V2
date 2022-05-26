@@ -3960,8 +3960,8 @@
     },
     {
         "id": 90,
-        "superRaceId": 21,
-        "nameId": 7391,
+        "superRaceId": 27,
+        "nameId": 940467,
         "aggressiveZoneSize": 0,
         "aggressiveLevelDiff": 0,
         "aggressiveImmunityCriterion": "null",
@@ -5108,7 +5108,7 @@
     },
     {
         "id": 127,
-        "superRaceId": 29,
+        "superRaceId": 27,
         "nameId": 484459,
         "aggressiveZoneSize": 0,
         "aggressiveLevelDiff": 0,
@@ -5592,7 +5592,7 @@
     },
     {
         "id": 156,
-        "superRaceId": 26,
+        "superRaceId": 27,
         "nameId": 649662,
         "aggressiveZoneSize": 0,
         "aggressiveLevelDiff": 0,

@@ -3708,5 +3708,20 @@
         "duration": 1628,
         "weight": 0,
         "spellLevelId": 0
+    },
+    {
+        "id": 270,
+        "nameId": 940434,
+        "shortcutId": 940433,
+        "order": 507400,
+        "defaultAnim": "Rosal",
+        "persistancy": false,
+        "eight_directions": false,
+        "aura": false,
+        "anims": [],
+        "cooldown": 14200,
+        "duration": 14200,
+        "weight": 0,
+        "spellLevelId": 0
     }
 ]

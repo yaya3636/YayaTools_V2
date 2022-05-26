@@ -7903,8 +7903,8 @@
         "level": 50,
         "mapId": 0,
         "isLarge": false,
-        "startDate": 1617062400000.0,
-        "endDate": 1618876800000.0,
+        "startDate": 1649750400000.0,
+        "endDate": 1652169600000.0,
         "icon": "870"
     },
     {
@@ -7915,8 +7915,8 @@
         "level": 120,
         "mapId": 0,
         "isLarge": false,
-        "startDate": 1617062400000.0,
-        "endDate": 1618876800000.0,
+        "startDate": 1649750400000.0,
+        "endDate": 1652169600000.0,
         "icon": "871"
     },
     {
@@ -7927,8 +7927,8 @@
         "level": 200,
         "mapId": 0,
         "isLarge": false,
-        "startDate": 1617062400000.0,
-        "endDate": 1618876800000.0,
+        "startDate": 1649750400000.0,
+        "endDate": 1652169600000.0,
         "icon": "872"
     },
     {
@@ -10999,8 +10999,8 @@
         "level": 0,
         "mapId": 185863685,
         "isLarge": true,
-        "startDate": 1617062400000.0,
-        "endDate": 1618876800000.0,
+        "startDate": 1649750400000.0,
+        "endDate": 1652169600000.0,
         "icon": "1114"
     },
     {
@@ -11011,8 +11011,8 @@
         "level": 50,
         "mapId": 196346371,
         "isLarge": false,
-        "startDate": 1617062400000.0,
-        "endDate": 1618876800000.0,
+        "startDate": 1649750400000.0,
+        "endDate": 1652169600000.0,
         "icon": "1115"
     },
     {
@@ -11023,8 +11023,8 @@
         "level": 110,
         "mapId": 197526528,
         "isLarge": false,
-        "startDate": 1617062400000.0,
-        "endDate": 1618876800000.0,
+        "startDate": 1649750400000.0,
+        "endDate": 1652169600000.0,
         "icon": "1116"
     },
     {
@@ -11035,8 +11035,8 @@
         "level": 180,
         "mapId": 197133314,
         "isLarge": false,
-        "startDate": 1617062400000.0,
-        "endDate": 1618876800000.0,
+        "startDate": 1649750400000.0,
+        "endDate": 1652169600000.0,
         "icon": "1117"
     },
     {
@@ -11047,8 +11047,8 @@
         "level": 20,
         "mapId": 196870144,
         "isLarge": false,
-        "startDate": 1617062400000.0,
-        "endDate": 1618876800000.0,
+        "startDate": 1649750400000.0,
+        "endDate": 1652169600000.0,
         "icon": "1118"
     },
     {
@@ -11059,8 +11059,8 @@
         "level": 20,
         "mapId": 196870152,
         "isLarge": false,
-        "startDate": 1617062400000.0,
-        "endDate": 1618876800000.0,
+        "startDate": 1649750400000.0,
+        "endDate": 1652169600000.0,
         "icon": "1119"
     },
     {
@@ -11071,8 +11071,8 @@
         "level": 20,
         "mapId": 196870144,
         "isLarge": false,
-        "startDate": 1617062400000.0,
-        "endDate": 1618876800000.0,
+        "startDate": 1649750400000.0,
+        "endDate": 1652169600000.0,
         "icon": "1120"
     },
     {
@@ -11095,8 +11095,8 @@
         "level": 110,
         "mapId": 196346374,
         "isLarge": false,
-        "startDate": 1617062400000.0,
-        "endDate": 1618876800000.0,
+        "startDate": 1649750400000.0,
+        "endDate": 1652169600000.0,
         "icon": "1122"
     },
     {
@@ -11107,8 +11107,8 @@
         "level": 180,
         "mapId": 196870144,
         "isLarge": false,
-        "startDate": 1617062400000.0,
-        "endDate": 1618876800000.0,
+        "startDate": 1649750400000.0,
+        "endDate": 1652169600000.0,
         "icon": "1123"
     },
     {
@@ -11119,8 +11119,8 @@
         "level": 20,
         "mapId": 196871168,
         "isLarge": false,
-        "startDate": 1617062400000.0,
-        "endDate": 1618876800000.0,
+        "startDate": 1649750400000.0,
+        "endDate": 1652169600000.0,
         "icon": "1124"
     },
     {
@@ -11131,8 +11131,8 @@
         "level": 20,
         "mapId": 196870156,
         "isLarge": false,
-        "startDate": 1617062400000.0,
-        "endDate": 1618876800000.0,
+        "startDate": 1649750400000.0,
+        "endDate": 1652169600000.0,
         "icon": "1125"
     },
     {
@@ -16954,5 +16954,29 @@
         "startDate": 0.0,
         "endDate": 0.0,
         "icon": "1193"
+    },
+    {
+        "id": 4095,
+        "nameId": 940438,
+        "descriptionId": 940439,
+        "categoryId": 13,
+        "level": 200,
+        "mapId": 175637504,
+        "isLarge": false,
+        "startDate": 0.0,
+        "endDate": 0.0,
+        "icon": "1199"
+    },
+    {
+        "id": 4096,
+        "nameId": 940444,
+        "descriptionId": 940445,
+        "categoryId": 13,
+        "level": 0,
+        "mapId": 88082195,
+        "isLarge": true,
+        "startDate": 1652745600000.0,
+        "endDate": 1653955200000.0,
+        "icon": "1200"
     }
 ]
