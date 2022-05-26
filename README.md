@@ -15,7 +15,7 @@ YayaTools_V2 et une bibliothèque de scripts qui vous aidera dans le dévelopeme
      Tools = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Tools.lua")
      
   2. Déclarer les modules que vous allez utilisé juste en dessous de la ligne ci dessus exemple : <br>
-     <sub>
+     ><sub>
      Tools = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Tools.lua")
      Movement = Tools.movement
      Craft = Tools.craft
