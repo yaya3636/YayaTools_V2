@@ -49,11 +49,11 @@ YayaTools_V2 et une bibliothèque de scripts qui vous aidera dans le dévelopeme
 
 ## List
 - Instanciation
-```
+```lua
 local maList = Tools.list()
 ```
 Vous pouvez passez une table ou une autre List en paramètre pour obtenir une copie de celle ci exemple :
-```
+```lua
 local table = {}
 local list1 = Tools.list()
 local copyList1 = Tools.list(list1)
