@@ -63,6 +63,6 @@ local copyTable = Tools.list(table)
   <details>
   <summary> Test </summary>
   <blockquote>
-    - Instanciation
+    * Instanciation
   </blockquote>
   </details>
