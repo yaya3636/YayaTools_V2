@@ -47,7 +47,9 @@ YayaTools_V2 et une bibliothèque de scripts qui vous aidera dans le dévelopeme
 
 > En cours de développement regarder les exemples présent dans le dossier exemples en attendant
 
-## List
+<details><summary>List</summary>
+<p>
+
 - Instanciation
 ```lua
 local maList = Tools.list()
@@ -61,3 +63,5 @@ local copyTable = Tools.list(table)
 ```
 - Méthodes
   
+</p>
+</details>
