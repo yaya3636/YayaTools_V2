@@ -1,4 +1,5 @@
 
+console.log("Lancement du serveur...")
 const fs = require("fs")
 const readLine = require("readline")
 
