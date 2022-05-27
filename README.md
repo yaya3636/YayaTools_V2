@@ -60,7 +60,17 @@ local copyList1 = Tools.list(list1)
 local copyTable = Tools.list(table)
 ```
 - Méthodes
+
+
   <details>
   <summary> Test </summary>
-      #Instanciation
+<p>
+
+#### We can hide anything, even code!
+
+    ```ruby
+      puts "Hello World"
+    ```
+
+</p>
   </details>
