@@ -66,10 +66,17 @@ local copyTable = Tools.list(table)
 <p>
 
 - Instanciation
-
-    ```ruby
-      puts "Hello World"
-    ```
-
+```lua
+local maList = Tools.list()
+```
+Vous pouvez passez une table ou une autre List en paramètre pour obtenir une copie de celle ci exemple :
+```lua
+local table = {}
+local list1 = Tools.list()
+local copyList1 = Tools.list(list1)
+local copyTable = Tools.list(table)
+```
+- Méthodes
+  
 </p>
 </details>
