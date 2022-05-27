@@ -62,5 +62,5 @@ local copyTable = Tools.list(table)
 - Méthodes
   <details>
   <summary> Test </summary>
-    #Instanciation
+      #Instanciation
   </details>
