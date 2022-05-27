@@ -62,8 +62,7 @@ local copyTable = Tools.list(table)
 - Méthodes
 
 
-  <details>
-  <summary> Test </summary>
+<details><summary>CLICK ME</summary>
 <p>
 
 #### We can hide anything, even code!
@@ -73,4 +72,4 @@ local copyTable = Tools.list(table)
     ```
 
 </p>
-  </details>
+</details>
