@@ -62,6 +62,7 @@ local copyList1 = Tools.list(list1)
 local copyTable = Tools.list(table)
 ```
 - Méthodes
+  - List:CreateWith(a)
   
 </p>
 </details>
