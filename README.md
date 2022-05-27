@@ -62,7 +62,9 @@ local copyList1 = Tools.list(list1)
 local copyTable = Tools.list(table)
 ```
 - Méthodes
-  - List:CreateWith(a)
+  - List:CreateWith(params1)
+    - Créer une copie d'une list ou d'une table
+  - Exemple :
   
 </p>
 </details>
