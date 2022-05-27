@@ -62,10 +62,10 @@ local copyTable = Tools.list(table)
 - Méthodes
 
 
-<details><summary>CLICK ME</summary>
+<details><summary>List</summary>
 <p>
 
-#### We can hide anything, even code!
+- Instanciation
 
     ```ruby
       puts "Hello World"
