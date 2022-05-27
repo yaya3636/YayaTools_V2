@@ -60,4 +60,8 @@ local copyList1 = Tools.list(list1)
 local copyTable = Tools.list(table)
 ```
 - Méthodes
+  <details>
+  <summary> Test </summary>
+    - Instanciation
   
+  </details>
