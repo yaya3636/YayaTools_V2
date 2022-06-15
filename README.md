@@ -62,6 +62,7 @@ local copyList1 = Tools.list(list1)
 local copyTable = Tools.list(table)
 ```
 - Méthodes
+  ---
   - List:CreateWith(paramsA)
     - Créer une copie d'une list ou d'une table
     - Params :
@@ -83,6 +84,6 @@ local copyTable = Tools.list(table)
   local maList = Tools.list()
   maList:Add("Ankabot")
   ```
-  
+  ---
 </p>
 </details>
