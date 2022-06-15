@@ -328,3 +328,9 @@ local copyTable = Tools.list(table)
   ---
 </p>
 </details>
+
+<details><summary>Dictionnary</summary>
+<p>
+  
+</p>
+</details>
