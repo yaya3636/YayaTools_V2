@@ -62,10 +62,10 @@ local copyList1 = Tools.list(list1)
 local copyTable = Tools.list(table)
 ```
 - Méthodes
-  - List:CreateWith(params1)
+  - List:CreateWith(paramsA)
     - Créer une copie d'une list ou d'une table
     - Params :
-      1 List/Table
+      1. List/Table
   - Exemple :  
   ```lua
   local uneTable = {}
@@ -74,10 +74,10 @@ local copyTable = Tools.list(table)
   local copieListDeUneList = Tools.list:CreateWith(uneList)
   ```
   
-  - List:Add(params1)
+  - List:Add(paramsA)
     - Ajoute un élément dans la list
     - Params :
-      1 N'importe
+      1. N'importe
   - Exemple :
   ```lua
   local maList = Tools.list()
