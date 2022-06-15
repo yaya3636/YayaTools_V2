@@ -89,7 +89,7 @@ local copyTable = Tools.list(table)
     > Modifie un élément dans la list
     - Params :
       1. L'index de l'élément a modifié
-      2. La valeur a lui donnée
+      2. La valeur a lui donné
   - Exemple :
   ```lua
   local maList = Tools.list()
@@ -97,6 +97,48 @@ local copyTable = Tools.list(table)
   maList:Add("Test")
   maList:Set(2, "TestModifié")
   Tools:Print(maList:Get(2)) -- ---> TestModifié
+  ```
+  ---
+    ### List:Insert(paramsA, paramsB)
+    > Insert un élément dans la list a un index donné
+    - Params :
+      1. L'index ou l'on veut inserée l'élément
+      2. La valeur de l'élément
+  - Exemple :
+  ```lua
+  local maList = Tools.list()
+  maList:Add("Ankabot")
+  maList:Add("Test3")
+  maList:Insert(2, "Test2")
+  Tools:Print(maList:Get(1)) -- ---> Ankabot
+  Tools:Print(maList:Get(2)) -- ---> Test2
+  Tools:Print(maList:Get(3)) -- ---> Test3
+  ```
+  ---
+      ### List:Get(paramsA)
+    > Retourne l'élément a l'index donné
+    - Params :
+      1. L'index de l'élément a retourné
+  - Exemple :
+  ```lua
+  local maList = Tools.list()
+  maList:Add("Ankabot")
+  local maVar = maList:Get(1)
+  Tools:Print(maVar) -- ---> Ankabot
+  ```
+  ---
+      ### List:Clear()
+    > Vide la list
+    - Params :
+  - Exemple :
+  ```lua
+  local maList = Tools.list()
+  maList:Add("Ankabot")
+  maList:Add("Dofus")
+  maList:Add("Kamas")
+  Tools:Dump(maList) -- ---> Ankabot --> Dofus -> Kamas
+  maList:Clear()
+  Tools:Dump(maList) -- ---> Nil
   ```
   ---
 </p>
