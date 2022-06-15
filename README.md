@@ -75,6 +75,15 @@ local copyTable = Tools.list(table)
   local copieListDeUneList = Tools.list:CreateWith(uneList)
   ```
   ---
+    ### List:MakeCopy()
+    > Créer une copie de la list 
+    - Params :
+  - Exemple :  
+  ```lua
+  local maList = Tools.list()
+  local copieDeMaList = maList:MakeCopy()
+  ```
+  ---
   ### List:Add(paramsA)
     > Ajoute un élément dans la list
     - Params :
@@ -139,6 +148,182 @@ local copyTable = Tools.list(table)
   Tools:Dump(maList) -- ---> Ankabot --> Dofus -> Kamas
   maList:Clear()
   Tools:Dump(maList) -- ---> Nil
+  ```
+  ---
+    ### List:Concatenate(paramsA)
+    > Copie tout les éléments d'une autre list dans la list
+    - Params :
+      1. La list a copiée
+  - Exemple :
+  ```lua
+  local maList = Tools.list()
+  local maListACopie = Tools.list()
+  maList:Add("Ankabot")
+  maListACopie:Add("Dofus")
+  maListACopie:Add("Kamas")
+  Tools:Dump(maList) -- ---> Ankabot
+  maList:Concatenate(maListACopie)
+  Tools:Dump(maList) -- ---> Ankabot --> Dofus -> Kamas
+  ```
+  ---
+    ### List:RemoveAt(paramsA)
+    > Supprime un élément a l'index donné
+    - Params :
+      1. L'index de l'élément a supprimer
+  - Exemple :
+  ```lua
+  local maList = Tools.list()
+  maList:Add("Ankabot")
+  maList:Add("Dofus")
+  maList:Add("Kamas")
+  Tools:Dump(maList) -- ---> Ankabot --> Dofus -> Kamas
+  maList:RemoveAt(2)
+  Tools:Dump(maList) -- ---> Ankabot --> Kamas
+  ```
+  ---
+    ### List:Remove(paramsA)
+    > Supprime un élément donné
+    - Params :
+      1. La valeur de l'élément a supprimer
+  - Exemple :
+  ```lua
+  local maList = Tools.list()
+  maList:Add("Ankabot")
+  maList:Add("Dofus")
+  maList:Add("Kamas")
+  Tools:Dump(maList) -- ---> Ankabot --> Dofus -> Kamas
+  maList:Remove("Dofus")
+  Tools:Dump(maList) -- ---> Ankabot --> Kamas
+  ```
+  ---
+    ### List:IndexOf(paramsA)
+    > Retourne l'index d'un élément dans la list ou -1 si non trouvé
+    - Params :
+      1. La valeur de l'élément a rechercher, ou une fonction anonyme avec un paramètre qui sera la valeur des élément de la list a chaque itération
+  - Exemple :
+  ```lua
+  local maList = Tools.list()
+  maList:Add("Ankabot")
+  maList:Add("Dofus")
+  maList:Add("Kamas")
+  Tools:Print(maList:IndexOf("Dofus")) -- ---> 2
+  
+  local maList2 = Tools.list()
+  maList2:Add({test = 1})
+  maList2:Add({test = "Ankabot"})
+  maList2:Add({test = 3})
+  local i = maList:IndexOf(function(v)
+    if v.test == "Ankabot" then return true end
+  end)
+  Tools:Print(i) -- ---> 2 
+  ```
+  ---
+      ### List:Contains(paramsA)
+    > Retourne si la list contient un élément donné
+    - Params :
+      1. La valeur de l'élément a rechercher, ou une fonction anonyme avec un paramètre qui sera la valeur des élément de la list a chaque itération
+  - Exemple :
+  ```lua
+  local maList = Tools.list()
+  maList:Add("Ankabot")
+  maList:Add("Dofus")
+  maList:Add("Kamas")
+  Tools:Print(maList:Contains("Dofus")) -- ---> True
+  Tools:Print(maList:Contains("Blabla")) -- ---> False
+  
+  local maList2 = Tools.list()
+  maList2:Add({test = 1})
+  maList2:Add({test = "Ankabot"})
+  maList2:Add({test = 3})
+  local bool = maList:Contains(function(v)
+    if v.test == "Ankabot" then return true end
+  end)
+  local bool2 = maList:Contains(function(v)
+    if v.test == "Blabla" then return true end
+  end)
+  Tools:Print(bool) -- ---> True
+  Tools:Print(bool2) -- ---> False
+  ```
+  ---
+    ### List:Size()
+    > Retourne la taille de la list
+    - Params :
+  - Exemple :
+  ```lua
+  local maList = Tools.list()
+  maList:Add("Ankabot")
+  maList:Add("Dofus")
+  Tools:Print(maList:Size()) -- ---> 2
+  ```
+  ---
+    ### List:IsEmpty()
+    > Retourne si la list et vide
+    - Params :
+  - Exemple :
+  ```lua
+  local maList = Tools.list()
+  maList:Add("Ankabot")
+  maList:Add("Dofus")
+  Tools:Print(maList:IsEmpty()) -- ---> False
+  maList:Clear()
+  Tools:Print(maList:IsEmpty()) -- ---> True
+  ```
+  ---
+    ### List:Enumerate()
+    > Enumére la list
+    - Params :
+  - Exemple :
+  ```lua
+  local maList = Tools.list()
+  maList:Add("Ankabot")
+  maList:Add("Dofus")
+  for i, v in ipairs(maList:Enumerate()) do
+    Tools:Print(i .. " " .. v) -- ---> 1 Ankabot --> 2 Dofus
+  end
+  ```
+  ---
+    ### List:Equal(paramsA)
+    > Retourne si la list et égale a une autre list
+    - Params :
+      1. La list a comparée
+  - Exemple :
+  ```lua
+  local maList = Tools.list()
+  local maList2 = Tools.list()
+  maList:Add("Ankabot")
+  maList:Add("Dofus")
+  local copieMaList = maList:MakeCopy()
+  Tools:Print(maList:Equal(maList2)) -- ---> False
+  Tools:Print(maList:Equal(copieMaList)) -- ---> True
+  ```
+  ---
+    ### List:Shuffle()
+    > Mélange les éléments dans la list
+    - Params :
+  - Exemple :
+  ```lua
+  local maList = Tools.list()
+  maList:Add("Ankabot")
+  maList:Add("Dofus")
+  maList:Add("Kamas")
+  Tools:Dump(maList) -- ---> Ankabot --> Dofus -> Kamas
+  maList:Shuffle()
+  Tools:Dump(maList) -- ---> ?Kamas --> ?Dofus -> ?Ankabot
+  ```
+  ---
+    ### List:Foreach(paramsA)
+    > Parcours les élément de la list en appelant la fonction de callback
+    - Params :
+      1. Une fonction anonyme qui prend deux paramètre, le premier et la valeur des élément de la list a chaque itération l'autre et l'index
+  - Exemple :
+  ```lua
+  local maList = Tools.list()
+  maList:Add("Ankabot")
+  maList:Add("Dofus")
+  maList:Add("Kamas")
+  maList:Foreach(function(v, i)
+    Tools:Print(v .. " " .. i) -- ---> Ankabot 1 --> Dofus 2 -> Kamas 3
+  end))
   ```
   ---
 </p>
