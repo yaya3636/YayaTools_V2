@@ -115,7 +115,7 @@ local copyTable = Tools.list(table)
   Tools:Print(maList:Get(3)) -- ---> Test3
   ```
   ---
-      ### List:Get(paramsA)
+    ### List:Get(paramsA)
     > Retourne l'élément a l'index donné
     - Params :
       1. L'index de l'élément a retourné
@@ -127,7 +127,7 @@ local copyTable = Tools.list(table)
   Tools:Print(maVar) -- ---> Ankabot
   ```
   ---
-      ### List:Clear()
+    ### List:Clear()
     > Vide la list
     - Params :
   - Exemple :
