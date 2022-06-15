@@ -64,7 +64,7 @@ local copyTable = Tools.list(table)
 - Méthodes
   ---
   ### List:CreateWith(paramsA)
-    Créer une copie d'une list ou d'une table
+    > Créer une copie d'une list ou d'une table
     - Params :
       1. List/Table
   - Exemple :  
@@ -76,7 +76,7 @@ local copyTable = Tools.list(table)
   ```
   ---
   ### List:Add(paramsA)
-    Ajoute un élément dans la list
+    > Ajoute un élément dans la list
     - Params :
       1. N'importe
   - Exemple :
@@ -86,7 +86,7 @@ local copyTable = Tools.list(table)
   ```
   ---
   ### List:Set(paramsA, paramsB)
-    Modifie un élément dans la list
+    > Modifie un élément dans la list
     - Params :
       1. L'index de l'élément a modifié
       2. La valeur a lui donnée
