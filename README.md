@@ -64,6 +64,8 @@ local copyTable = Tools.list(table)
 - Méthodes
   - List:CreateWith(params1)
     - Créer une copie d'une list ou d'une table
+    - Params :
+      1. List/Table
   - Exemple :  
   ```lua
   local uneTable = {}
@@ -71,5 +73,16 @@ local copyTable = Tools.list(table)
   local copieListDeUneTable = Tools.list:CreateWith(uneTable)
   local copieListDeUneList = Tools.list:CreateWith(uneList)
   ```
+  
+  - List:Add(params1)
+    - Ajoute un élément dans la list
+    - Params :
+      1. N'importe
+  - Exemple :
+  ```lua
+  local maList = Tools.list()
+  maList:Add("Ankabot")
+  ```
+  
 </p>
 </details>
