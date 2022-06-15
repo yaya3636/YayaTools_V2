@@ -85,5 +85,19 @@ local copyTable = Tools.list(table)
   maList:Add("Ankabot")
   ```
   ---
+    - List:Set(paramsA, paramsB)
+    - Modifie un élément dans la list
+    - Params :
+      1. L'index de l'élément a modifié
+      2. La valeur a lui donnée
+  - Exemple :
+  ```lua
+  local maList = Tools.list()
+  maList:Add("Ankabot")
+  maList:Add("Test")
+  maList:Set(2, "TestModifié")
+  Tools:Print(maList:Get(2)) -- ---> TestModifié
+  ```
+  ---
 </p>
 </details>
