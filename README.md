@@ -218,7 +218,7 @@ local copyTable = Tools.list(table)
   Tools:Print(i) -- ---> 2 
   ```
   ---
-      ### List:Contains(paramsA)
+    ### List:Contains(paramsA)
     > Retourne si la list contient un élément donné
     - Params :
       1. La valeur de l'élément a rechercher, ou une fonction anonyme avec un paramètre qui sera la valeur des élément de la list a chaque itération
