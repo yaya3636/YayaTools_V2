@@ -73,7 +73,7 @@ local copyTable = Tools.list(table)
   local copieListDeUneTable = Tools.list:CreateWith(uneTable)
   local copieListDeUneList = Tools.list:CreateWith(uneList)
   ```
-  
+  ---
   - List:Add(paramsA)
     - Ajoute un élément dans la list
     - Params :
