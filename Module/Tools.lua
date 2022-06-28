@@ -27,7 +27,8 @@ Tools.zone = Class("Zone", dofile(yayaToolsModuleDirectory .. "Zone.lua"))
 Tools.dijkstra = Class("Dijkstra", dofile(yayaToolsModuleDirectory .. "Dijkstra.lua"))
 
 Tools.character = Class("Character", dofile(yayaToolsModuleDirectory .. "Character.lua"))
-Tools.character.dialog = Tools.character:extend("Dialog", dofile(yayaToolsModuleDirectory .. "Dialog.lua"))
+Tools.character.group = Tools.character:extend("Character.group", dofile(yayaToolsModuleDirectory .. "Character.group.lua"))
+Tools.character.dialog = Tools.character:extend("Character.dialog", dofile(yayaToolsModuleDirectory .. "Character.dialog.lua"))
 
 Tools.ctrApi = Class("Api")
 Tools.ctrApi.localAPI = Tools.ctrApi:extend("LocalAPI", API.localAPI)
@@ -36,15 +37,15 @@ Tools.api = Tools.ctrApi:extend("Api")
 Tools.class = Class
 
 local graphEdge = Graph.edge
-Graph.edge = Class("GraphEdge", graphEdge)
+Graph.edge = Class("Graph.edge", graphEdge)
 Tools.graph = Class("Graph", Graph)
 
 local nodeQ = Queue.node
-Queue.node = Class("NodeQ", nodeQ)
+Queue.node = Class("Queue.node", nodeQ)
 Tools.queue = Class("Queue", Queue)
 
 local nodeS = Stack.node
-Stack.node = Class("NodeS", nodeS)
+Stack.node = Class("Stack.node", nodeS)
 Stack.list = Tools.list
 Tools.stack = Class("Stack", Stack)
 
@@ -86,6 +87,7 @@ function Tools.character:init(params)
     self.tools = Tools()
     params.tools = self.tools
     self.dialog = self.dialog(params)
+    self.group = self.group(params)
 end
 
 function Tools.character.dialog:init(params)
@@ -93,6 +95,14 @@ function Tools.character.dialog:init(params)
     self.tools = params.tools
     self.packet = params.packet
     self.visibleReplies = Tools.list()
+end
+
+function Tools.character.group:init(params)
+    params = params or {}
+    self.tools = params.tools
+    self.packet = params.packet
+    self.members = Tools.list()
+    self.invitationMessage = Tools.list()
 end
 
 function Tools.dungeons:init(params)

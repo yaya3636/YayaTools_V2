@@ -10,30 +10,23 @@ Monsters = Tools.monsters
 
 
 function move()
-    local dic = Tools.dictionnary()
-    local list = Tools.list()
-
-    for i = 0, 10 do
-        dic:Add("test" .. i, i)
-        list:Add(i * 10)
+    if character:name() == "Perso2" then
+        Character.group:SendInvitation("Perso1")
+    else
+        Character.group:WaitInvitation("Perso1")
+        global:delay(500)
+        Character.group:Leave()
     end
+end
 
-    dic:Foreach(function(v, k)
-        Tools:Print("Value : " .. v .. " Key : " .. k)
-    end)
-
-    list:Foreach(function(v, i)
-        Tools:Print("Value : " .. v .. " Index : " .. i)
-    end)
-
-    --Tools:Dump(Zone:GetSubAreaObject(Zone:GetSubAreaIdByMapId(153880322)))
-    --Tools:Print(Zone:GetAreaName(8))
-    --Tools:Print(Zone:GetAreaIdByMapId(153880322))
-    --Tools:Print(Zone:GetAreaIdByMapId("153880322"))
+function stopped()
+    Tools:Dump(Character.group.members)
+    Tools:Print(Character.inGroup)
 end
 
 function messagesRegistering()
     Character.dialog:InitCallBack()
+    Character.group:InitCallBack()
     Movement:InitCallBack()
     Gather:InitCallBack()
 end

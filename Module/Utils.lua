@@ -17,6 +17,7 @@ Utils.colorPrint = {
     ["Movement"] = "#00fc4c",
     ["API"] = "#00fc4c",
     ["Craft"] = "#fc972b",
+    ["Group"] = "#4571f5"
 }
 
 -- Print, Divers
