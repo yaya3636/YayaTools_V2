@@ -375,7 +375,7 @@
     },
     {
         "id": 41,
-        "keyword": "null",
+        "keyword": "restrictionOnPlayer",
         "nameId": 506589,
         "asset": "null",
         "categoryId": 1,
@@ -386,7 +386,7 @@
     },
     {
         "id": 42,
-        "keyword": "null",
+        "keyword": "restrictionOnOthers",
         "nameId": 506586,
         "asset": "null",
         "categoryId": 1,
@@ -507,7 +507,7 @@
     },
     {
         "id": 53,
-        "keyword": "null",
+        "keyword": "disgracePoints",
         "nameId": 506579,
         "asset": "null",
         "categoryId": 1,

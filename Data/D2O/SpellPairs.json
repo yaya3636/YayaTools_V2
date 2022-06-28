@@ -290,7 +290,7 @@
     {
         "id": 60,
         "nameId": 553710,
-        "descriptionId": 940466,
+        "descriptionId": 953341,
         "iconId": 0
     },
     {
@@ -2840,61 +2840,61 @@
     {
         "id": 538,
         "nameId": 792833,
-        "descriptionId": 792850,
+        "descriptionId": 952918,
         "iconId": 10103
     },
     {
         "id": 539,
         "nameId": 792852,
-        "descriptionId": 792854,
+        "descriptionId": 953323,
         "iconId": 10103
     },
     {
         "id": 540,
         "nameId": 792856,
-        "descriptionId": 792858,
+        "descriptionId": 953322,
         "iconId": 10103
     },
     {
         "id": 541,
         "nameId": 792860,
-        "descriptionId": 792862,
+        "descriptionId": 953321,
         "iconId": 10103
     },
     {
         "id": 542,
         "nameId": 792864,
-        "descriptionId": 792866,
+        "descriptionId": 953320,
         "iconId": 10103
     },
     {
         "id": 543,
         "nameId": 792868,
-        "descriptionId": 792870,
+        "descriptionId": 953319,
         "iconId": 10103
     },
     {
         "id": 544,
         "nameId": 792872,
-        "descriptionId": 792874,
+        "descriptionId": 953318,
         "iconId": 10103
     },
     {
         "id": 545,
         "nameId": 792876,
-        "descriptionId": 792878,
+        "descriptionId": 953317,
         "iconId": 10103
     },
     {
         "id": 546,
         "nameId": 792880,
-        "descriptionId": 792882,
+        "descriptionId": 953316,
         "iconId": 10103
     },
     {
         "id": 547,
         "nameId": 792885,
-        "descriptionId": 792887,
+        "descriptionId": 953315,
         "iconId": 10103
     },
     {
@@ -3352,5 +3352,11 @@
         "nameId": 933136,
         "descriptionId": 933140,
         "iconId": 10102
+    },
+    {
+        "id": 666,
+        "nameId": 959140,
+        "descriptionId": 959141,
+        "iconId": 10103
     }
 ]

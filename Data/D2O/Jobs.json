@@ -124,5 +124,11 @@
         "nameId": 836222,
         "iconId": 42,
         "hasLegendaryCraft": false
+    },
+    {
+        "id": 78,
+        "nameId": 951966,
+        "iconId": 42,
+        "hasLegendaryCraft": false
     }
 ]
