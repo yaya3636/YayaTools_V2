@@ -18,7 +18,8 @@ Utils.colorPrint = {
     ["API"] = "#00fc4c",
     ["Craft"] = "#fc972b",
     ["Group"] = "#4571f5",
-    ["Memory"] = "#9b74ed"
+    ["Memory"] = "#9b74ed",
+    ["Controller"] = "#f2fa07",
 
 }
 

@@ -9,6 +9,7 @@ Graph = dofile(yayaToolsModuleDirectory .. "Graph.lua")
 Tools = Class("Tools", dofile(yayaToolsModuleDirectory .. "Utils.lua"))
 
 Tools.craft = Class("Craft", dofile(yayaToolsModuleDirectory .. "Craft.lua"))
+Tools.controller = Class("Controller", dofile(yayaToolsModuleDirectory .. "Controller.lua"))
 Tools.dungeons = Class("Dungeons", dofile(yayaToolsModuleDirectory .. "Dungeons.lua"))
 Tools.dictionnary = Class("Dictionnary", dofile(yayaToolsModuleDirectory .. "Dictionnary.lua"))
 Tools.gather = Class("Gather", dofile(yayaToolsModuleDirectory .. "Gather.lua"))
@@ -80,6 +81,13 @@ function Tools.craft:init(params)
     --self:InitD2oProperties()
 end
 
+function Tools.controller:init(params)
+    params = params or {}
+    self.tools = Tools()
+    self.teamLoaded = Tools.dictionnary()
+    self.accountController = Tools.dictionnary()
+end
+
 function Tools.character:init(params)
     params = params or {}
     if not params.packet then
@@ -123,7 +131,28 @@ function Tools.dungeons:init(params)
 end
 
 function Tools.dictionnary:init(dic)
-    self.dic = dic or {}
+    local tmp = {}
+    if dic ~= nil then
+        if dic.c then
+            if dic.a then
+                for _, v in pairs(dic.a) do
+                    table.insert(tmp, v)
+                end
+            end
+
+            if dic.dic then
+                for k, v in pairs(dic.dic) do
+                    tmp[k] = v
+                end
+            end
+        else
+            for k, v in pairs(dic) do
+                tmp[k] = v
+            end
+        end
+    end
+
+    self.dic = tmp
     self.N = Tools:LenghtOfTable(self.dic)
     self.tools = Tools
 end
@@ -204,8 +233,28 @@ function Tools.indexedMinPQ:init(params)
 end
 
 function Tools.list:init(a)
-    self.a = a or {}
-    self.N = Tools:LenghtOfTable(a)
+    local tmp = {}
+    if a ~= nil then
+        if a.c then
+            if a.a then
+                for _, v in pairs(a.a) do
+                    table.insert(tmp, v)
+                end
+            end
+
+            if a.dic then
+                for _, v in pairs(a.dic) do
+                    table.insert(tmp, v)
+                end
+            end
+        else
+            for _, v in pairs(a) do
+                table.insert(tmp, v)
+            end
+        end
+    end
+    self.a = tmp
+    self.N = Tools:LenghtOfTable(tmp)
 end
 
 function Tools.pointsOfInterest:init()
