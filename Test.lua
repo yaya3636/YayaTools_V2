@@ -7,21 +7,32 @@ Character = Tools.character
 Gather = Tools.gather
 API = Tools.api
 Monsters = Tools.monsters
+Memory = Tools.memory
 
 
 function move()
-    if character:name() == "Perso2" then
-        Character.group:SendInvitation("Perso1")
-    else
-        Character.group:WaitInvitation("Perso1")
-        global:delay(500)
-        Character.group:Leave()
-    end
+    Memory:Add("test", "test")
+    Memory:Add("test", "test")
+    Memory:Clear()
+    Memory:Add("test", "test")
+    Memory:Add("tesdst", "test")
+    Memory:Add("tedfcvxst", "test")
+    Memory:Add("texcvst", "test")
+    Memory:Add("tedfsvwxst", "test")
+    Memory:Add("te<wxst", "test")
+    Memory:Add("tesxcv<wvt", "test")
+
+    Memory:Set("test", "u")
+    Memory:Set("Test", "u")
+    Tools:Print(Memory:ContainsKey("test"))
+    Tools:Print(Memory:ContainsKey("tes"))
+    Tools:Dump(Memory:Enumerate())
+    Memory:Remove("test")
+    Memory:Remove("tes")
+
 end
 
 function stopped()
-    Tools:Dump(Character.group.members)
-    Tools:Print(Character.inGroup)
 end
 
 function messagesRegistering()
@@ -31,6 +42,7 @@ function messagesRegistering()
     Gather:InitCallBack()
 end
 
+Memory = Memory({clear = true})
 API = API()
 Craft = Craft({api = API})
 Monsters = Monsters({api = API})

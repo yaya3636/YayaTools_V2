@@ -18,6 +18,7 @@ Tools.list = Class("List", dofile(yayaToolsModuleDirectory .. "List.lua"))
 Tools.pointsOfInterest = Class("PointsOfInterest", dofile(yayaToolsModuleDirectory .. "PointsOfInterest.lua"))
 Tools.monsters = Class("Monsters", dofile(yayaToolsModuleDirectory .. "Monsters.lua"))
 Tools.movement = Class("Movement", dofile(yayaToolsModuleDirectory .. "Movement.lua"))
+Tools.memory = Class("Memory", dofile(yayaToolsModuleDirectory .. "Memory.lua"))
 Tools.notifications = Class("Notifications", dofile(yayaToolsModuleDirectory .. "Notifications.lua"))
 Tools.object = Class("Object", dofile(yayaToolsModuleDirectory .. "Object.lua"))
 Tools.packet = Class("Packet", dofile(yayaToolsModuleDirectory .. "Packet.lua"))
@@ -268,6 +269,16 @@ function Tools.movement:init(params)
     self.mineGraphData = Tools.dictionnary(dofile(global:getCurrentDirectory() .. [[\YayaTools\Data\MineGraph.lua]]))
     self.mineGraph = Tools.graph(0, true)
     self:InitProperties()
+end
+
+function Tools.memory:init(params)
+    params = params or {}
+    self.tools = Tools()
+    self.registeredKey = Tools.list()
+    if params.clear then
+        developer:deleteAllGlobalMemory()
+        self.tools:Print("Toutes les clés ont bien été supprimé", "Memory")
+    end
 end
 
 function Tools.notifications:init(params)

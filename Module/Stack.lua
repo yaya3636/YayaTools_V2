@@ -30,10 +30,12 @@ function Stack:Pop()
     self.N = self.N - 1
 
     local oldFirst = self.first
+    local val
 
-    local val = oldFirst.value
-    self.first = oldFirst.next
-
+    if oldFirst then
+        val = oldFirst.value
+        self.first = oldFirst.next
+    end
     return val
 end
 
