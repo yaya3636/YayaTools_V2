@@ -255,7 +255,6 @@
             5294
         ],
         "modsterAchievements": [
-            5295,
             5296
         ],
         "order": 0
@@ -320,7 +319,8 @@
             5303
         ],
         "modsterAchievements": [
-            5304
+            5304,
+            5305
         ],
         "order": 0
     },
@@ -718,7 +718,6 @@
             5357
         ],
         "modsterAchievements": [
-            5358,
             5359
         ],
         "order": 0
@@ -979,7 +978,6 @@
             5453
         ],
         "modsterAchievements": [
-            5454,
             5455
         ],
         "order": 0
@@ -2530,7 +2528,6 @@
             5561
         ],
         "modsterAchievements": [
-            5562,
             5563
         ],
         "order": 0
@@ -3360,8 +3357,29 @@
             5693
         ],
         "modsterAchievements": [
-            5694
+            5695
         ],
+        "order": 0
+    },
+    {
+        "id": 23699,
+        "itemId": 27382,
+        "modsterId": 7199,
+        "parentsModsterId": [
+            7200
+        ],
+        "modsterActiveSpells": [
+            23668,
+            23669,
+            23670,
+            23673,
+            23678
+        ],
+        "modsterPassiveSpells": [
+            23667
+        ],
+        "modsterHiddenAchievements": [],
+        "modsterAchievements": [],
         "order": 0
     }
 ]

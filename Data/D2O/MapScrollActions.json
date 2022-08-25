@@ -2850,13 +2850,13 @@
     },
     {
         "id": 101187584.0,
-        "rightExists": true,
+        "rightExists": false,
         "bottomExists": false,
-        "leftExists": false,
+        "leftExists": true,
         "topExists": true,
-        "rightMapId": 88212737.0,
+        "rightMapId": 0.0,
         "bottomMapId": 0.0,
-        "leftMapId": 0.0,
+        "leftMapId": 88212737.0,
         "topMapId": 222298113.0
     },
     {

@@ -30703,7 +30703,7 @@
         ],
         "isPartyQuest": false,
         "startCriterion": "SC=5",
-        "followable": false
+        "followable": true
     },
     {
         "id": 2457,

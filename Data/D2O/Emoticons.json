@@ -3843,5 +3843,35 @@
         "duration": 0,
         "weight": 1005,
         "spellLevelId": 0
+    },
+    {
+        "id": 278,
+        "nameId": 961879,
+        "shortcutId": 961878,
+        "order": 508200,
+        "defaultAnim": "Hecate",
+        "persistancy": false,
+        "eight_directions": false,
+        "aura": false,
+        "anims": [],
+        "cooldown": 2840,
+        "duration": 2840,
+        "weight": 0,
+        "spellLevelId": 0
+    },
+    {
+        "id": 279,
+        "nameId": 961996,
+        "shortcutId": 961997,
+        "order": 508300,
+        "defaultAnim": "Pouchecot",
+        "persistancy": false,
+        "eight_directions": false,
+        "aura": false,
+        "anims": [],
+        "cooldown": 3000,
+        "duration": 1770,
+        "weight": 0,
+        "spellLevelId": 0
     }
 ]

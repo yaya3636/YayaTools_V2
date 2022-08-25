@@ -3173,7 +3173,7 @@
     },
     {
         "id": 262,
-        "nameId": 948420,
+        "nameId": 961444,
         "superTypeId": 9,
         "categoryId": 2,
         "isInEncyclopedia": true,
@@ -3192,6 +3192,19 @@
         "isInEncyclopedia": true,
         "plural": false,
         "gender": 2,
+        "rawZone": "null",
+        "mimickable": false,
+        "craftXpRatio": -1,
+        "evolutiveTypeId": 0
+    },
+    {
+        "id": 266,
+        "nameId": 961839,
+        "superTypeId": 9,
+        "categoryId": 2,
+        "isInEncyclopedia": true,
+        "plural": true,
+        "gender": 1,
         "rawZone": "null",
         "mimickable": false,
         "craftXpRatio": -1,
