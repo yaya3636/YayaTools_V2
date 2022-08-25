@@ -9,27 +9,18 @@ API = Tools.api
 Monsters = Tools.monsters
 Memory = Tools.memory
 
-
 function move()
-    Memory:Add("test", "test")
-    Memory:Add("test", "test")
-    Memory:Clear()
-    Memory:Add("test", "test")
-    Memory:Add("tesdst", "test")
-    Memory:Add("tedfcvxst", "test")
-    Memory:Add("texcvst", "test")
-    Memory:Add("tedfsvwxst", "test")
-    Memory:Add("te<wxst", "test")
-    Memory:Add("tesxcv<wvt", "test")
+    Memory:Add("test", 1)
+    Memory:Add("test1", 2)
+    Memory:Add("test2", 3)
+    Memory:Add("test3", 4)
+    Memory:Add("test4", 5)
+    Memory:Add("test5", 6)
 
-    Memory:Set("test", "u")
-    Memory:Set("Test", "u")
-    Tools:Print(Memory:ContainsKey("test"))
-    Tools:Print(Memory:ContainsKey("tes"))
+    Memory:Remove("test5")
     Tools:Dump(Memory:Enumerate())
-    Memory:Remove("test")
-    Memory:Remove("tes")
-
+    --Memory:Clear()
+    Memory:KillInstance()
 end
 
 function stopped()
@@ -42,7 +33,7 @@ function messagesRegistering()
     Gather:InitCallBack()
 end
 
-Memory = Memory({clear = true})
+Memory = Memory({instanceUID = "Test", bindInstance = true})
 API = API()
 Craft = Craft({api = API})
 Monsters = Monsters({api = API})

@@ -322,12 +322,31 @@ end
 
 function Tools.memory:init(params)
     params = params or {}
-    self.tools = Tools()
-    self.registeredKey = Tools.list()
-    if params.clear then
-        developer:deleteAllGlobalMemory()
-        self.tools:Print("Toutes les clés ont bien été supprimé", "Memory")
+
+    if params.instanceUID == nil then
+        error("[Module Memory] : Le paramètre instanceUID requis pour instancier la class est non definie")
     end
+
+    self.instanceUID = params.instanceUID
+    self.tools = Tools()
+
+    if params.clearAll then
+        developer:deleteAllGlobalMemory()
+        self.tools:Print("Toutes les instances on été supprimé !", "Memory")
+    end
+
+    if not developer:getInGlobalMemory(params.instanceUID) then
+        developer:addInGlobalMemory(params.instanceUID, true)
+        developer:addInGlobalMemory(params.instanceUID .. "-RegisteredKeys", {})
+        self.tools:Print("Nouvelle instance créer (" .. params.instanceUID .. ")", "Memory")
+    else
+        if not params.bindInstance then
+            error("[Module Memory] : L'instance (" .. params.instanceUID .. ") éxiste déja ! Et bindInstance = false", "Memory")
+        else
+            self.tools:Print("La liaison avec l'instance (" .. params.instanceUID .. ") a bien été pris en compte", "Memory")
+        end
+    end
+
 end
 
 function Tools.notifications:init(params)
