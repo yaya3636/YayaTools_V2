@@ -265,7 +265,7 @@ function Movement:LoadRoad(mapIdDest)
             end
         end
     
-        if map:GetPathDistance(map:currentMapId(), mapIdDest) > 15 and not self.teleported or map:currentMap() == "0,0" and not self:InMine() and not self.teleported and not self.tools:Equal(map:currentArea(), "Incarnam") or self.forceTP then
+        if map:GetPathDistance(map:currentMapId(), mapIdDest) > 15 and not character:freeMode() and not self.teleported or map:currentMap() == "0,0" and not self:InMine() and not self.teleported and not self.tools:Equal(map:currentArea(), "Incarnam") or self.forceTP then
             self:HavenBagTP(mapIdDest, "La prochaine map est a plus de 15 map, on se téléporte", self.forbiddenZaap)
         end
     
