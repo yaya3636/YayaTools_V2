@@ -323,10 +323,6 @@ end
 function Tools.memory:init(params)
     params = params or {}
 
-    if params.instanceUID == nil then
-        error("[Module Memory] : Le paramètre instanceUID requis pour instancier la class est non definie")
-    end
-
     self.instanceUID = params.instanceUID
     self.tools = Tools()
 
@@ -335,18 +331,21 @@ function Tools.memory:init(params)
         self.tools:Print("Toutes les instances on été supprimé !", "Memory")
     end
 
-    if not developer:getInGlobalMemory(params.instanceUID) then
-        developer:addInGlobalMemory(params.instanceUID, true)
-        developer:addInGlobalMemory(params.instanceUID .. "-RegisteredKeys", {})
-        self.tools:Print("Nouvelle instance créer (" .. params.instanceUID .. ")", "Memory")
-    else
-        if not params.bindInstance then
-            error("[Module Memory] : L'instance (" .. params.instanceUID .. ") éxiste déja ! Et bindInstance = false", "Memory")
+    if params.instanceUID ~= nil then
+        if not developer:getInGlobalMemory(params.instanceUID) then
+            developer:addInGlobalMemory(params.instanceUID, true)
+            developer:addInGlobalMemory(params.instanceUID .. "-RegisteredKeys", {})
+            self.tools:Print("Nouvelle instance créer (" .. params.instanceUID .. ")", "Memory")
         else
-            self.tools:Print("La liaison avec l'instance (" .. params.instanceUID .. ") a bien été pris en compte", "Memory")
+            if not params.bindInstance then
+                error("[Module Memory] : L'instance (" .. params.instanceUID .. ") éxiste déja ! Et bindInstance = false", "Memory")
+            else
+                self.tools:Print("La liaison avec l'instance (" .. params.instanceUID .. ") a bien été pris en compte", "Memory")
+            end
         end
+    else
+        self.tools:Print("Instance créer sans UID pensée a Bind l'instance avec une autre instance via ( Memory:BindInstance(UID) )", "Memory")
     end
-
 end
 
 function Tools.notifications:init(params)

@@ -94,6 +94,15 @@ function Memory:KillInstance()
     self.tools:Print("L'instance (" .. self.instanceUID .. ") a bien été supprimé", "Memory")
 end
 
+function Memory:BindInstance(instanceUID)
+    if not developer:getInGlobalMemory(instanceUID) then
+        self.tools:Print("L'instance (" .. instanceUID .. ") n'éxiste pas !", "Memory")
+    else
+        self.instanceUID = instanceUID
+        self.tools:Print("La liaison avec l'instance (" .. instanceUID .. ") a bien été pris en compte", "Memory")
+    end
+end
+
 function Memory:UpdateRegisteredKeys()
     local keys = developer:getInGlobalMemory(self.instanceUID .. "-RegisteredKeys")
     self.registeredKey = self.tools.list(keys)
