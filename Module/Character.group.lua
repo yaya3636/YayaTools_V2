@@ -206,7 +206,9 @@ function Group:CB_PartyMemberEjectedMessage(msg)
 end
 
 function Group:CB_ChangeMapMessage(msg)
-    self.memory:Set("Groupe-" .. self.partyId .. "-" .. character:name(), { mapId = map:currentMapId() })
+    if self.partyId ~= 0 then
+        self.memory:Set("Groupe-" .. self.partyId .. "-" .. character:name(), { mapId = map:currentMapId() })
+    end
 end
 
 return Group
