@@ -80,6 +80,7 @@ function Memory:Enumerate()
 end
 
 function Memory:Clear()
+    self:UpdateRegisteredKeys()
     local UID = self.instanceUID .."-"
     for _, v in pairs(self.registeredKey:Enumerate()) do
         self:Remove(v:sub(UID:len() + 1))
@@ -92,6 +93,17 @@ function Memory:KillInstance()
     developer:deleteFromGlobalMemory(self.instanceUID .."-" .. "RegisteredKeys")
     developer:deleteFromGlobalMemory(self.instanceUID)
     self.tools:Print("L'instance (" .. self.instanceUID .. ") a bien été supprimé", "Memory")
+end
+
+function Memory:CreateInstance(instanceUID)
+    if not developer:getInGlobalMemory(instanceUID) then
+        self.tools:Print("L'instance (" .. instanceUID .. ") a été créer !", "Memory")
+        self.instanceUID = instanceUID
+        developer:addInGlobalMemory(instanceUID, true)
+        developer:addInGlobalMemory(instanceUID .. "-RegisteredKeys", {})
+    else
+        self.tools:Print("L'instance (" .. instanceUID .. ") éxiste déja !", "Memory")
+    end
 end
 
 function Memory:BindInstance(instanceUID)

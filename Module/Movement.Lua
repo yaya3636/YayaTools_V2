@@ -70,6 +70,7 @@ Movement.rzListMapId = {}
 Movement.rzLogMapId = {}
 Movement.loadedMinePath = {}
 Movement.lastMapId = 0
+Movement.distToRz = 0
 Movement.rzNextMapId = -1
 Movement.rzMaxDist = -1
 
@@ -264,8 +265,14 @@ function Movement:LoadRoad(mapIdDest)
                 map:door(455)
             end
         end
+
+        if self.teleported and self.distToRz + 15 >= map:GetPathDistance(map:currentMapId(), mapIdDest) then
+            self.teleported = false
+        end
+
+        self.distToRz = map:GetPathDistance(map:currentMapId(), mapIdDest)
     
-        if map:GetPathDistance(map:currentMapId(), mapIdDest) > 15 and not character:freeMode() and not self.teleported or map:currentMap() == "0,0" and not self:InMine() and not self.teleported and not self.tools:Equal(map:currentArea(), "Incarnam") or self.forceTP then
+        if self.distToRz > 15 and not character:freeMode() and not self.teleported or map:currentMap() == "0,0" and not self:InMine() and not self.teleported and not self.tools:Equal(map:currentArea(), "Incarnam") or self.forceTP then
             self:HavenBagTP(mapIdDest, "La prochaine map est a plus de 15 map, on se téléporte", self.forbiddenZaap)
         end
     
@@ -328,8 +335,10 @@ function Movement:UseZaap(mapIdDest, zaapExcepted)
 
     --local closestZaap = map:closestZaapV2(mapIdDest, zaapExcepted)
     self.rcvZaapDestination = false
-    map:closestZaapV2(0)
-    local closestZaap = self:ClosestZaap(mapIdDest)
+    --map:closestZaapV2(0)
+    --local closestZaap = self:ClosestZaap(mapIdDest)
+    local closestZaap = map:closestZaapV2(mapIdDest)
+
     self.tpDestination = closestZaap
     self.tpOn = true
 

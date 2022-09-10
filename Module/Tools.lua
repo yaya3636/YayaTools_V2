@@ -92,6 +92,8 @@ function Tools.character:init(params)
     params = params or {}
     if not params.packet then
         error("[Module Character] : Le paramètre packet requis pour instancier la class est non definie")
+    elseif not params.memory then
+        error("[Module Character] : Le paramètre memory requis pour instancier la class est non definie")
     end
     self.tools = Tools()
     params.tools = self.tools
@@ -110,6 +112,7 @@ function Tools.character.group:init(params)
     params = params or {}
     self.tools = params.tools
     self.packet = params.packet
+    self.memory = params.memory
     self.members = Tools.list()
     self.invitationMessage = Tools.list()
 end
@@ -331,14 +334,17 @@ function Tools.memory:init(params)
         self.tools:Print("Toutes les instances on été supprimé !", "Memory")
     end
 
-    if params.instanceUID ~= nil then
+    if params.instanceUID ~= nil then    
         if not developer:getInGlobalMemory(params.instanceUID) then
             developer:addInGlobalMemory(params.instanceUID, true)
             developer:addInGlobalMemory(params.instanceUID .. "-RegisteredKeys", {})
             self.tools:Print("Nouvelle instance créer (" .. params.instanceUID .. ")", "Memory")
         else
-            if not params.bindInstance then
-                error("[Module Memory] : L'instance (" .. params.instanceUID .. ") éxiste déja ! Et bindInstance = false", "Memory")
+            if params.clearInstance then
+                self:Clear()
+                self.tools:Print("La liaison avec l'instance (" .. params.instanceUID .. ") a bien été pris en compte", "Memory")  
+            elseif not params.bindInstance then
+                error("[Module Memory] : L'instance (" .. params.instanceUID .. ") éxiste déja ! Et bindInstance = false")
             else
                 self.tools:Print("La liaison avec l'instance (" .. params.instanceUID .. ") a bien été pris en compte", "Memory")
             end

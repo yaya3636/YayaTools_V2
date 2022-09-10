@@ -3873,5 +3873,20 @@
         "duration": 1770,
         "weight": 0,
         "spellLevelId": 0
+    },
+    {
+        "id": 280,
+        "nameId": 962064,
+        "shortcutId": 962065,
+        "order": 508400,
+        "defaultAnim": "Raval",
+        "persistancy": false,
+        "eight_directions": false,
+        "aura": false,
+        "anims": [],
+        "cooldown": 10000,
+        "duration": 9600,
+        "weight": 0,
+        "spellLevelId": 0
     }
 ]

@@ -10,17 +10,10 @@ Monsters = Tools.monsters
 Memory = Tools.memory
 
 function move()
-    Memory:Add("test", 1)
-    Memory:Add("test1", 2)
-    Memory:Add("test2", 3)
-    Memory:Add("test3", 4)
-    Memory:Add("test4", 5)
-    Memory:Add("test5", 6)
-
-    Memory:Remove("test5")
-    Tools:Dump(Memory:Enumerate())
-    --Memory:Clear()
-    Memory:KillInstance()
+    if map:loadMove(5, 5) then
+        local loadedRoad = map:getLoadedRoad()
+        Tools:Print(loadedRoad)
+    end
 end
 
 function stopped()
@@ -33,13 +26,13 @@ function messagesRegistering()
     Gather:InitCallBack()
 end
 
-Memory = Memory({instanceUID = "Test", bindInstance = true})
+Memory = Memory({instanceUID = "Test", clearInstance = true})
 API = API()
 Craft = Craft({api = API})
 Monsters = Monsters({api = API})
 Zone = Zone({api = API})
 Packet = Packet()
 Gather = Gather({packet = Packet})
-Character = Character({packet = Packet})
+Character = Character({packet = Packet, memory = Tools.memory})
 Movement = Movement({zone = Zone, packet = Packet, character = Character})
 Tools = Tools()

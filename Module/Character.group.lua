@@ -5,6 +5,7 @@ Group.members = nil
 Group.invitationMessage = nil
 Group.leaderUsername = nil
 Group.partyId = 0
+Group.movement = nil
 
 function Group:SendInvitation(username)
     self.tools:Print("Invitation du personnage (" .. username .. ") au groupe", "Group")
@@ -32,6 +33,9 @@ function Group:WaitInvitation(username)
     if joinGroup then
         self.invitationMessage:Clear()
     else
+        if self.super.inGroup then
+            return
+        end
         global:delay(100)
         self:WaitInvitation()
     end
@@ -76,6 +80,7 @@ function Group:InitCallBack() -- A mettre obligatoirement dans le script charger
     local partyDeletedMessage = function(msg) Character.group:CB_PartyDeletedMessage(msg) end
     local partyKickedByMessage = function(msg) Character.group:CB_PartyKickedByMessage(msg) end
     local partyMemberEjectedMessage = function(msg) Character.group:CB_PartyMemberEjectedMessage(msg) end
+    local currentMapMessage = function(msg) Character.group:CB_ChangeMapMessage(msg) end
 
     self.packet:SubManager({
         ["PartyAcceptInvitationMessage"] = partyAcceptInvitationMessage,
@@ -87,9 +92,30 @@ function Group:InitCallBack() -- A mettre obligatoirement dans le script charger
         ["PartyDeletedMessage"] = partyDeletedMessage,
         ["PartyKickedByMessage"] = partyKickedByMessage,
         ["PartyMemberEjectedMessage"] = partyMemberEjectedMessage,
+        ["ChangeMapMessage"] = currentMapMessage,
 
     })
 
+end
+
+function Group:JoinBoss()
+    if not self.isLeader and self.super.inGroup then
+        local mapId = self:GetLeaderMapId()
+        self.movement:LoadRoad(mapId)
+        self.movement:MoveNext()
+    end
+end
+
+function Group:GetLeaderMapId()
+    local mapId
+    self.members:Foreach(function(v)
+        if v.name == self.leaderUsername then
+            local info = self.memory:Get("Groupe-" .. self.partyId .. "-" .. v.name)
+            mapId = info.mapId
+            return
+        end
+    end)
+    return mapId
 end
 
 function Group:CB_PartyAcceptInvitationMessage(msg)
@@ -116,8 +142,12 @@ function Group:CB_PartyJoinMessage(msg)
     if msg.partyLeaderId == character:id() then
         self.isLeader = true
         self.leaderUsername = character:name()
+        self.memory:CreateInstance("Groupe-" .. self.partyId)
+    else
+        self.memory:BindInstance("Groupe-" .. self.partyId)
     end
 
+    self.memory:Add("Groupe-" .. self.partyId .. "-" .. character:name(), { mapId = map:currentMapId() })
     self.members:Clear()
 
     for _, v in pairs(msg.members) do
@@ -173,6 +203,10 @@ function Group:CB_PartyMemberEjectedMessage(msg)
             end
         end
     end
+end
+
+function Group:CB_ChangeMapMessage(msg)
+    self.memory:Set("Groupe-" .. self.partyId .. "-" .. character:name(), { mapId = map:currentMapId() })
 end
 
 return Group
