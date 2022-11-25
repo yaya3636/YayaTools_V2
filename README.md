@@ -2,10 +2,6 @@
 
 YayaTools_V2 et une bibliothèque de scripts qui vous aidera dans le dévelopement de vos scripts
 
-# Prérequis
-  1. Installez NodeJs
-  2. Installez Python
- 
 # Instalation
   1. Créer un dossier nommée YayaTools a la racine d'Ankabot
   2. Télécharger les fichiers présent sur github et placer les dans le dossier YayaTools
