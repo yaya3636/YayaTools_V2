@@ -1,7 +1,7 @@
 Craft = {}
 
 function Craft:GetCraftObject(craftId)
-    local recipe = self.api.localAPI:GetRecipe(craftId)
+    local recipe = d2data:objectFromD2O("Recipes", craftId).Fields
     if recipe then
         local parseIngredients = function(ingredients, quantities)
             local ret = self.tools.list()

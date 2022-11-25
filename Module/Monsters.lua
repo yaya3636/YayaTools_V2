@@ -1,7 +1,7 @@
 Monsters = {}
 
 function Monsters:GetMonsterObject(idMonster)
-    local data = self.api.localAPI:GetMonster(idMonster)
+    local data = d2data:objectFromD2O("Monsters", idMonster).Fields
     if data then
         local parseGrade = function(grades)
             local parseBonusCharacteristics = function(bonusCharacteristics)
@@ -29,31 +29,31 @@ function Monsters:GetMonsterObject(idMonster)
     
             local ret = self.tools.dictionnary()
             for _, v in pairs(grades) do
-                ret:Add(v.grade, self.tools.object({
-                    monsterId = v.monsterId,
-                    level = v.level,
-                    lifePoints = v.lifePoints,
-                    actionPoints = v.actionPoints,
-                    movementPoints = v.movementPoints,
-                    vitality = v.vitality,
-                    paDodge = v.paDodge,
-                    pmDodge = v.pmDodge,
-                    earthResistance = v.earthResistance,
-                    airResistance = v.airResistance,
-                    fireResistance = v.fireResistance,
-                    waterResistance = v.waterResistance,
-                    neutralResistance = v.neutralResistance,
-                    gradeXp = v.gradeXp,
-                    damageReflect = v.damageReflect,
-                    hiddenLevel = v.hiddenLevel,
-                    wisdom = v.wisdom,
-                    strenght = v.strenght,
-                    intelligence = v.intelligence,
-                    chance = v.chance,
-                    agility = v.agility,
-                    bonusRange = v.bonusRange,
-                    startingSpellId = v.startingSpellId,
-                    bonusCharacteristics = parseBonusCharacteristics(v.bonusCharacteristics)
+                ret:Add(v.Fields.grade, self.tools.object({
+                    monsterId = v.Fields.monsterId,
+                    level = v.Fields.level,
+                    lifePoints = v.Fields.lifePoints,
+                    actionPoints = v.Fields.actionPoints,
+                    movementPoints = v.Fields.movementPoints,
+                    vitality = v.Fields.vitality,
+                    paDodge = v.Fields.paDodge,
+                    pmDodge = v.Fields.pmDodge,
+                    earthResistance = v.Fields.earthResistance,
+                    airResistance = v.Fields.airResistance,
+                    fireResistance = v.Fields.fireResistance,
+                    waterResistance = v.Fields.waterResistance,
+                    neutralResistance = v.Fields.neutralResistance,
+                    gradeXp = v.Fields.gradeXp,
+                    damageReflect = v.Fields.damageReflect,
+                    hiddenLevel = v.Fields.hiddenLevel,
+                    wisdom = v.Fields.wisdom,
+                    strenght = v.Fields.strenght,
+                    intelligence = v.Fields.intelligence,
+                    chance = v.Fields.chance,
+                    agility = v.Fields.agility,
+                    bonusRange = v.Fields.bonusRange,
+                    startingSpellId = v.Fields.startingSpellId,
+                    bonusCharacteristics = parseBonusCharacteristics(v.Fields.bonusCharacteristics.Fields)
                 }))
             end
     
@@ -63,7 +63,7 @@ function Monsters:GetMonsterObject(idMonster)
         local parseDrops = function(drops)
             local ret = self.tools.dictionnary()
             for _, v in pairs(drops) do
-                ret:Add(v.objectId, self.tools.object(v))
+                ret:Add(v.Fields.objectId, self.tools.object(v.Fields))
             end
     
             return ret
@@ -109,9 +109,9 @@ function Monsters:GetMonsterSubArea(idMonster)
 end
 
 function Monsters:GetMonsterIdByDropId(dropId)
-    local data = self.api.localAPI:GetMonsterIdByDropId(dropId)
+    local data = d2data:objectFromD2O("Items", dropId).Fields
     if data then
-        local ret = self.tools.list(data)
+        local ret = self.tools.list(data.dropMonsterIds)
         return ret
     end
     return nil

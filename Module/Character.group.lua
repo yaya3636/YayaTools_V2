@@ -8,7 +8,7 @@ Group.partyId = 0
 Group.movement = nil
 
 function Group:SendInvitation(username)
-    self.tools:Print("Invitation du personnage (" .. username .. ") au groupe", "Group")
+    --self.tools:Print("Invitation du personnage (" .. username .. ") au groupe", "Group")
     self.packet:SendPacket("PartyInvitationRequestMessage", function(msg)
         msg.target = developer:createMessage("PlayerSearchCharacterNameInformation")
         msg.target.name = username
@@ -107,15 +107,20 @@ function Group:JoinBoss()
 end
 
 function Group:GetLeaderMapId()
+    return self:GetPlayerMapId(self.leaderUsername)
+end
+
+function Group:GetPlayerMapId(username)
     local mapId
     self.members:Foreach(function(v)
-        if v.name == self.leaderUsername then
+        if v.name == username then
             local info = self.memory:Get("Groupe-" .. self.partyId .. "-" .. v.name)
             mapId = info.mapId
             return
         end
     end)
     return mapId
+  
 end
 
 function Group:CB_PartyAcceptInvitationMessage(msg)
@@ -123,7 +128,7 @@ function Group:CB_PartyAcceptInvitationMessage(msg)
 end
 
 function Group:CB_PartyInvitationMessage(msg)
-    self.tools:Print(msg.fromName .. " Nous invite a rejoindre son groupe", "Group")
+    --self.tools:Print(msg.fromName .. " Nous invite a rejoindre son groupe", "Group")
     if self.super.inGroup then
         self.invitationMessage:Clear()
     else
@@ -156,7 +161,7 @@ function Group:CB_PartyJoinMessage(msg)
 end
 
 function Group:CB_PartyNewMemberMessage(msg)
-    self.tools:Print("Le personnage (" .. msg.memberInformations.name .. ") a rejoint le groupe", "Group")
+    --self.tools:Print("Le personnage (" .. msg.memberInformations.name .. ") a rejoint le groupe", "Group")
     self.members:Add(msg.memberInformations)
 end
 
@@ -170,7 +175,7 @@ end
 function Group:CB_PartyMemberRemoveMessage(msg)
     for i, v in pairs(self.members:Enumerate()) do
         if v.id == msg.leavingPlayerId then
-            self.tools:Print("Le personnage (" .. v.name .. ") a quitté le groupe", "Group")
+            --self.tools:Print("Le personnage (" .. v.name .. ") a quitté le groupe", "Group")
             self.members:RemoveAt(i)
         end
     end
@@ -198,7 +203,7 @@ function Group:CB_PartyMemberEjectedMessage(msg)
     if msg.partyId == self.partyId then
         for i, v in pairs(self.members:Enumerate()) do
             if v.id == msg.leavingPlayerId then
-                self.tools:Print("Le personnage (" .. v.name .. ") a été exclu du groupe", "Group")
+                --self.tools:Print("Le personnage (" .. v.name .. ") a été exclu du groupe", "Group")
                 self.members:RemoveAt(i)
             end
         end

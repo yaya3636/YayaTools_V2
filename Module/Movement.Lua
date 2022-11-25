@@ -176,7 +176,7 @@ function Movement:RoadZone(listMapId, listExcludeMapId)
                 --self.tools:Print("Chargement path mine", "Info")
                 self:LoadMinePath()
             end
-            self.tools:Print("RzNext = " .. self.rzNextMapId)
+            --self.tools:Print("RzNext = " .. self.rzNextMapId)
         end
 
         if self.lastMapId ~= map:currentMapId() then

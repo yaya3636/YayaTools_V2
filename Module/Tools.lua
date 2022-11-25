@@ -71,11 +71,7 @@ end
 
 function Tools.craft:init(params)
     params = params or {}
-    if not params.api then
-        error("[Module Craft] : Le paramètre api requis pour instancier la class est non definie")
-    end
     self.tools = Tools()
-    self.api = params.api
     --self.json = Tools.json()
     --self.d2oRecipes = self.json:decode(self.tools:ReadFile(self.d2oRecipesPath), "Recipes")
     --self:InitD2oProperties()
@@ -238,6 +234,16 @@ end
 function Tools.list:init(a)
     local tmp = {}
     if a ~= nil then
+        if a.test then
+            Tools:Dump(a)
+            if a.c then
+                Tools:Print("a.c")
+            end
+            if a.dic then
+                Tools:Print("a.dic")
+            end
+
+        end
         if a.c then
             if a.a then
                 for _, v in pairs(a.a) do
@@ -251,10 +257,16 @@ function Tools.list:init(a)
                 end
             end
         else
+            if a.test then
+                Tools:Print("Else")
+                Tools:Dump(a)
+    
+            end
             for _, v in pairs(a) do
                 table.insert(tmp, v)
             end
         end
+
     end
     self.a = tmp
     self.N = Tools:LenghtOfTable(tmp)
@@ -296,12 +308,8 @@ end
 
 function Tools.monsters:init(params)
     params = params or {}
-    if not params.api then
-        error("[Module Monsters] : Le paramètre api requis pour instancier la class est non definie")
-    end
     self.tools = Tools()
     self.json = Tools.json()
-    self.api = params.api
 end
 
 function Tools.movement:init(params)
@@ -396,9 +404,6 @@ end
 
 function Tools.zone:init(params)
     params = params or {}
-    if not params.api then
-        error("[Module Zone] : Le paramètre api requis pour instancier la class est non definie")
-    end
     local mineArea = dofile(global:getCurrentDirectory() .. [[\YayaTools\Data\MineArea.lua]])
     self.mineArea = Tools.dictionnary()
     for k, v in pairs(mineArea) do
@@ -408,7 +413,24 @@ function Tools.zone:init(params)
         }))
     end
     self.tools = Tools()
-    self.api = params.api
+    self.json = Tools.json()
+
+    local areas = Tools.dictionnary()
+    local d2 = d2data:allObjectsFromD2O("SubAreas")
+
+    for _, v in pairs(d2) do
+        if not areas:ContainsKey(v.Fields.areaId) then
+            local l = Tools.list()
+            l:Add(v.Fields.id)
+            areas:Add(v.Fields.areaId, l)
+        else
+            local l = areas:Get(v.Fields.areaId)
+            l:Add(v.Fields.id)
+            areas:Set(v.Fields.areaId, l)
+        end
+    end
+
+    self.subAreaInArea = areas
 end
 
 function Tools.api:init()

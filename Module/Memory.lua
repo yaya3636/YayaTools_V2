@@ -10,7 +10,7 @@ function Memory:Add(key, value)
         table.insert(registeredKey, self.instanceUID .."-" .. key)
         developer:editInGlobalMemory(self.instanceUID .. "-RegisteredKeys", registeredKey)
         developer:addInGlobalMemory(self.instanceUID .."-" .. key, value)
-        self.tools:Print("La clé (" .. key .. ") a bien été enregistré", "Memory")
+       -- self.tools:Print("La clé (" .. key .. ") a bien été enregistré", "Memory")
     else
         self.tools:Print("La clé et déjà enregistré", "Memory")
     end
@@ -20,15 +20,15 @@ function Memory:Set(key, value)
     self:UpdateRegisteredKeys()
     if self.registeredKey:Contains(self.instanceUID .."-" .. key) then
         developer:editInGlobalMemory(self.instanceUID .."-" .. key, value)
-        self.tools:Print("La clé (" .. key .. ") a bien été modifié", "Memory")
+        --self.tools:Print("La clé (" .. "" .. ") a bien été modifié", "Memory")
     else
-        self.tools:Print("La clé (" .. key .. ") n'éxiste pas", "Memory")
+        --self.tools:Print("La clé (" .. key .. ") n'éxiste pas", "Memory")
     end
 end
 
 function Memory:AddRegisteredKey(key)
     self:UpdateRegisteredKeys()
-    self.tools:Print("La clé (" .. key .. ") a bien été enregistré dans le registre", "Memory")
+    --self.tools:Print("La clé (" .. key .. ") a bien été enregistré dans le registre", "Memory")
     local registeredKey = developer:getInGlobalMemory(self.instanceUID .. "-RegisteredKeys")
     table.insert(registeredKey, self.instanceUID .."-" .. key)
     developer:editInGlobalMemory(self.instanceUID .. "-RegisteredKeys", registeredKey)
@@ -39,7 +39,7 @@ function Memory:Get(key)
     if self.registeredKey:Contains(self.instanceUID .."-" .. key) then
         return developer:getInGlobalMemory(self.instanceUID .."-" .. key)
     else
-        self.tools:Print("La clé (" .. key .. ") n'éxiste pas", "Memory")
+        --self.tools:Print("La clé (" .. key .. ") n'éxiste pas", "Memory")
     end
 end
 
@@ -56,9 +56,9 @@ function Memory:Remove(key)
             end
         end
         developer:editInGlobalMemory(self.instanceUID .. "-RegisteredKeys", registeredKey)    
-        self.tools:Print("La clé (" .. key .. ") a bien été supprimé", "Memory")
+        --self.tools:Print("La clé (" .. key .. ") a bien été supprimé", "Memory")
     else
-        self.tools:Print("La clé (" .. key .. ") n'éxiste pas", "Memory")
+        --self.tools:Print("La clé (" .. key .. ") n'éxiste pas", "Memory")
     end
 end
 
