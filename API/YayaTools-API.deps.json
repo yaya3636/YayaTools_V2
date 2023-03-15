@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "YayaTools-API/1.0.0": {
+        "runtime": {
+          "YayaTools-API.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "YayaTools-API/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

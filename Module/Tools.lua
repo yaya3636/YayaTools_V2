@@ -51,6 +51,9 @@ Stack.node = Class("Stack.node", nodeS)
 Stack.list = Tools.list
 Tools.stack = Class("Stack", Stack)
 
+
+Tools.sheduler = Class("Sheduler", dofile(yayaToolsModuleDirectory .. "Sheduler.lua"))
+Tools.ia = Class("IA", dofile(yayaToolsModuleDirectory .. "IA.lua"))
 -- Constructeur
 
 function Tools:init(params)
@@ -371,6 +374,7 @@ function Tools.notifications:init(params)
 end
 
 function Tools.object:init(...)
+
     self = Tools:ArrayConcat(self, ...)
 end
 
@@ -450,6 +454,40 @@ function Tools.api:init()
     self.super.localAPI.localUrl = "http://localhost:" .. self.super.localAPI.localPort .. "/"
     self.super.localAPI = self.super.localAPI()
     self.super = self.super()
+end
+
+function Tools.sheduler:init(params)
+    params = params or {}
+    if params.planning then
+        self.planning = Tools.list(params.planning)
+    else
+        self.planning = Tools.list()
+    end
+    
+end
+
+function Tools.ia:init()
+    self.tools = Tools()
+    self.json = Tools.json()
+
+    if not global:thisAccountController():isController() then
+        self.characterLevel = character:level()
+        self.characterMaxLifePoints = character:maxLifePoints()
+        self.characterBreed = character:breed()
+        self.characterBreedName = character:breedName()
+        self.characterStats = Tools.dictionnary()
+
+        self.characterStats:Add("Agilité", character:getAgilityBase())
+        self.characterStats:Add("Chance", character:getChanceBase())
+        self.characterStats:Add("Intelligence", character:getIntelligenceBase())
+        self.characterStats:Add("Force", character:getStrenghtBase())
+        self.characterStats:Add("Vitalité", character:getVitalityBase())
+        self.characterStats:Add("Sagesse", character:getWisdomBase())
+    end
+
+    if developer:getRequestThroughMyIP("http://localhost:5000/started") ~= "true" then
+        os.execute("start " .. global:getCurrentDirectory() .. "\\YayaTools\\API\\start.bat")
+    end
 end
 
 return Tools

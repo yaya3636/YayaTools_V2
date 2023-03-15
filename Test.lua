@@ -7,6 +7,9 @@ Character = Tools.character
 Gather = Tools.gather
 Monsters = Tools.monsters
 Memory = Tools.memory
+Sheduler1 = Tools.sheduler()
+IA = Tools.ia()
+Json = Tools.json()
 
 function move()
 
@@ -16,7 +19,12 @@ function move()
     --Tools:Dump(Zone:GetHarverstablePositionInSubArea(303, 1021))
     --Tools:Dump(d2data:objectFromD2O("Areas", 48).Fields)
 
-    Tools:Dump(Zone:GetSubAreaObject(1))
+    --Tools:Dump(Sheduler1)
+    --Tools:Dump(IA:GetSpellInfo())
+    --d2data:exportD2O("SpellLevels")
+    --local data = Json:decode(Tools:ReadFile(global:getCurrentDirectory() .. "\\SpellLevels.json"), "Spell")
+    Tools:Dump(IA:GetSpellInfo(2117))
+
 end
 
 function stopped()
