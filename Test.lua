@@ -23,8 +23,11 @@ function move()
     --Tools:Dump(IA:GetSpellInfo())
     --d2data:exportD2O("SpellLevels")
     --local data = Json:decode(Tools:ReadFile(global:getCurrentDirectory() .. "\\SpellLevels.json"), "Spell")
-    Tools:Dump(IA:GetSpellInfo(2117))
-
+    Tools:Dump(IA:GetSpellInfo(2117):Enumerate())
+    -- local d2 = d2data:allObjectsFromD2O("SpellLevels")
+    -- for k, v in pairs(d2) do
+    --     Tools:Print(v.Fields.id)
+    -- end
 end
 
 function stopped()

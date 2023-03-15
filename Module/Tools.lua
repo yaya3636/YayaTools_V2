@@ -485,9 +485,9 @@ function Tools.ia:init()
         self.characterStats:Add("Sagesse", character:getWisdomBase())
     end
 
-    if developer:getRequestThroughMyIP("http://localhost:5000/started") ~= "true" then
-        os.execute("start " .. global:getCurrentDirectory() .. "\\YayaTools\\API\\start.bat")
-    end
+    -- if developer:getRequestThroughMyIP("http://localhost:5000/started") ~= "true" then
+    --     os.execute("start " .. global:getCurrentDirectory() .. "\\YayaTools\\API\\start.bat")
+    -- end
 end
 
 return Tools
