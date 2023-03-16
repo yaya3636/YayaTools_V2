@@ -21,15 +21,15 @@ function IA:CalculDamage(baseDamage, totalCaracElem, pui, bonusDamage, percentRe
 end
 
 function IA:GetSpellInfo(spellId)
-    local ret = self.tools.list()
+    local ret = Tools.list()
     local d2 = d2data:allObjectsFromD2O("SpellLevels")
     local function constructData(d)
-        local r = self.tools.object()
+        local r = Tools.object()
         for k, v in pairs(d) do
             if k == "effects" or k == "criticalEffect" then
-                r[k] = self.tools.list()
+                r[k] = Tools.list()
                 for _, lst in pairs(v) do
-                    local obj = self.tools.object(lst.Fields)
+                    local obj = Tools.object(lst.Fields)
                     --self.tools:Dump(lst.Fields)
                     -- for k2, v2 in pairs(lst.Fields) do
                     --     obj[k2] = v2
@@ -54,9 +54,44 @@ function IA:GetSpellInfo(spellId)
     return ret
 end
 
+function IA:GetActualSpellLevel(spellId)
+    local spellInfo = self:GetSpellInfo(spellId)
+    local ret
+    for _, v in pairs(spellInfo:Enumerate()) do
+        if v.minPlayerLevel < character:level() then
+            ret = v
+        else
+            break
+        end
+    end
+    return ret
+end
+
 
 function IA:CalculSpellDamage(spellId, entity)
+    if entity then
+        
+    else
+        local spell = self:GetActualSpellLevel(spellId)
+        local totalDamage = 0
 
+        for _, v in pairs(spell.effects:Enumerate()) do
+            if v.effectElement > 0 and v.effectElement < 5 then
+                
+            end
+        end
+    end
+end
+
+function IA:GetCharacteristic(effectElement)
+    local map = {
+        [1] = function() return character:getStrenght() end,
+        [2] = function() return character:getIntelligence() end,
+        [3] = function() return character:getChance() end,
+        [4] = function() return character:getAgilityBase() end
+    }
+
+    return map[effectElement]()
 end
 
 return IA

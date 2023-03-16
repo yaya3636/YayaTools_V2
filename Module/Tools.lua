@@ -94,7 +94,29 @@ function Tools.character:init(params)
     elseif not params.memory then
         error("[Module Character] : Le paramètre memory requis pour instancier la class est non definie")
     end
+
     self.tools = Tools()
+    self.packet = params.packet
+
+    self.stats = Tools.dictionnary()
+    self.ENUM_STATS = Tools.dictionnary()
+
+    local d2Stats = d2data:allObjectsFromD2O("Characteristics")
+
+    for _, v in pairs(d2Stats) do
+        self.ENUM_STATS:Add(v.Fields.id, v.Fields.keyword)
+    end
+
+    local packet = developer:historicalMessage("CharacterStatsListMessage")
+
+    for _, v in pairs(packet[#packet].stats.characteristics) do
+        if tostring(v) == "SwiftBot.CharacterCharacteristicDetailed" then
+            local key = self.ENUM_STATS:Get(tostring(v.characteristicId))
+            local stat = v.base + v.additional + v.objectsAndMountBonus + v.alignGiftBonus + v.contextModif
+            self.stats:Add(key, stat)
+        end
+    end
+
     params.tools = self.tools
     self.dialog = self.dialog(params)
     self.group = self.group(params)
@@ -467,23 +489,23 @@ function Tools.sheduler:init(params)
 end
 
 function Tools.ia:init()
-    self.tools = Tools()
-    self.json = Tools.json()
+    --self.tools = Tools()
+    -- self.json = Tools.json()
 
-    if not global:thisAccountController():isController() then
-        self.characterLevel = character:level()
-        self.characterMaxLifePoints = character:maxLifePoints()
-        self.characterBreed = character:breed()
-        self.characterBreedName = character:breedName()
-        self.characterStats = Tools.dictionnary()
+    -- if not global:thisAccountController():isController() then
+    --     self.characterLevel = character:level()
+    --     self.characterMaxLifePoints = character:maxLifePoints()
+    --     self.characterBreed = character:breed()
+    --     self.characterBreedName = character:breedName()
+    --     self.characterStats = Tools.dictionnary()
 
-        self.characterStats:Add("Agilité", character:getAgilityBase())
-        self.characterStats:Add("Chance", character:getChanceBase())
-        self.characterStats:Add("Intelligence", character:getIntelligenceBase())
-        self.characterStats:Add("Force", character:getStrenghtBase())
-        self.characterStats:Add("Vitalité", character:getVitalityBase())
-        self.characterStats:Add("Sagesse", character:getWisdomBase())
-    end
+    --     self.characterStats:Add("Agilité", character:getAgilityBase())
+    --     self.characterStats:Add("Chance", character:getChanceBase())
+    --     self.characterStats:Add("Intelligence", character:getIntelligenceBase())
+    --     self.characterStats:Add("Force", character:getStrenghtBase())
+    --     self.characterStats:Add("Vitalité", character:getVitalityBase())
+    --     self.characterStats:Add("Sagesse", character:getWisdomBase())
+    -- end
 
     -- if developer:getRequestThroughMyIP("http://localhost:5000/started") ~= "true" then
     --     os.execute("start " .. global:getCurrentDirectory() .. "\\YayaTools\\API\\start.bat")
