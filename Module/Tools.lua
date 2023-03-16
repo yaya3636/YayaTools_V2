@@ -106,14 +106,15 @@ function Tools.character:init(params)
     for _, v in pairs(d2Stats) do
         self.ENUM_STATS:Add(v.Fields.id, v.Fields.keyword)
     end
+    if not global:thisAccountController():isController() then
+        local packet = developer:historicalMessage("CharacterStatsListMessage")
 
-    local packet = developer:historicalMessage("CharacterStatsListMessage")
-
-    for _, v in pairs(packet[#packet].stats.characteristics) do
-        if tostring(v) == "SwiftBot.CharacterCharacteristicDetailed" then
-            local key = self.ENUM_STATS:Get(tostring(v.characteristicId))
-            local stat = v.base + v.additional + v.objectsAndMountBonus + v.alignGiftBonus + v.contextModif
-            self.stats:Add(key, stat)
+        for _, v in pairs(packet[#packet].stats.characteristics) do
+            if tostring(v) == "SwiftBot.CharacterCharacteristicDetailed" then
+                local key = self.ENUM_STATS:Get(tostring(v.characteristicId))
+                local stat = v.base + v.additional + v.objectsAndMountBonus + v.alignGiftBonus + v.contextModif
+                self.stats:Add(key, stat)
+            end
         end
     end
 
@@ -488,7 +489,22 @@ function Tools.sheduler:init(params)
     
 end
 
-function Tools.ia:init()
+function Tools.ia:init(params)
+    params = params or {}
+    if not params.character then
+        error("[Module IA] : Le paramètre character requis pour instancier la class est non definie")
+    elseif not params.packet then
+        error("[Module IA] : Le paramètre packet requis pour instancier la class est non definie")
+    end
+
+    self.packet = params.packet
+    self.character = params.character
+    self.fightEntity = Tools.list()
+    self.actionIds = Tools.dictionnary()
+    local actionIds = Tools.json():decode(Tools:ReadFile(global:getCurrentDirectory() .. "\\YayaTools\\Data\\ActionIds.json"))
+    for _, v in pairs(actionIds) do
+        self.actionIds:Add(v.Id, v.Name)
+    end
     --self.tools = Tools()
     -- self.json = Tools.json()
 

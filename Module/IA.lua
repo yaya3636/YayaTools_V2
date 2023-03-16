@@ -8,6 +8,15 @@ IA.characterBreed = 0
 IA.characterBreedName = ""
 IA.characterStats = {}
 
+-- Combat en cours
+
+IA.fightEntity = {}
+
+function IA:GetFightEntity()
+    return self.fightEntity
+end
+
+-- Spell
 
 function IA:CalculDamage(baseDamage, totalCaracElem, pui, bonusDamage, percentResistance, fixeResistance)
     local totalDamage = ((baseDamage * (100 + totalCaracElem + pui) / 100 + bonusDamage) - fixeResistance ) * (1 - (percentResistance / 100))
@@ -67,31 +76,78 @@ function IA:GetActualSpellLevel(spellId)
     return ret
 end
 
-
 function IA:CalculSpellDamage(spellId, entity)
+    local totalDamage = 0
+    local stats = self.character:GetStats()
+    Tools:Dump(stats)
     if entity then
         
     else
         local spell = self:GetActualSpellLevel(spellId)
-        local totalDamage = 0
 
         for _, v in pairs(spell.effects:Enumerate()) do
-            if v.effectElement > 0 and v.effectElement < 5 then
-                
+            if self.actionIds:Get(v.effectId) == "ACTION_CHARACTER_LIFE_POINTS_LOST_FROM_AIR" then
+                Tools:Print("Dégat air min = " .. v.diceNum .. " | Dégat air max = " .. v.diceSide)
+                local stat = tonumber(stats:Get("agility"))
+                local damagePercent = tonumber(stats:Get("damagePercent"))
+                local allDamageBonus = tonumber(stats:Get("allDamageBonus"))
+                local damageBonus = tonumber(stats:Get("airDamageBonus"))
+                Tools:Print(stat .. " | " .. damagePercent .. " | " .. allDamageBonus .. " | " .. damageBonus)
+                totalDamage = totalDamage + self:CalculDamage(v.diceNum, stat, damagePercent, allDamageBonus + damageBonus, 0, 0)
+            elseif self.actionIds:Get(v.effectId) == "ACTION_CHARACTER_LIFE_POINTS_LOST_FROM_FIRE" then
+                Tools:Print("Dégat feu min = " .. v.diceNum .. " | Dégat feu max = " .. v.diceSide)
+            elseif self.actionIds:Get(v.effectId) == "ACTION_CHARACTER_LIFE_POINTS_LOST_FROM_WATER" then
+                Tools:Print("Dégat eau min = " .. v.diceNum .. " | Dégat eau max = " .. v.diceSide)
+            elseif self.actionIds:Get(v.effectId) == "ACTION_CHARACTER_LIFE_POINTS_LOST_FROM_EARTH" then
+                Tools:Print("Dégat terre min = " .. v.diceNum .. " | Dégat terre max = " .. v.diceSide)
+            elseif self.actionIds:Get(v.effectId) == "ACTION_CHARACTER_LIFE_POINTS_LOST" then
+                Tools:Print("Dégat neutre min = " .. v.diceNum .. " | Dégat neutre max = " .. v.diceSide)
             end
         end
     end
+    return totalDamage
 end
 
-function IA:GetCharacteristic(effectElement)
-    local map = {
-        [1] = function() return character:getStrenght() end,
-        [2] = function() return character:getIntelligence() end,
-        [3] = function() return character:getChance() end,
-        [4] = function() return character:getAgilityBase() end
-    }
 
-    return map[effectElement]()
+-- CallBack
+
+function IA:InitCallBack() -- A mettre obligatoirement dans le script charger par Ankabot
+    local gameFightShowFighterMessage = function(msg) IA:CB_GameFightShowFighterMessage(msg) end
+    local gameFightEndMessage = function(msg) IA:CB_GameFightEndMessage(msg) end
+
+    self.packet:SubManager({
+        ["GameFightShowFighterMessage"] = gameFightShowFighterMessage,
+        ["GameFightEndMessage"] = gameFightEndMessage,
+
+    })
+
+end
+
+function IA:CB_GameFightShowFighterMessage(msg)
+    --Tools:Dump(msg)
+    --Tools:Dump(msg.informations.stats.characteristics.characteristics)
+    if tostring(msg.informations) == "SwiftBot.GameFightMonsterInformations" then
+        local obj = Tools.object()
+
+        obj.creatureGenericId = msg.informations.creatureGenericId
+        obj.contextualId = msg.informations.contextualId
+        obj.creatureLevel = msg.informations.creatureLevel
+        obj.creatureGrade = msg.informations.creatureGrade
+        obj.cellId = msg.informations.disposition.cellId
+        obj.stats = Tools.dictionnary()
+
+        for _, v in pairs(msg.informations.stats.characteristics.characteristics) do
+            obj.stats:Add(self.character.ENUM_STATS:Get(tostring(v.characteristicId)), v.total)
+            --Tools:Print("Name : " .. self.character.ENUM_STATS:Get(tostring(v.characteristicId)) .. " | Value : " ..v.total)
+        end
+
+        self.fightEntity:Add(obj)
+        --Tools:Dump(self.fightEntity)
+    end
+end
+
+function IA:CB_GameFightEndMessage()
+    self.fightEntity:Clear()
 end
 
 return IA
