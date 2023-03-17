@@ -13,9 +13,9 @@ Json = Tools.json()
 
 function move()
     --Tools:Dump(Character:GetStats())
-    --local damage = IA:CalculSpellDamage(13047)
-    --Tools:Print("Estimation minimal des dégats du sort = " .. damage)
-    Tools:Dump(IA:GetFightEntity())
+    local damage = IA:CalculSpellDamage(13047)
+    Tools:Print("Estimation minimal des dégats du sort = " .. damage)
+    --Tools:Dump(IA:GetFightEntity())
 end
 
 function bank()
@@ -35,7 +35,10 @@ function messagesRegistering()
 end
 
 function fightManagement()
-    Tools:Dump(IA:GetFightEntity())
+    local entities = fightAction:getAllEntities()
+    for _, entity in ipairs(entities) do
+        Tools:Print("Dégats minimal sur l'entité : " .. entity.Id .. " = " .. IA:CalculSpellDamage(13047, entity) .. " points de dégats")
+    end
 end
 
 
