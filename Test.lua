@@ -10,11 +10,26 @@ Memory = Tools.memory
 IA = Tools.ia
 Json = Tools.json()
 -- EffectElement (agilité = 4, intelligence = 2, chance = 3, force = 1)
+ElementEnum = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Invoker\\tools\\enumeration\\ElementEnum.lua")()
+HaxeSpellEffect = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Invoker\\DamageCalculation\\SpellManagement\\HaxeSpellEffect.lua")
+LinkedList = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Invoker\\DamageCalculation\\tools\\LinkedList.lua")
+List = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Invoker\\DamageCalculation\\tools\\List.lua")
+MapTool = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Invoker\\mapTools\\MapTools.lua")()
 
 function move()
+    Tools:Dump(MapTool)
+    -- local l1 = List()
+
+    -- l1:add("Test1")
+    -- l1:add("Test2")
+    -- l1:add("Test3")
+    -- l1:add("Test4")
+    -- l1:add("Test5")
+
+    -- Tools:Dump(l1)
     --Tools:Dump(Character:GetStats())
-    local damage = IA:CalculSpellDamage(13047)
-    Tools:Print("Estimation minimal des dégats du sort = " .. damage)
+    --local damage = IA:CalculSpellDamage(13047)
+    --Tools:Print("Estimation minimal des dégats du sort = " .. damage)
     --Tools:Dump(IA:GetFightEntity())
 end
 
