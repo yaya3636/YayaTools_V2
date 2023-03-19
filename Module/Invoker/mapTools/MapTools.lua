@@ -19,14 +19,15 @@ MapTools.INVALID_CELL_ID = -1
 MapTools.PSEUDO_INFINITE = 63
 MapTools.COEFF_FOR_REBASE_ON_CLOSEST_8_DIRECTION = math.tan(math.pi / 8)
 MapTools.COORDINATES_DIRECTION = {
+    Point(-1, 0), -- Gauche
+    Point(-1, -1), -- Diagonale haut-gauche
+    Point(0, -1), -- Haut
+    Point(1, -1),  -- Diagonale haut-droite
     Point(1, 0),  -- Droite
     Point(1, 1),  -- Diagonale bas-droite
     Point(0, 1),  -- Bas
     Point(-1, 1), -- Diagonale bas-gauche
-    Point(-1, 0), -- Gauche
-    Point(-1, -1), -- Diagonale haut-gauche
-    Point(0, -1), -- Haut
-    Point(1, -1)  -- Diagonale haut-droite
+
 }
 
 function MapTools:init(param1)

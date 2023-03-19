@@ -14,10 +14,14 @@ ElementEnum = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Invok
 HaxeSpellEffect = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Invoker\\DamageCalculation\\SpellManagement\\HaxeSpellEffect.lua")
 LinkedList = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Invoker\\DamageCalculation\\tools\\LinkedList.lua")
 List = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Invoker\\DamageCalculation\\tools\\List.lua")
-MapTool = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Invoker\\mapTools\\MapTools.lua")()
+MapTools = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Invoker\\mapTools\\MapTools.lua")()
+SpellZone = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Invoker\\mapTools\\SpellZone.lua")()
 
 function move()
-    Tools:Dump(MapTool)
+    local spell = IA:GetSpellInfo(13110)
+    local sz = SpellZone:fromRawZone(spell:Get(1).effects:Get(1).rawZone)
+    Tools:Dump(sz.getCells(234, 234))
+
     -- local l1 = List()
 
     -- l1:add("Test1")

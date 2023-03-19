@@ -1,7 +1,9 @@
 local yayaToolsModuleDirectory = global:getCurrentDirectory() .. [[\YayaTools\Module\]]
 Class = dofile(yayaToolsModuleDirectory .. "Class.lua")
+Bit = dofile(yayaToolsModuleDirectory .. "BitOP.lua")
 
 MapDirection = Class("MapDirection")
+
 
 MapDirection.INVALID_DIRECTION = -1
 MapDirection.DEFAULT_DIRECTION = 1
@@ -28,16 +30,17 @@ function MapDirection:isValidDirection(param1)
     return false
 end
 
+
 function MapDirection:getOppositeDirection(param1)
-    return param1 ~ 4
+    return Bit.bxor(param1, 4)
 end
 
-function MapDirection:isCardinal(param1)
-    return (param1 & 1) == 0
+ function MapDirection:isCardinal(param1)
+    return Bit.band(param1, 1) == 0
 end
 
 function MapDirection:isOrthogonal(param1)
-    return (param1 & 1) == 1
+    return Bit.band(param1, 1) == 1
 end
 
 return MapDirection
