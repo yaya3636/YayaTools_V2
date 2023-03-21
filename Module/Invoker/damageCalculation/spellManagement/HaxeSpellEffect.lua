@@ -1,6 +1,10 @@
 local yayaToolsModuleDirectory = global:getCurrentDirectory() .. [[\YayaTools\Module\]]
 Class = dofile(yayaToolsModuleDirectory .. "Class.lua")
+
 ElementEnum = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Invoker\\tools\\enumeration\\ElementEnum.lua")()
+SpellManager = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Invoker\\damageCalculation\\spellManagement\\SpellManager.lua")()
+SpellZone = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Invoker\\mapTools\\SpellZone.lua")()
+SpellManager = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Invoker\\damageCalculation\\tools\\Interval.lua")
 
 HaxeSpellEffect = {}
 
@@ -15,16 +19,16 @@ function HaxeSpellEffect:init(id, level, order, actionId, param1, param2, param3
     self.param3 = param3
     self.duration = duration
     self.isCritical = isCritical
-    --self.triggers = SpellManager.splitTriggers(triggers)
+    self.triggers = SpellManager.splitTriggers(triggers)
     self.rawZone = rawZone
-    ---self.masks = SpellManager.splitMasks(masks)
-    --table.sort(self.masks, HaxeSpellEffect.sortMasks)
+    self.masks = SpellManager.splitMasks(masks)
+    table.sort(self.masks, HaxeSpellEffect.sortMasks)
     self.randomWeight = randomWeight
     self.randomGroup = randomGroup
     self.isDispellable = isDispellable
     self.delay = delay
     self.category = category
-    --self.zone = SpellZone.fromRawZone(rawZone)
+    self.zone = SpellZone.fromRawZone(rawZone)
 end
 
 function HaxeSpellEffect.sortMasks(param1, param2)
@@ -74,7 +78,7 @@ function HaxeSpellEffect:getElement()
 end
 
 function HaxeSpellEffect:getDamageInterval()
-    return Interval.new(self:getMinRoll(), self:getMaxRoll())
+    return Interval(self:getMinRoll(), self:getMaxRoll())
 end
 
 function HaxeSpellEffect:clone()

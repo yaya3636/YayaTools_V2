@@ -31,7 +31,15 @@ function Zone:GetSubArea(areaId)
 end
 
 function Zone:GetAreaIdByMapId(mapId)
-    return self.api.localAPI:GetAreaIdByMapId(mapId)
+    local id
+    for _, subArea in pairs(d2data:allObjectsFromD2O("SubAreas")) do
+        for _, map in pairs(subArea.Fields.mapIds) do
+            if map == mapId then
+                return subArea.Fields.areaId
+            end
+        end
+    end
+    return id
 end
 
 function Zone:GetAreaName(areaId)
@@ -79,7 +87,15 @@ function Zone:GetAreaId(subAreaId)
 end
 
 function Zone:GetSubAreaIdByMapId(mapId)
-    return self.api.localAPI:GetSubAreaIdByMapId(mapId)
+    local id
+    for _, subArea in pairs(d2data:allObjectsFromD2O("SubAreas")) do
+        for _, map in pairs(subArea.Fields.mapIds) do
+            if map == mapId then
+                return subArea.Fields.id
+            end
+        end
+    end
+    return id
 end
 
 function Zone:GetSubAreaMapId(subAreaId)

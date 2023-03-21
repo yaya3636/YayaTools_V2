@@ -1420,15 +1420,15 @@ function SpellZone.hasMinSize(param1)
     return not (param1 == "#" or param1 == "+" or param1 == "C" or param1 == "Q" or param1 == "R" or param1 == "X" or param1 == "l")
 end
 
-function SpellZone.getAoeMalus(param1, param2, param3)
+function SpellZone.getAoeMalus(param1, param2, param3, param4)
     local _loc4_ = 0
     local _loc6_, _loc7_, _loc8_, _loc9_, _loc10_, _loc11_, _loc12_, _loc13_, _loc14_, _loc15_, _loc16_, _loc17_, _loc18_, _loc19_, _loc20_, _loc21_, _loc22_
 
-    if radius > SpellZone.MAX_RADIUS_DEGRESSION then
+    if param4.radius > param4.MAX_RADIUS_DEGRESSION then
         return 0
     end
 
-    local _loc5_ = shape
+    local _loc5_ = param4.shape
     if _loc5_ ~= ";" then
         if _loc5_ ~= "A" then
             if _loc5_ ~= "I" then
@@ -1445,11 +1445,11 @@ function SpellZone.getAoeMalus(param1, param2, param3)
                                                 if _loc5_ ~= "F" then
                                                     if _loc5_ ~= "V" then
                                                         _loc4_ = MapTools:getDistance(param1, param3)
-                                                        _loc8_ = shape == "R" and 0 or minRadius
+                                                        _loc8_ = param4.shape == "R" and 0 or param4.minRadius
                                                         if _loc4_ < 0 then
                                                             _loc4_ = 0
                                                         end
-                                                        return math.min(math.min(_loc4_ - _loc8_, maxDegressionTicks) * degression, 100)
+                                                        return math.min(math.min(_loc4_ - _loc8_, param4.maxDegressionTicks) * param4.degression, 100)
                                                     end
                                                 else
                                                     _loc8_ = math.floor(param2 / MapTools.MAP_GRID_WIDTH)
@@ -1495,7 +1495,7 @@ function SpellZone.getAoeMalus(param1, param2, param3)
     if _loc4_ < 0 then
         _loc4_ = 0
     end
-    return math.min(math.min(_loc4_ - _loc8_, maxDegressionTicks) * degression, 100)
+    return math.min(math.min(_loc4_ - _loc8_, param4.maxDegressionTicks) * param4.degression, 100)
 end
 
 

@@ -16,11 +16,20 @@ LinkedList = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Invoke
 List = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Invoker\\DamageCalculation\\tools\\List.lua")
 MapTools = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Invoker\\mapTools\\MapTools.lua")()
 SpellZone = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Invoker\\mapTools\\SpellZone.lua")()
+Effect = dofile(global:getCurrentDirectory() .. "\\YayaTools\\Module\\Invoker\\com\\ankamagames\\dofus\\datacenter\\effects\\Effect.lua")
 
 function move()
-    local spell = IA:GetSpellInfo(13110)
-    local sz = SpellZone:fromRawZone(spell:Get(1).effects:Get(1).rawZone)
-    Tools:Dump(sz.getCells(234, 234))
+    for _, v in pairs(d2data:allObjectsFromD2O("SubAreas")) do
+        Tools:Dump(v.Fields, 500)
+    end
+    -- local spell = IA:GetSpellInfo(13110) -- Divine
+    -- local sz = SpellZone:fromRawZone(spell:Get(1).effects:Get(1).rawZone)
+    -- Tools:Dump(sz.getCells(234, 234))
+    -- spell = IA:GetSpellInfo(13054) -- Taupe
+    -- sz = SpellZone:fromRawZone(spell:Get(1).effects:Get(1).rawZone)
+    -- Tools:Dump(sz)
+    -- Tools:Dump(sz.getCells(234, 234))
+    -- Tools:Dump(SpellZone.getAoeMalus(301, 214, 0, sz))
 
     -- local l1 = List()
 
@@ -45,6 +54,7 @@ function stopped()
 end
 
 function messagesRegistering()
+    Packet:SubManager({["GameFightFighterInformations"] = function(msg) Tools:Dump(msg) end})
     Character:InitCallBack()
     Character.dialog:InitCallBack()
     Character.group:InitCallBack()

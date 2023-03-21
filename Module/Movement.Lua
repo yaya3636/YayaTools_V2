@@ -237,8 +237,8 @@ function Movement:LoadRoad(mapIdDest)
             self.tools:Print("Le personnage a un dialog ouvert, on quitte le dialog", "Movement")
             global:leaveDialog()
         end
-    
         if self.tools:Equal(map:currentArea(), "Incarnam") and not self.tools:Equal(self.zone:GetAreaName(self.zone:GetAreaIdByMapId(mapIdDest)), "Incarnam") then -- Si on est a incarnam et que notre prochaine map et en dehors de incarnam
+
             if not self.printedInfo then
                 self.tools:Print("On part de Incarnam !", "Movement")
                 self.printedInfo = true
@@ -251,7 +251,7 @@ function Movement:LoadRoad(mapIdDest)
                 self.character.dialog:CreateDialog(4398, self.tools.list({36982, 36980}))
             end
         end
-    
+
         if not self.tools:Equal(map:currentArea(), "Incarnam") and self.tools:Equal(self.zone:GetAreaName(self.zone:GetAreaIdByMapId(mapIdDest)), "Incarnam") then -- Si on est pas a incarnam et que notre prochaine map et a incarnam
             if not self.printedInfo then
                 self.tools:Print("On va a Incarnam !", "Movement")
